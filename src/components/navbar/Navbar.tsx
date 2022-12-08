@@ -28,13 +28,16 @@ const Navbar = () => {
           </button>
         </div>
         <li>
-          <Link to="/">Bachelor</Link>
+          <Link to="/">About Us</Link>
         </li>
         <li>
-          <Link to="/">Master</Link>
+          <Link to="/">Programmes</Link>
         </li>
         <li>
-          <Link to="/">MBA + DBA</Link>
+          <Link to="/">Faculties</Link>
+        </li>
+        <li>
+          <Link to="/">Campuses</Link>
         </li>
         <li>
           <Link to="/">Short Courses</Link>

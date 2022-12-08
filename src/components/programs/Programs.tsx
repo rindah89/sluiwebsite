@@ -9,8 +9,18 @@ const Programs = () => {
     <div className="programs">
       <div>
         <div className="program">
+          <h2>HND</h2>
+          <h3>18 Study Programs</h3>
+        </div>
+        <div className="icon">
+          <AiOutlineArrowRight size={30} />
+        </div>
+      </div>
+
+      <div>
+        <div className="program">
           <h2>Bachelor</h2>
-          <h3>30 Programs</h3>
+          <h3>9 Study Programs</h3>
         </div>
         <div className="icon">
           <AiOutlineArrowRight size={30} />
@@ -20,17 +30,7 @@ const Programs = () => {
       <div>
         <div className="program">
           <h2>Master</h2>
-          <h3>10 Programs</h3>
-        </div>
-        <div className="icon">
-          <AiOutlineArrowRight size={30} />
-        </div>
-      </div>
-
-      <div>
-        <div className="program">
-          <h2>MBA</h2>
-          <h3>42 Programs</h3>
+          <h3>9 Study Programs</h3>
         </div>
         <div className="icon">
           <AiOutlineArrowRight size={30} />

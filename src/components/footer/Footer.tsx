@@ -7,7 +7,7 @@ import {
   AiOutlineYoutube,
 } from "react-icons/ai";
 import { Link } from "react-router-dom";
-import { FaLinkedinIn, FaMapMarkedAlt } from "react-icons/fa";
+import { FaLinkedinIn, FaMapMarkerAlt } from "react-icons/fa";
 
 // styles
 import "./footer.css";
@@ -17,39 +17,36 @@ const Footer = () => {
     <div className="footer">
       <div className="components">
         <div className="component">
-          <h2>Rund um dein Studium</h2>
+          <h2>All About Your Studies</h2>
           <div className="links">
-            <Link to="/">About</Link>
-            <Link to="/">Masters Programs</Link>
-            <Link to="/">BSC Engineering</Link>
+            <Link to="/">Masters</Link>
+            <Link to="/">Bachelors</Link>
+            <Link to="/">HND</Link>
             <Link to="/">MBA</Link>
             <Link to="/">Short Courses</Link>
-            <Link to="/">Newslatters</Link>
-            <Link to="/">MBA</Link>
-            <Link to="/">Short Courses</Link>
-            <Link to="/">Newslatters</Link>
+            <Link to="/">Admission Processes</Link>
+            <Link to="/">Student Advisory Board</Link>
           </div>
         </div>
 
         <div className="component">
-          <h2>An unserer Hochschule</h2>
+          <h2>Our Institution</h2>
           <div className="links">
-            <Link to="/">About</Link>
-            <Link to="/">Masters Programs</Link>
-            <Link to="/">BSC Engineering</Link>
-            <Link to="/">MBA</Link>
-            <Link to="/">Short Courses</Link>
-            <Link to="/">Newslatters</Link>
+            <Link to="/">About St. Louis</Link>
+            <Link to="/">Why St. Louis</Link>
+            <Link to="/">Our Universities</Link>
+            <Link to="/">Our Admin Team</Link>
+            <Link to="/">Services & Facilities</Link>
           </div>
         </div>
 
         <div className="component">
-          <h2>Unserer Hochschule</h2>
+          <h2>FAQs</h2>
           <div className="links">
-            <Link to="/">BSC Engineering</Link>
-            <Link to="/">MBA</Link>
-            <Link to="/">Short Courses</Link>
-            <Link to="/">Newslatters</Link>
+            <Link to="/">What are some students benefits?</Link>
+            <Link to="/">How are sport activities organized?</Link>
+            <Link to="/">What are the graduation requirements</Link>
+            <Link to="/">Some rules & regulation</Link>
           </div>
         </div>
 
@@ -58,30 +55,47 @@ const Footer = () => {
             <h2>Contact Info</h2>
             <div className="mail">
               <AiOutlineMail size={20} />
-              <h4>info@stlouiscmr.com</h4>
+              <h4>info@slui.org</h4>
             </div>
 
             <div className="mail">
               <AiOutlinePhone size={20} />
-              <h4>info@stlouiscmr.com</h4>
+              <h4>(+237) 678-425-922 / 671-710-928</h4>
             </div>
           </div>
 
           <div className="contact__info">
-            <h2 style={{ marginTop: "3rem" }}>Second Option Goes Here</h2>
+            <h2 style={{ marginTop: "3rem" }}>SLUI Campuses Location</h2>
             <div className="mail">
-              <AiOutlineMail size={20} />
-              <h4>info@stlouiscmr.com</h4>
+              <FaMapMarkerAlt size={20} />
+              <h4>
+                <span style={{ fontWeight: "700" }}>Douala I</span> - Rond Point
+                Maetur, Bonamousadi
+              </h4>
             </div>
 
             <div className="mail">
-              <AiOutlinePhone size={20} />
-              <h4>info@stlouiscmr.com</h4>
+              <FaMapMarkerAlt size={20} />
+              <h4>
+                <span style={{ fontWeight: "700" }}>Douala II</span> - Opposite
+                Nestle, Bonaberi
+              </h4>
             </div>
 
             <div className="mail">
-              <FaMapMarkedAlt size={20} />
-              <h4>info@stlouiscmr.com</h4>
+              <FaMapMarkerAlt size={20} />
+              <h4>
+                <span style={{ fontWeight: "700" }}>Bamenda</span> - Mile 3
+                Nkwen & Ndu
+              </h4>
+            </div>
+
+            <div className="mail">
+              <FaMapMarkerAlt size={20} />
+              <h4>
+                <span style={{ fontWeight: "700" }}>Yaounde</span> - Despot De
+                Bois, Simbock
+              </h4>
             </div>
           </div>
         </div>
@@ -111,7 +125,6 @@ const Footer = () => {
           <Link to="/">Privacy</Link>
           <Link to="/">Terms & Conditions</Link>
           <Link to="/">Cookie Policies</Link>
-          <Link to="/">Registration Reference</Link>
         </div>
       </div>
     </div>

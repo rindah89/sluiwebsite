@@ -109,7 +109,7 @@
   }
 }
 
-@media screen and (max-width: 1010px) {
+@media screen and (max-width: 1030px) {
   .menu {
     position: absolute;
     left: -200vw;

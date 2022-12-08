@@ -29,7 +29,7 @@ const Content: React.FC<Props> = ({
     <div className={`content ${direction === "LEFT" ? "reverse" : null}`}>
       <div className="text">
         <h3 className="caption">{caption}</h3>
-        <h2>{title}</h2>
+        <h2 style={{ fontWeight: "700" }}>{title}</h2>
         <h3 className="subcaption">{subText}</h3>
         <p>{description}</p>
         <Link to={refLink}>

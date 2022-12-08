@@ -58,7 +58,8 @@
   font-size: 2rem;
   text-align: center;
   color: rgba(0, 0, 0, 0.8);
-  width: 700px;
+  width: 900px;
+  line-height: 1.5;
 }
 
 .programs_ .headline {
@@ -72,7 +73,7 @@
 }
 
 .programs_ .headline > h3 {
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   margin-bottom: 2rem;
 }
 
@@ -80,20 +81,26 @@
   display: flex;
   display: -ms-flexbox;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   flex-wrap: wrap;
   -ms-flex-wrap: wrap;
-  gap: 1.5rem;
-  padding-bottom: 5rem;
+  gap: 5rem;
+  padding: 2rem 4vw;
+  margin-bottom: 6rem;
 }
 
 .logos img {
-  width: 220px;
+  width: 130px;
+}
+
+@media screen and (max-width: 950px) {
+  .about .desc h4 {
+    width: 100%;
+  }
 }
 
 @media screen and (max-width: 750px) {
   .about .desc h4 {
-    width: 100%;
     font-size: 1.8rem;
   }
 
