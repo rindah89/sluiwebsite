@@ -15,6 +15,18 @@ const Landing = () => {
 
         <Programs />
       </div>
+      <div className="about">
+        <div className="desc">
+          <h2>Wir gestalten Zukunft</h2>
+          <h4>
+            Sechs Schools in drei Städten: Berlin, Dresden und Hamburg. Lehrende
+            und Studierende aus über 100 Nationen in 70 akkreditierten deutsch-
+            und englischsprachigen Studienprogrammen. Vielfältige Möglichkeiten
+            in Management und Entrepreneurship, Medien- und Kreativwirtschaft,
+            Technologie und IT, Musik, Design, Film und Text.
+          </h4>
+        </div>
+      </div>
     </div>
   );
 };

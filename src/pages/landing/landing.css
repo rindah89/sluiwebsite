@@ -35,3 +35,39 @@
   color: #fff;
   font-weight: 700;
 }
+
+.about {
+  min-height: 60vh;
+  display: flex;
+  display: -ms-flexbox;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 1rem 4vw;
+}
+
+.about .desc h2 {
+  font-size: 6rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  font-weight: 700;
+  color: var(--main-color);
+}
+
+.about .desc h4 {
+  font-size: 2rem;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.8);
+  width: 700px;
+}
+
+@media screen and (max-width: 750px) {
+  .about .desc h4 {
+    width: 100%;
+    font-size: 1.8rem;
+  }
+
+  .about .desc h2 {
+    font-size: 5rem;
+  }
+}

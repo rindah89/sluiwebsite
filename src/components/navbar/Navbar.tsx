@@ -6,11 +6,14 @@ import { HiBars3BottomLeft } from "react-icons/hi2";
 // styles
 import "./navbar.css";
 
+import { UseScrollPosition } from "../../lib/hooks/useScrollPosition";
+
 const Navbar = () => {
   const [showMenu, setShowMenu] = useState(false);
+  const position = UseScrollPosition();
 
   return (
-    <nav className="navbar">
+    <nav className={`navbar ${position >= 100 ? "bg" : ""}`}>
       <div className="logo">
         <img src="/images/logo_red.webp" alt="logo" />
       </div>
