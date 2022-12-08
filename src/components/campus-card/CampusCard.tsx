@@ -18,14 +18,18 @@ const CampusCard: React.FC<Props> = ({ image, name, title, refLink }) => {
         <img src={image} alt={name} />
       </div>
       <div className={styles.body}>
-        <h2>{name}</h2>
-        <h3>{title}</h3>
-        <button>
-          Know More{" "}
-          <span>
-            <AiOutlineArrowRight />
-          </span>
-        </button>
+        <div>
+          <h2>{name}</h2>
+          <h3>{title}</h3>
+        </div>
+        <div>
+          <button>
+            Know More{" "}
+            <span>
+              <AiOutlineArrowRight />
+            </span>
+          </button>
+        </div>
       </div>
     </div>
   );
