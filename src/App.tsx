@@ -10,8 +10,9 @@ import ContactIcon from "./components/contact-icon/ContactIcon";
 
 // pages
 import Landing from "./pages/landing/Landing";
-import About from "./pages/about/About";
+// import About from "./pages/about/About";
 import NotFound from "./pages/error/404";
+import Campuses from "./pages/campuses/Campuses";
 
 const App = () => {
   return (
@@ -21,7 +22,8 @@ const App = () => {
         <Navbar />
         <Routes>
           <Route path="/" element={<Landing />} />
-          <Route path="/about-st-louis" element={<About />} />
+          <Route path="/our-campuses" element={<Campuses />} />
+          {/* <Route path="/about-st-louis" element={<About />} /> */}
 
           <Route path="*" element={<NotFound />} />
         </Routes>

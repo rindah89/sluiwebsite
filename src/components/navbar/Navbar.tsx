@@ -20,7 +20,9 @@ const Navbar = () => {
   return (
     <nav className={`navbar ${position >= 100 ? "bg" : ""}`}>
       <div className="logo">
-        <img src="/images/logo_red.webp" alt="logo" />
+        <Link to="/">
+          <img src="/images/logo_red.webp" alt="logo" />
+        </Link>
       </div>
       <ul className={`menu ${showMenu ? "show" : null}`}>
         <div className="close">
@@ -42,10 +44,15 @@ const Navbar = () => {
           <Link to="/">Faculties</Link>
         </li>
         <li>
-          <Link to="/">Campuses</Link>
+          <Link to="/our-campuses">Campuses</Link>
         </li>
         <li>
-          <Link style={{ fontWeight: "800", color: "var(--main-color)" }} to="/">Apply</Link>
+          <Link
+            style={{ fontWeight: "800", color: "var(--main-color)" }}
+            to="/"
+          >
+            Apply
+          </Link>
         </li>
 
         <li>
@@ -62,13 +69,11 @@ const Navbar = () => {
         </li>
         <PopupWidget show={showMenu} toggleState={toggleState} />
         <li className="non">
-          <Link to="/">
-            <HiBars3BottomLeft
-              onClick={() => setShowMenu(true)}
-              style={{ marginTop: "0.3rem" }}
-              size={26}
-            />
-          </Link>
+          <HiBars3BottomLeft
+            onClick={() => setShowMenu(true)}
+            style={{ marginTop: "0.3rem", cursor: "pointer" }}
+            size={28}
+          />
         </li>
       </ul>
       <ul className="mobile">
@@ -81,13 +86,11 @@ const Navbar = () => {
           </Link>
         </li>
         <li>
-          <Link to="/">
-            <HiBars3BottomLeft
-              onClick={() => setShowMenu(true)}
-              style={{ marginTop: "0.3rem" }}
-              size={26}
-            />
-          </Link>
+          <HiBars3BottomLeft
+            onClick={() => setShowMenu(true)}
+            style={{ marginTop: "0.3rem", cursor: "pointer" }}
+            size={28}
+          />
         </li>
       </ul>
     </nav>

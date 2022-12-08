@@ -46,7 +46,7 @@
 .mobile li a {
   text-decoration: none;
   font-size: 1.8rem;
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 1);
   position: relative;
 }
 
