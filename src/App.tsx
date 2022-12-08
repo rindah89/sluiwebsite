@@ -5,6 +5,9 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Footer from "./components/footer/Footer";
 import Navbar from "./components/navbar/Navbar";
 
+// components
+import ContactIcon from "./components/contact-icon/ContactIcon";
+
 // pages
 import Landing from "./pages/landing/Landing";
 import About from "./pages/about/About";
@@ -14,6 +17,7 @@ const App = () => {
   return (
     <div className="app">
       <Router>
+        <ContactIcon />
         <Navbar />
         <Routes>
           <Route path="/" element={<Landing />} />
