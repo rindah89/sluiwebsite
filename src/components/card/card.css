@@ -17,20 +17,26 @@
   position: absolute;
   bottom: 0;
   left: 0;
-  padding: 2rem 3rem;
+  padding: 1rem 3rem;
+  min-height: 130px;
   border-top-right-radius: 35px;
   background: var(--main-color);
+  display: flex;
+  display: -ms-flexbox;
+  flex-direction: column;
+  -ms-flex-direction: column;
+  justify-content: center;
 }
 
 .card .details h2 {
   color: #fff;
   font-size: 3rem;
   font-weight: 600;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 .card .details h4 {
   color: #fff;
   font-size: 1.6rem;
-  line-height: 1.2;
+  line-height: 1.3;
 }
