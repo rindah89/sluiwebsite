@@ -6,6 +6,7 @@ import Content from "../../components/content/Content";
 
 // styles
 import "./landing.css";
+import ContentWithBg from "../../components/content-with-bg/ContentWithBg";
 
 const Landing = () => {
   return (
@@ -51,7 +52,20 @@ const Landing = () => {
           description="Reinen Frontalunterricht gibt es an der SRH nicht. Stattdessen werden unsere Dozenten für dich zu individuellen Lerncoaches. Gemeinsam erarbeitet ihr nicht nur Fachwissen, sondern feilt auch an euren Soft und Hard Skills. Dafür setzen wir auf eine direkte Kommunikation. Persönliche Beratung, digitaler Austausch und fortlaufendes Feedback sind uns wichtig."
           refLink="/"
           btnText="Find Buddy"
-          img="/images/landing2.webp"
+          img="/images/landing3.webp"
+        />
+      </div>
+
+      <div className="content__section">
+        <ContentWithBg
+          direction="RIGHT"
+          caption="STUDIEREN NACH DEM CORE-PRINZIP"
+          title="Ein Studium, bei dem sich alles um dich dreht"
+          subText="Studiere nach dem CORE-Prinzip! Praxisorientiertes Lernen in kleinen Teams, schrittweiser Kompetenzerwerb in 5 Wochen-Sprints und persönliche Betreuung durch Dozenten."
+          description="Reinen Frontalunterricht gibt es an der SRH nicht. Stattdessen werden unsere Dozenten für dich zu individuellen Lerncoaches. Gemeinsam erarbeitet ihr nicht nur Fachwissen, sondern feilt auch an euren Soft und Hard Skills. Dafür setzen wir auf eine direkte Kommunikation. Persönliche Beratung, digitaler Austausch und fortlaufendes Feedback sind uns wichtig."
+          refLink="/"
+          btnText="Find Buddy"
+          img="/images/landing4.webp"
         />
       </div>
     </div>
