@@ -93,6 +93,11 @@
   width: 130px;
 }
 
+.grid__ref {
+  padding: 2rem 4vw;
+  padding-bottom: 4rem;
+}
+
 @media screen and (max-width: 950px) {
   .about .desc h4 {
     width: 100%;

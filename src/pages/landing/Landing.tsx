@@ -8,6 +8,8 @@ import Programs from "../../components/programs/Programs";
 import Content from "../../components/content/Content";
 import ContentWithBg from "../../components/content-with-bg/ContentWithBg";
 import ProgramGrid from "../../components/program-grid/ProgramGrid";
+import GridLayout from "../../components/grid/Grid";
+import LeaderCard from "../../components/leader-card/LeaderCard";
 
 const Landing = () => {
   return (
@@ -68,6 +70,51 @@ const Landing = () => {
           btnText="Find Your Buddy"
           img="/images/landing4.webp"
         />
+      </div>
+
+      <div className="programs_">
+        <div className="headline">
+          <h2>Leadership Team ❤</h2>
+        </div>
+        <div className="grid__ref">
+          <GridLayout columns={3} gap={2}>
+            <LeaderCard
+              image="/images/landing.webp"
+              name="Prof. Tanyi Emmanuel"
+              title="Chief Instructor"
+            />
+
+            <LeaderCard
+              image="/images/landing2.webp"
+              name="Prof. Tanyi Emmanuel"
+              title="PhD. Chemistry"
+            />
+
+            <LeaderCard
+              image="/images/landing4.webp"
+              name="Prof. Tanyi Emmanuel"
+              title="Software Engineer"
+            />
+
+            <LeaderCard
+              image="/images/landing.webp"
+              name="Prof. Tanyi Emmanuel"
+              title="Chief Instructor"
+            />
+
+            <LeaderCard
+              image="/images/landing2.webp"
+              name="Prof. Tanyi Emmanuel"
+              title="PhD. Chemistry"
+            />
+
+            <LeaderCard
+              image="/images/landing4.webp"
+              name="Prof. Tanyi Emmanuel"
+              title="Software Engineer"
+            />
+          </GridLayout>
+        </div>
       </div>
 
       <div className="programs_">

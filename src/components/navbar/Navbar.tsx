@@ -45,7 +45,7 @@ const Navbar = () => {
           <Link to="/">Campuses</Link>
         </li>
         <li>
-          <Link to="/">Short Courses</Link>
+          <Link style={{ fontWeight: "800", color: "var(--main-color)" }} to="/">Apply</Link>
         </li>
 
         <li>
