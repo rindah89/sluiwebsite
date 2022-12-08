@@ -1,21 +1,27 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import About from "./pages/about/About";
-import NotFound from "./pages/error/404";
+
+// components
+import Footer from "./components/footer/Footer";
+import Navbar from "./components/navbar/Navbar";
 
 // pages
 import Landing from "./pages/landing/Landing";
+import About from "./pages/about/About";
+import NotFound from "./pages/error/404";
 
 const App = () => {
   return (
     <div className="app">
       <Router>
+        <Navbar />
         <Routes>
           <Route path="/" element={<Landing />} />
           <Route path="/about-st-louis" element={<About />} />
 
           <Route path="*" element={<NotFound />} />
         </Routes>
+        <Footer />
       </Router>
     </div>
   );
