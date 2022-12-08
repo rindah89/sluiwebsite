@@ -37,7 +37,7 @@ const Landing = () => {
           caption="THE SLUI APPROACH - OUR STUDY CONCEPT!"
           title="You are the centre of your studies"
           subText="Study according to the CORE Principle! Hands-on learning in small teams, step-by-step skill aquisition in field work and semester internships as well as individual support from lecturers."
-          description="There is no more lecture-centred teaching at SLUI. Instead, our instructors become personal learning coaches for you. Not only will you develop specialist knowledge together, but also work on improving your soft and hard skills. To do this, we rely on direct communication. Individual advice, digital exchange and continuous feedback are important to us as well as club activities such as the SLUI Toastmasters club."
+          description=""
           refLink="/"
           btnText="Our Core Principles"
           img="/images/landing2.webp"
@@ -47,9 +47,9 @@ const Landing = () => {
       <div className="content__section">
         <Content
           direction="LEFT"
-          caption="THE SLUI APPROACH - OUR STUDY CONCEPT!"
+          caption=""
           title="An engaging learning experience."
-          subText="Study according to the CORE Principle! Hands-on learning in small teams, step-by-step skill aquisition in field work and semester internships as well as individual support from lecturers."
+          subText=""
           description="There is no more lecture-centred teaching at SLUI. Instead, our instructors become personal learning coaches for you. Not only will you develop specialist knowledge together, but also work on improving your soft and hard skills. To do this, we rely on direct communication. Individual advice, digital exchange and continuous feedback are important to us as well as club activities such as the SLUI Toastmasters club."
           refLink="/"
           btnText="Our Core Principles"
@@ -63,7 +63,7 @@ const Landing = () => {
           caption="FIND YOUR SLUI BUDDY"
           title="Chat with our Staff and Students"
           subText=""
-          description="Did you want first-hand information? Our staff & students are happy to share their experiences with you, tell you about their courses, their projects and student life in Douala, Yaounde, Bamenda & Ndu."
+          description="Do you want first-hand information? Our staff & students are happy to share their experiences with you, tell you about their courses, their projects and student life in Douala, Yaounde, Bamenda & Ndu."
           refLink="/"
           btnText="Find Your Buddy"
           img="/images/landing4.webp"
@@ -94,8 +94,8 @@ const Landing = () => {
             },
             {
               image: "/images/landing4.webp",
-              desc: "MBA programs are just so exciting start a career in one of these programmes.",
-              label: "MBA",
+              desc: "HND programs are just so exciting start a career in one of these programmes.",
+              label: "HND",
             },
           ]}
         />

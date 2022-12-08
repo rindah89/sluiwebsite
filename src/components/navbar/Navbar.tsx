@@ -7,10 +7,15 @@ import { HiBars3BottomLeft } from "react-icons/hi2";
 import "./navbar.css";
 
 import { UseScrollPosition } from "../../lib/hooks/useScrollPosition";
+import PopupWidget from "../popup-widget/PopupWidget";
 
 const Navbar = () => {
   const [showMenu, setShowMenu] = useState(false);
   const position = UseScrollPosition();
+
+  const toggleState = () => {
+    setShowMenu(false);
+  };
 
   return (
     <nav className={`navbar ${position >= 100 ? "bg" : ""}`}>
@@ -55,6 +60,7 @@ const Navbar = () => {
             <AiOutlineSearch style={{ marginTop: "0.3rem" }} size={26} />
           </Link>
         </li>
+        <PopupWidget show={showMenu} toggleState={toggleState} />
         <li className="non">
           <Link to="/">
             <HiBars3BottomLeft

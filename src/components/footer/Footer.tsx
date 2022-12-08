@@ -22,7 +22,6 @@ const Footer = () => {
             <Link to="/">Masters</Link>
             <Link to="/">Bachelors</Link>
             <Link to="/">HND</Link>
-            <Link to="/">MBA</Link>
             <Link to="/">Short Courses</Link>
             <Link to="/">Admission Processes</Link>
             <Link to="/">Student Advisory Board</Link>
@@ -65,7 +64,7 @@ const Footer = () => {
           </div>
 
           <div className="contact__info">
-            <h2 style={{ marginTop: "3rem" }}>SLUI Campuses Location</h2>
+            <h2 style={{ marginTop: "3rem" }}>SLUI Campus Location</h2>
             <div className="mail">
               <FaMapMarkerAlt size={20} />
               <h4>

@@ -143,9 +143,9 @@
     font-size: 2.2rem;
   }
 
-  .menu.show {
+  /* .menu.show {
     left: 0;
-  }
+  } */
 
   .menu .close {
     display: flex;

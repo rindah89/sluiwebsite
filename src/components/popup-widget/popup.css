@@ -1,0 +1,181 @@
+.popup {
+  position: fixed;
+  top: 50%;
+  transform-origin: top;
+  transform: translateY(-50%) scaleY(0);
+  height: calc(100vh - 100px);
+  left: 0;
+  width: 100%;
+  z-index: 99999;
+  padding: 2rem 4vw;
+  -webkit-transform: translateY(-50%) scaleY(0);
+  -moz-transform: translateY(-50%) scaleY(0);
+  -ms-transform: translateY(-50%) scaleY(0);
+  -o-transform: translateY(-50%) scaleY(0);
+  transition: 0.2s ease-in-out;
+  -webkit-transition: 0.2s ease-in-out;
+  -moz-transition: 0.2s ease-in-out;
+  -ms-transition: 0.2s ease-in-out;
+  -o-transition: 0.2s ease-in-out;
+}
+
+.popup.show {
+  transform: translateY(-50%) scaleY(1);
+  -webkit-transform: translateY(-50%) scaleY(1);
+  -moz-transform: translateY(-50%) scaleY(1);
+  -ms-transform: translateY(-50%) scaleY(1);
+  -o-transform: translateY(-50%) scaleY(1);
+}
+
+.popup .popup__content {
+  background: var(--main-color);
+  padding: 3rem 4vw;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  -webkit-box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.popup .title {
+  display: flex;
+  display: -ms-flexbox;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.popup .title h2 {
+  font-size: 1.6rem;
+  color: #fff;
+  font-weight: 600;
+}
+
+.popup .title button {
+  background: transparent;
+  outline: none;
+  border: none;
+  font-size: 3rem;
+  color: #fff;
+  cursor: pointer;
+  transform: scale(1);
+  transition: 0.2s ease-in-out;
+  -webkit-transition: 0.2s ease-in-out;
+  -moz-transition: 0.2s ease-in-out;
+  -ms-transition: 0.2s ease-in-out;
+  -o-transition: 0.2s ease-in-out;
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  -o-transform: scale(1);
+}
+
+.popup .title button:hover,
+.popup .title button:focus-within {
+  transform: scale(1.3);
+  -webkit-transform: scale(1.3);
+  -moz-transform: scale(1.3);
+  -ms-transform: scale(1.3);
+  -o-transform: scale(1.3);
+}
+
+.popup__text {
+  margin-top: 3rem;
+  display: flex;
+  display: -ms-flexbox;
+  gap: 7rem;
+}
+
+.popup .links a,
+.popup .ref a {
+  color: #d4d4d4;
+  font-size: 3rem;
+  font-weight: 600;
+  transition: 0.2s ease-in-out;
+  -webkit-transition: 0.2s ease-in-out;
+  -moz-transition: 0.2s ease-in-out;
+  -ms-transition: 0.2s ease-in-out;
+  -o-transition: 0.2s ease-in-out;
+}
+
+.popup .links a:hover,
+.popup .ref a:hover,
+.popup .ref a:focus-within,
+.popup .links a:focus-within {
+  color: #fff;
+}
+
+.popup .ref,
+.popup .other {
+  display: flex;
+  display: -ms-flexbox;
+  flex-direction: column;
+  -ms-flex-direction: column;
+}
+
+.other {
+  margin-top: 4rem;
+}
+
+.popup .ref > a {
+  border-bottom: 2px solid #d4d4d4;
+  text-decoration: none;
+  padding: 2rem 0;
+  font-size: 2.6rem;
+  font-weight: 400;
+  display: flex;
+  display: -ms-flexbox;
+  align-items: center;
+  gap: 3rem;
+}
+
+.popup .ref span {
+  margin-top: 0.2rem;
+  transform: translateX(0);
+  -webkit-transform: translateX(0);
+  -moz-transform: translateX(0);
+  -ms-transform: translateX(0);
+  -o-transform: translateX(0);
+  transition: 0.2s ease-in-out;
+  -webkit-transition: 0.2s ease-in-out;
+  -moz-transition: 0.2s ease-in-out;
+  -ms-transition: 0.2s ease-in-out;
+  -o-transition: 0.2s ease-in-out;
+}
+
+.popup .ref > a:hover span,
+.popup .ref > a:focus-within span {
+  transform: translateX(20px);
+  -webkit-transform: translateX(20px);
+  -moz-transform: translateX(20px);
+  -ms-transform: translateX(20px);
+  -o-transform: translateX(20px);
+}
+
+.popup .other a {
+  text-decoration: none;
+  font-size: 1.8rem;
+  font-weight: 400;
+  margin-bottom: 1.5rem;
+}
+
+.popup .ref a:first-of-type {
+  padding-top: 0;
+}
+
+.popup__text .pic img {
+  width: 250px;
+  margin-top: 3rem;
+}
+
+@media screen and (max-width: 1000px) {
+  .popup__text {
+    flex-direction: column;
+    -ms-flex-direction: column;
+    gap: 3rem;
+  }
+}
