@@ -103,7 +103,7 @@ const Landing = () => {
 
       <div className="programs_">
         <div className="headline">
-          <h2>Our Partners & Investors</h2>
+          <h2>Memberships and Partnerships</h2>
         </div>
         <div className="logos">
           <img src="/logos/logo.webp" alt="logo" />
