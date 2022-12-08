@@ -100,6 +100,19 @@ const Landing = () => {
           ]}
         />
       </div>
+
+      <div className="programs_">
+        <div className="headline">
+          <h2>Our Partners & Investors</h2>
+        </div>
+        <div className="logos">
+          <img src="/logos/logo.png" alt="logo" />
+          <img src="/logos/logo3.png" alt="logo" />
+          <img src="/logos/logo.png" alt="logo" />
+          <img src="/logos/logo3.png" alt="logo" />
+          <img src="/logos/logo.png" alt="logo" />
+        </div>
+      </div>
     </div>
   );
 };

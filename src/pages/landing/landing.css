@@ -76,6 +76,21 @@
   margin-bottom: 2rem;
 }
 
+.logos {
+  display: flex;
+  display: -ms-flexbox;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  gap: 1.5rem;
+  padding-bottom: 5rem;
+}
+
+.logos img {
+  width: 220px;
+}
+
 @media screen and (max-width: 750px) {
   .about .desc h4 {
     width: 100%;
