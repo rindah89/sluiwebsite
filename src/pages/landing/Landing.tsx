@@ -2,6 +2,7 @@ import React from "react";
 
 // components
 import Programs from "../../components/programs/Programs";
+import Content from "../../components/content/Content";
 
 // styles
 import "./landing.css";
@@ -26,6 +27,32 @@ const Landing = () => {
             Technologie und IT, Musik, Design, Film und Text.
           </h4>
         </div>
+      </div>
+
+      <div className="content__section">
+        <Content
+          direction="RIGHT"
+          caption="STUDIEREN NACH DEM CORE-PRINZIP"
+          title="Ein Studium, bei dem sich alles um dich dreht"
+          subText="Studiere nach dem CORE-Prinzip! Praxisorientiertes Lernen in kleinen Teams, schrittweiser Kompetenzerwerb in 5 Wochen-Sprints und persönliche Betreuung durch Dozenten."
+          description="Reinen Frontalunterricht gibt es an der SRH nicht. Stattdessen werden unsere Dozenten für dich zu individuellen Lerncoaches. Gemeinsam erarbeitet ihr nicht nur Fachwissen, sondern feilt auch an euren Soft und Hard Skills. Dafür setzen wir auf eine direkte Kommunikation. Persönliche Beratung, digitaler Austausch und fortlaufendes Feedback sind uns wichtig."
+          refLink="/"
+          btnText="Find Buddy"
+          img="/images/landing2.webp"
+        />
+      </div>
+
+      <div className="content__section">
+        <Content
+          direction="LEFT"
+          caption="STUDIEREN NACH DEM CORE-PRINZIP"
+          title="Ein Studium, bei dem sich alles um dich dreht"
+          subText="Studiere nach dem CORE-Prinzip! Praxisorientiertes Lernen in kleinen Teams, schrittweiser Kompetenzerwerb in 5 Wochen-Sprints und persönliche Betreuung durch Dozenten."
+          description="Reinen Frontalunterricht gibt es an der SRH nicht. Stattdessen werden unsere Dozenten für dich zu individuellen Lerncoaches. Gemeinsam erarbeitet ihr nicht nur Fachwissen, sondern feilt auch an euren Soft und Hard Skills. Dafür setzen wir auf eine direkte Kommunikation. Persönliche Beratung, digitaler Austausch und fortlaufendes Feedback sind uns wichtig."
+          refLink="/"
+          btnText="Find Buddy"
+          img="/images/landing2.webp"
+        />
       </div>
     </div>
   );
