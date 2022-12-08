@@ -79,22 +79,22 @@ const Landing = () => {
           programs={[
             {
               image: "/images/landing.webp",
-              desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit.",
+              desc: "More and more exciting programs to be explored at our campuses.",
               label: "Bachelor",
             },
             {
               image: "/images/landing2.webp",
-              desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit.",
+              desc: "Explore our best masters programs. Find a fit for yourself.",
               label: "Masters",
             },
             {
               image: "/images/landing3.webp",
-              desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit.",
+              desc: "We offer a variety of short courses. Explore today!",
               label: "Short Course",
             },
             {
               image: "/images/landing4.webp",
-              desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit.",
+              desc: "MBA programs are just so exciting start a career in one of these programmes.",
               label: "MBA",
             },
           ]}
