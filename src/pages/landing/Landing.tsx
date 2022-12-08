@@ -74,7 +74,7 @@ const Landing = () => {
 
       <div className="programs_">
         <div className="headline">
-          <h2>Leadership Team ❤</h2>
+          <h2>Leadership Team</h2>
         </div>
         <div className="grid__ref">
           <GridLayout columns={3} gap={2}>
@@ -120,7 +120,7 @@ const Landing = () => {
       <div className="programs_">
         <div className="headline">
           <h3>JUST THE RIGHT FIT FOR YOU.</h3>
-          <h2>Exciting Programs 🚀</h2>
+          <h2>Exciting Programs</h2>
         </div>
         <ProgramGrid
           programs={[
