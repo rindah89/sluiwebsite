@@ -19,6 +19,23 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  position: relative;
+}
+
+.programs .icon__window {
+  position: absolute;
+  right: 2rem;
+  top: 1rem;
+  transition: 0.2s ease-in-out;
+  -webkit-transition: 0.2s ease-in-out;
+  -moz-transition: 0.2s ease-in-out;
+  -ms-transition: 0.2s ease-in-out;
+  -o-transition: 0.2s ease-in-out;
+}
+
+.programs > div:hover .icon__window {
+  right: 1.6rem;
+  top: 0.6rem;
 }
 
 .programs > div > div {
@@ -72,6 +89,10 @@
     -ms-flex: 1;
     justify-content: space-between;
     position: relative;
+  }
+
+  .programs .icon__window {
+    display: none;
   }
 
   .programs > div .icon {
