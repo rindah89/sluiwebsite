@@ -1,12 +1,13 @@
 import React from "react";
 
+// styles
+import "./landing.css";
+
 // components
 import Programs from "../../components/programs/Programs";
 import Content from "../../components/content/Content";
-
-// styles
-import "./landing.css";
 import ContentWithBg from "../../components/content-with-bg/ContentWithBg";
+import ProgramGrid from "../../components/program-grid/ProgramGrid";
 
 const Landing = () => {
   return (
@@ -66,6 +67,37 @@ const Landing = () => {
           refLink="/"
           btnText="Find Buddy"
           img="/images/landing4.webp"
+        />
+      </div>
+
+      <div className="programs_">
+        <div className="headline">
+          <h3>JETZT DURCHSTARTEN</h3>
+          <h2>Exciting Programs 🚀</h2>
+        </div>
+        <ProgramGrid
+          programs={[
+            {
+              image: "/images/landing.webp",
+              desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit.",
+              label: "Bachelor",
+            },
+            {
+              image: "/images/landing2.webp",
+              desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit.",
+              label: "Masters",
+            },
+            {
+              image: "/images/landing3.webp",
+              desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit.",
+              label: "Short Course",
+            },
+            {
+              image: "/images/landing4.webp",
+              desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit.",
+              label: "MBA",
+            },
+          ]}
         />
       </div>
     </div>
