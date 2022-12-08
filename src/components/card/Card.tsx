@@ -1,4 +1,5 @@
 import React from "react";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 // styles
 import "./card.css";
@@ -13,7 +14,13 @@ const Card: React.FC<ProgramCardProps> = ({ image, label, desc }) => {
   return (
     <div className="card">
       <div className="preview">
-        <img src={image} alt={label} />
+        <LazyLoadImage
+          effect="blur"
+          width="100%"
+          height="100%"
+          src={image}
+          alt={label}
+        />
       </div>
       <div className="details">
         <h2>{label}</h2>

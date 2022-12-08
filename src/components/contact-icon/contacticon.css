@@ -3,9 +3,9 @@
   bottom: 3rem;
   right: 4vw;
   z-index: 9999;
-  padding: 1rem 3.5rem;
+  padding: 1.3rem 3.5rem;
   width: 300px;
-  background: #fff;
+  background: var(--main-color);
   border-radius: 5px;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   -webkit-box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
@@ -29,7 +29,7 @@
 
 .chat__icon .icon h4 {
   font-size: 1.6rem;
-  color: var(--main-color);
+  color: #fff;
 }
 
 .chat__icon .contacts {
