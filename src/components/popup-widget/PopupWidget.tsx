@@ -72,11 +72,21 @@ const PopupWidget: React.FC<Props> = ({ show, toggleState }) => {
               <Link to="/">News</Link>
               <Link to="/">Events</Link>
               <Link to="/">Contact Us</Link>
-              <Link to="/">About Us</Link>
-              <Link to="/">Programmes</Link>
-              <Link to="/">Faculties</Link>
-              <Link to="/">Campuses</Link>
-              <Link to="/">Short Courses</Link>
+              <Link className="hide" to="/">
+                About Us
+              </Link>
+              <Link className="hide" to="/">
+                Programmes
+              </Link>
+              <Link className="hide" to="/">
+                Faculties
+              </Link>
+              <Link className="hide" to="/our-campuses">
+                Campuses
+              </Link>
+              <Link className="hide" to="/">
+                Short Courses
+              </Link>
             </div>
           </div>
         </div>

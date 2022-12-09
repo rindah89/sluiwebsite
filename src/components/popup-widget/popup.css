@@ -172,6 +172,12 @@
   margin-top: 3rem;
 }
 
+@media screen and (min-width: 1030px) {
+  .hide {
+    display: none;
+  }
+}
+
 @media screen and (max-width: 1000px) {
   .popup__text {
     flex-direction: column;
