@@ -20,7 +20,9 @@ const CampusCard: React.FC<Props> = ({ image, name, title, refLink }) => {
       <div className={styles.body}>
         <div>
           <h2>{name}</h2>
-          <h3>{title}</h3>
+          <h3>
+            {title.length > 150 ? title.substring(0, 150) + "..." : title}
+          </h3>
         </div>
         <div>
           <button>

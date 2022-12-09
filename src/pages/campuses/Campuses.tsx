@@ -24,7 +24,7 @@ const Campuses = () => {
       </div>
 
       <div className={styles.campuses}>
-        <GridLayout columns={3} gap={3}>
+        <GridLayout columns={2} gap={3}>
           <CampusCard
             image="/images/landing.webp"
             name="Bonaberi"

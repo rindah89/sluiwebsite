@@ -49,8 +49,8 @@ const Programs = () => {
 
       <div>
         <div className="program">
-          <h2>Short Courses</h2>
-          <h3>40 Short Courses</h3>
+          <h2>Foundation</h2>
+          <h3>1 Foundation Course</h3>
         </div>
         <div className="icon__window">
           <BsArrowUpRight size={20} />
