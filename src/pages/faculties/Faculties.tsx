@@ -6,6 +6,7 @@ import styles from "./faculties.module.css";
 
 // components
 import Content from "../../components/content/Content";
+import ProgramGrid from "../../components/program-grid/ProgramGrid";
 
 const Faculties = () => {
   return (
@@ -69,6 +70,58 @@ const Faculties = () => {
           btnText="View More Information"
           img="/images/eng.webp"
         />
+      </div>
+      <div className="programs_">
+        <div className="headline">
+          <h3>JUST THE RIGHT FIT FOR YOU.</h3>
+          <h2>Exciting Programs</h2>
+        </div>
+        <ProgramGrid
+          programs={[
+            {
+              image: "/images/landing.webp",
+              desc: "More and more exciting programs to be explored at our campuses.",
+              label: "Bachelor",
+            },
+            {
+              image: "/images/landing2.webp",
+              desc: "Explore our best masters programs. Find a fit for yourself.",
+              label: "Masters",
+            },
+            {
+              image: "/images/landing3.webp",
+              desc: "We offer a variety of short courses. Explore today!",
+              label: "Short Course",
+            },
+            {
+              image: "/images/landing4.webp",
+              desc: "HND programs are just so exciting start a career in one of these programmes.",
+              label: "HND",
+            },
+          ]}
+        />
+      </div>
+      <div className="programs_">
+        <div className="headline">
+          <h2>Memberships and Partnerships</h2>
+        </div>
+        <div className="logos">
+          <Fade up delay={100}>
+            <img src="/logos/logo.webp" alt="logo" />
+          </Fade>
+          <Fade up delay={300}>
+            <img src="/logos/logo2.webp" alt="logo" />
+          </Fade>
+          <Fade up delay={500}>
+            <img src="/logos/logo3.webp" alt="logo" />
+          </Fade>
+          <Fade up delay={700}>
+            <img src="/logos/logo4.webp" alt="logo" />
+          </Fade>
+          <Fade up delay={900}>
+            <img src="/logos/logo5.webp" alt="logo" />
+          </Fade>
+        </div>
       </div>
     </div>
   );

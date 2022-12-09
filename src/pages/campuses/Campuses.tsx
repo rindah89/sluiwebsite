@@ -1,4 +1,5 @@
 import React from "react";
+import { Fade } from "react-reveal";
 
 // styles
 import styles from "./campus.module.css";
@@ -99,11 +100,21 @@ const Campuses = () => {
           <h2>Memberships and Partnerships</h2>
         </div>
         <div className="logos">
-          <img src="/logos/logo.webp" alt="logo" />
-          <img src="/logos/logo2.webp" alt="logo" />
-          <img src="/logos/logo3.webp" alt="logo" />
-          <img src="/logos/logo4.webp" alt="logo" />
-          <img src="/logos/logo5.webp" alt="logo" />
+          <Fade up delay={100}>
+            <img src="/logos/logo.webp" alt="logo" />
+          </Fade>
+          <Fade up delay={300}>
+            <img src="/logos/logo2.webp" alt="logo" />
+          </Fade>
+          <Fade up delay={500}>
+            <img src="/logos/logo3.webp" alt="logo" />
+          </Fade>
+          <Fade up delay={700}>
+            <img src="/logos/logo4.webp" alt="logo" />
+          </Fade>
+          <Fade up delay={900}>
+            <img src="/logos/logo5.webp" alt="logo" />
+          </Fade>
         </div>
       </div>
     </div>
