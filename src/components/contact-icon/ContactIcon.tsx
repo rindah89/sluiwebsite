@@ -11,10 +11,10 @@ const ContactIcon = () => {
   return (
     <div className="chat__icon">
       <div className={`contacts ${active ? "active" : null}`}>
-        <a href="#">
+        <a href="https://api.whatsapp.com/send?phone=671710928&text=Hello20%there">
           <FcCustomerSupport size={20} /> Communication Dept.
         </a>
-        <a href="#">
+        <a href="https://api.whatsapp.com/send?phone=678425922&text=Hello20%there">
           <FcOnlineSupport size={20} />
           Admission Dept.
         </a>
