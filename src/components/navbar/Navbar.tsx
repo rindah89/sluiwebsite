@@ -71,7 +71,9 @@ const Navbar = () => {
           <ul className="dropdown">
             <li>
               <a
-                onClick={() => {
+                href="#"
+                onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
+                  e.preventDefault();
                   setActivePanelIndex(0);
                   setActivePanel(true);
                 }}
@@ -85,7 +87,9 @@ const Navbar = () => {
             </li>
             <li>
               <a
-                onClick={() => {
+                href="#"
+                onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
+                  e.preventDefault();
                   setActivePanelIndex(1);
                   setActivePanel(true);
                 }}
@@ -99,7 +103,9 @@ const Navbar = () => {
             </li>
             <li>
               <a
-                onClick={() => {
+                href="#"
+                onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
+                  e.preventDefault();
                   setActivePanelIndex(2);
                   setActivePanel(true);
                 }}
