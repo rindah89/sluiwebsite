@@ -1,0 +1,53 @@
+.popup {
+  position: fixed;
+  height: 100vh;
+  left: 0;
+  top: 0;
+  width: 100%;
+  padding: 4rem;
+  z-index: 99999;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  display: -ms-flexbox;
+  align-items: center;
+  justify-content: center;
+}
+
+.popup .content {
+  height: calc(100vh - 80px);
+  background: #fff;
+  overflow-y: auto;
+  isolation: isolate;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  width: 100%;
+  padding: 5rem 4vw;
+}
+
+.head h2 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.desc h4 {
+  margin-bottom: 2rem;
+  font-size: 1.8rem;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.title {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+  margin-top: 2rem;
+}
+
+.list h5 {
+  font-size: 1.6rem;
+  margin-bottom: 0.6rem;
+}

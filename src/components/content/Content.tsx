@@ -14,6 +14,7 @@ type Props = {
   refLink: string;
   img: string;
   btnText: string;
+  onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
 };
 
 const Content: React.FC<Props> = ({
@@ -25,6 +26,7 @@ const Content: React.FC<Props> = ({
   refLink,
   btnText,
   img,
+  onClick,
 }) => {
   return (
     <div className={`content ${direction === "LEFT" ? "reverse" : null}`}>
@@ -33,9 +35,13 @@ const Content: React.FC<Props> = ({
         <h2 style={{ fontWeight: "700" }}>{title}</h2>
         <h3 className="subcaption">{subText}</h3>
         <p>{description}</p>
-        <Link to={refLink}>
-          <button>{btnText}</button>
-        </Link>
+        {onClick ? (
+          <button onClick={onClick}>{btnText}</button>
+        ) : (
+          <Link to={refLink}>
+            <button>{btnText}</button>
+          </Link>
+        )}
       </div>
       <div className="image">
         <Fade right={direction === "RIGHT"} left={direction === "LEFT"}>
