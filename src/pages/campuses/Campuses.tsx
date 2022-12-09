@@ -6,6 +6,7 @@ import styles from "./campus.module.css";
 // components
 import CampusCard from "../../components/campus-card/CampusCard";
 import GridLayout from "../../components/grid/Grid";
+import ProgramGrid from "../../components/program-grid/ProgramGrid";
 
 const Campuses = () => {
   return (
@@ -60,6 +61,37 @@ const Campuses = () => {
             refLink="/"
           />
         </GridLayout>
+      </div>
+
+      <div className="programs_">
+        <div className="headline">
+          <h3>JUST THE RIGHT FIT FOR YOU.</h3>
+          <h2>Exciting Programs</h2>
+        </div>
+        <ProgramGrid
+          programs={[
+            {
+              image: "/images/landing.webp",
+              desc: "More and more exciting programs to be explored at our campuses.",
+              label: "Bachelor",
+            },
+            {
+              image: "/images/landing2.webp",
+              desc: "Explore our best masters programs. Find a fit for yourself.",
+              label: "Masters",
+            },
+            {
+              image: "/images/landing3.webp",
+              desc: "We offer a variety of short courses. Explore today!",
+              label: "Short Course",
+            },
+            {
+              image: "/images/landing4.webp",
+              desc: "HND programs are just so exciting start a career in one of these programmes.",
+              label: "HND",
+            },
+          ]}
+        />
       </div>
 
       <div className="programs_">
