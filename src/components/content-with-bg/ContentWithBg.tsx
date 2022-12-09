@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { Fade } from "react-reveal";
 
 // styles
 import "./contentwithbg.css";
@@ -31,7 +32,9 @@ const ContentWithBg: React.FC<Props> = ({
         <h3 style={{ color: "#fff" }} className="caption">
           {caption}
         </h3>
-        <h2 style={{ color: "#fff" }}>{title}</h2>
+        <Fade up>
+          <h2 style={{ color: "#fff" }}>{title}</h2>
+        </Fade>
         <p style={{ color: "#fff" }}>{description}</p>
         <Link to={refLink}>
           <button>{btnText}</button>

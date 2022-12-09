@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { Fade } from "react-reveal";
 
 // styles
 import "./content.css";
@@ -37,7 +38,9 @@ const Content: React.FC<Props> = ({
         </Link>
       </div>
       <div className="image">
-        <img src={img} alt={title} />
+        <Fade right={direction === "RIGHT"} left={direction === "LEFT"}>
+          <img src={img} alt={title} />
+        </Fade>
       </div>
     </div>
   );

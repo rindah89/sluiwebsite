@@ -1,4 +1,5 @@
 import React from "react";
+import { Fade } from "react-reveal";
 
 // styles
 import styles from "./faculties.module.css";
@@ -12,16 +13,20 @@ const Faculties = () => {
       {" "}
       <div className={styles.hero}>
         <h3>St. LOUIS UNIVERSITY INSTITUDE</h3>
-        <h1>Our Faculties.</h1>
+        <Fade up>
+          <h1>Our Faculties.</h1>
+        </Fade>
 
-        <p>
-          We help students achieve academic excellence in a diverse range of
-          disciplines and fields - through our Three unique Faculties. Each
-          Faculty is made up of distinct departments and areas of research. The
-          faculty structure enables high-quality teaching by gathering together
-          academic and industry expertise, and also encourages interdisciplinary
-          research across faculties.
-        </p>
+        <Fade up>
+          <p>
+            We help students achieve academic excellence in a diverse range of
+            disciplines and fields - through our Three unique Faculties. Each
+            Faculty is made up of distinct departments and areas of research.
+            The faculty structure enables high-quality teaching by gathering
+            together academic and industry expertise, and also encourages
+            interdisciplinary research across faculties.
+          </p>
+        </Fade>
       </div>
       <div className={styles.faculties__arena}>
         <h2>

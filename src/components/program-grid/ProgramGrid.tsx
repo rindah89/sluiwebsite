@@ -15,6 +15,7 @@ const ProgramGrid: React.FC<Props> = ({ programs }) => {
         programs.map((program, index) => {
           return (
             <Card
+              key={index}
               image={program.image}
               label={program.label}
               desc={program.desc}

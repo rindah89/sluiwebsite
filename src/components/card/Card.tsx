@@ -1,5 +1,6 @@
 import React from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
+import { Fade } from "react-reveal";
 
 // styles
 import "./card.css";
@@ -22,10 +23,12 @@ const Card: React.FC<ProgramCardProps> = ({ image, label, desc }) => {
           alt={label}
         />
       </div>
-      <div className="details">
-        <h2>{label}</h2>
-        <h4>{desc}</h4>
-      </div>
+      <Fade up>
+        <div className="details">
+          <h2>{label}</h2>
+          <h4>{desc}</h4>
+        </div>
+      </Fade>
     </div>
   );
 };

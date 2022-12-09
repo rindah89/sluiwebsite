@@ -1,4 +1,5 @@
 import React from "react";
+import { Fade } from "react-reveal";
 
 // styles
 import "./landing.css";
@@ -16,13 +17,19 @@ const Landing = () => {
     <div className="landing">
       <div className="hero">
         <h3>St. LOUIS UNIVERSITY INSTITUDE</h3>
-        <h1>Character and Excellence.</h1>
+        <Fade left>
+          <h1>Character and Excellence.</h1>
+        </Fade>
 
-        <Programs />
+        <Fade bottom delay={500}>
+          <Programs />
+        </Fade>
       </div>
       <div className="about">
         <div className="desc">
-          <h2>We Shape The Future.</h2>
+          <Fade up>
+            <h2>We Shape The Future.</h2>
+          </Fade>
           <h4>
             Three Faculties and five campuses in four cities: Douala, Yaounde,
             Bamenda and Ndu. Lecturers and students from all over Cameroon and
@@ -153,11 +160,21 @@ const Landing = () => {
           <h2>Memberships and Partnerships</h2>
         </div>
         <div className="logos">
-          <img src="/logos/logo.webp" alt="logo" />
-          <img src="/logos/logo2.webp" alt="logo" />
-          <img src="/logos/logo3.webp" alt="logo" />
-          <img src="/logos/logo4.webp" alt="logo" />
-          <img src="/logos/logo5.webp" alt="logo" />
+          <Fade up delay={100}>
+            <img src="/logos/logo.webp" alt="logo" />
+          </Fade>
+          <Fade up delay={300}>
+            <img src="/logos/logo2.webp" alt="logo" />
+          </Fade>
+          <Fade up delay={500}>
+            <img src="/logos/logo3.webp" alt="logo" />
+          </Fade>
+          <Fade up delay={700}>
+            <img src="/logos/logo4.webp" alt="logo" />
+          </Fade>
+          <Fade up delay={900}>
+            <img src="/logos/logo5.webp" alt="logo" />
+          </Fade>
         </div>
       </div>
     </div>
