@@ -51,7 +51,7 @@ const PopupWidget: React.FC<Props> = ({ show, toggleState }) => {
                 <AiOutlineArrowRight size={30} />
               </span>
             </Link>
-            <Link to="/">
+            <Link to="/our-faculties">
               Faculties{" "}
               <span>
                 <AiOutlineArrowRight size={30} />
@@ -78,7 +78,7 @@ const PopupWidget: React.FC<Props> = ({ show, toggleState }) => {
               <Link className="hide" to="/">
                 Programmes
               </Link>
-              <Link className="hide" to="/">
+              <Link className="hide" to="/our-faculties">
                 Faculties
               </Link>
               <Link className="hide" to="/our-campuses">

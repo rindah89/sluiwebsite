@@ -41,7 +41,7 @@ const Navbar = () => {
           <Link to="/">Programmes</Link>
         </li>
         <li>
-          <Link to="/">Faculties</Link>
+          <Link to="/our-faculties">Faculties</Link>
         </li>
         <li>
           <Link to="/our-campuses">Campuses</Link>
