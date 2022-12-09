@@ -12,6 +12,8 @@ import "./navbar.css";
 
 import { UseScrollPosition } from "../../lib/hooks/useScrollPosition";
 import PopupWidget from "../popup-widget/PopupWidget";
+import FacultyPopup from "../faculty-popup/FacultyPopup";
+import { facultiesData } from "../../pages/faculties/Faculties";
 
 const Navbar = () => {
   const [showMenu, setShowMenu] = useState(false);
@@ -21,8 +23,28 @@ const Navbar = () => {
     setShowMenu(false);
   };
 
+  const [activePanelIndex, setActivePanelIndex] = useState<number>(0);
+  const [activePanel, setActivePanel] = useState(false);
+
   return (
     <nav className={`navbar ${position >= 100 ? "bg" : ""}`}>
+      {activePanel && (
+        <div
+          onClick={() => {
+            setActivePanel(false);
+          }}
+        >
+          <FacultyPopup
+            title={facultiesData[activePanelIndex].title}
+            desc={facultiesData[activePanelIndex].desc}
+            subDesc={facultiesData[activePanelIndex].subDesc}
+            hnds={facultiesData[activePanelIndex].hnds}
+            fps={facultiesData[activePanelIndex].fps}
+            bdps={facultiesData[activePanelIndex].bdps}
+            mdps={facultiesData[activePanelIndex].mdps}
+          />
+        </div>
+      )}
       <div className="logo">
         <Link to="/">
           <img src="/images/logo_red.webp" alt="logo" />
@@ -48,28 +70,46 @@ const Navbar = () => {
           <Link to="/our-faculties">Faculties</Link>
           <ul className="dropdown">
             <li>
-              <Link to="/">
+              <a
+                onClick={() => {
+                  setActivePanelIndex(0);
+                  setActivePanel(true);
+                }}
+                style={{ cursor: "pointer" }}
+              >
                 Faculty of Health and Biomedical Sciences{" "}
                 <span>
                   <AiOutlineArrowRight style={{ marginTop: "0.5rem" }} />
                 </span>
-              </Link>
+              </a>
             </li>
             <li>
-              <Link to="/">
-                Faculty of Agriculture and Natural Sciences{" "}
-                <span>
-                  <AiOutlineArrowRight style={{ marginTop: "0.5rem" }} />
-                </span>
-              </Link>
-            </li>
-            <li>
-              <Link to="/">
+              <a
+                onClick={() => {
+                  setActivePanelIndex(1);
+                  setActivePanel(true);
+                }}
+                style={{ cursor: "pointer" }}
+              >
                 Faculty of Engineering and Technology{" "}
                 <span>
                   <AiOutlineArrowRight style={{ marginTop: "0.5rem" }} />
                 </span>
-              </Link>
+              </a>
+            </li>
+            <li>
+              <a
+                onClick={() => {
+                  setActivePanelIndex(2);
+                  setActivePanel(true);
+                }}
+                style={{ cursor: "pointer" }}
+              >
+                Faculty of Agriculture and Natural Sciences{" "}
+                <span>
+                  <AiOutlineArrowRight style={{ marginTop: "0.5rem" }} />
+                </span>
+              </a>
             </li>
           </ul>
         </li>

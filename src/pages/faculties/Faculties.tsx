@@ -11,7 +11,7 @@ import FacultyPopup, {
   Attrib,
 } from "../../components/faculty-popup/FacultyPopup";
 
-const facultiesData: Attrib[] = [
+export const facultiesData: Attrib[] = [
   {
     title: "Faculty of Health and Biomedical Sciences.",
     desc: "The Faculty of Health and Biomedical Sciences continues to benefit from millions of FCFA investment scheme of laboratory modernisation and the development of cutting-edge teaching and research facilities, allied to the provision of clinical-based courses. Academic staff, students and external partners, including MINESUP and MINSANTE, have worked collaboratively during all phases to ensure the learning, teaching and research environment puts students first.",

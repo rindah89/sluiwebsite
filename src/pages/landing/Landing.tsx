@@ -105,12 +105,17 @@ const Landing = () => {
           </GridLayout>
           <button
             style={{
-              padding: "2rem 3rem",
-              borderRadius: "10px",
+              padding: "1.5rem 3rem",
+              borderRadius: "5px",
               background: "var(--main-color)",
-              fontSize: "1.8rem",
+              fontSize: "1.6rem",
+              cursor: "pointer",
               marginTop: "2rem",
+              outline: "none",
+              border: "none",
               color: "#fff",
+              float: "right",
+              marginBottom: "10rem"
             }}
           >
             View More
