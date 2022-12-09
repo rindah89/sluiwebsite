@@ -102,25 +102,19 @@ const Landing = () => {
               name="Prof. Tanyi Emmanuel"
               title="Software Engineer"
             />
-
-            <LeaderCard
-              image="/images/landing.webp"
-              name="Prof. Tanyi Emmanuel"
-              title="Chief Instructor"
-            />
-
-            <LeaderCard
-              image="/images/landing2.webp"
-              name="Prof. Tanyi Emmanuel"
-              title="PhD. Chemistry"
-            />
-
-            <LeaderCard
-              image="/images/landing4.webp"
-              name="Prof. Tanyi Emmanuel"
-              title="Software Engineer"
-            />
           </GridLayout>
+          <button
+            style={{
+              padding: "2rem 3rem",
+              borderRadius: "10px",
+              background: "var(--main-color)",
+              fontSize: "1.8rem",
+              marginTop: "2rem",
+              color: "#fff",
+            }}
+          >
+            View More
+          </button>
         </div>
       </div>
 

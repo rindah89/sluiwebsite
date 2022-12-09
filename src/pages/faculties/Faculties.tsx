@@ -32,13 +32,13 @@ const Faculties = () => {
       <div className={styles.faculties__arena}>
         <h2>
           SLUI current operates the following faculties across her various
-          campus in the different cities
+          campuses in the different cities
         </h2>
       </div>
       <div className="content__section">
         <Content
           direction="RIGHT"
-          caption="SLUI"
+          caption=""
           title="Faculty of Health and Biomedical Sciences."
           subText=""
           description="The Faculty of Health and Biomedical Sciences continues to benefit from millions of FCFA investment scheme of laboratory modernisation and the development of cutting-edge teaching and research facilities, allied to the provision of clinical-based courses. Academic staff, students and external partners, including MINESUP and MINSANTE, have worked collaboratively during all phases to ensure the learning, teaching and research environment puts students first."
@@ -50,7 +50,7 @@ const Faculties = () => {
       <div className="content__section">
         <Content
           direction="LEFT"
-          caption="SLUI"
+          caption=""
           title="Faculty of Agriculture and Natural Sciences."
           subText=""
           description="Agriculture in today's world is an interesting and challenging industry where you can have a real impact. Our unique programmes combine the core disciplines of agricultural sciences with business management and innovative technology. Our classes include lively discussions around current issues as well as hands-on learning in the classroom, the lab and the field, giving you practical experience and a competitive advantage heading into careers on a local, national and global scale."
@@ -62,7 +62,7 @@ const Faculties = () => {
       <div className="content__section">
         <Content
           direction="RIGHT"
-          caption="SLUI"
+          caption=""
           title="Faculty of Engineering and Technology."
           subText=""
           description="The Faculty of Engineering and Technology brings together a spectrum of courses and programmes aligned to the technological needs and requirements of today. Our key areas of teaching cover a wide variety of subjects aligned to computer science and engineering."
