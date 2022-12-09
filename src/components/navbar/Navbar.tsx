@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { AiOutlineSearch, AiOutlineClose } from "react-icons/ai";
+import {
+  AiOutlineSearch,
+  AiOutlineClose,
+  AiOutlineArrowRight,
+} from "react-icons/ai";
 import { HiBars3BottomLeft } from "react-icons/hi2";
 
 // styles
@@ -42,9 +46,77 @@ const Navbar = () => {
         </li>
         <li>
           <Link to="/our-faculties">Faculties</Link>
+          <ul className="dropdown">
+            <li>
+              <Link to="/">
+                Faculty of Health and Biomedical Sciences{" "}
+                <span>
+                  <AiOutlineArrowRight style={{ marginTop: "0.5rem" }} />
+                </span>
+              </Link>
+            </li>
+            <li>
+              <Link to="/">
+                Faculty of Agriculture and Natural Sciences{" "}
+                <span>
+                  <AiOutlineArrowRight style={{ marginTop: "0.5rem" }} />
+                </span>
+              </Link>
+            </li>
+            <li>
+              <Link to="/">
+                Faculty of Engineering and Technology{" "}
+                <span>
+                  <AiOutlineArrowRight style={{ marginTop: "0.5rem" }} />
+                </span>
+              </Link>
+            </li>
+          </ul>
         </li>
         <li>
           <Link to="/our-campuses">Campuses</Link>
+          <ul className="dropdown">
+            <li>
+              <Link to="/">
+                Bonaberi{" "}
+                <span>
+                  <AiOutlineArrowRight style={{ marginTop: "0.5rem" }} />
+                </span>
+              </Link>
+            </li>
+            <li>
+              <Link to="/">
+                Bonamoussadi{" "}
+                <span>
+                  <AiOutlineArrowRight style={{ marginTop: "0.5rem" }} />
+                </span>
+              </Link>
+            </li>
+            <li>
+              <Link to="/">
+                Bamenda{" "}
+                <span>
+                  <AiOutlineArrowRight style={{ marginTop: "0.5rem" }} />
+                </span>
+              </Link>
+            </li>
+            <li>
+              <Link to="/">
+                Yaounde{" "}
+                <span>
+                  <AiOutlineArrowRight style={{ marginTop: "0.5rem" }} />
+                </span>
+              </Link>
+            </li>
+            <li>
+              <Link to="/">
+                Ndu{" "}
+                <span>
+                  <AiOutlineArrowRight style={{ marginTop: "0.5rem" }} />
+                </span>
+              </Link>
+            </li>
+          </ul>
         </li>
         <li>
           <Link
