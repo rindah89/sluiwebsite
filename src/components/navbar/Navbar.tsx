@@ -165,12 +165,14 @@ const Navbar = () => {
           </ul>
         </li>
         <li>
-          <Link
+          <a
+            rel="noreferrer"
+            target="_blank"
             style={{ fontWeight: "800", color: "var(--main-color)" }}
-            to="/"
+            href="https://nishangsys.com/stlouisapply"
           >
             Apply
-          </Link>
+          </a>
         </li>
 
         <li>
