@@ -11,7 +11,7 @@ const Programs = () => {
       <div>
         <div className="program">
           <h2>HND</h2>
-          <h3>18 Study Programs</h3>
+          <h3>18 Study Programmes</h3>
         </div>
         <div className="icon">
           <AiOutlineArrowRight size={30} />
@@ -24,7 +24,7 @@ const Programs = () => {
       <div>
         <div className="program">
           <h2>Bachelor</h2>
-          <h3>9 Study Programs</h3>
+          <h3>9 Study Programmes</h3>
         </div>
         <div className="icon__window">
           <BsArrowUpRight size={20} />
@@ -37,7 +37,7 @@ const Programs = () => {
       <div>
         <div className="program">
           <h2>Master</h2>
-          <h3>9 Study Programs</h3>
+          <h3>9 Study Programmes</h3>
         </div>
         <div className="icon__window">
           <BsArrowUpRight size={20} />

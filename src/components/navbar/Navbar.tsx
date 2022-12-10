@@ -5,6 +5,7 @@ import {
   AiOutlineClose,
   AiOutlineArrowRight,
 } from "react-icons/ai";
+import { FcApproval } from "react-icons/fc";
 import { HiBars3BottomLeft } from "react-icons/hi2";
 
 // styles
@@ -58,24 +59,44 @@ const Navbar = () => {
           <ProgramPopup
             programs={[
               {
-                icon: <></>,
-                title: "",
-                desc: "",
+                icon: (
+                  <>
+                    <FcApproval size={80} />
+                  </>
+                ),
+                title: "HND",
+                desc: "18 study programmes.",
+                link: "/",
               },
               {
-                icon: <></>,
-                title: "",
-                desc: "",
+                icon: (
+                  <>
+                    <FcApproval size={80} />
+                  </>
+                ),
+                title: "Bachelors",
+                desc: "9 study programmes.",
+                link: "/",
               },
               {
-                icon: <></>,
-                title: "",
-                desc: "",
+                icon: (
+                  <>
+                    <FcApproval size={80} />
+                  </>
+                ),
+                title: "Masters",
+                desc: "9 study programmes.",
+                link: "/",
               },
               {
-                icon: <></>,
-                title: "",
-                desc: "",
+                icon: (
+                  <>
+                    <FcApproval size={80} />
+                  </>
+                ),
+                title: "Foundation",
+                desc: "1 foundation course.",
+                link: "/",
               },
             ]}
           />

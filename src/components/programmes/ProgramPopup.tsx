@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 // styles
 import styles from "./styles.module.css";
@@ -7,6 +8,7 @@ type Program = {
   title: string;
   desc: string;
   icon?: JSX.Element;
+  link: string;
 };
 
 export type Attrib = {
@@ -26,22 +28,29 @@ const ProgramPopup: React.FC<Attrib> = ({ programs }) => {
 
         <h2>Our Engaging Programmes</h2>
 
+        <p>
+          Find the programs that suites your from the amazing programmes we
+          offer.
+        </p>
+
         <div className={styles.programs}>
           {programs &&
             programs.map((program, index) => {
               return (
-                <div key={index} className={styles.program}>
-                  <div className={styles.icon}>{program.icon}</div>
-                  <div className={styles.data}>
-                    <div className={styles.head}>
-                      <h2>{program.title}</h2>
-                    </div>
+                <Link to={program.link}>
+                  <div key={index} className={styles.program}>
+                    <div className={styles.icon}>{program.icon}</div>
+                    <div className={styles.data}>
+                      <div className={styles.head}>
+                        <h2>{program.title}</h2>
+                      </div>
 
-                    <div className={styles.desc}>
-                      {program.desc && <h4>{program.desc}</h4>}
+                      <div className={styles.desc}>
+                        {program.desc && <h4>{program.desc}</h4>}
+                      </div>
                     </div>
                   </div>
-                </div>
+                </Link>
               );
             })}
         </div>
