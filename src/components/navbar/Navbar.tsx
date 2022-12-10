@@ -71,7 +71,7 @@ const Navbar = () => {
           <ul className="dropdown">
             <li>
               <a
-                href="#"
+                href="/"
                 onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
                   e.preventDefault();
                   setActivePanelIndex(0);
@@ -87,7 +87,7 @@ const Navbar = () => {
             </li>
             <li>
               <a
-                href="#"
+                href="/"
                 onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
                   e.preventDefault();
                   setActivePanelIndex(1);
@@ -103,7 +103,7 @@ const Navbar = () => {
             </li>
             <li>
               <a
-                href="#"
+                href="/"
                 onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
                   e.preventDefault();
                   setActivePanelIndex(2);
