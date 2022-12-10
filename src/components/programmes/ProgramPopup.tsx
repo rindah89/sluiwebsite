@@ -1,4 +1,5 @@
 import React from "react";
+import { AiOutlineArrowRight } from "react-icons/ai";
 import { Link } from "react-router-dom";
 
 // styles
@@ -38,7 +39,17 @@ const ProgramPopup: React.FC<Attrib> = ({ programs }) => {
             programs.map((program, index) => {
               return (
                 <Link to={program.link}>
-                  <div key={index} className={styles.program}>
+                  <div
+                    title="More Insight"
+                    key={index}
+                    className={styles.program}
+                  >
+                    <div className={styles.icon__abs}>
+                      <AiOutlineArrowRight
+                        color="var(--main-color)"
+                        size={20}
+                      />
+                    </div>
                     <div className={styles.icon}>{program.icon}</div>
                     <div className={styles.data}>
                       <div className={styles.head}>

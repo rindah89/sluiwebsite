@@ -61,41 +61,41 @@ const Navbar = () => {
               {
                 icon: (
                   <>
-                    <FcApproval size={80} />
+                    <FcApproval style={{ marginTop: "0.2rem" }} size={30} />
                   </>
                 ),
                 title: "HND",
-                desc: "18 study programmes.",
+                desc: "Discover the opportunities and your path to a dream career in the health, agriculture, engineering and technology sector.",
                 link: "/",
               },
               {
                 icon: (
                   <>
-                    <FcApproval size={80} />
-                  </>
-                ),
-                title: "Bachelors",
-                desc: "9 study programmes.",
-                link: "/",
-              },
-              {
-                icon: (
-                  <>
-                    <FcApproval size={80} />
-                  </>
-                ),
-                title: "Masters",
-                desc: "9 study programmes.",
-                link: "/",
-              },
-              {
-                icon: (
-                  <>
-                    <FcApproval size={80} />
+                    <FcApproval style={{ marginTop: "0.2rem" }} size={30} />
                   </>
                 ),
                 title: "Foundation",
-                desc: "1 foundation course.",
+                desc: "The new SLUI International Medical Foundation Programme is a foundation course in Cameroon that provides you with the knowledge and competences to meet entry requirement into medical schools abroad.",
+                link: "/",
+              },
+              {
+                icon: (
+                  <>
+                    <FcApproval style={{ marginTop: "0.2rem" }} size={30} />
+                  </>
+                ),
+                title: "Bachelors",
+                desc: "Your start to an international career. Health, Agriculture, Engineering and Technology industries have never been so diverse. The modern range of courses offered by ST. Louis University Institute holds the right degree programme for every talent.",
+                link: "/",
+              },
+              {
+                icon: (
+                  <>
+                    <FcApproval style={{ marginTop: "0.2rem" }} size={30} />
+                  </>
+                ),
+                title: "Masters",
+                desc: "St Louis University Institute gives the opportunity for workers in any part of the world to further their studies and gain quality degrees while still working 100% at their job site. We currently have 9 master study programmes.",
                 link: "/",
               },
             ]}
