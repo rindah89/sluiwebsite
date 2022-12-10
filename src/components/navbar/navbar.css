@@ -88,6 +88,10 @@
   -o-transform: scaleX(1);
 }
 
+.menu li a.non__before::before {
+  display: none;
+}
+
 .menu li div,
 .mobile li div {
   height: 25px;

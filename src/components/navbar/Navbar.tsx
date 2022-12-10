@@ -14,6 +14,7 @@ import { UseScrollPosition } from "../../lib/hooks/useScrollPosition";
 import PopupWidget from "../popup-widget/PopupWidget";
 import FacultyPopup from "../faculty-popup/FacultyPopup";
 import { facultiesData } from "../../pages/faculties/Faculties";
+import ProgramPopup from "../programmes/ProgramPopup";
 
 const Navbar = () => {
   const [showMenu, setShowMenu] = useState(false);
@@ -25,6 +26,8 @@ const Navbar = () => {
 
   const [activePanelIndex, setActivePanelIndex] = useState<number>(0);
   const [activePanel, setActivePanel] = useState(false);
+
+  const [programsPanelActivated, setProgramsPanelActivated] = useState(false);
 
   return (
     <nav className={`navbar ${position >= 100 ? "bg" : ""}`}>
@@ -42,6 +45,39 @@ const Navbar = () => {
             fps={facultiesData[activePanelIndex].fps}
             bdps={facultiesData[activePanelIndex].bdps}
             mdps={facultiesData[activePanelIndex].mdps}
+          />
+        </div>
+      )}
+
+      {programsPanelActivated && (
+        <div
+          onClick={() => {
+            setProgramsPanelActivated(false);
+          }}
+        >
+          <ProgramPopup
+            programs={[
+              {
+                icon: <></>,
+                title: "",
+                desc: "",
+              },
+              {
+                icon: <></>,
+                title: "",
+                desc: "",
+              },
+              {
+                icon: <></>,
+                title: "",
+                desc: "",
+              },
+              {
+                icon: <></>,
+                title: "",
+                desc: "",
+              },
+            ]}
           />
         </div>
       )}
@@ -64,14 +100,24 @@ const Navbar = () => {
           <Link to="/">About Us</Link>
         </li>
         <li>
-          <Link to="/">Programmes</Link>
+          <a
+            onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
+              e.preventDefault();
+              setProgramsPanelActivated(true);
+            }}
+            href="#"
+          >
+            Programmes
+          </a>
         </li>
         <li>
-          <Link to="/our-faculties">Faculties</Link>
+          <Link className="non__before" to="/our-faculties">
+            Faculties
+          </Link>
           <ul className="dropdown">
             <li>
               <a
-                href="/"
+                href="#"
                 onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
                   e.preventDefault();
                   setActivePanelIndex(0);
@@ -87,7 +133,7 @@ const Navbar = () => {
             </li>
             <li>
               <a
-                href="/"
+                href="#"
                 onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
                   e.preventDefault();
                   setActivePanelIndex(1);
@@ -103,7 +149,7 @@ const Navbar = () => {
             </li>
             <li>
               <a
-                href="/"
+                href="#"
                 onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
                   e.preventDefault();
                   setActivePanelIndex(2);
@@ -120,7 +166,9 @@ const Navbar = () => {
           </ul>
         </li>
         <li>
-          <Link to="/our-campuses">Campuses</Link>
+          <Link className="non__before" to="/our-campuses">
+            Campuses
+          </Link>
           <ul className="dropdown">
             <li>
               <Link to="/">
