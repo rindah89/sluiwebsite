@@ -87,20 +87,20 @@ const Landing = () => {
           <GridLayout columns={3} gap={2}>
             <LeaderCard
               image="/images/landing.webp"
-              name="Prof. Tanyi Emmanuel"
-              title="Chief Instructor"
+              name="Dr. Nick Ngwanyam"
+              title="PRESIDENT"
             />
 
             <LeaderCard
               image="/images/landing2.webp"
-              name="Prof. Tanyi Emmanuel"
-              title="PhD. Chemistry"
+              name="Dr. Manjong Florence"
+              title="DVC. Academic Affairs"
             />
 
             <LeaderCard
               image="/images/landing4.webp"
-              name="Prof. Tanyi Emmanuel"
-              title="Software Engineer"
+              name="Mr. Tolly Olivier"
+              title="DVC. Admin and Finance"
             />
           </GridLayout>
           <button
