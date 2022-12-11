@@ -5,6 +5,9 @@ import { Fade } from "react-reveal";
 // styles
 import styles from "./masters.module.css";
 
+// imports
+import GeneralPull from "../../components/general-pull/GeneralPull";
+
 const Masters = () => {
   return (
     <div>
@@ -105,6 +108,8 @@ const Masters = () => {
           </ul>
         </div>
       </div>
+
+      <GeneralPull />
     </div>
   );
 };
