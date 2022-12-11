@@ -16,6 +16,7 @@ import Campuses from "./pages/campuses/Campuses";
 import Faculties from "./pages/faculties/Faculties";
 import Masters from "./pages/masters/Masters";
 import HND from "./pages/hnd/HND";
+import Bachelors from "./pages/bachelors/Bachelors";
 
 const App = () => {
   return (
@@ -29,6 +30,7 @@ const App = () => {
           <Route path="/our-faculties" element={<Faculties />} />
           <Route path="/masters" element={<Masters />} />
           <Route path="/hnd" element={<HND />} />
+          <Route path="/bachelors" element={<Bachelors />} />
           {/* <Route path="/about-st-louis" element={<About />} /> */}
 
           <Route path="*" element={<NotFound />} />

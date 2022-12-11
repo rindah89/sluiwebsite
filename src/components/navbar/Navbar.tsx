@@ -86,7 +86,7 @@ const Navbar = () => {
                 ),
                 title: "Bachelors",
                 desc: "Your start to an international career. Health, Agriculture, Engineering and Technology industries have never been so diverse. The modern range of courses offered by ST. Louis University Institute holds the right degree programme for every talent.",
-                link: "/",
+                link: "/bachelors",
               },
               {
                 icon: (

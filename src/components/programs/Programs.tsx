@@ -24,7 +24,7 @@ const Programs = () => {
         </div>
       </Link>
 
-      <Link to="/">
+      <Link to="/bachelors">
         <div>
           <div className="program">
             <h2>Bachelor</h2>
