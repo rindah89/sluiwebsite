@@ -9,7 +9,7 @@ import "./program.css";
 const Programs = () => {
   return (
     <div className="programs">
-      <Link to="/">
+      <Link to="/hnd">
         <div>
           <div className="program">
             <h2>HND</h2>

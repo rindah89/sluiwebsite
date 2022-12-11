@@ -66,7 +66,7 @@ const Navbar = () => {
                 ),
                 title: "HND",
                 desc: "Discover the opportunities and your path to a dream career in the health, agriculture, engineering and technology sector.",
-                link: "/",
+                link: "/hnd",
               },
               {
                 icon: (
