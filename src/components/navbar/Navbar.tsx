@@ -96,7 +96,7 @@ const Navbar = () => {
                 ),
                 title: "Masters",
                 desc: "St Louis University Institute gives the opportunity for workers in any part of the world to further their studies and gain quality degrees while still working 100% at their job site. We currently have 9 master study programmes.",
-                link: "/",
+                link: "/masters",
               },
             ]}
           />

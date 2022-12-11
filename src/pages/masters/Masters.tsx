@@ -1,0 +1,112 @@
+import React from "react";
+import { AiOutlineArrowRight } from "react-icons/ai";
+import { Fade } from "react-reveal";
+
+// styles
+import styles from "./masters.module.css";
+
+const Masters = () => {
+  return (
+    <div>
+      <div className="hero">
+        <h3>Your start to career advancement</h3>
+        <Fade left>
+          <h1>Masters Programmes.</h1>
+          <h4 className={styles.para}>
+            St Louis University Institute gives the opportunity for workers in
+            any part of the world to further their studies and gain quality
+            degrees while still working 100% at their job site. This is made
+            possible through their accredited distance learning platform that
+            mimics the traditional onsite learning.
+          </h4>
+        </Fade>
+      </div>
+
+      <div
+        style={{ minHeight: "40vh", background: "#F5F4F3" }}
+        className="about"
+      >
+        <div className="desc">
+          <h4 style={{ fontSize: "2.2rem" }}>
+            Three Faculties and five campuses in four cities: Douala, Yaounde,
+            Bamenda and Ndu. Lecturers and students from all over Cameroon and
+            abroad in accredited English-language study programmes. Diverse
+            opportunities in Biomedical and health sciences, Engineering and
+            technology, Agriculture and natural sciences.
+          </h4>
+        </div>
+      </div>
+
+      <div style={{ minHeight: "25vh" }} className="about">
+        <div className="desc">
+          <h4>
+            The following master&apos;s programs are currently being offered for
+            holders of Bachelor&apos;s degrees or equivalent at St Louis
+            University Institute
+          </h4>
+        </div>
+      </div>
+
+      <div className={styles.list}>
+        <div>
+          <h2>Masters Programmes List</h2>
+          <ul>
+            <li>
+              <AiOutlineArrowRight /> Midwifery
+            </li>
+            <li>
+              <AiOutlineArrowRight /> Pediatric Nursing
+            </li>
+            <li>
+              <AiOutlineArrowRight /> Medical Surgical Nursing
+            </li>
+            <li>
+              <AiOutlineArrowRight /> Oncology Nursing
+            </li>
+            <li>
+              <AiOutlineArrowRight /> Nurse Anesthesia
+            </li>
+            <li>
+              <AiOutlineArrowRight /> Geriatric Nursing
+            </li>
+            <li>
+              <AiOutlineArrowRight /> Public Health
+            </li>
+            <li>
+              <AiOutlineArrowRight /> Physiotherapy
+            </li>
+            <li>
+              <AiOutlineArrowRight /> Medical Imaging Technology
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h2>Core values</h2>
+          <ul>
+            <li>
+              <AiOutlineArrowRight /> Flexibility, can be done almost
+              exclusively online (70% online and 30% onsite)
+            </li>
+            <li>
+              <AiOutlineArrowRight /> Qualified lecturers with interactive
+              sessions from 6- 10 pm daily
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h2>Requirement</h2>
+          <ul>
+            <li>
+              <AiOutlineArrowRight /> In addition to entry requirement, students
+              for this option must be ready to study online and must have access
+              to internet connectivity.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Masters;

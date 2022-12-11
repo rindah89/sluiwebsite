@@ -9,7 +9,16 @@
   margin-top: 2rem;
 }
 
-.programs > div {
+.programs a {
+  display: flex;
+  display: -ms-flexbox;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  text-decoration: none;
+}
+
+.programs > a > div {
   flex: 1;
   -ms-flex: 1;
   padding: 1rem;
@@ -33,45 +42,45 @@
   -o-transition: 0.2s ease-in-out;
 }
 
-.programs > div:hover .icon__window {
+.programs > a > div:hover .icon__window {
   right: 1.6rem;
   top: 0.6rem;
 }
 
-.programs > div > div {
+.programs > a > div > div {
   display: flex;
   display: -ms-flexbox;
   flex-direction: column;
   z-index: 0;
 }
 
-.programs > div:not(:last-of-type) {
+.programs > a > div:not(:last-of-type) {
   border-right: 1px solid rgba(0, 0, 0, 0.2);
 }
 
-.programs > div > div h2 {
+.programs > a > div > div h2 {
   color: #e2413c;
   font-size: 3rem;
   font-weight: 700;
 }
 
-.programs > div > div h3 {
+.programs > a > div > div h3 {
   color: rgba(0, 0, 0, 0.8);
   font-size: 1.8rem;
 }
 
-.programs > div .icon {
+.programs > a > div .icon {
   display: none;
 }
 
 @media screen and (max-width: 1075px) {
-  .programs > div > div h2 {
+  .programs > a > div > div h2 {
     font-size: 2.8rem;
   }
 }
 
 @media screen and (max-width: 1012px) {
-  .programs > div > div h2 {
+  .programs > a > div > div h2 {
     font-size: 2.5rem;
   }
 
@@ -80,7 +89,7 @@
     -ms-flex-direction: column;
   }
 
-  .programs > div {
+  .programs > a > div {
     align-items: flex-start;
     width: 100%;
     display: flex;
@@ -95,7 +104,7 @@
     display: none;
   }
 
-  .programs > div .icon {
+  .programs > a > div .icon {
     display: flex;
     display: -ms-flexbox;
     position: absolute;
@@ -113,7 +122,7 @@
     -o-transition: 0.2s ease-in-out;
   }
 
-  .programs > div:hover .icon {
+  .programs > a > div:hover .icon {
     transform: translateY(-50%) translateX(5px);
     -webkit-transform: translateY(-50%) translateX(5px);
     -moz-transform: translateY(-50%) translateX(5px);
@@ -121,7 +130,7 @@
     -o-transform: translateY(-50%) translateX(5px);
   }
 
-  .programs > div:not(:last-of-type) {
+  .programs > a > div:not(:last-of-type) {
     border-right: 1px solid transparent;
   }
 }

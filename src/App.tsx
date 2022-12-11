@@ -14,6 +14,7 @@ import Landing from "./pages/landing/Landing";
 import NotFound from "./pages/error/404";
 import Campuses from "./pages/campuses/Campuses";
 import Faculties from "./pages/faculties/Faculties";
+import Masters from "./pages/masters/Masters";
 
 const App = () => {
   return (
@@ -25,6 +26,7 @@ const App = () => {
           <Route path="/" element={<Landing />} />
           <Route path="/our-campuses" element={<Campuses />} />
           <Route path="/our-faculties" element={<Faculties />} />
+          <Route path="/masters" element={<Masters />} />
           {/* <Route path="/about-st-louis" element={<About />} /> */}
 
           <Route path="*" element={<NotFound />} />
