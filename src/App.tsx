@@ -10,7 +10,7 @@ import ContactIcon from "./components/contact-icon/ContactIcon";
 
 // pages
 import Landing from "./pages/landing/Landing";
-// import About from "./pages/about/About";
+import About from "./pages/about/About";
 import NotFound from "./pages/error/404";
 import Campuses from "./pages/campuses/Campuses";
 import Faculties from "./pages/faculties/Faculties";
@@ -33,7 +33,7 @@ const App = () => {
           <Route path="/hnd" element={<HND />} />
           <Route path="/bachelors" element={<Bachelors />} />
           <Route path="/foundation" element={<Foundation />} />
-          {/* <Route path="/about-st-louis" element={<About />} /> */}
+          <Route path="/about" element={<About />} />
 
           <Route path="*" element={<NotFound />} />
         </Routes>
