@@ -5,44 +5,58 @@
 }
 
 .desc {
-    padding: 4rem 4vw;
+  padding: 4rem 4vw;
 }
 
 .desc .head h2 {
-    font-size: 3rem;
-    font-weight: 600;
-    margin-bottom: 2rem;
-    color: var(--main-color);
+  font-size: 3rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  color: var(--main-color);
 }
 
 .desc .content h4 {
-    font-size: 1.8rem;
-    margin-bottom: 1rem;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
 }
 
 .desc ul {
-    padding-left: 2rem;
+  padding-left: 2rem;
 }
 
 .desc ul li {
-    font-size: 2rem;
-    margin-bottom: 1rem;
+  font-size: 2rem;
+  margin-bottom: 1rem;
 }
 
 .desc ul li span {
-    font-weight: 600;
+  font-weight: 600;
 }
 
 .links {
-    margin: 4rem 0;
-    margin-top: 6rem;
-    display: flex;
-    display: -ms-flexbox;
-    align-items: center;
-    gap: 3rem;
+  margin: 4rem 0;
+  margin-top: 6rem;
+  display: flex;
+  display: -ms-flexbox;
+  align-items: center;
+  gap: 2rem;
 }
 
 .links a {
-    font-size: 2rem;
-    font-weight: 600;
+  font-size: 2rem;
+  font-weight: 600;
+  padding: 1.5rem 3rem;
+  background: var(--main-color);
+  color: #fff;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  font-size: 1.5rem;
+  text-decoration: none;
+  border-bottom-right-radius: 25px;
+  border-top-left-radius: 25px;
 }
