@@ -95,8 +95,7 @@ const Foundation = () => {
         </ul>
 
         <div className={styles.links}>
-          <Link to="/">REQUEST</Link>
-          <Link to="/">INFORMATION</Link>
+          <Link to="/">REQUEST INFORMATION</Link>
         </div>
       </div>
     </div>
