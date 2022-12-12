@@ -52,7 +52,7 @@ const PopupWidget: React.FC<Props> = ({ show, toggleState }) => {
               </span>
             </Link>
             <Link to="/our-faculties">
-              Faculties{" "}
+              Our Values{" "}
               <span>
                 <AiOutlineArrowRight size={30} />
               </span>
@@ -71,7 +71,6 @@ const PopupWidget: React.FC<Props> = ({ show, toggleState }) => {
               <Link to="/">Alumni</Link>
               <Link to="/">News</Link>
               <Link to="/">Events</Link>
-              <Link to="/">Our Values</Link>
               <Link to="/">Contact Us</Link>
               <Link className="hide" to="/">
                 About Us
