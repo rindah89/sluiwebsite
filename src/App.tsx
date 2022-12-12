@@ -17,6 +17,7 @@ import Faculties from "./pages/faculties/Faculties";
 import Masters from "./pages/masters/Masters";
 import HND from "./pages/hnd/HND";
 import Bachelors from "./pages/bachelors/Bachelors";
+import Foundation from "./pages/foundation/Foundation";
 
 const App = () => {
   return (
@@ -31,6 +32,7 @@ const App = () => {
           <Route path="/masters" element={<Masters />} />
           <Route path="/hnd" element={<HND />} />
           <Route path="/bachelors" element={<Bachelors />} />
+          <Route path="/foundation" element={<Foundation />} />
           {/* <Route path="/about-st-louis" element={<About />} /> */}
 
           <Route path="*" element={<NotFound />} />

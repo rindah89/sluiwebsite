@@ -1,0 +1,48 @@
+.para {
+  font-size: 2rem;
+  line-height: 1.3;
+  color: #fff;
+}
+
+.desc {
+    padding: 4rem 4vw;
+}
+
+.desc .head h2 {
+    font-size: 3rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    color: var(--main-color);
+}
+
+.desc .content h4 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.desc ul {
+    padding-left: 2rem;
+}
+
+.desc ul li {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.desc ul li span {
+    font-weight: 600;
+}
+
+.links {
+    margin: 4rem 0;
+    margin-top: 6rem;
+    display: flex;
+    display: -ms-flexbox;
+    align-items: center;
+    gap: 3rem;
+}
+
+.links a {
+    font-size: 2rem;
+    font-weight: 600;
+}

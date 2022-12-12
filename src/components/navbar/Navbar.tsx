@@ -76,7 +76,7 @@ const Navbar = () => {
                 ),
                 title: "Foundation",
                 desc: "The new SLUI International Medical Foundation Programme is a foundation course in Cameroon that provides you with the knowledge and competences to meet entry requirement into medical schools abroad.",
-                link: "/",
+                link: "/foundation",
               },
               {
                 icon: (
