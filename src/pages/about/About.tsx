@@ -33,7 +33,7 @@ const About = () => {
 
       <div className={styles.desc}>
         <div className={styles.head}>
-          <h2>i. Vision:</h2>
+          <h2>Vision:</h2>
         </div>
 
         <div className={styles.content}>
@@ -49,7 +49,7 @@ const About = () => {
 
       <div className={styles.desc}>
         <div className={styles.head}>
-          <h2>ii. Mission:</h2>
+          <h2>Mission:</h2>
         </div>
 
         <div className={styles.content}>
@@ -85,7 +85,7 @@ const About = () => {
 
       <div className={styles.desc}>
         <div className={styles.head}>
-          <h2>iii. Goal:</h2>
+          <h2>Goal:</h2>
         </div>
 
         <div className={styles.content}>
@@ -98,7 +98,7 @@ const About = () => {
 
       <div className={styles.desc}>
         <div className={styles.head}>
-          <h2>iv. Objectives:</h2>
+          <h2>Objectives:</h2>
         </div>
 
         <div className={styles.content}>
@@ -127,7 +127,7 @@ const About = () => {
 
       <div className={styles.desc}>
         <div className={styles.head}>
-          <h2>v. Motto/Mantra:</h2>
+          <h2>Motto/Mantra:</h2>
         </div>
 
         <div className={styles.content}>
@@ -148,7 +148,7 @@ const About = () => {
 
       <div className={styles.desc}>
         <div className={styles.head}>
-          <h2>vi. Slogan:</h2>
+          <h2>Slogan:</h2>
         </div>
 
         <div className={styles.content}>
