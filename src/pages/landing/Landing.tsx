@@ -16,7 +16,7 @@ const Landing = () => {
   return (
     <div className="landing">
       <div className="hero">
-        <h3>St. LOUIS UNIVERSITY INSTITUDE</h3>
+        <h3>St. LOUIS UNIVERSITY INSTITUTE</h3>
         <Fade left>
           <h1>Character and Excellence.</h1>
         </Fade>
@@ -115,7 +115,7 @@ const Landing = () => {
               border: "none",
               color: "#fff",
               float: "right",
-              marginBottom: "10rem"
+              marginBottom: "10rem",
             }}
           >
             View More

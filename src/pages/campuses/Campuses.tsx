@@ -13,7 +13,7 @@ const Campuses = () => {
   return (
     <div className="landing">
       <div className={styles.hero}>
-        <h3>St. LOUIS UNIVERSITY INSTITUDE</h3>
+        <h3>St. LOUIS UNIVERSITY INSTITUTE</h3>
         <h1>Our Campuses.</h1>
 
         <p>

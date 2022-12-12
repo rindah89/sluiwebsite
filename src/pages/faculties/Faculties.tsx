@@ -108,7 +108,7 @@ const Faculties = () => {
         </div>
       )}
       <div className={styles.hero}>
-        <h3>St. LOUIS UNIVERSITY INSTITUDE</h3>
+        <h3>St. LOUIS UNIVERSITY INSTITUTE</h3>
         <Fade up>
           <h1>Our Faculties.</h1>
         </Fade>
