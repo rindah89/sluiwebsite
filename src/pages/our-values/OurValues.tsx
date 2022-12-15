@@ -66,14 +66,16 @@ const OurValues = () => {
         </div>
 
         <div className={styles.content}>
-          Diversity and inclusion{" "}
-          <span style={{ fontWeight: "600" }}>
-            play an integral role in producing an empowered and engaged
-            community.
-          </span>{" "}
-          It is when this type of collaborative and inclusive conversation
-          occurs that people feel comfortable enough to step out of their
-          comfort zone, speak their mind, and participate.
+          <h4>
+            Diversity and inclusion{" "}
+            <span style={{ fontWeight: "600" }}>
+              play an integral role in producing an empowered and engaged
+              community.
+            </span>{" "}
+            It is when this type of collaborative and inclusive conversation
+            occurs that people feel comfortable enough to step out of their
+            comfort zone, speak their mind, and participate.
+          </h4>
         </div>
       </div>
 
