@@ -134,7 +134,7 @@ const PopupWidget: React.FC<Props> = ({ show, toggleState }) => {
                 onClick={() => {
                   toggleState();
                 }}
-                to="/"
+                to="/core-principle"
               >
                 Core Principles
               </Link>

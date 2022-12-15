@@ -47,7 +47,7 @@ const Landing = () => {
           title="You are the centre of your studies"
           subText="Study according to the CORE Principle! Hands-on learning in small teams, step-by-step skill aquisition in field work and semester internships as well as individual support from lecturers."
           description=""
-          refLink="/"
+          refLink="/core-principle"
           btnText="Our Core Principles"
           img="/images/landing2.webp"
         />
@@ -60,7 +60,7 @@ const Landing = () => {
           title="An engaging learning experience."
           subText=""
           description="There is no more lecture-centred teaching at SLUI. Instead, our instructors become personal learning coaches for you. Not only will you develop specialist knowledge together, but also work on improving your soft and hard skills. To do this, we rely on direct communication. Individual advice, digital exchange and continuous feedback are important to us as well as club activities such as the SLUI Toastmasters club."
-          refLink="/"
+          refLink="/core-principle"
           btnText="Our Core Principles"
           img="/images/landing3.webp"
         />
