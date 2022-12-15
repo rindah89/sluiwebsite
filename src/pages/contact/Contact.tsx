@@ -1,9 +1,24 @@
-import React from "react";
+import React, { useRef } from "react";
 
 // stylesheet
 import styles from "./contact.module.css";
 
 const Contact = () => {
+  const firstName = useRef<HTMLInputElement | null>(null);
+  const lastName = useRef<HTMLInputElement | null>(null);
+  const email = useRef<HTMLInputElement | null>(null);
+  const tel = useRef<HTMLInputElement | null>(null);
+  const message = useRef<HTMLTextAreaElement | null>(null);
+  const street = useRef<HTMLInputElement | null>(null);
+  const city = useRef<HTMLInputElement | null>(null);
+  const country = useRef<HTMLInputElement | null>(null);
+
+  // eslint-disable-next-line
+  const handleSubmit = (e: any) => {
+    e.preventDefault();
+    console.log("FORM__SUBMITTED!");
+  };
+
   return (
     <div>
       <div className={styles.contact__info}>
@@ -16,7 +31,7 @@ const Contact = () => {
 
       <div className={styles.form}>
         <h2>We are here for you</h2>
-        <form>
+        <form onSubmit={handleSubmit}>
           <div className={styles.form__control}>
             <h4>Title</h4>
             <div className={styles.radio__boxes}>
@@ -37,37 +52,73 @@ const Contact = () => {
 
           <div className={styles.form__control}>
             <h4>First Name</h4>
-            <input type="text" placeholder="First Name" name="firstName" />
+            <input
+              ref={firstName}
+              type="text"
+              placeholder="First Name"
+              name="firstName"
+            />
           </div>
 
           <div className={styles.form__control}>
             <h4>Last Name</h4>
-            <input type="text" placeholder="Last Name" name="lastName" />
+            <input
+              ref={lastName}
+              type="text"
+              placeholder="Last Name"
+              name="lastName"
+            />
           </div>
 
           <div className={styles.form__control}>
             <h4>Street</h4>
-            <input type="text" placeholder="Street" name="street" />
+            <input
+              ref={street}
+              type="text"
+              placeholder="Street"
+              name="street"
+            />
           </div>
 
           <div className={styles.form__control}>
             <h4>City</h4>
-            <input type="text" placeholder="City" name="city" />
+            <input ref={city} type="text" placeholder="City" name="city" />
           </div>
 
           <div className={styles.form__control}>
             <h4>Country</h4>
-            <input type="text" placeholder="Country" name="country" />
+            <input
+              ref={country}
+              type="text"
+              placeholder="Country"
+              name="country"
+            />
+          </div>
+
+          <div className={styles.form__control}>
+            <h4>Email</h4>
+            <input
+              ref={email}
+              type="email"
+              placeholder="Email Address"
+              name="email"
+            />
           </div>
 
           <div className={styles.form__control}>
             <h4>Tel</h4>
-            <input type="number" placeholder="Phone Number" name="tel" />
+            <input
+              ref={tel}
+              type="number"
+              placeholder="Phone Number"
+              name="tel"
+            />
           </div>
 
           <div className={styles.form__control}>
             <h4>Your Message</h4>
             <textarea
+              ref={message}
               placeholder="Your Message"
               name="message"
               id="message"
