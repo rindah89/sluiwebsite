@@ -1,0 +1,123 @@
+.contact__info {
+  min-height: 70vh;
+  padding: 3rem 4vw;
+  display: flex;
+  display: -ms-flexbox;
+  justify-content: center;
+  padding-top: 6rem;
+  flex-direction: column;
+  background: #f5f4f3;
+  -ms-flex-direction: column;
+}
+
+.contact__info h1 {
+  font-size: 5rem;
+  font-weight: 700;
+  color: var(--main-color);
+}
+
+.contact__info h4 {
+  color: rgba(0, 0, 0, 0.8);
+  font-size: 1.8rem;
+}
+
+.form {
+  padding: 4rem 4vw;
+}
+
+.form > h2 {
+  margin-bottom: 3rem;
+  font-size: 5rem;
+  font-weight: 700;
+  color: var(--main-color);
+}
+
+.form__control {
+  margin-bottom: 2rem;
+}
+
+.form__control > h4 {
+  font-size: 1.4rem;
+  font-weight: 500;
+  margin-bottom: 0.8rem;
+}
+
+.form__control .radio__boxes {
+  display: flex;
+  display: -ms-flexbox;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+}
+
+.form__control .radio {
+  display: flex;
+  display: -ms-flexbox;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.form__control input,
+.form__control textarea {
+  width: 800px;
+  padding: 1rem 1.5rem;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  color: rgba(0, 0, 0, 0.8);
+  font-size: 1.7rem;
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  outline: none;
+}
+
+.form__control textarea {
+  resize: vertical;
+}
+
+.form__control input[type="radio"] {
+  width: 25px;
+  height: 25px;
+  margin-right: 1rem;
+}
+
+.form__control .radio span {
+  font-size: 1.5rem;
+}
+
+.form__control button {
+  padding: 1.5rem 3rem;
+  background: var(--main-color);
+  color: #fff;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  opacity: 0.9;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  font-size: 1.5rem;
+  border-top-right-radius: 35px !important;
+  border-bottom-left-radius: 35px !important;
+  transition: 0.2s ease-in-out;
+  -webkit-transition: 0.2s ease-in-out;
+  -moz-transition: 0.2s ease-in-out;
+  -ms-transition: 0.2s ease-in-out;
+  -o-transition: 0.2s ease-in-out;
+}
+
+.form__control button:hover,
+.form__control button:focus-within {
+  opacity: 1;
+}
+
+@media screen and (max-width: 850px) {
+  .form__control input,
+  .form__control textarea {
+    width: 100%;
+  }
+}

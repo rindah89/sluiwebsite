@@ -34,7 +34,7 @@ const PopupWidget: React.FC<Props> = ({ show, toggleState }) => {
               onClick={() => {
                 toggleState();
               }}
-              to="/"
+              to="/fill-form"
             >
               Request Prospectus
             </Link>
@@ -174,7 +174,7 @@ const PopupWidget: React.FC<Props> = ({ show, toggleState }) => {
                 onClick={() => {
                   toggleState();
                 }}
-                to="/"
+                to="/fill-form"
               >
                 Contact Us
               </Link>
