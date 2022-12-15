@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AiOutlineArrowRight, AiOutlineClose } from "react-icons/ai";
 
 // styles
@@ -11,6 +11,8 @@ type Props = {
 };
 
 const PopupWidget: React.FC<Props> = ({ show, toggleState }) => {
+  const navigate = useNavigate();
+
   return (
     <div className={`popup ${show ? "show" : null}`}>
       <div className="popup__content">
@@ -28,36 +30,91 @@ const PopupWidget: React.FC<Props> = ({ show, toggleState }) => {
 
         <div className="popup__text">
           <div className="links">
-            <Link to="/">Request Prospectus</Link>
-            <Link to="/">How to Apply</Link>
-            <Link to="/">Fees</Link>
-            <Link to="/">Scholarships</Link>
-            <Link to="/">Student Guide</Link>
+            <Link
+              onClick={() => {
+                toggleState();
+              }}
+              to="/"
+            >
+              Request Prospectus
+            </Link>
+            <Link
+              onClick={() => {
+                toggleState();
+              }}
+              to="/"
+            >
+              How to Apply
+            </Link>
+            <Link
+              onClick={() => {
+                toggleState();
+              }}
+              to="/"
+            >
+              Fees
+            </Link>
+            <Link
+              onClick={() => {
+                toggleState();
+              }}
+              to="/"
+            >
+              Scholarships
+            </Link>
+            <Link
+              onClick={() => {
+                toggleState();
+              }}
+              to="/"
+            >
+              Student Guide
+            </Link>
             <div className="pic">
               <img src="/images/logo_dark.webp" alt="slui logo" />
             </div>
           </div>
 
           <div className="ref">
-            <Link to="/">
+            <Link
+              onClick={() => {
+                toggleState();
+              }}
+              to="/"
+            >
               Why SLUI{" "}
               <span>
                 <AiOutlineArrowRight size={30} />
               </span>
             </Link>
-            <Link to="/">
+            <Link
+              onClick={() => {
+                toggleState();
+              }}
+              to="/"
+            >
               Study at SLUI{" "}
               <span>
                 <AiOutlineArrowRight size={30} />
               </span>
             </Link>
-            <Link to="/our-faculties">
+            <Link
+              onClick={() => {
+                toggleState();
+              }}
+              to="/our-values"
+            >
               Our Values{" "}
               <span>
                 <AiOutlineArrowRight size={30} />
               </span>
             </Link>
-            <Link to="/">
+            <Link
+              onClick={() => {
+                toggleState();
+              }}
+              to="/"
+            >
               Facilities{" "}
               <span>
                 <AiOutlineArrowRight size={30} />
@@ -65,26 +122,105 @@ const PopupWidget: React.FC<Props> = ({ show, toggleState }) => {
             </Link>
 
             <div className="other">
-              <Link to="/">Handbook</Link>
-              <Link to="/">Core Principles</Link>
-              <Link to="/">Leadership Team</Link>
-              <Link to="/">Alumni</Link>
-              <Link to="/">News</Link>
-              <Link to="/">Events</Link>
-              <Link to="/">Contact Us</Link>
-              <Link className="hide" to="/">
+              <Link
+                onClick={() => {
+                  toggleState();
+                }}
+                to="/"
+              >
+                Handbook
+              </Link>
+              <Link
+                onClick={() => {
+                  toggleState();
+                }}
+                to="/"
+              >
+                Core Principles
+              </Link>
+              <Link
+                onClick={() => {
+                  toggleState();
+                }}
+                to="/"
+              >
+                Leadership Team
+              </Link>
+              <Link
+                onClick={() => {
+                  toggleState();
+                }}
+                to="/"
+              >
+                Alumni
+              </Link>
+              <Link
+                onClick={() => {
+                  toggleState();
+                }}
+                to="/"
+              >
+                News
+              </Link>
+              <Link
+                onClick={() => {
+                  toggleState();
+                }}
+                to="/"
+              >
+                Events
+              </Link>
+              <Link
+                onClick={() => {
+                  toggleState();
+                }}
+                to="/"
+              >
+                Contact Us
+              </Link>
+              <Link
+                onClick={() => {
+                  toggleState();
+                }}
+                className="hide"
+                to="/"
+              >
                 About Us
               </Link>
-              <Link className="hide" to="/">
+              <Link
+                onClick={() => {
+                  toggleState();
+                }}
+                className="hide"
+                to="/"
+              >
                 Programmes
               </Link>
-              <Link className="hide" to="/our-faculties">
+              <Link
+                onClick={() => {
+                  toggleState();
+                }}
+                className="hide"
+                to="/our-faculties"
+              >
                 Faculties
               </Link>
-              <Link className="hide" to="/our-campuses">
+              <Link
+                onClick={() => {
+                  toggleState();
+                }}
+                className="hide"
+                to="/our-campuses"
+              >
                 Campuses
               </Link>
-              <Link className="hide" to="/">
+              <Link
+                onClick={() => {
+                  toggleState();
+                }}
+                className="hide"
+                to="/"
+              >
                 Short Courses
               </Link>
             </div>

@@ -18,6 +18,7 @@ import Masters from "./pages/masters/Masters";
 import HND from "./pages/hnd/HND";
 import Bachelors from "./pages/bachelors/Bachelors";
 import Foundation from "./pages/foundation/Foundation";
+import OurValues from "./pages/our-values/OurValues";
 
 const App = () => {
   return (
@@ -34,6 +35,7 @@ const App = () => {
           <Route path="/bachelors" element={<Bachelors />} />
           <Route path="/foundation" element={<Foundation />} />
           <Route path="/about" element={<About />} />
+          <Route path="/our-values" element={<OurValues />} />
 
           <Route path="*" element={<NotFound />} />
         </Routes>
