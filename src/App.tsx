@@ -21,6 +21,7 @@ import Foundation from "./pages/foundation/Foundation";
 import OurValues from "./pages/our-values/OurValues";
 import CorePrinciple from "./pages/core-principle/CorePrinciple";
 import Contact from "./pages/contact/Contact";
+import FindBuddy from "./pages/find-buddy/FindBuddy";
 
 const App = () => {
   return (
@@ -39,6 +40,7 @@ const App = () => {
           <Route path="/about" element={<About />} />
           <Route path="/our-values" element={<OurValues />} />
           <Route path="/core-principle" element={<CorePrinciple />} />
+          <Route path="/find-your-slui-buddy" element={<FindBuddy />} />
           <Route path="/fill-form" element={<Contact />} />
 
           <Route path="*" element={<NotFound />} />

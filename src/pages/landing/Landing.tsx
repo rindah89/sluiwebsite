@@ -73,7 +73,7 @@ const Landing = () => {
           title="Chat with our Staff and Students"
           subText=""
           description="Do you want first-hand information? Our staff & students are happy to share their experiences with you, tell you about their courses, their projects and student life in Douala, Yaounde, Bamenda & Ndu."
-          refLink="/"
+          refLink="/find-your-slui-buddy"
           btnText="Find Your Buddy"
           img="/images/landing4.webp"
         />
