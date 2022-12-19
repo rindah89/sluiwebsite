@@ -28,14 +28,14 @@ const Campuses = () => {
       <div className={styles.campuses}>
         <GridLayout columns={2} gap={3}>
           <CampusCard
-            image="/images/landing.webp"
+            image="/images/bonaberi_campus.webp"
             name="Bonaberi"
             title="In Bonaberi, you'll find our striking, modern, brand new campus in the city's University and Innovation Quarter. Located opposite Nestle at the entrance to the city of Douala, the economic hub of Cameroon."
             refLink="/"
           />
 
           <CampusCard
-            image="/images/landing2.webp"
+            image="/images/bonamousaddi.webp"
             name="Bonamoussadi"
             title="Our Bonamoussadi campus is located at the entrance of the vibrant Bonamoussadi quarter which is a blend of residential and business. SLUI is situated an the giant building on the right as you make your way into Bonamoussadi known as rond point maeture."
             refLink="/"
