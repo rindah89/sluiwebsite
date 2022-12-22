@@ -28,7 +28,7 @@ const Campuses = () => {
       <div className={styles.campuses}>
         <GridLayout columns={2} gap={3}>
           <CampusCard
-            image="/images/bonaberi_campus.webp"
+            image="/images/bonaberi_campus.jpg"
             name="Bonaberi"
             title="In Bonaberi, you'll find our striking, modern, brand new campus in the city's University and Innovation Quarter. Located opposite Nestle at the entrance to the city of Douala, the economic hub of Cameroon."
             refLink="/"
@@ -49,7 +49,7 @@ const Campuses = () => {
           />
 
           <CampusCard
-            image="/images/campus.webp"
+            image="/images/bamenda.jpeg"
             name="Bamenda"
             title="St.Louis University Institute Bamenda campus is situated at Mile 3 Nkwen. It is the birth place of SLUI. This area of the beautiful city of Bamenda is know for it serenity and accessibility harboring majority of the student population in Bamenda."
             refLink="/"
@@ -72,22 +72,22 @@ const Campuses = () => {
         <ProgramGrid
           programs={[
             {
-              image: "/images/landing.webp",
+              image: "/images/test4.jpg",
               desc: "More and more exciting programs to be explored at our campuses.",
               label: "Bachelor",
             },
             {
-              image: "/images/landing2.webp",
+              image: "/images/test5.jpg",
               desc: "Explore our best masters programs. Find a fit for yourself.",
               label: "Masters",
             },
             {
-              image: "/images/landing3.webp",
+              image: "/images/test7.jpg",
               desc: "We offer a variety of short courses. Explore today!",
               label: "Short Course",
             },
             {
-              image: "/images/landing4.webp",
+              image: "/images/test6.jpg",
               desc: "HND programs are just so exciting start a career in one of these programmes.",
               label: "HND",
             },

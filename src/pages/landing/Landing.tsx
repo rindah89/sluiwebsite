@@ -86,7 +86,7 @@ const Landing = () => {
         <div className="grid__ref">
           <GridLayout columns={3} gap={2}>
             <LeaderCard
-              image="/images/landing.webp"
+              image="/images/nick.jpeg"
               name="Dr. Nick Ngwanyam"
               title="PRESIDENT"
             />
