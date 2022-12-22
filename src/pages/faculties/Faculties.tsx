@@ -140,7 +140,7 @@ const Faculties = () => {
             description="The Faculty of Health and Biomedical Sciences continues to benefit from millions of FCFA investment scheme of laboratory modernisation and the development of cutting-edge teaching and research facilities, allied to the provision of clinical-based courses. Academic staff, students and external partners, including MINESUP and MINSANTE, have worked collaboratively during all phases to ensure the learning, teaching and research environment puts students first."
             refLink="/"
             btnText="View More Information"
-            img="/images/health.webp"
+            img="/images/bio.jpg"
             onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
               e.preventDefault();
               setActivePanel(true);
@@ -178,7 +178,7 @@ const Faculties = () => {
             description="Agriculture in today's world is an interesting and challenging industry where you can have a real impact. Our unique programmes combine the core disciplines of agricultural sciences with business management and innovative technology. Our classes include lively discussions around current issues as well as hands-on learning in the classroom, the lab and the field, giving you practical experience and a competitive advantage heading into careers on a local, national and global scale."
             refLink="/"
             btnText="View More Information"
-            img="/images/agri.webp"
+            img="/images/agri.jpg"
             onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
               e.preventDefault();
               setActivePanel(true);
@@ -195,22 +195,22 @@ const Faculties = () => {
         <ProgramGrid
           programs={[
             {
-              image: "/images/landing.webp",
+              image: "/images/test4.jpg",
               desc: "More and more exciting programs to be explored at our campuses.",
               label: "Bachelor",
             },
             {
-              image: "/images/landing2.webp",
+              image: "/images/test5.jpg",
               desc: "Explore our best masters programs. Find a fit for yourself.",
               label: "Masters",
             },
             {
-              image: "/images/landing3.webp",
+              image: "/images/test7.jpg",
               desc: "We offer a variety of short courses. Explore today!",
               label: "Short Course",
             },
             {
-              image: "/images/landing4.webp",
+              image: "/images/test6.jpg",
               desc: "HND programs are just so exciting start a career in one of these programmes.",
               label: "HND",
             },
