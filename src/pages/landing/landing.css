@@ -9,20 +9,18 @@
   background-size: cover;
   padding: 3rem 4vw;
   padding-bottom: 5rem;
+
+   display: flex;
+  display: -ms-flexbox;
+  flex-direction: column;
+  -ms-flex-direction: column;
+  justify-content: flex-end;
 }
 
 @media screen and (max-width: 1012px) {
   .hero {
     padding-top: 70rem;
   }
-}
-
-.hero {
-  display: flex;
-  display: -ms-flexbox;
-  flex-direction: column;
-  -ms-flex-direction: column;
-  justify-content: flex-end;
 }
 
 .hero h3 {

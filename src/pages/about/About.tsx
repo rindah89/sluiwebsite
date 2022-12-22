@@ -9,7 +9,7 @@ import styles from "./about.module.css";
 const About = () => {
   return (
     <div>
-      <div className="hero">
+      <div className={styles.hero}>
         <h3>St. LOUIS UNIVERSITY INSTITUTE</h3>
         <Fade left>
           <h1>About Our Marvelous Institute.</h1>
@@ -175,22 +175,22 @@ const About = () => {
         <ProgramGrid
           programs={[
             {
-              image: "/images/landing.webp",
+              image: "/images/test4.jpg",
               desc: "More and more exciting programs to be explored at our campuses.",
               label: "Bachelor",
             },
             {
-              image: "/images/landing2.webp",
+              image: "/images/test5.jpg",
               desc: "Explore our best masters programs. Find a fit for yourself.",
               label: "Masters",
             },
             {
-              image: "/images/landing3.webp",
+              image: "/images/test7.jpg",
               desc: "We offer a variety of short courses. Explore today!",
               label: "Short Course",
             },
             {
-              image: "/images/landing4.webp",
+              image: "/images/test6.jpg",
               desc: "HND programs are just so exciting start a career in one of these programmes.",
               label: "HND",
             },
