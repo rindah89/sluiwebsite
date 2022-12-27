@@ -10,7 +10,7 @@ const About = () => {
   return (
     <div>
       <div className={styles.hero}>
-        <h3>St. LOUIS UNIVERSITY INSTITUTE</h3>
+        <h3>ST. LOUIS UNIVERSITY INSTITUTE</h3>
         <Fade left>
           <h1>About Our Marvelous Institute.</h1>
         </Fade>
@@ -21,7 +21,7 @@ const About = () => {
             <h2>Brief Background.</h2>
           </Fade>
           <h4>
-            St. Louis University Institute is a Private Higher Education
+            ST. LOUIS UNIVERSITY INSTITUTE is a Private Higher Education
             Institution, born out of a clear conviction of the promoter to
             position in a Cameroon, a learning Centre dedicated to excellence
             and tact, and a burning desire to excel and deliver quality at the
@@ -42,7 +42,7 @@ const About = () => {
             non-university, and industrial research, and thus takes a role as a
             guarantor of research-based teaching in Cameroon, focused on quality
             and holism. To become the afore-mentioned is the vision in simple
-            terms, of St. Louis University Institute.
+            terms, of ST. LOUIS UNIVERSITY INSTITUTE.
           </h4>
         </div>
       </div>
@@ -197,7 +197,7 @@ const About = () => {
           ]}
         />
       </div>
-      
+
       <div className="programs_">
         <div className="headline">
           <h2>Memberships and Partnerships</h2>

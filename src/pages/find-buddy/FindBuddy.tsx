@@ -30,20 +30,40 @@ const FindBuddy = () => {
 
       <div className={styles.filter}>
         <div className={styles.filter__options}>
-          <button className={activeSelector === 0 ? styles.active : ""}>
+          <button
+            onClick={() => {
+              setActiveSelector(0);
+            }}
+            className={activeSelector === 0 ? styles.active : ""}
+          >
             <FiUsers size={30} style={{ marginRight: "0.3rem" }} />
             <h4>Students</h4>
           </button>
-          <button className={activeSelector === 1 ? styles.active : ""}>
+          <button
+            onClick={() => {
+              setActiveSelector(1);
+            }}
+            className={activeSelector === 1 ? styles.active : ""}
+          >
             {" "}
             <SiTripadvisor size={30} style={{ marginRight: "0.3rem" }} />
             <h4>Admission Advicers</h4>
           </button>
-          <button className={activeSelector === 2 ? styles.active : ""}>
+          <button
+            onClick={() => {
+              setActiveSelector(2);
+            }}
+            className={activeSelector === 2 ? styles.active : ""}
+          >
             <AiOutlineUser size={30} style={{ marginRight: "0.3rem" }} />
             <h4>Administrator</h4>
           </button>
-          <button className={activeSelector === 3 ? styles.active : ""}>
+          <button
+            onClick={() => {
+              setActiveSelector(3);
+            }}
+            className={activeSelector === 3 ? styles.active : ""}
+          >
             <RiAdminFill size={30} style={{ marginRight: "0.3rem" }} />
             <h4>Alumni</h4>
           </button>

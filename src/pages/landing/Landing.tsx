@@ -16,7 +16,7 @@ const Landing = () => {
   return (
     <div className="landing">
       <div className="hero">
-        <h3>St. LOUIS UNIVERSITY INSTITUTE</h3>
+        <h3>ST. LOUIS UNIVERSITY INSTITUTE</h3>
         <Fade left>
           <h1>Character and Excellence.</h1>
         </Fade>

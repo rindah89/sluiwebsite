@@ -9,7 +9,7 @@ const OurValues = () => {
   return (
     <div>
       <div className="hero">
-        <h3>St. LOUIS UNIVERSITY INSTITUTE</h3>
+        <h3>ST. LOUIS UNIVERSITY INSTITUTE</h3>
         <Fade left>
           <h1>OUR VALUES</h1>
         </Fade>

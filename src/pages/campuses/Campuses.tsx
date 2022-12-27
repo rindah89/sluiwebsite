@@ -13,11 +13,11 @@ const Campuses = () => {
   return (
     <div className="landing">
       <div className={styles.hero}>
-        <h3>St. LOUIS UNIVERSITY INSTITUTE</h3>
+        <h3>ST. LOUIS UNIVERSITY INSTITUTE</h3>
         <h1>Our Campuses.</h1>
 
         <p>
-          St. Louis University Institute has five campuses. Our campuses are at
+          ST. LOUIS UNIVERSITY INSTITUTE has five campuses. Our campuses are at
           the heart of four exciting cities; Douala, Yaounde and Bamenda.
           Combine a city lifestyle with tranquil surroundings for a unique study
           experience. With thousands of student and city life right on your

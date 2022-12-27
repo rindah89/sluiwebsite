@@ -57,8 +57,8 @@ const Programs = () => {
       <Link to="/foundation">
         <div>
           <div className="program">
-            <h2>Foundation</h2>
-            <h3>1 Foundation Course</h3>
+            <h2>Short Course</h2>
+            <h3>1 Short Course</h3>
           </div>
           <div className="icon__window">
             <BsArrowUpRight color="#000" size={20} />
