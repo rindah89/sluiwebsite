@@ -17,6 +17,8 @@
   display: -ms-flexbox;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: nowrap;
+  overflow-x: auto;
 }
 
 .filter__options button {
@@ -27,6 +29,7 @@
   -ms-border-radius: 0;
   -o-border-radius: 0;
   background: transparent;
+  cursor: pointer;
   border: none;
   border-bottom: 2px solid rgba(0, 0, 0, 0.2);
   color: rgba(0, 0, 0, 0.7);
@@ -47,6 +50,7 @@
 
 .filter__options button h4 {
   margin-top: 0.8rem;
+  white-space: nowrap;
 }
 
 .filter__options button:hover,
@@ -54,4 +58,24 @@
 .filter__options button.active {
   border-bottom: 2px solid #e2413c;
   color: #e2413c;
+}
+
+.buddies__grid {
+  display: grid;
+  display: -ms-grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2rem;
+  padding: 4rem 0;
+}
+
+@media screen and (max-width: 950px) {
+  .buddies__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .buddies__grid {
+    grid-template-columns: 1fr;
+  }
 }

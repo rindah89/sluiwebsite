@@ -9,9 +9,15 @@ import styles from "./buddy.module.css";
 
 // components
 import Content from "../../components/content/Content";
+import BuddyCard from "../../components/buddy-card/BuddyCard";
 
 const FindBuddy = () => {
   const [activeSelector, setActiveSelector] = useState(0);
+  const [typeSelector, setTypeSelector] = useState("STUDENT");
+
+  // ADMISSION_ADVICER;
+  // ADMINISTRATOR;
+  // ALUMNI;
 
   return (
     <div className={styles.wrapper}>
@@ -67,6 +73,27 @@ const FindBuddy = () => {
             <RiAdminFill size={30} style={{ marginRight: "0.3rem" }} />
             <h4>Alumni</h4>
           </button>
+        </div>
+
+        <div className={styles.buddies__grid}>
+          <BuddyCard
+            image="/images/test.jpg"
+            title="Lead Engineer"
+            name="The Tetee Programmer"
+            whatsapp="https://wa.me/650999316"
+          />
+          <BuddyCard
+            image="/images/test.jpg"
+            title="Lead Engineer"
+            name="The Tetee Programmer"
+            whatsapp="https://wa.me/650999316"
+          />
+          <BuddyCard
+            image="/images/test.jpg"
+            title="Lead Engineer"
+            name="The Tetee Programmer"
+            whatsapp="https://wa.me/650999316"
+          />
         </div>
       </div>
     </div>
