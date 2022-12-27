@@ -29,7 +29,6 @@ const Navbar = () => {
   const [activePanel, setActivePanel] = useState(false);
 
   const [programsPanelActivated, setProgramsPanelActivated] = useState(false);
-
   return (
     <nav className={`navbar ${position >= 100 ? "bg" : ""}`}>
       {activePanel && (

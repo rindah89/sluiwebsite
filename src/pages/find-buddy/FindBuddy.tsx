@@ -1,5 +1,5 @@
-import React from "react";
-import { AiFillAccountBook, AiOutlineUser } from "react-icons/ai";
+import React, { useState } from "react";
+import { AiOutlineUser } from "react-icons/ai";
 import { FiUsers } from "react-icons/fi";
 import { SiTripadvisor } from "react-icons/si";
 import { RiAdminFill } from "react-icons/ri";
@@ -11,6 +11,8 @@ import styles from "./buddy.module.css";
 import Content from "../../components/content/Content";
 
 const FindBuddy = () => {
+  const [activeSelector, setActiveSelector] = useState(0);
+
   return (
     <div className={styles.wrapper}>
       <div className="content__section">
@@ -28,21 +30,21 @@ const FindBuddy = () => {
 
       <div className={styles.filter}>
         <div className={styles.filter__options}>
-          <button>
-            <FiUsers style={{ marginRight: "0.3rem" }} />
+          <button className={activeSelector === 0 ? styles.active : ""}>
+            <FiUsers size={30} style={{ marginRight: "0.3rem" }} />
             <h4>Students</h4>
           </button>
-          <button>
+          <button className={activeSelector === 1 ? styles.active : ""}>
             {" "}
-            <SiTripadvisor style={{ marginRight: "0.3rem" }} />
+            <SiTripadvisor size={30} style={{ marginRight: "0.3rem" }} />
             <h4>Admission Advicers</h4>
           </button>
-          <button>
-            <AiOutlineUser style={{ marginRight: "0.3rem" }} />
+          <button className={activeSelector === 2 ? styles.active : ""}>
+            <AiOutlineUser size={30} style={{ marginRight: "0.3rem" }} />
             <h4>Administrator</h4>
           </button>
-          <button>
-            <RiAdminFill style={{ marginRight: "0.3rem" }} />
+          <button className={activeSelector === 3 ? styles.active : ""}>
+            <RiAdminFill size={30} style={{ marginRight: "0.3rem" }} />
             <h4>Alumni</h4>
           </button>
         </div>

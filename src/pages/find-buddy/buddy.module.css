@@ -28,7 +28,8 @@
   -o-border-radius: 0;
   background: transparent;
   border: none;
-  border-bottom: 2px solid #e2413c;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+  color: rgba(0, 0, 0, 0.7);
   display: flex;
   display: -ms-flexbox;
   align-items: center;
@@ -36,6 +37,21 @@
   flex-direction: column;
   -ms-flex-direction: column;
   font-weight: 600;
-  color: #e2413c;
+  transition: 0.3s ease-in-out;
   font-size: 1.8rem;
+  -webkit-transition: 0.3s ease-in-out;
+  -moz-transition: 0.3s ease-in-out;
+  -ms-transition: 0.3s ease-in-out;
+  -o-transition: 0.3s ease-in-out;
+}
+
+.filter__options button h4 {
+  margin-top: 0.8rem;
+}
+
+.filter__options button:hover,
+.filter__options button:focus-within,
+.filter__options button.active {
+  border-bottom: 2px solid #e2413c;
+  color: #e2413c;
 }
