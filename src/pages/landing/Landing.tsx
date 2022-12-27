@@ -62,7 +62,7 @@ const Landing = () => {
           description="There is no more lecture-centred teaching at SLUI. Instead, our instructors become personal learning coaches for you. Not only will you develop specialist knowledge together, but also work on improving your soft and hard skills. To do this, we rely on direct communication. Individual advice, digital exchange and continuous feedback are important to us as well as club activities such as the SLUI Toastmasters club."
           refLink="/core-principle"
           btnText="Our Core Principles"
-          img="/images/test.jpg"
+          img="/images/test.JPG"
         />
       </div>
 
@@ -131,17 +131,17 @@ const Landing = () => {
         <ProgramGrid
           programs={[
             {
-              image: "/images/test4.jpg",
+              image: "/images/test4.JPG",
               desc: "More and more exciting programs to be explored at our campuses.",
               label: "Bachelor",
             },
             {
-              image: "/images/test5.jpg",
+              image: "/images/test5.JPG",
               desc: "Explore our best masters programs. Find a fit for yourself.",
               label: "Masters",
             },
             {
-              image: "/images/test7.jpg",
+              image: "/images/test7.JPG",
               desc: "We offer a variety of short courses. Explore today!",
               label: "Short Course",
             },
