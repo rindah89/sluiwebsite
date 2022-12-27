@@ -119,22 +119,22 @@ const CorePrinciple = () => {
         <ProgramGrid
           programs={[
             {
-              image: "/images/landing.webp",
+              image: "/images/test4.JPG",
               desc: "More and more exciting programs to be explored at our campuses.",
               label: "Bachelor",
             },
             {
-              image: "/images/landing2.webp",
+              image: "/images/test5.JPG",
               desc: "Explore our best masters programs. Find a fit for yourself.",
               label: "Masters",
             },
             {
-              image: "/images/landing3.webp",
+              image: "/images/test7.JPG",
               desc: "We offer a variety of short courses. Explore today!",
               label: "Short Course",
             },
             {
-              image: "/images/landing4.webp",
+              image: "/images/test6.JPG",
               desc: "HND programs are just so exciting start a career in one of these programmes.",
               label: "HND",
             },

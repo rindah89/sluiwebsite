@@ -72,22 +72,22 @@ const Campuses = () => {
         <ProgramGrid
           programs={[
             {
-              image: "/images/test4.jpg",
+              image: "/images/test4.JPG",
               desc: "More and more exciting programs to be explored at our campuses.",
               label: "Bachelor",
             },
             {
-              image: "/images/test5.jpg",
+              image: "/images/test5.JPG",
               desc: "Explore our best masters programs. Find a fit for yourself.",
               label: "Masters",
             },
             {
-              image: "/images/test7.jpg",
+              image: "/images/test7.JPG",
               desc: "We offer a variety of short courses. Explore today!",
               label: "Short Course",
             },
             {
-              image: "/images/test6.jpg",
+              image: "/images/test6.JPG",
               desc: "HND programs are just so exciting start a career in one of these programmes.",
               label: "HND",
             },

@@ -75,7 +75,7 @@ const Landing = () => {
           description="Do you want first-hand information? Our staff & students are happy to share their experiences with you, tell you about their courses, their projects and student life in Douala, Yaounde, Bamenda & Ndu."
           refLink="/find-your-slui-buddy"
           btnText="Find Your Buddy"
-          img="/images/test3.jpg"
+          img="/images/test3.JPG"
         />
       </div>
 
@@ -146,7 +146,7 @@ const Landing = () => {
               label: "Short Course",
             },
             {
-              image: "/images/test6.jpg",
+              image: "/images/test6.JPG",
               desc: "HND programs are just so exciting start a career in one of these programmes.",
               label: "HND",
             },

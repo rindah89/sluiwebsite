@@ -1,4 +1,8 @@
 import React from "react";
+import { AiFillAccountBook, AiOutlineUser } from "react-icons/ai";
+import { FiUsers } from "react-icons/fi";
+import { SiTripadvisor } from "react-icons/si";
+import { RiAdminFill } from "react-icons/ri";
 
 // stylesheet
 import styles from "./buddy.module.css";
@@ -24,10 +28,22 @@ const FindBuddy = () => {
 
       <div className={styles.filter}>
         <div className={styles.filter__options}>
-          <button>Students</button>
-          <button>Admission Advicers</button>
-          <button>Administrator</button>
-          <button>Alumni</button>
+          <button>
+            <FiUsers style={{ marginRight: "0.3rem" }} /> Students
+          </button>
+          <button>
+            {" "}
+            <SiTripadvisor style={{ marginRight: "0.3rem" }} />
+            Admission Advicers
+          </button>
+          <button>
+            <AiOutlineUser style={{ marginRight: "0.3rem" }} />
+            Administrator
+          </button>
+          <button>
+            <RiAdminFill style={{ marginRight: "0.3rem" }} />
+            Alumni
+          </button>
         </div>
       </div>
     </div>
