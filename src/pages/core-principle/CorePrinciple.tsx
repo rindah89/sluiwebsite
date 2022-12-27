@@ -10,7 +10,7 @@ import ProgramGrid from "../../components/program-grid/ProgramGrid";
 const CorePrinciple = () => {
   return (
     <div>
-      <div className="hero">
+      <div className={styles.hero}>
         <h3>OUR CORE PRINCIPLE</h3>
         <Fade left>
           <h1 style={{ lineHeight: "1.1", margin: "2rem 0" }}>
