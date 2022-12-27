@@ -92,13 +92,13 @@ const Landing = () => {
             />
 
             <LeaderCard
-              image="/images/landing2.webp"
+              image="/images/florence.jpg"
               name="Dr. Manjong Florence"
               title="DVC. Academic Affairs"
             />
 
             <LeaderCard
-              image="/images/landing4.webp"
+              image="/images/olivier.jpg"
               name="Mr. Tolly Olivier"
               title="DVC. Admin and Finance"
             />

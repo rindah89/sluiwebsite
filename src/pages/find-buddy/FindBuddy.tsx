@@ -21,6 +21,15 @@ const FindBuddy = () => {
           img="/images/landing2.webp"
         />
       </div>
+
+      <div className={styles.filter}>
+        <div className={styles.filter__options}>
+          <button>Students</button>
+          <button>Admission Advicers</button>
+          <button>Administrator</button>
+          <button>Alumni</button>
+        </div>
+      </div>
     </div>
   );
 };
