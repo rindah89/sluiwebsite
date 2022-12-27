@@ -9,6 +9,15 @@ export const data = [
     about: "",
   },
   {
+    category: "STUDENT",
+    name: "",
+    specialty: "",
+    contact: "",
+    campus: "",
+    program: "",
+    about: "",
+  },
+  {
     category: "ADMISSION_ADVICER",
     name: "",
     specialty: "",

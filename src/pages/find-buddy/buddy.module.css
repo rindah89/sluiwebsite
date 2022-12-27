@@ -51,6 +51,7 @@
 .filter__options button h4 {
   margin-top: 0.8rem;
   white-space: nowrap;
+  font-weight: 600;
 }
 
 .filter__options button:hover,
