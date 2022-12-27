@@ -3,13 +3,13 @@
 }
 
 .filter {
-    padding: 2rem 8vw;
-    display: flex;
-    display: -ms-flexbox;
-    flex-direction: column;
-    -ms-flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  padding: 2rem 8vw;
+  display: flex;
+  display: -ms-flexbox;
+  flex-direction: column;
+  -ms-flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .filter__options {
@@ -17,18 +17,24 @@
   display: -ms-flexbox;
   align-items: center;
   justify-content: space-between;
-  gap: 2rem;
 }
 
 .filter__options button {
-  padding: 0.8rem 2rem;
-  border-radius: 5px;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  -ms-border-radius: 5px;
-  -o-border-radius: 5px;
+  padding: 0.8rem 5rem;
+  border-radius: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  -o-border-radius: 0;
   background: transparent;
-  border: 2px solid #e2413c;
+  border: none;
+  border-bottom: 2px solid #e2413c;
+  display: flex;
+  display: -ms-flexbox;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  -ms-flex-direction: column;
   font-weight: 600;
   color: #e2413c;
   font-size: 1.8rem;

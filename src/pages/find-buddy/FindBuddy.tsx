@@ -29,20 +29,21 @@ const FindBuddy = () => {
       <div className={styles.filter}>
         <div className={styles.filter__options}>
           <button>
-            <FiUsers style={{ marginRight: "0.3rem" }} /> Students
+            <FiUsers style={{ marginRight: "0.3rem" }} />
+            <h4>Students</h4>
           </button>
           <button>
             {" "}
             <SiTripadvisor style={{ marginRight: "0.3rem" }} />
-            Admission Advicers
+            <h4>Admission Advicers</h4>
           </button>
           <button>
             <AiOutlineUser style={{ marginRight: "0.3rem" }} />
-            Administrator
+            <h4>Administrator</h4>
           </button>
           <button>
             <RiAdminFill style={{ marginRight: "0.3rem" }} />
-            Alumni
+            <h4>Alumni</h4>
           </button>
         </div>
       </div>
