@@ -140,7 +140,7 @@ const Faculties = () => {
             description="The Faculty of Health and Biomedical Sciences continues to benefit from millions of FCFA investment scheme of laboratory modernisation and the development of cutting-edge teaching and research facilities, allied to the provision of clinical-based courses. Academic staff, students and external partners, including MINESUP and MINSANTE, have worked collaboratively during all phases to ensure the learning, teaching and research environment puts students first."
             refLink="/"
             btnText="View More Information"
-            img="/images/bio.JPG"
+            img="/pics/optimized/ivs-6804.webp"
             onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
               e.preventDefault();
               setActivePanel(true);
@@ -159,7 +159,7 @@ const Faculties = () => {
             description="The Faculty of Engineering and Technology brings together a spectrum of courses and programmes aligned to the technological needs and requirements of today. Our key areas of teaching cover a wide variety of subjects aligned to computer science and engineering."
             refLink="/"
             btnText="View More Information"
-            img="/images/eng.webp"
+            img="/pics/optimized/ivs-7501.webp"
             onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
               e.preventDefault();
               setActivePanel(true);
@@ -178,7 +178,7 @@ const Faculties = () => {
             description="Agriculture in today's world is an interesting and challenging industry where you can have a real impact. Our unique programmes combine the core disciplines of agricultural sciences with business management and innovative technology. Our classes include lively discussions around current issues as well as hands-on learning in the classroom, the lab and the field, giving you practical experience and a competitive advantage heading into careers on a local, national and global scale."
             refLink="/"
             btnText="View More Information"
-            img="/images/agri.JPG"
+            img="/pics/optimized/ivs-6903.webp"
             onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
               e.preventDefault();
               setActivePanel(true);
@@ -195,22 +195,22 @@ const Faculties = () => {
         <ProgramGrid
           programs={[
             {
-              image: "/images/test4.JPG",
+              image: "/pics/optimized/ivs-7494.webp",
               desc: "More and more exciting programs to be explored at our campuses.",
               label: "Bachelor",
             },
             {
-              image: "/images/test5.JPG",
+              image: "/pics/optimized/ivs-7545.webp",
               desc: "Explore our best masters programs. Find a fit for yourself.",
               label: "Masters",
             },
             {
-              image: "/images/test7.JPG",
+              image: "/pics/optimized/ivs-7639.webp",
               desc: "We offer a variety of short courses. Explore today!",
               label: "Short Course",
             },
             {
-              image: "/images/test6.JPG",
+              image: "/pics/optimized/ivs-7531.webp",
               desc: "HND programs are just so exciting start a career in one of these programmes.",
               label: "HND",
             },

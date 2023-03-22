@@ -49,7 +49,7 @@ const Landing = () => {
           description=""
           refLink="/core-principle"
           btnText="Our Core Principles"
-          img="/images/test2.jpg"
+          img="/pics/converted/IVS_6945.webp"
         />
       </div>
 
@@ -62,7 +62,7 @@ const Landing = () => {
           description="There is no more lecture-centred teaching at SLUI. Instead, our instructors become personal learning coaches for you. Not only will you develop specialist knowledge together, but also work on improving your soft and hard skills. To do this, we rely on direct communication. Individual advice, digital exchange and continuous feedback are important to us as well as club activities such as the SLUI Toastmasters club."
           refLink="/core-principle"
           btnText="Our Core Principles"
-          img="/images/test.JPG"
+          img="/pics/converted/IVS_6879.webp"
         />
       </div>
 
@@ -75,7 +75,7 @@ const Landing = () => {
           description="Do you want first-hand information? Our staff & students are happy to share their experiences with you, tell you about their courses, their projects and student life in Douala, Yaounde, Bamenda & Ndu."
           refLink="/find-your-slui-buddy"
           btnText="Find Your Buddy"
-          img="/images/test3.JPG"
+          img="/pics/converted/IVS_7619.webp"
         />
       </div>
 
@@ -131,22 +131,22 @@ const Landing = () => {
         <ProgramGrid
           programs={[
             {
-              image: "/images/test4.JPG",
+              image: "/pics/optimized/ivs-7494.webp",
               desc: "More and more exciting programs to be explored at our campuses.",
               label: "Bachelor",
             },
             {
-              image: "/images/test5.JPG",
+              image: "/pics/optimized/ivs-7545.webp",
               desc: "Explore our best masters programs. Find a fit for yourself.",
               label: "Masters",
             },
             {
-              image: "/images/test7.JPG",
+              image: "/pics/optimized/ivs-7639.webp",
               desc: "We offer a variety of short courses. Explore today!",
               label: "Short Course",
             },
             {
-              image: "/images/test6.JPG",
+              image: "/pics/optimized/ivs-7531.webp",
               desc: "HND programs are just so exciting start a career in one of these programmes.",
               label: "HND",
             },

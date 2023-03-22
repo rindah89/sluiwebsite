@@ -30,7 +30,7 @@ const FindBuddy = () => {
           description="Do you want first-hand information? Our staff & students are happy to share their experiences with you, tell you about their courses, their projects and student life in Douala, Yaounde, Bamenda & Ndu."
           refLink="/core-principle"
           btnText="See All Buddies"
-          img="/images/landing2.webp"
+          img="/pics/optimized/ivs-7466.webp"
         />
       </div>
 
