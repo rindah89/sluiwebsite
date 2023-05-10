@@ -13,7 +13,7 @@ import BuddyCard from "../../components/buddy-card/BuddyCard";
 
 const FindBuddy = () => {
   const [activeSelector, setActiveSelector] = useState(0);
-  const [typeSelector, setTypeSelector] = useState("STUDENT");
+  // const [typeSelector, setTypeSelector] = useState("STUDENT");
 
   // ADMISSION_ADVICER;
   // ADMINISTRATOR;

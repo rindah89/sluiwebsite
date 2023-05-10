@@ -162,6 +162,18 @@ const CorePrinciple = () => {
           <Fade up delay={900}>
             <img src="/logos/logo5.webp" alt="logo" />
           </Fade>
+          <Fade up delay={900}>
+            <img src="/logos/logo6.webp" alt="logo" />
+          </Fade>
+          <Fade up delay={900}>
+            <a
+              href="https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/how-to-participate/org-details/885163219"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <img src="/logos/logo7.webp" alt="logo" />
+            </a>
+          </Fade>
         </div>
       </div>
     </div>

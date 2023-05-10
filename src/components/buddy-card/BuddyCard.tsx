@@ -24,7 +24,7 @@ const BuddyCard: React.FC<Props> = ({ image, name, title, whatsapp }) => {
             <h4>{title}</h4>
           </div>
           <div className={styles.button}>
-            <a target="_blank" href={whatsapp}>
+            <a target="_blank" rel='noreferrer' href={whatsapp}>
               Chat With Buddy
             </a>
           </div>

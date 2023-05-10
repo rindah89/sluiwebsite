@@ -1,6 +1,5 @@
 import React from "react";
 import { Fade } from "react-reveal";
-import { VscDebugBreakpointLogUnverified } from "react-icons/vsc";
 
 // styles
 import styles from "./foundation.module.css";

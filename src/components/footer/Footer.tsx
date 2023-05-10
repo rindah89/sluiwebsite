@@ -1,13 +1,13 @@
+/* eslint-disable */
+
 import React from "react";
 import {
-  AiOutlineInstagram,
   AiOutlineMail,
   AiOutlinePhone,
   AiOutlineTwitter,
-  AiOutlineYoutube,
 } from "react-icons/ai";
 import { Link } from "react-router-dom";
-import { FaLinkedinIn, FaMapMarkerAlt } from "react-icons/fa";
+import { FaLinkedinIn, FaTiktok, FaFacebook, FaMapMarkerAlt } from "react-icons/fa";
 
 // styles
 import "./footer.css";
@@ -105,17 +105,17 @@ const Footer = () => {
             <img src="/images/logo_dark.webp" alt="logo" />
           </div>
           <div className="social">
-            <a href="#">
+            <a href="https://www.linkedin.com/in/st-louis-university-institute-cameroon-450b98248">
               <FaLinkedinIn />
             </a>
-            <a href="#">
+            <a href="https://twitter.com/institute_louis?t=DPelWOEniRgQwXjpIjG-Zg&s=09">
               <AiOutlineTwitter />
             </a>
-            <a href="#">
-              <AiOutlineYoutube />
+            <a href="https://www.facebook.com/stlouishigheruniveristy">
+              <FaFacebook />
             </a>
-            <a href="#">
-              <AiOutlineInstagram />
+            <a href="http://tiktok.com/@st.louisuniversity">
+              <FaTiktok />
             </a>
           </div>
         </div>

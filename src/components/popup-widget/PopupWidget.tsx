@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { AiOutlineArrowRight, AiOutlineClose } from "react-icons/ai";
 
 // styles
@@ -11,7 +11,7 @@ type Props = {
 };
 
 const PopupWidget: React.FC<Props> = ({ show, toggleState }) => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   return (
     <div className={`popup ${show ? "show" : null}`}>
