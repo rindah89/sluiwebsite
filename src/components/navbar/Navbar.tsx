@@ -239,7 +239,7 @@ const Navbar = () => {
             rel="noreferrer"
             target="_blank"
             style={{ fontWeight: "800", color: "var(--main-color)" }}
-            href="https://nishangsys.com/stlouisapply"
+            href="https://apply.stlouissystems.org/"
           >
             Apply
           </a>
