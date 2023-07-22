@@ -241,7 +241,7 @@ const Navbar = () => {
             style={{ fontWeight: "800", color: "var(--main-color)" }}
             href="https://apply.stlouissystems.org/"
           >
-            Apply
+            Apply Now
           </a>
         </li>
 

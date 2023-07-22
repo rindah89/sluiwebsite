@@ -18,8 +18,17 @@ const Landing = () => {
       <div className="hero">
         <h3>ST. LOUIS UNIVERSITY INSTITUTE</h3>
         <Fade left>
-          <h1>Character and Excellence.</h1>
+          <h2>Character and Excellence</h2>
         </Fade>
+        <div className="apply-now">
+          <a
+            href="https://apply.stlouissystems.org/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <button>Admission 2023 open <p>Click here to apply</p></button>
+          </a>
+        </div>
 
         <Fade bottom delay={500}>
           <Programs />
