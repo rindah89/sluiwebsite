@@ -8,21 +8,10 @@ export type Attrib = {
   title: string;
   desc: string;
   subDesc?: string;
-  hnds?: string[];
-  bdps?: string[];
-  mdps?: string[];
-  fps?: string[];
+  programs?: any[];
 };
 
-const FacultyPopup: React.FC<Attrib> = ({
-  title,
-  desc,
-  subDesc,
-  hnds,
-  bdps,
-  mdps,
-  fps,
-}) => {
+const FacultyPopup: React.FC<Attrib> = ({ title, desc, subDesc, programs }) => {
   return (
     <div className={styles.popup}>
       <div className={styles.content}>
@@ -41,67 +30,50 @@ const FacultyPopup: React.FC<Attrib> = ({
           {subDesc && <h4>{subDesc}</h4>}
         </div>
 
-        {hnds && (
+        {programs?.map((program: any, index) => (
           <>
             <h2 className={styles.title}>
-              Higher National Diploma(HND) Programmes
+              {program?.title}
+              {program.allCampuses && <span> - All Campuses</span>}
             </h2>
-            <div className={styles.list}>
-              {hnds.map((item, index) => {
-                return (
-                  <h5 key={index}>
-                    <FaArrowRight style={{ marginRight: "1rem" }} /> {item}
-                  </h5>
-                );
-              })}
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
+              }}
+            >
+              {program.campuses.map((campus: any, index: number) => (
+                <div
+                  style={{
+                    gridColumn: "span 1 / span 1",
+                  }}
+                  key={index}
+                >
+                  <h3
+                    style={{
+                      color: "var(--main-color)",
+                      fontSize: "1.5rem",
+                      fontWeight: "500",
+                      marginBottom: "2rem",
+                    }}
+                  >
+                    {campus.title}
+                  </h3>
+                  <div className={styles.list}>
+                    {campus.programs.map((item: string, index: number) => {
+                      return (
+                        <h5 key={index}>
+                          <FaArrowRight style={{ marginRight: "1rem" }} />{" "}
+                          {item}
+                        </h5>
+                      );
+                    })}
+                  </div>
+                </div>
+              ))}
             </div>
           </>
-        )}
-
-        {bdps && (
-          <>
-            <h2 className={styles.title}>Bachelor Degree Programmes</h2>
-            <div className={styles.list}>
-              {bdps.map((item, index) => {
-                return (
-                  <h5 key={index}>
-                    <FaArrowRight style={{ marginRight: "1rem" }} /> {item}
-                  </h5>
-                );
-              })}
-            </div>
-          </>
-        )}
-
-        {mdps && (
-          <>
-            <h2 className={styles.title}>Master Degree Programmes</h2>
-            <div className={styles.list}>
-              {mdps.map((item, index) => {
-                return (
-                  <h5 key={index}>
-                    <FaArrowRight style={{ marginRight: "1rem" }} /> {item}
-                  </h5>
-                );
-              })}
-            </div>
-          </>
-        )}
-
-        {fps && (
-          <>
-            <h2 className={styles.title}>Foundation Programmes</h2>
-            <div className={styles.list}>
-              {fps.map((item, index) => {
-                return (
-                  <h5 key={index}>
-                    <FaArrowRight style={{ marginRight: "1rem" }} /> {item}
-                  </h5>
-                );
-              })}
-            </div>
-          </>
-        )}
+        ))}
       </div>
     </div>
   );

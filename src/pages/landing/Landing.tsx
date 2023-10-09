@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { Fade } from "react-reveal";
 
 // styles
 import "./landing.css";
+
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
 
 // components
 import Programs from "../../components/programs/Programs";
@@ -11,8 +14,46 @@ import ContentWithBg from "../../components/content-with-bg/ContentWithBg";
 import ProgramGrid from "../../components/program-grid/ProgramGrid";
 import GridLayout from "../../components/grid/Grid";
 import LeaderCard from "../../components/leader-card/LeaderCard";
+import Event from "../../components/event/Event";
+import { Link } from "react-router-dom";
+import { events } from "../news&events/News&events";
 
 const Landing = () => {
+  const width = window.innerWidth;
+  const listRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const scrollInterval = setInterval(() => {
+      if (listRef.current) {
+        listRef.current.scrollLeft += 2;
+      }
+    }, 3);
+
+    return () => {
+      clearInterval(scrollInterval);
+    };
+  }, []);
+
+  const responsive = {
+    superLargeDesktop: {
+      // the naming can be any, depends on you.
+      breakpoint: { max: 4000, min: 3000 },
+      items: 5,
+    },
+    desktop: {
+      breakpoint: { max: 3000, min: 1024 },
+      items: 3,
+    },
+    tablet: {
+      breakpoint: { max: 1024, min: 464 },
+      items: 2,
+    },
+    mobile: {
+      breakpoint: { max: 464, min: 0 },
+      items: 1,
+    },
+  };
+
   return (
     <div className="landing">
       <div className="hero">
@@ -26,7 +67,9 @@ const Landing = () => {
             target="_blank"
             rel="noreferrer"
           >
-            <button>Admission 2023 open <p>Click here to apply</p></button>
+            <button>
+              Admission 2023 open <p>Click here to apply</p>
+            </button>
           </a>
         </div>
 
@@ -82,8 +125,8 @@ const Landing = () => {
           title="Chat with our Staff and Students"
           subText=""
           description="Do you want first-hand information? Our staff & students are happy to share their experiences with you, tell you about their courses, their projects and student life in Douala, Yaounde, Bamenda & Ndu."
-          refLink="/find-your-slui-buddy"
-          btnText="Find Your Buddy"
+          refLink="/meet-your-slui-buddy"
+          btnText="Meet Your Buddy"
           img="/pics/converted/IVS_7619.webp"
         />
       </div>
@@ -132,6 +175,59 @@ const Landing = () => {
         </div>
       </div>
 
+      <div className="events">
+        <div className="custom_section">
+          <div>
+            <p className="caption">LET'S MEET ONLINE</p>
+            <p className="heading">Online & hybrid events</p>
+          </div>
+          <div>
+            <p className="subcaption">
+              Join our online & onsite events and get to know about our
+              university. Learn more about our study programmes, get personal
+              advices and experience lectures. Feel free to have a look
+            </p>
+            <Link
+              to={"/news-and-events"}
+              style={{
+                textDecoration: "none",
+                padding: "1.5rem 3rem",
+                borderRadius: "5px",
+                background: "var(--main-color)",
+                fontSize: "1.6rem",
+                cursor: "pointer",
+                marginTop: "2rem",
+                outline: "none",
+                border: "none",
+                color: "#fff",
+                float: "right",
+              }}
+            >
+              All events
+            </Link>
+          </div>
+        </div>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            width: "100vw",
+            padding:
+              width <= 464 ? "0 2rem" : width <= 1024 ? "0 4rem" : "0 10rem",
+          }}
+        >
+          <Fade right>
+            <Carousel responsive={responsive}>
+              {events.map((event, index) => (
+                <div style={{ margin: "0 30px" }}>
+                  <Event key={index} event={event} />
+                </div>
+              ))}
+            </Carousel>
+          </Fade>
+        </div>
+      </div>
+
       <div className="programs_">
         <div className="headline">
           <h3>JUST THE RIGHT FIT FOR YOU.</h3>
@@ -167,34 +263,26 @@ const Landing = () => {
         <div className="headline">
           <h2>Memberships and Partnerships</h2>
         </div>
-        <div className="logos">
-          <Fade up delay={100}>
-            <img src="/logos/logo.webp" alt="logo" />
-          </Fade>
-          <Fade up delay={300}>
-            <img src="/logos/logo2.webp" alt="logo" />
-          </Fade>
-          <Fade up delay={500}>
-            <img src="/logos/logo3.webp" alt="logo" />
-          </Fade>
-          <Fade up delay={700}>
-            <img src="/logos/logo4.webp" alt="logo" />
-          </Fade>
-          <Fade up delay={900}>
-            <img src="/logos/logo5.webp" alt="logo" />
-          </Fade>
-          <Fade up delay={900}>
-            <img src="/logos/logo6.webp" alt="logo" />
-          </Fade>
-          <Fade up delay={900}>
-            <a
-              href="https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/how-to-participate/org-details/885163219"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <img src="/logos/logo7.webp" alt="logo" />
-            </a>
-          </Fade>
+        <div style={{ overflowX: "hidden" }}>
+          <div
+            ref={listRef}
+            style={{
+              display: "flex",
+              animation: "scroll 3s linear infinite",
+            }}
+            className="logos"
+          >
+            {Array(6)
+              .fill("a")
+              .map((_, index) => {
+                const source = index === 0 ? "logo" : `logo${index + 1}`;
+                const link =
+                  index === 5
+                    ? "https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/how-to-participate/org-details/885163219"
+                    : "";
+                return <img src={`/logos/${source}.webp`} alt="logo" />;
+              })}
+          </div>
         </div>
       </div>
     </div>

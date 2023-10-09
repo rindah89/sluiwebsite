@@ -12,7 +12,7 @@ const About = () => {
       <div className={styles.hero}>
         <h3>ST. LOUIS UNIVERSITY INSTITUTE</h3>
         <Fade left>
-          <h1>About Our Marvelous Institute.</h1>
+          <h1>Fueling Ambitions, Forgin Success.</h1>
         </Fade>
       </div>
       <div className="about">

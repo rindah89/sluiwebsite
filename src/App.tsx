@@ -22,6 +22,14 @@ import OurValues from "./pages/our-values/OurValues";
 import CorePrinciple from "./pages/core-principle/CorePrinciple";
 import Contact from "./pages/contact/Contact";
 import FindBuddy from "./pages/find-buddy/FindBuddy";
+import WhyUs from "./pages/why-slui/WhyUs";
+import Handbook from "./pages/handbook/Handbook";
+import NewsnEvents from "./pages/news&events/News&events";
+import Fees from "./pages/fees/Fees";
+import Application from "./pages/application/Application";
+import Scholarships from "./pages/scholarships/Scholarships";
+import Facilities from "./pages/facilities/Facilities";
+import Team from "./pages/leadership-team/Team";
 
 const App = () => {
   return (
@@ -40,9 +48,16 @@ const App = () => {
           <Route path="/about" element={<About />} />
           <Route path="/our-values" element={<OurValues />} />
           <Route path="/core-principle" element={<CorePrinciple />} />
-          <Route path="/find-your-slui-buddy" element={<FindBuddy />} />
+          <Route path="/meet-your-slui-buddy" element={<FindBuddy />} />
           <Route path="/fill-form" element={<Contact />} />
-
+          <Route path="/why-us" element={<WhyUs />} />
+          <Route path="/handbook" element={<Handbook />} />
+          <Route path="/news-and-events" element={<NewsnEvents />} />
+          <Route path="/fees" element={<Fees />} />
+          <Route path="/application-and-admission" element={<Application />} />
+          <Route path="/scholarships" element={<Scholarships />} />
+          <Route path="/facilities" element={<Facilities />} />
+          <Route path="/leadership-team" element={<Team />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer />

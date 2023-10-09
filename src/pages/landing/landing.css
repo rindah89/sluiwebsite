@@ -17,6 +17,25 @@
   justify-content: flex-end;
 }
 
+.events {
+  display: grid;
+  width: 100vw;
+}
+
+.custom_section {
+  display: grid;
+  width: 100vw;
+  padding: 0 8rem 5rem 8rem;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 12rem;
+}
+
+.event_section {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 6rem;
+}
+
 @media screen and (max-width: 1012px) {
   .hero {
     padding-top: 70rem;
@@ -63,6 +82,24 @@
   cursor: pointer;
   font-size: 2rem;
   animation: glowing 1000ms infinite;
+}
+.caption {
+  margin-bottom: 2rem;
+  font-size: 1.8rem;
+}
+
+.heading {
+  font-size: 5rem;
+  font-weight: 800;
+  line-height: 1.2 !important;
+  color: rgba(0, 0, 0, 0.8);
+  margin-bottom: 2rem;
+}
+
+.subcaption {
+  font-size: 1.7rem;
+  line-height: 1.5;
+  margin: 3rem 0;
 }
 
 .hero h2 {
@@ -114,14 +151,15 @@
 
 .logos {
   display: flex;
-  display: -ms-flexbox;
+  /* display: -ms-flexbox; */
   align-items: center;
   justify-content: center;
-  flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
+  /* flex-wrap: wrap; */
+  /* -ms-flex-wrap: wrap; */
   gap: 5rem;
   padding: 2rem 4vw;
   margin-bottom: 6rem;
+  overflow-x: hidden;
 }
 
 .logos img {
@@ -147,6 +185,11 @@
   .about .desc h4 {
     width: 100%;
   }
+
+  .custom_section {
+    padding: 0 4rem 2rem 2rem;
+    grid-gap: 2rem;
+  }
 }
 
 @media screen and (max-width: 750px) {
@@ -162,5 +205,10 @@
 
   .about .desc h2 {
     font-size: 5rem;
+  }
+
+  .custom_section {
+    padding: 2rem;
+    grid-template-columns: repeat(1, 1fr);
   }
 }

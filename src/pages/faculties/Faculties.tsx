@@ -17,69 +17,160 @@ export const facultiesData: Attrib[] = [
     desc: "The Faculty of Health and Biomedical Sciences continues to benefit from millions of FCFA investment scheme of laboratory modernisation and the development of cutting-edge teaching and research facilities, allied to the provision of clinical-based courses. Academic staff, students and external partners, including MINESUP and MINSANTE, have worked collaboratively during all phases to ensure the learning, teaching and research environment puts students first.",
     subDesc:
       "Our courses, including an extensive portfolio of CPD and internships, are co-produced with employers and have an underpinning philosophy built upon Interprofessional Learning (IPL) and research where, for example, doctors, nurses, pharmacists and paramedics work in teams for the greater good of patients. The Faculty of Health and Biomedical Sciences has the following departments and programmes:",
-    hnds: [
-      "Clinical Optimetry and Ophtamology",
-      "Nutrition and Dietetics",
-      "Radiology and Ultrasonography",
-      "Physiotherapy",
-      "Midwifery",
-      "Pharmacy Technology",
-      "Dental Therapy",
-      "Medical Lab Sciences",
-      "Pharmaceutical Sciences",
-      "Nursing",
+    programs: [
+      {
+        title: "Higher National Diploma (HND) programes, 3 Years",
+        allCampuses: false,
+        campuses: [
+          {
+            title: "Bamenda & Ndu Campuses",
+            programs: [
+              "Physiotherapy",
+              "Midwifery",
+              "Pharmacy Technology",
+              "Dental Therapy",
+              "Medical Lab Sciences",
+              "Medical Imaging Technology",
+              "Nursing",
+            ],
+          },
+          {
+            title: "Douala & Yaounde Campuses",
+            programs: [
+              "Physiotherapy",
+              "Midwifery",
+              "Pharmacy Technology",
+              "Dental Therapy",
+              "Medical Lab Sciences",
+              "Medical Imaging Technology",
+              "Nursing",
+              "Nutrition and Dietetics (Bondaberi Campus)",
+            ],
+          },
+        ],
+      },
+      {
+        title: "Brevet Des Techniciens Superiers (BTS) 3 Ans",
+        allCampuses: false,
+        campuses: [
+          {
+            title: "Douala, Bounamoussadi Campus ONLY",
+            programs: ["Soins Infirmieres", "Sage Femmes"],
+          },
+        ],
+      },
+      {
+        title: "Professional Bachelors Program 1 Year",
+        allCampuses: true,
+        campuses: [
+          {
+            title: "Hybrid: Onsite & Online Lectures",
+            programs: [
+              "Physiotherapy",
+              "Midwifery",
+              "Pharmacy Technology",
+              "Dental Therapy",
+              "Medical Lab Sciences",
+              "Medical Diagnostic Imaging and Radiation Therapy",
+              "Nursing",
+              "Pharmaceutical Sciences",
+            ],
+          },
+          {
+            title: "Bamenda Campus",
+            programs: ["Nursing", "Midwifery & Medical Laboratory Scieces"],
+          },
+        ],
+      },
+      {
+        title: "Professional Masters Program (2 Year)",
+        allCampuses: true,
+        campuses: [
+          {
+            title: "Hybrid: onsite & Online Lectures in Douala Campus ONLY",
+            programs: [
+              "Midwifery",
+              "Public Health",
+              "Physiotherapy",
+              "Medical Imaging Technology",
+              "Pediatric Nursing",
+              "Oncology Nursing",
+              "Medical Surgical Nursing",
+              "Nurse Anesthesia",
+              "Geriatric Nursing",
+            ],
+          },
+        ],
+      },
+      {
+        title: "International Programs",
+        allCampuses: false,
+        campuses: [
+          {
+            title:
+              "Mahsa University in Malysia, Goerge Town American Univeristy, GUYANA",
+            programs: ["Medicine", "Dentistry & Pharmacy"],
+          },
+        ],
+      },
     ],
-    bdps: [
-      "Clinical Optimetry and Ophtamology",
-      "Nutrition and Dietetics",
-      "Radiology and Ultrasonography",
-      "Physiotherapy",
-      "Midwifery",
-      "Pharmacy Technology",
-      "Dental Therapy",
-      "Medical Lab Sciences",
-      "Pharmaceutical Sciences",
-      "Nursing",
-    ],
-    mdps: [
-      "Midwifery",
-      "Pediatric Nursing",
-      "Medical Surgical Nursing",
-      "Oncology Nursing",
-      "Nurse Anesthesiat",
-      "Geriatric Nursing",
-      "Public Health",
-      "Physiotherapy",
-      "Medical Imaging Technology",
-    ],
-    fps: ["Medical Foundation Year Programme"],
   },
   {
-    title: "Faculty of Engineering and Technology.",
+    title: "Faculty of Engineering & Technology",
     desc: "The Faculty of Engineering and Technology brings together a spectrum of courses and programmes aligned to the technological needs and requirements of today. Our key areas of teaching cover a wide variety of subjects aligned to computer science and engineering.",
     subDesc:
       "We provide a range of opportunities for our students to work with employers, encouraging them to apply for an industrial placement between the second and third year of their undergraduate degree as well as to complete industry certifications to give them and edge over their peers in the very competitive job market. We offer the following programmes in our faculty of Engineering and Technology:",
-    hnds: [
-      "Networking and Security",
-      "Telecommunication",
-      "Electrical Power Systems",
-      "Software Engineering",
-      "Computer Hardware Maintenance",
+    programs: [
+      {
+        title: "Higher National Diploma (HND) 2 Years",
+        allCampuses: false,
+        campuses: [
+          {
+            title: "Douala (Bonaberi & Bonamoussadi campuses)",
+            programs: [
+              "Network & Security",
+              "Telecommunication",
+              "Electrical Power Systems",
+              "Software Engieering",
+              "Computer Hardware Maintenance",
+            ],
+          },
+        ],
+      },
     ],
   },
   {
-    title: "Faculty of Agriculture and Natural Sciences.",
+    title: "Faculty of Agriculture",
     desc: "Agriculture in today's world is an interesting and challenging industry where you can have a real impact. Our unique programmes combine the core disciplines of agricultural sciences with business management and innovative technology. Our classes include lively discussions around current issues as well as hands-on learning in the classroom, the lab and the field, giving you practical experience and a competitive advantage heading into careers on a local, national and global scale. Learn ‘hands-on’ alongside active research scientists. Not only are our lecturers leaders in their fields, they are passionate about sharing their knowledge and seeing you reach your potential.",
     subDesc:
       "Our small class sizes and friendly atmosphere provide the perfect environment for high-quality learning, networking and friendships that last beyond graduation. We offer the following programmes in our faculty",
-    hnds: [
-      "Animal Production",
-      "Agricultural Production Technology",
-      "Crop Production",
-      "Agro-Pastoral Advisor",
-      "Food Processing Technology",
+    programs: [
+      {
+        title: "Higher National Diploma (HND) 2 Years",
+        allCampuses: false,
+        campuses: [
+          {
+            title: "Douala, Bonaberi Campus ONLY",
+            programs: [
+              "Crop production",
+              "Argro-Pastoral Adivsor",
+              "Food Processing Technology",
+            ],
+          },
+        ],
+      },
+      {
+        title:
+          'Bachelor Degree Programs (4 Years for "A-level" holders, 3 Years for HND holders)',
+        allCampuses: false,
+        campuses: [
+          {
+            title: "Douala, Bonaberi Campus ONLY",
+            programs: ["Animal Production", "Agronomy"],
+          },
+        ],
+      },
     ],
-    bdps: ["Animal Production", "Agronomy"],
   },
 ];
 
@@ -100,10 +191,7 @@ const Faculties = () => {
             title={facultiesData[activePanelIndex].title}
             desc={facultiesData[activePanelIndex].desc}
             subDesc={facultiesData[activePanelIndex].subDesc}
-            hnds={facultiesData[activePanelIndex].hnds}
-            fps={facultiesData[activePanelIndex].fps}
-            bdps={facultiesData[activePanelIndex].bdps}
-            mdps={facultiesData[activePanelIndex].mdps}
+            programs={facultiesData[activePanelIndex].programs}
           />
         </div>
       )}

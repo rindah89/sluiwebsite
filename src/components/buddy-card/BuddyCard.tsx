@@ -32,15 +32,7 @@ const BuddyCard: React.FC<Props> = ({ image, name, title, whatsapp }) => {
       </div>
       <div className={styles.data}>
         <h4>
-          <span>Country: </span> Cameroon
-        </h4>
-        <h4>
-          <span>Contact: </span> +237650999316
-        </h4>
-
-        <h4>
-          Hi! I'm Maneesha Priyani, Master Student at SRH university of
-          Applied ...
+          <span>Campus: </span> Douala
         </h4>
       </div>
     </div>

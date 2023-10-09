@@ -12,7 +12,8 @@ type Props = {
   subText: string;
   description: string;
   refLink: string;
-  img: string;
+  img?: string;
+  otherContent?: string;
   btnText: string;
   onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
 };
@@ -26,6 +27,7 @@ const Content: React.FC<Props> = ({
   refLink,
   btnText,
   img,
+  otherContent,
   onClick,
 }) => {
   return (
@@ -43,11 +45,17 @@ const Content: React.FC<Props> = ({
           </Link>
         )}
       </div>
-      <div className="image">
-        <Fade right={direction === "RIGHT"} left={direction === "LEFT"}>
-          <img src={img} alt={title} />
-        </Fade>
-      </div>
+      {img ? (
+        <div className="image">
+          <Fade right={direction === "RIGHT"} left={direction === "LEFT"}>
+            <img src={img} alt={title} />
+          </Fade>
+        </div>
+      ) : (
+        <div className="image">
+          <p>{otherContent}</p>
+        </div>
+      )}
     </div>
   );
 };

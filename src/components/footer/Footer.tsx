@@ -31,8 +31,8 @@ const Footer = () => {
         <div className="component">
           <h2>Our Institution</h2>
           <div className="links">
-            <Link to="/">About St. Louis</Link>
-            <Link to="/">Why St. Louis</Link>
+            <Link to="/about">About St. Louis</Link>
+            <Link to="/why-us">Why St. Louis</Link>
             <Link to="/">Our Universities</Link>
             <Link to="/">Our Admin Team</Link>
             <Link to="/">Services & Facilities</Link>

@@ -30,19 +30,18 @@ const PopupWidget: React.FC<Props> = ({ show, toggleState }) => {
 
         <div className="popup__text">
           <div className="links">
-            <Link
-              onClick={() => {
-                toggleState();
-              }}
-              to="/fill-form"
+            <a
+              href="https://drive.google.com/file/d/10mGyssnKFADEbhsUjY_UG7caT4UDRzu7/view?usp=drive_link"
+              target="_blank"
+              rel="noreferrer"
             >
               Request Prospectus
-            </Link>
+            </a>
             <Link
               onClick={() => {
                 toggleState();
               }}
-              to="/"
+              to="/application-and-admission"
             >
               How to Apply
             </Link>
@@ -50,7 +49,7 @@ const PopupWidget: React.FC<Props> = ({ show, toggleState }) => {
               onClick={() => {
                 toggleState();
               }}
-              to="/"
+              to="/fees"
             >
               Fees
             </Link>
@@ -58,18 +57,20 @@ const PopupWidget: React.FC<Props> = ({ show, toggleState }) => {
               onClick={() => {
                 toggleState();
               }}
-              to="/"
+              to="/scholarships"
             >
               Scholarships
             </Link>
-            <Link
+            <a
               onClick={() => {
                 toggleState();
               }}
-              to="/"
+              href="https://drive.google.com/file/d/1YeHgdwW60XqlO07ixf__0IEhSPKj-rGH/view?usp=drive_link"
+              target="_blank"
+              rel="noreferrer"
             >
               Student Guide
-            </Link>
+            </a>
             <div className="pic">
               <img src="/images/logo_dark.webp" alt="slui logo" />
             </div>
@@ -80,20 +81,9 @@ const PopupWidget: React.FC<Props> = ({ show, toggleState }) => {
               onClick={() => {
                 toggleState();
               }}
-              to="/"
+              to="/why-us"
             >
               Why SLUI{" "}
-              <span>
-                <AiOutlineArrowRight size={30} />
-              </span>
-            </Link>
-            <Link
-              onClick={() => {
-                toggleState();
-              }}
-              to="/"
-            >
-              Study at SLUI{" "}
               <span>
                 <AiOutlineArrowRight size={30} />
               </span>
@@ -113,7 +103,7 @@ const PopupWidget: React.FC<Props> = ({ show, toggleState }) => {
               onClick={() => {
                 toggleState();
               }}
-              to="/"
+              to="/facilities"
             >
               Facilities{" "}
               <span>
@@ -126,7 +116,7 @@ const PopupWidget: React.FC<Props> = ({ show, toggleState }) => {
                 onClick={() => {
                   toggleState();
                 }}
-                to="/"
+                to="/handbook"
               >
                 Handbook
               </Link>
@@ -142,7 +132,7 @@ const PopupWidget: React.FC<Props> = ({ show, toggleState }) => {
                 onClick={() => {
                   toggleState();
                 }}
-                to="/"
+                to="/leadership-team"
               >
                 Leadership Team
               </Link>
@@ -158,17 +148,9 @@ const PopupWidget: React.FC<Props> = ({ show, toggleState }) => {
                 onClick={() => {
                   toggleState();
                 }}
-                to="/"
+                to="/news-and-events"
               >
-                News
-              </Link>
-              <Link
-                onClick={() => {
-                  toggleState();
-                }}
-                to="/"
-              >
-                Events
+                News & Events
               </Link>
               <Link
                 onClick={() => {

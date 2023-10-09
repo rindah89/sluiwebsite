@@ -1,0 +1,77 @@
+.hero {
+  min-height: 85vh;
+  width: 100%;
+  /* background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)),
+      url("../../assets/landing.webp"), no-repeat; */
+  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6)),
+    url("../../assets/core.jpg"), no-repeat;
+  background-position: top center;
+  background-size: cover;
+  padding: 3rem 4vw;
+  padding-bottom: 5rem;
+  margin-top: 150px;
+
+  display: flex;
+  display: -ms-flexbox;
+  flex-direction: column;
+  -ms-flex-direction: column;
+  justify-content: flex-end;
+}
+
+@media screen and (max-width: 1012px) {
+  .hero {
+    padding-top: 70rem;
+  }
+}
+
+.hero h3 {
+  font-size: 2rem;
+  color: #fff;
+}
+
+.hero h1 {
+  font-size: 7rem;
+  color: #fff;
+  font-weight: 700;
+}
+
+.about {
+  min-height: 60vh;
+  display: flex;
+  display: -ms-flexbox;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.about .desc h2 {
+  font-size: 6rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  font-weight: 700;
+  color: var(--main-color);
+}
+
+.about .desc h4 {
+  font-size: 2rem;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.8);
+  width: 900px;
+  line-height: 1.5;
+}
+
+.desc {
+  padding: 4rem 4vw;
+}
+
+.desc .head h2 {
+  font-size: 3rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  color: var(--main-color);
+}
+
+.desc .content h4 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}

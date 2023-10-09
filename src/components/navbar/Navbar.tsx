@@ -1,6 +1,6 @@
 /* eslint-disable */
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import {
   AiOutlineSearch,
@@ -13,7 +13,6 @@ import { HiBars3BottomLeft } from "react-icons/hi2";
 // styles
 import "./navbar.css";
 
-import { UseScrollPosition } from "../../lib/hooks/useScrollPosition";
 import PopupWidget from "../popup-widget/PopupWidget";
 import FacultyPopup from "../faculty-popup/FacultyPopup";
 import { facultiesData } from "../../pages/faculties/Faculties";
@@ -21,7 +20,14 @@ import ProgramPopup from "../programmes/ProgramPopup";
 
 const Navbar = () => {
   const [showMenu, setShowMenu] = useState(false);
-  const position = UseScrollPosition();
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+  };
+
+  useEffect(() => {
+    scrollToTop();
+  }, []);
 
   const toggleState = () => {
     setShowMenu(false);
@@ -32,7 +38,7 @@ const Navbar = () => {
 
   const [programsPanelActivated, setProgramsPanelActivated] = useState(false);
   return (
-    <nav className={`navbar ${position >= 100 ? "bg" : ""}`}>
+    <nav className={`navbar bg`}>
       {activePanel && (
         <div
           onClick={() => {
@@ -43,10 +49,7 @@ const Navbar = () => {
             title={facultiesData[activePanelIndex].title}
             desc={facultiesData[activePanelIndex].desc}
             subDesc={facultiesData[activePanelIndex].subDesc}
-            hnds={facultiesData[activePanelIndex].hnds}
-            fps={facultiesData[activePanelIndex].fps}
-            bdps={facultiesData[activePanelIndex].bdps}
-            mdps={facultiesData[activePanelIndex].mdps}
+            programs={facultiesData[activePanelIndex].programs}
           />
         </div>
       )}
@@ -179,7 +182,7 @@ const Navbar = () => {
                 }}
                 style={{ cursor: "pointer" }}
               >
-                Faculty of Agriculture and Natural Sciences{" "}
+                Faculty of Agriculture{" "}
                 <span>
                   <AiOutlineArrowRight style={{ marginTop: "0.5rem" }} />
                 </span>
@@ -191,7 +194,7 @@ const Navbar = () => {
           <Link className="non__before" to="/our-campuses">
             Campuses
           </Link>
-          <ul className="dropdown">
+          {/* <ul className="dropdown">
             <li>
               <Link to="/">
                 Bonaberi{" "}
@@ -232,7 +235,7 @@ const Navbar = () => {
                 </span>
               </Link>
             </li>
-          </ul>
+          </ul> */}
         </li>
         <li>
           <a
