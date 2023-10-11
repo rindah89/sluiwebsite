@@ -99,13 +99,10 @@ const Masters = () => {
 
         <div>
           <h2>Requirement</h2>
-          <ul>
-            <li>
-              <AiOutlineArrowRight /> In addition to entry requirement, students
-              for this option must be ready to study online and must have access
-              to internet connectivity.
-            </li>
-          </ul>
+          <p className={styles.requirement}>
+            In addition to entry requirement, students for this option must be
+            ready to study online and must have access to internet connectivity.
+          </p>
         </div>
       </div>
 

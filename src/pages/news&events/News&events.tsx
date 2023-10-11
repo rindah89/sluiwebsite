@@ -7,6 +7,47 @@ import { BsArrowLeft } from "react-icons/bs";
 import Event from "../../components/event/Event";
 import { useNavigate } from "react-router-dom";
 
+const pastEvents = [
+  {
+    heading: "Resist exams",
+    tag: "All levels",
+    subHeading: "04.09.23",
+    body: "Commencement of resit exams for 2022/23 academic year",
+    footer: "All campuses",
+  },
+  {
+    heading: "Admission",
+    tag: "L200",
+    subHeading: "21.09.23",
+    body: "Ongoing admission and registration into level 200",
+    footer: "All campuses",
+  },
+];
+
+const futureEvents = [
+  {
+    heading: "Club activities",
+    tag: "All levels",
+    subHeading: "11.10.23",
+    body: "Lectures / launching of club activities",
+    footer: "Bonamoussadi campus",
+  },
+  {
+    heading: "Party",
+    tag: "11.11.23",
+    subHeading: "L200",
+    body: "Weekend/Welcome party for freshmen",
+    footer: "All campuses",
+  },
+  {
+    heading: "Career orientation",
+    tag: "06.12.23",
+    subHeading: "L200",
+    body: "Lectures/ Revision / Career orientation day",
+    footer: "Bonamoussadi",
+  },
+];
+
 export const events = [
   {
     heading: "Resumption of lectures",
@@ -36,6 +77,8 @@ export const events = [
     body: "Welcome party for freshmen",
     footer: "All campuses",
   },
+  ...pastEvents,
+  ...futureEvents,
 ];
 
 const NewsnEvents = () => {
@@ -72,6 +115,7 @@ const NewsnEvents = () => {
                   fontSize: "1rem",
                   fontWeight: "bold",
                   color: isHover ? "#902d28" : "var(--main-color)",
+                  transition: "0.5s ease-out",
                 }}
               />
             </div>
@@ -113,9 +157,16 @@ const NewsnEvents = () => {
       </div>
       <div className={styles.divider} />
       <div className={styles.event}>
-        <h3>Online & Hybrid events</h3>
+        <h3>Onsite, Online & Hybrid Events</h3>
+        <h3>Upcoming events</h3>
         <div className={styles.event_section}>
-          {events.map((event, index) => (
+          {futureEvents.map((event, index) => (
+            <Event key={index} event={event} />
+          ))}
+        </div>
+        <h3>Past events</h3>
+        <div className={styles.event_section}>
+          {pastEvents.map((event, index) => (
             <Event key={index} event={event} />
           ))}
         </div>

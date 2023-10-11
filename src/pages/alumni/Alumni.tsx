@@ -1,10 +1,10 @@
 import React, { FC, useState } from "react";
-import styles from "./team.module.css";
+import styles from "./alumni.module.css";
 import { BsArrowLeft } from "react-icons/bs";
 import { Fade } from "react-reveal";
 import { useNavigate } from "react-router-dom";
 
-const Team: FC = () => {
+const Alumni: FC = () => {
   const width = window.innerWidth;
   const [isHover, setIsHover] = useState(false);
 
@@ -18,46 +18,26 @@ const Team: FC = () => {
 
   const navigate = useNavigate();
 
-  const Team = [
-    {
-      image:
-        "https://lh3.googleusercontent.com/drive-viewer/AK7aPaBRnJSe3-EREXbWH1QUtD-PiaiPv2i31B_DvijbC-jRk2HQf37Ctv2QXXLvZ67hp5Bgse6cTnt6CtBmO8M0hL2582pZ=s1600",
-      name: "MR. CHEGHE PEREZ K",
-      tel: "679 933 329",
-      position: "Dean of Studies, Health",
-    },
-    {
-      image:
-        "https://lh3.googleusercontent.com/drive-viewer/AK7aPaBczKhynO3ItzcOe7waXOHRLThcbXVS2a0BIN0DenFLG2IAvPz9s8RBWFIiSYRkt-Ku_9TVWY-k-7x4BBrW3duu6xIr=s2560",
-      name: "MR SIMON MUFOR",
-      tel: "652 615 379",
-      position: "Dean of Studies, ICT",
-    },
-    {
-      image:
-        "https://lh3.googleusercontent.com/drive-viewer/AK7aPaBF8vdstMIqvdBKZm32B7JkBn1CnqRBpe598UyNi-VcElVJIL9lFYqttrpx8mrhD4rTZuqXtR8GRJwcGQwwprMYatMNmw=s1600",
-      name: "MR. MANDI DERICK",
-      tel: "672 137 794",
-      position: "Registrar/Lecturer Nursing",
-    },
+  const alumni = [
     {
       image: "",
-      name: "MME. ASHUBENG EMILE B.",
-      tel: "678 933 452",
-      position: "Administrative Secretary",
-    },
-    {
-      image: "",
-      name: "MR. KUM CYPRIAN N.",
-      tel: "681 200 836",
-      position: "Administravie Assistant I",
+      name: "CHEFON BRANDON",
+      tel: "+592 680 4363",
+      position: "Doctor of Medicine (Texila American University) Zambia",
     },
     {
       image:
-        "https://lh3.googleusercontent.com/drive-viewer/AK7aPaDqpH5SBWeSP5fLLRX8zDCXh5jT3h8JiErLwWhtSZqkZwNaAxGtRhe2Q2fXGnQw5-nKQAvAZwISGp3BJ6l3BIvwHecCNQ=s500",
-      name: "NDIPENDOH KINGSLY MUKOM",
-      tel: "679 201 766",
-      position: "Administrative Representative",
+        "https://lh3.googleusercontent.com/drive-viewer/AK7aPaAgl_S8fws6MD-0HS2ruZNhaJhDhVzz8j4MNA-_-CviN2Id5p8KHDTatERbhejG2q1pWRadHIgEedCL0qn4AomGsWrXbg=s1600",
+      name: "MENGOT SYLVIA",
+      tel: "+237 651 428 708",
+      position: "Lecturer, Nursing",
+    },
+    {
+      image:
+        "https://lh3.googleusercontent.com/drive-viewer/AK7aPaBTwh_BvWY-ul1eESuYwrbSTbNvGfM1dyoNTAPMhAcrPALsRdkl18n9H3ZjFkieOVug5U8bHGYuJen1oHNn6IcQJkNIuw=s1600",
+      name: "VUSENG VERA",
+      tel: "+237 670 878 721",
+      position: "Acting HOD Physiotherapy",
     },
   ];
   return (
@@ -103,20 +83,19 @@ const Team: FC = () => {
               width: "80%",
             }}
           >
-            Our Team
+            Alumni
           </p>
         </Fade>
       </div>
       <div className={styles.intro}>
-        <p className={styles.heading}>Let us introduce ourself</p>
+        <p className={styles.heading}>Meet our Alumni</p>
         <p className={styles.paragraph}>
-          Learn more about the faculty and staff of SLUI. Our greatest concern
-          is to support you during your studies and to prepare you for your
-          future.
+          Celebrating Our Accomplished Alumni: Inspring success Stories and
+          Lasting Connections
         </p>
       </div>
       <div className={styles.event_section}>
-        {Team.map((facility, index) => {
+        {alumni.map((facility, index) => {
           const image = new URL(facility.image, import.meta.url);
           return (
             <div className={styles.facility}>
@@ -124,7 +103,7 @@ const Team: FC = () => {
                 <div
                   className={styles.backgroundImage}
                   style={{
-                    background: `linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3)),
+                    background: `linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6)),
                     url(${image}), no-repeat`,
                     backgroundSize: "cover",
                   }}
@@ -151,7 +130,7 @@ const Team: FC = () => {
                     </p>
                     <p
                       style={{
-                        color: "#f5f5f5",
+                        color: "#aaa9a7",
                       }}
                     >
                       {facility.tel}
@@ -174,4 +153,4 @@ const Team: FC = () => {
   );
 };
 
-export default Team;
+export default Alumni;

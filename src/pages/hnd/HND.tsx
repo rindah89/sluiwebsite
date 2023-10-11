@@ -36,7 +36,9 @@ const HND = () => {
           <h2>Heath and Biomedical Sciences</h2>
           <ul>
             <li>
-              <AiOutlineArrowRight /> Clinical Optimetry and Ophtamology
+              <a href="/programme" className={styles.anchor}>
+                <AiOutlineArrowRight /> Clinical Optimetry and Ophtamology
+              </a>
             </li>
             <li>
               <AiOutlineArrowRight /> Nutrition and Dietetics

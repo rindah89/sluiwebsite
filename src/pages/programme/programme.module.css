@@ -1,0 +1,157 @@
+.heads {
+  display: flex;
+  column-gap: 10rem;
+  align-items: center;
+  justify-content: center;
+  margin-top: 4rem;
+}
+
+.main {
+  padding: 0 16rem;
+}
+
+.heads > h3 {
+  font-size: 3rem;
+  font-weight: 600;
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  margin: 2rem 0;
+}
+
+.left_content {
+  display: grid;
+  row-gap: 2rem;
+  width: 70%;
+}
+.left_content > p {
+  font-size: 2rem;
+  text-align: justify;
+}
+
+.buttons {
+  display: flex;
+  column-gap: 4rem;
+}
+
+.buttons > button {
+  padding: 1rem 1.2rem;
+  color: white;
+  background-color: var(--main-color);
+  border-radius: 8px;
+  border: 0;
+  font-size: 1.8rem;
+  transition: 0.5s ease-in-out;
+}
+
+.buttons > button:hover {
+  cursor: pointer;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.right_content {
+  display: grid;
+  row-gap: 2rem;
+  width: auto;
+}
+
+.list1 > ul > li {
+  font-size: 1.8rem;
+}
+
+.list2 > ul > li {
+  font-size: 1.8rem;
+  list-style-type: square;
+}
+
+.backgroundImage {
+  min-height: 85vh;
+  width: 100%;
+  /* background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)),
+      url("../../assets/landing.webp"), no-repeat; */
+  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6)),
+    url("../../assets/optimized/ivs-7478.webp"), no-repeat;
+  background-position: top;
+  background-size: cover;
+  margin: 4rem 0;
+}
+
+.section {
+  display: grid;
+  margin: 0 0 8rem 0;
+  row-gap: 2rem;
+}
+
+.section > h4 {
+  font-size: 2.4rem;
+  font-weight: 500;
+}
+
+.section > h3 {
+  font-size: 2.8rem;
+  color: var(--main-color);
+  font-weight: 600;
+}
+
+.section > h5 {
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+.section > p {
+  font-size: 1.8rem;
+  text-align: justify;
+  line-height: 4rem;
+}
+
+.section > ul > li {
+  margin: 1rem 4rem;
+  font-size: 1.8rem;
+  line-height: 4rem;
+  list-style-type: circle;
+}
+
+.section > ul > li > ul > li {
+  margin: 1rem 6rem;
+  font-size: 1.8rem;
+  line-height: 4rem;
+  list-style-type: square;
+}
+
+.imageSection {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 6rem;
+  padding: 2rem 6rem;
+}
+
+.image {
+  height: 60vh;
+  width: 100%;
+  position: relative;
+}
+
+.staffImage {
+  display: flex;
+  flex-direction: column;
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  border-radius: 16px;
+  padding: 2rem;
+  justify-content: space-between;
+}
+
+.staffImage p {
+  font-size: 1.8rem;
+}
+.topContent {
+  top: 10;
+}
+.bottomcontent {
+  bottom: 10;
+}

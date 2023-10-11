@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 // components
@@ -30,8 +30,15 @@ import Application from "./pages/application/Application";
 import Scholarships from "./pages/scholarships/Scholarships";
 import Facilities from "./pages/facilities/Facilities";
 import Team from "./pages/leadership-team/Team";
+import Programme from "./pages/programme/Programme";
+import EventDetails from "./pages/event_details/EventDetails";
+import Alumni from "./pages/alumni/Alumni";
 
 const App = () => {
+  useEffect(() => {
+    window.scrollTo({ top: 100, behavior: "smooth" });
+  }, []);
+
   return (
     <div className="app">
       <Router>
@@ -58,6 +65,9 @@ const App = () => {
           <Route path="/scholarships" element={<Scholarships />} />
           <Route path="/facilities" element={<Facilities />} />
           <Route path="/leadership-team" element={<Team />} />
+          <Route path="/programme" element={<Programme />} />
+          <Route path="/event-details" element={<EventDetails />} />
+          <Route path="/alumni" element={<Alumni />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer />

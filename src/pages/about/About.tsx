@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { FaQuoteLeft, FaQuoteRight } from "react-icons/fa";
 import { Fade } from "react-reveal";
 import ProgramGrid from "../../components/program-grid/ProgramGrid";
@@ -7,6 +7,11 @@ import ProgramGrid from "../../components/program-grid/ProgramGrid";
 import styles from "./about.module.css";
 
 const About = () => {
+
+  useEffect(() => {
+    window.scrollTo({ top: 100, behavior: "smooth" });
+  }, []);
+
   return (
     <div>
       <div className={styles.hero}>

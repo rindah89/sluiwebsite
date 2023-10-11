@@ -15,12 +15,13 @@ import ProgramGrid from "../../components/program-grid/ProgramGrid";
 import GridLayout from "../../components/grid/Grid";
 import LeaderCard from "../../components/leader-card/LeaderCard";
 import Event from "../../components/event/Event";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { events } from "../news&events/News&events";
 
 const Landing = () => {
   const width = window.innerWidth;
   const listRef = useRef<HTMLDivElement>(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const scrollInterval = setInterval(() => {
@@ -32,6 +33,10 @@ const Landing = () => {
     return () => {
       clearInterval(scrollInterval);
     };
+  }, []);
+
+  useEffect(() => {
+    window.scrollTo({ top: 100, behavior: "smooth" });
   }, []);
 
   const responsive = {

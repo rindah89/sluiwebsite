@@ -140,7 +140,7 @@ const PopupWidget: React.FC<Props> = ({ show, toggleState }) => {
                 onClick={() => {
                   toggleState();
                 }}
-                to="/"
+                to="/alumni"
               >
                 Alumni
               </Link>

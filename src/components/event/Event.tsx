@@ -1,6 +1,7 @@
 import React, { FC } from "react";
 import styles from "./event.module.css";
 import { CiLocationOn } from "react-icons/ci";
+import { useNavigate } from "react-router-dom";
 
 type Props = {
   event: {
@@ -12,8 +13,9 @@ type Props = {
   };
 };
 const Event: FC<Props> = ({ event }) => {
+  const navigate = useNavigate();
   return (
-    <div className={styles.main}>
+    <div className={styles.main} onClick={() => navigate("/event-details")}>
       <div className={styles.heading}>{event.heading}</div>
       <p className={styles.tag}>{event.tag}</p>
       <p className={styles.sub_head}>{event.subHeading}</p>

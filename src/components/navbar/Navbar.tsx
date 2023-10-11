@@ -130,7 +130,7 @@ const Navbar = () => {
               e.preventDefault();
               setProgramsPanelActivated(true);
             }}
-            href="#"
+            href="/#"
           >
             Programmes
           </a>
