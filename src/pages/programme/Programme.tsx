@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useEffect } from "react";
 import { Fade } from "react-reveal";
 
 // styles
@@ -24,6 +24,10 @@ const staffs = [
 ];
 
 const Programme: FC = () => {
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
+
   return (
     <div>
       <div className="hero">

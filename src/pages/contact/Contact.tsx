@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 
 // stylesheet
 import styles from "./contact.module.css";
@@ -12,6 +12,10 @@ const Contact = () => {
   const street = useRef<HTMLInputElement | null>(null);
   const city = useRef<HTMLInputElement | null>(null);
   const country = useRef<HTMLInputElement | null>(null);
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
 
   // eslint-disable-next-line
   const handleSubmit = (e: any) => {

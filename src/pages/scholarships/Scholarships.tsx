@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Fade } from "react-reveal";
 
 // style
@@ -14,6 +14,10 @@ const Scholarships = () => {
   const navigate = useNavigate();
 
   const [isBouncing, setIsBouncing] = useState(false);
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
 
   const startBounceAnimation = () => {
     console.log("bouncing animation has started");

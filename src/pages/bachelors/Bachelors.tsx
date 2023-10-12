@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { AiOutlineArrowRight } from "react-icons/ai";
 import { Fade } from "react-reveal";
 
@@ -9,6 +9,10 @@ import styles from "./masters.module.css";
 import GeneralPull from "../../components/general-pull/GeneralPull";
 
 const Bachelors = () => {
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
+
   return (
     <div>
       <div className="hero">

@@ -182,7 +182,7 @@ const Navbar = () => {
                 }}
                 style={{ cursor: "pointer" }}
               >
-                Faculty of Agriculture{" "}
+                Faculty of Agriculture and Natural Sciences{" "}
                 <span>
                   <AiOutlineArrowRight style={{ marginTop: "0.5rem" }} />
                 </span>

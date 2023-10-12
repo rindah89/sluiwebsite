@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { AiOutlineArrowRight } from "react-icons/ai";
 import { Fade } from "react-reveal";
 
@@ -9,6 +9,10 @@ import styles from "./masters.module.css";
 import GeneralPull from "../../components/general-pull/GeneralPull";
 
 const Masters = () => {
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
+
   return (
     <div>
       <div className="hero">
@@ -43,8 +47,8 @@ const Masters = () => {
       <div style={{ minHeight: "25vh" }} className="about">
         <div className="desc">
           <h4>
-            The following master&apos;s programs are currently being offered for
-            holders of Bachelor&apos;s degrees or equivalent at St Louis
+            The following master&apos;s programmes are currently being offered
+            for holders of Bachelor&apos;s degrees or equivalent at St Louis
             University Institute
           </h4>
         </div>

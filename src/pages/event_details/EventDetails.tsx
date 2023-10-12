@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 import styles from "./event_details.module.css";
 import { CiLocationOn } from "react-icons/ci";
 import { events } from "../news&events/News&events";
@@ -24,6 +24,10 @@ const EventDetails: FC = () => {
   const [isBouncing, setIsBouncing] = useState(false);
 
   const navigate = useNavigate();
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
 
   const startBounceAnimation = () => {
     console.log("bouncing animation has started");

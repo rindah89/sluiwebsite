@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Fade } from "react-reveal";
 
 // styles
@@ -6,13 +6,17 @@ import styles from "./foundation.module.css";
 import { Link } from "react-router-dom";
 
 const Foundation = () => {
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
+
   return (
     <div>
       <div className="hero">
         <h3>Our Foundation Course</h3>
         <Fade left>
           <h1 style={{ lineHeight: "1.1", margin: "3rem 0" }}>
-            SLUI Medical Foundation Programme.
+            Medical Foundation Programmes.
           </h1>
           <h4 className={styles.para}>
             The new SLUI International Medical Foundation Programme is a
@@ -89,7 +93,7 @@ const Foundation = () => {
             <span>Start:</span> October every year
           </li>
           <li>
-            <span>Tuition Fees:</span> 1000.000 FCFA
+            <span>Tuition Fees:</span> 1.000.000 FCFA
           </li>
         </ul>
 

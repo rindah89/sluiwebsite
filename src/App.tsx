@@ -33,10 +33,11 @@ import Team from "./pages/leadership-team/Team";
 import Programme from "./pages/programme/Programme";
 import EventDetails from "./pages/event_details/EventDetails";
 import Alumni from "./pages/alumni/Alumni";
+import CampusDetails from "./pages/campuses/CampusDetails";
 
 const App = () => {
   useEffect(() => {
-    window.scrollTo({ top: 100, behavior: "smooth" });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
 
   return (
@@ -54,7 +55,7 @@ const App = () => {
           <Route path="/foundation" element={<Foundation />} />
           <Route path="/about" element={<About />} />
           <Route path="/our-values" element={<OurValues />} />
-          <Route path="/core-principle" element={<CorePrinciple />} />
+          <Route path="/core-principles" element={<CorePrinciple />} />
           <Route path="/meet-your-slui-buddy" element={<FindBuddy />} />
           <Route path="/fill-form" element={<Contact />} />
           <Route path="/why-us" element={<WhyUs />} />
@@ -68,6 +69,7 @@ const App = () => {
           <Route path="/programme" element={<Programme />} />
           <Route path="/event-details" element={<EventDetails />} />
           <Route path="/alumni" element={<Alumni />} />
+          <Route path="/campus-details" element={<CampusDetails />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer />

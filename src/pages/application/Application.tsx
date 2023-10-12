@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Fade } from "react-reveal";
 
 // style
@@ -9,6 +9,10 @@ import { useNavigate } from "react-router-dom";
 const Application = () => {
   const width = window.innerWidth;
   const [isHover, setIsHover] = useState(false);
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
 
   const navigate = useNavigate();
 
@@ -82,7 +86,9 @@ const Application = () => {
                 <span>
                   Download and complete the admission form from the
                   institution’s website at{" "}
-                  <a href="www.slui.org" target="_blank">www.slui.org</a>
+                  <a href="www.slui.org" target="_blank">
+                    www.slui.org
+                  </a>
                 </span>
               </p>
               <p className={styles.normal}>
@@ -106,15 +112,15 @@ const Application = () => {
                 </li>
                 <li className={styles.normal}>
                   Photocopy of GCE "A" Level of BACC Certificate or their
-                  equivalent <strong>(For HND & BTS Programs)</strong>
+                  equivalent <strong>(For HND & BTS Programmes)</strong>
                 </li>
                 <li className={styles.normal}>
                   Photocopy of HPD or HND or their equivalent{" "}
-                  <strong>(For BSc Programs)</strong>
+                  <strong>(For BSc Programmes)</strong>
                 </li>
                 <li className={styles.normal}>
                   Photocopy of Bachelors of Licenses or their equivalent{" "}
-                  <strong>(For MSc Programs)</strong>
+                  <strong>(For MSc Programmes)</strong>
                 </li>
               </ul>
             </div>

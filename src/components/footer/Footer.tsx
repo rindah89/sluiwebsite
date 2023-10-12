@@ -7,7 +7,12 @@ import {
   AiOutlineTwitter,
 } from "react-icons/ai";
 import { Link } from "react-router-dom";
-import { FaLinkedinIn, FaTiktok, FaFacebook, FaMapMarkerAlt } from "react-icons/fa";
+import {
+  FaLinkedinIn,
+  FaTiktok,
+  FaFacebook,
+  FaMapMarkerAlt,
+} from "react-icons/fa";
 
 // styles
 import "./footer.css";
@@ -19,11 +24,11 @@ const Footer = () => {
         <div className="component">
           <h2>All About Your Studies</h2>
           <div className="links">
-            <Link to="/">Masters</Link>
-            <Link to="/">Bachelors</Link>
-            <Link to="/">HND</Link>
+            <Link to="/masters">Masters</Link>
+            <Link to="/bachelors">Bachelors</Link>
+            <Link to="/hnd">HND</Link>
             <Link to="/">Short Courses</Link>
-            <Link to="/">Admission Processes</Link>
+            <Link to="/application-and-admission">Admission Processes</Link>
             <Link to="/">Student Advisory Board</Link>
           </div>
         </div>
@@ -34,8 +39,8 @@ const Footer = () => {
             <Link to="/about">About St. Louis</Link>
             <Link to="/why-us">Why St. Louis</Link>
             <Link to="/">Our Universities</Link>
-            <Link to="/">Our Admin Team</Link>
-            <Link to="/">Services & Facilities</Link>
+            <Link to="/leadership-team">Our Admin Team</Link>
+            <Link to="/facilities">Services & Facilities</Link>
           </div>
         </div>
 

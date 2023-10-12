@@ -19,6 +19,7 @@ const ProgramGrid: React.FC<Props> = ({ programs }) => {
               image={program.image}
               label={program.label}
               desc={program.desc}
+              link={program?.link}
             />
           );
         })}

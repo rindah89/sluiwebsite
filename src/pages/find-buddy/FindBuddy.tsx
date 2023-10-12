@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { AiOutlineUser } from "react-icons/ai";
 import { FiUsers } from "react-icons/fi";
 import { SiTripadvisor } from "react-icons/si";
@@ -13,7 +13,8 @@ import BuddyCard from "../../components/buddy-card/BuddyCard";
 
 const alumni = [
   {
-    image: "",
+    image:
+      "https://lh3.googleusercontent.com/drive-viewer/AK7aPaDMdpkdHY8R22xDu0eMMKpcVzYg_itZhR1Ov8nN8gCLUXpaHTR-dIojK6aot9voxhUXYyKcaiGFDpbc3XgoULEsi2xL=s1600",
     name: "CHEFON BRANDON",
     tel: "+592 680 4363",
     position: "Doctor of Medicine (Texila American University) Zambia",
@@ -26,7 +27,8 @@ const alumni = [
     position: "Lecturer, Nursing",
   },
   {
-    image: "",
+    image:
+      "https://lh3.googleusercontent.com/drive-viewer/AK7aPaAKSrUQy3ObA6iFgs2AzsnvSsLxHFkBBjMpReF9PJ7GA8ukf7UDUuPzdLwsgB4nxO5e6g2t-l7Jzmr4t-uCFcO26BuEyg=s1600",
     name: "VUSENG VERA",
     tel: "+237 670 878 721",
     position: "Acting HOD Physiotherapy",
@@ -34,16 +36,25 @@ const alumni = [
 ];
 const students = [
   {
-    image: "",
+    image:
+      "https://lh3.googleusercontent.com/drive-viewer/AK7aPaBtXtKbJ2ot8EEky4hBi8t9fVPzWBbZCKcm_stCP6LdSPi7jq4aYNODRH2XrRqaxpWVbg6wll3gL-gmBRv62_-HeRm1iQ=s1600",
     name: "Baiye Foma",
     tel: "+237 654 552 982",
     position: "Pharmacy Technology",
   },
   {
-    image: "",
+    image:
+      "https://lh3.googleusercontent.com/drive-viewer/AK7aPaCFUuBaYj0eMPf95viOHEc2TMw7Q1jO7WVaZTC1CEAQLbpSo6vIp1PnWMHUZMQfthP8vLB3DTdxrXyHlxi8ET3bCPZhMQ=s1600",
     name: "Tinkeu Britney",
     tel: "+237 653 108 684",
     position: "Nursing",
+  },
+  {
+    image:
+      "https://lh3.googleusercontent.com/drive-viewer/AK7aPaBvjBSCGghjfyxz1S_k5GWC2qdOklL1Zx08CH__2fRu6E8-9lVrUd6Ub-bi13ru32qdxBW-8OC_nd23JUzppPo_tiXdjA=s1600",
+    name: "Shaliatu Mohammed",
+    tel: "+237 655 548 245",
+    position: "Medical Image Technology",
   },
 ];
 const advisers = [
@@ -54,7 +65,8 @@ const advisers = [
     position: "Administrative Secretary",
   },
   {
-    image: "",
+    image:
+      "https://lh3.googleusercontent.com/drive-viewer/AK7aPaDkiHhIGnzHzWofwBaSfusOd9NSn7FBSykwKyci36okkO89EF4b29Hf3WnaJepW2IhDbNE5hvMSbEbcPruzgOycteL7yQ=s1600",
     name: "Mr. Kum Cyprain N",
     tel: "+237 681 200 836",
     position: "Administrative Assitant I",
@@ -92,10 +104,26 @@ const administrators = [
   },
 ];
 
+function convertPhoneNumber(phoneNumber: string) {
+  let cleanedNumber = phoneNumber.split(" ").join("");
+
+  if (cleanedNumber.startsWith("+237")) {
+    cleanedNumber = cleanedNumber.substring(5);
+  } else if (cleanedNumber.startsWith("+592")) {
+    return cleanedNumber.substring(1);
+  }
+
+  return "237" + cleanedNumber.substring(1);
+}
+
 const FindBuddy = () => {
   const [activeSelector, setActiveSelector] = useState(0);
   const [typeSelector, setTypeSelector] = useState(students);
   // const [typeSelector, setTypeSelector] = useState("STUDENT");
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
 
   return (
     <div className={styles.wrapper}>
@@ -106,7 +134,7 @@ const FindBuddy = () => {
           title="Chat with our staff & students"
           subText=""
           description="Do you want first-hand information? Our staff & students are happy to share their experiences with you, tell you about their courses, their projects and student life in Douala, Yaounde, Bamenda & Ndu."
-          refLink="/core-principle"
+          refLink="/core-principles"
           btnText="See All Buddies"
           img="/pics/optimized/ivs-7466.webp"
         />
@@ -159,12 +187,14 @@ const FindBuddy = () => {
 
         <div className={styles.buddies__grid}>
           {typeSelector.map((type, index) => {
+            const number = convertPhoneNumber(type.tel);
             return (
               <BuddyCard
+                key={index}
                 image={type.image}
                 title={type.position}
                 name={type.name}
-                whatsapp="https://wa.me/650999316"
+                whatsapp={`https://wa.me/${number}`}
               />
             );
           })}

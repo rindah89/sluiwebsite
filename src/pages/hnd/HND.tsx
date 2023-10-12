@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { AiOutlineArrowRight } from "react-icons/ai";
 import { Fade } from "react-reveal";
 
@@ -9,12 +9,16 @@ import styles from "./masters.module.css";
 import GeneralPull from "../../components/general-pull/GeneralPull";
 
 const HND = () => {
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
+
   return (
     <div>
       <div className="hero">
         <h3>Your start to career advancement</h3>
         <Fade left>
-          <h1>HND At SLUI.</h1>
+          <h1>HND Programmes</h1>
           <h4 className={styles.para}>
             Health, Agriculture, Engineering and Technology industries have
             never been so diverse. The modern range of courses offered by ST.

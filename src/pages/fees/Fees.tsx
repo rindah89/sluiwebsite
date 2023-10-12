@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Fade } from "react-reveal";
 
 // style
@@ -13,6 +13,10 @@ const Fees = () => {
   const navigate = useNavigate();
 
   const [isBouncing, setIsBouncing] = useState(false);
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
 
   const startBounceAnimation = () => {
     console.log("bouncing animation has started");
@@ -84,7 +88,7 @@ const Fees = () => {
                 marginTop: 20,
               }}
             >
-              <p className={styles.heading2}>HND PROGRAMS</p>
+              <p className={styles.heading2}>HND PROGRAMMESS</p>
               <p className={styles.sub_heading}>NDU CAMPUS</p>
               <div className={styles.table_container}>
                 <table className={styles.responsive_table}>
@@ -157,7 +161,7 @@ const Fees = () => {
                 marginTop: 20,
               }}
             >
-              <p className={styles.heading2}>HND & BTS PROGRAMS</p>
+              <p className={styles.heading2}>HND & BTS PROGRAMMES</p>
               <p className={styles.sub_heading}>DOUALA & YAOUNDE CAMPUSES</p>
               <div className={styles.table_container}>
                 <table className={styles.responsive_table}>
@@ -231,7 +235,7 @@ const Fees = () => {
                 marginTop: 20,
               }}
             >
-              <p className={styles.heading2}>DEGREE PROGRAMS</p>
+              <p className={styles.heading2}>DEGREE PROGRAMMES</p>
               <p className={styles.sub_heading}>ALL CAMPUSES</p>
               <div className={styles.table_container}>
                 <table className={styles.responsive_table}>
@@ -271,7 +275,9 @@ const Fees = () => {
               </div>
             </div>
             <div style={{ marginTop: 40 }}>
-              <p className={styles.heading2}>Faculty of Agriculture</p>
+              <p className={styles.heading2}>
+                Faculty of Agriculture and Natural Sciences
+              </p>
               <div
                 style={{
                   display: "grid",
@@ -279,7 +285,7 @@ const Fees = () => {
                   marginTop: 20,
                 }}
               >
-                <p className={styles.heading2}>HND PROGRAMS</p>
+                <p className={styles.heading2}>HND PROGRAMMES</p>
                 <div className={styles.table_container}>
                   <table className={styles.responsive_table}>
                     <thead>
@@ -334,7 +340,7 @@ const Fees = () => {
                     </tbody>
                   </table>
                 </div>
-                <p className={styles.heading2}>DEGREE PROGRAMS</p>
+                <p className={styles.heading2}>DEGREE PROGRAMMES</p>
                 <div className={styles.table_container}>
                   <table className={styles.responsive_table}>
                     <thead>
@@ -463,7 +469,10 @@ const Fees = () => {
           <div>
             <p>Other financial requiremens</p>
             <ul>
-              <li>Profressional Certification Examinations for level 200 (optional)</li>
+              <li>
+                Profressional Certification Examinations for level 200
+                (optional)
+              </li>
             </ul>
           </div>
         </div>

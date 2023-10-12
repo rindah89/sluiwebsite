@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 import styles from "./alumni.module.css";
 import { BsArrowLeft } from "react-icons/bs";
 import { Fade } from "react-reveal";
@@ -9,6 +9,10 @@ const Alumni: FC = () => {
   const [isHover, setIsHover] = useState(false);
 
   const [isBouncing, setIsBouncing] = useState(false);
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
 
   const startBounceAnimation = () => {
     console.log("bouncing animation has started");

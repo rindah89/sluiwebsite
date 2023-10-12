@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Fade } from "react-reveal";
 import ProgramGrid from "../../components/program-grid/ProgramGrid";
 
@@ -6,6 +6,10 @@ import ProgramGrid from "../../components/program-grid/ProgramGrid";
 import styles from "./values.module.css";
 
 const OurValues = () => {
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
+
   return (
     <div>
       <div className="hero">
@@ -139,18 +143,18 @@ const OurValues = () => {
       <div className="programs_">
         <div className="headline">
           <h3>JUST THE RIGHT FIT FOR YOU.</h3>
-          <h2>Exciting Programs</h2>
+          <h2>Exciting Programmes</h2>
         </div>
         <ProgramGrid
           programs={[
             {
               image: "/images/landing.webp",
-              desc: "More and more exciting programs to be explored at our campuses.",
+              desc: "More and more exciting programmes to be explored at our campuses.",
               label: "Bachelor",
             },
             {
               image: "/images/landing2.webp",
-              desc: "Explore our best masters programs. Find a fit for yourself.",
+              desc: "Explore our best masters programmes. Find a fit for yourself.",
               label: "Masters",
             },
             {
@@ -160,7 +164,7 @@ const OurValues = () => {
             },
             {
               image: "/images/landing4.webp",
-              desc: "HND programs are just so exciting start a career in one of these programmes.",
+              desc: "HND programmes are just so exciting start a career in one of these programmes.",
               label: "HND",
             },
           ]}

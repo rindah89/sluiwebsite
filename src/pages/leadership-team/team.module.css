@@ -119,10 +119,12 @@
 
 .event_section {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 6rem;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 2rem;
   padding: 2rem 6rem;
 }
+
+
 
 @media screen and (max-width: 1024px) {
   .hero {

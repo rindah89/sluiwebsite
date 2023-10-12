@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Fade } from "react-reveal";
 
 // style
@@ -87,6 +87,10 @@ const NewsnEvents = () => {
 
   const [isBouncing, setIsBouncing] = useState(false);
 
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
+
   const navigate = useNavigate();
 
   const startBounceAnimation = () => {
@@ -110,7 +114,7 @@ const NewsnEvents = () => {
           >
             <div className={isBouncing ? styles.bounce : ""}>
               <BsArrowLeft
-                size={isHover ? 14 : 16}
+                size={isHover ? 24 : 32}
                 style={{
                   fontSize: "1rem",
                   fontWeight: "bold",
@@ -121,7 +125,7 @@ const NewsnEvents = () => {
             </div>
             <p
               style={{
-                fontSize: "1.2rem",
+                fontSize: "2.5rem",
                 fontWeight: "bold",
                 color: isHover ? "#902d28" : "var(--main-color)",
               }}
@@ -133,31 +137,19 @@ const NewsnEvents = () => {
         <Fade right>
           <p
             style={{
-              fontSize: width <= 450 ? "2rem" : "3.5rem",
+              fontSize: width <= 450 ? "3rem" : "5rem",
               fontWeight: "bold",
               color: "var(--main-color)",
               width: "80%",
             }}
           >
-            Join our events and get to know about our university!
-          </p>
-        </Fade>
-        <Fade bottom>
-          <p
-            style={{
-              fontSize: width <= 450 ? "1.5rem" : "2rem",
-              fontWeight: "semi-bold",
-              color: "#575756",
-              wordSpacing: "1rem",
-            }}
-          >
-            Online // Onsite // Hybrid events
+            Let's meet at SLUI
           </p>
         </Fade>
       </div>
       <div className={styles.divider} />
       <div className={styles.event}>
-        <h3>Onsite, Online & Hybrid Events</h3>
+        {/* <h3>Onsite, Online & Hybrid Events</h3> */}
         <h3>Upcoming events</h3>
         <div className={styles.event_section}>
           {futureEvents.map((event, index) => (

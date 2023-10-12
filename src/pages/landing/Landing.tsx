@@ -36,7 +36,7 @@ const Landing = () => {
   }, []);
 
   useEffect(() => {
-    window.scrollTo({ top: 100, behavior: "smooth" });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
 
   const responsive = {
@@ -104,7 +104,7 @@ const Landing = () => {
           title="You are the centre of your studies"
           subText="Study according to the CORE Principle! Hands-on learning in small teams, step-by-step skill aquisition in field work and semester internships as well as individual support from lecturers."
           description=""
-          refLink="/core-principle"
+          refLink="/core-principles"
           btnText="Our Core Principles"
           img="/pics/converted/IVS_6945.webp"
         />
@@ -117,7 +117,7 @@ const Landing = () => {
           title="An engaging learning experience."
           subText=""
           description="There is no more lecture-centred teaching at SLUI. Instead, our instructors become personal learning coaches for you. Not only will you develop specialist knowledge together, but also work on improving your soft and hard skills. To do this, we rely on direct communication. Individual advice, digital exchange and continuous feedback are important to us as well as club activities such as the SLUI Toastmasters club."
-          refLink="/core-principle"
+          refLink="/core-principles"
           btnText="Our Core Principles"
           img="/pics/converted/IVS_6879.webp"
         />
@@ -160,23 +160,25 @@ const Landing = () => {
               title="DVC. Admin and Finance"
             />
           </GridLayout>
-          <button
-            style={{
-              padding: "1.5rem 3rem",
-              borderRadius: "5px",
-              background: "var(--main-color)",
-              fontSize: "1.6rem",
-              cursor: "pointer",
-              marginTop: "2rem",
-              outline: "none",
-              border: "none",
-              color: "#fff",
-              float: "right",
-              marginBottom: "10rem",
-            }}
-          >
-            View More
-          </button>
+          <Link to={"leadership-team"}>
+            <button
+              style={{
+                padding: "1.5rem 3rem",
+                borderRadius: "5px",
+                background: "var(--main-color)",
+                fontSize: "1.6rem",
+                cursor: "pointer",
+                marginTop: "2rem",
+                outline: "none",
+                border: "none",
+                color: "#fff",
+                float: "right",
+                marginBottom: "10rem",
+              }}
+            >
+              View More
+            </button>
+          </Link>
         </div>
       </div>
 
@@ -242,23 +244,27 @@ const Landing = () => {
           programs={[
             {
               image: "/pics/optimized/ivs-7494.webp",
-              desc: "More and more exciting programs to be explored at our campuses.",
+              desc: "More and more exciting programmes to be explored at our campuses.",
               label: "Bachelor",
+              link: "/bachelor",
             },
             {
-              image: "/pics/optimized/ivs-7545.webp",
-              desc: "Explore our best masters programs. Find a fit for yourself.",
+              image: require("../../assets/converted/IVS_7525.jpg"),
+              desc: "Explore our best masters programmes. Find a fit for yourself.",
               label: "Masters",
+              link: "/masters",
             },
             {
               image: "/pics/optimized/ivs-7639.webp",
               desc: "We offer a variety of short courses. Explore today!",
               label: "Short Course",
+              link: "/foundation",
             },
             {
               image: "/pics/optimized/ivs-7531.webp",
-              desc: "HND programs are just so exciting start a career in one of these programmes.",
+              desc: "HND programmes are just so exciting start a career in one of these programmes.",
               label: "HND",
+              link: "/hnd",
             },
           ]}
         />

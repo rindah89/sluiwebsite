@@ -19,11 +19,13 @@ const GeneralPull = () => {
               image: "/images/landing.webp",
               desc: "More and more stuffs to know about SLUI.",
               label: "Why SLUI",
+              link: '/why-us'
             },
             {
               image: "/images/landing2.webp",
               desc: "Get more insights on our core principles, what drives us to produce the results we produce.",
               label: "Our Core Principles",
+              link: '/core-principles'
             },
           ]}
         />

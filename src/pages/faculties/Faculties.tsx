@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Fade } from "react-reveal";
 
 // styles
@@ -103,7 +103,7 @@ export const facultiesData: Attrib[] = [
         ],
       },
       {
-        title: "International Programs",
+        title: "International Programmes",
         allCampuses: false,
         campuses: [
           {
@@ -140,7 +140,7 @@ export const facultiesData: Attrib[] = [
     ],
   },
   {
-    title: "Faculty of Agriculture",
+    title: "Faculty of Agriculture and Natural Sciences",
     desc: "Agriculture in today's world is an interesting and challenging industry where you can have a real impact. Our unique programmes combine the core disciplines of agricultural sciences with business management and innovative technology. Our classes include lively discussions around current issues as well as hands-on learning in the classroom, the lab and the field, giving you practical experience and a competitive advantage heading into careers on a local, national and global scale. Learn ‘hands-on’ alongside active research scientists. Not only are our lecturers leaders in their fields, they are passionate about sharing their knowledge and seeing you reach your potential.",
     subDesc:
       "Our small class sizes and friendly atmosphere provide the perfect environment for high-quality learning, networking and friendships that last beyond graduation. We offer the following programmes in our faculty",
@@ -161,7 +161,7 @@ export const facultiesData: Attrib[] = [
       },
       {
         title:
-          'Bachelor Degree Programs (4 Years for "A-level" holders, 3 Years for HND holders)',
+          'Bachelor Degree Programmes (4 Years for "A-level" holders, 3 Years for HND holders)',
         allCampuses: false,
         campuses: [
           {
@@ -177,6 +177,10 @@ export const facultiesData: Attrib[] = [
 const Faculties = () => {
   const [activePanelIndex, setActivePanelIndex] = useState<number>(0);
   const [activePanel, setActivePanel] = useState(false);
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
 
   return (
     <div>
@@ -278,18 +282,18 @@ const Faculties = () => {
       <div className="programs_">
         <div className="headline">
           <h3>JUST THE RIGHT FIT FOR YOU.</h3>
-          <h2>Exciting Programs</h2>
+          <h2>Exciting Programmes</h2>
         </div>
         <ProgramGrid
           programs={[
             {
               image: "/pics/optimized/ivs-7494.webp",
-              desc: "More and more exciting programs to be explored at our campuses.",
+              desc: "More and more exciting programmes to be explored at our campuses.",
               label: "Bachelor",
             },
             {
               image: "/pics/optimized/ivs-7545.webp",
-              desc: "Explore our best masters programs. Find a fit for yourself.",
+              desc: "Explore our best masters programmes. Find a fit for yourself.",
               label: "Masters",
             },
             {
@@ -299,7 +303,7 @@ const Faculties = () => {
             },
             {
               image: "/pics/optimized/ivs-7531.webp",
-              desc: "HND programs are just so exciting start a career in one of these programmes.",
+              desc: "HND programmes are just so exciting start a career in one of these programmes.",
               label: "HND",
             },
           ]}

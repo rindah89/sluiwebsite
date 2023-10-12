@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { FaQuoteLeft, FaQuoteRight } from "react-icons/fa";
 import { Fade } from "react-reveal";
 import ProgramGrid from "../../components/program-grid/ProgramGrid";
@@ -7,6 +7,10 @@ import ProgramGrid from "../../components/program-grid/ProgramGrid";
 import styles from "./why-us.module.css";
 
 const About = () => {
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
+
   return (
     <div>
       <div className={styles.hero}>
@@ -61,7 +65,7 @@ const About = () => {
             study, they not only understand the problems and possibilities
             differently, but also develop a critical quality for change making:
             Empathy. Whether through courses that take students into communities
-            or through community engagement programs on campus, immersion can
+            or through community engagement programmes on campus, immersion can
             easily be integrated into or isolated from the classroom so long as
             students find proper spaces of preparation and reflection. An
             example is our partnership with organizations and educators that
@@ -93,7 +97,7 @@ const About = () => {
             not only the acquisition of knowledge but the tools for action as
             well. At St. Louis University campuses and facilities around the
             country, we have been working to build the ecosystems - courses,
-            programs, internships, coaching and mentorship Programmes - within
+            programmes, internships, coaching and mentorship Programmes - within
             and in collaboration with external experts and organizations.
             Students need well-designed and supportive learning experiences
             through which they can translate ideas into action. We are pledged

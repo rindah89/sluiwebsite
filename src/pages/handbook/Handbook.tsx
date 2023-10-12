@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Fade } from "react-reveal";
 
 // style
 import styles from "./handbook.module.css";
 
 const Handbook = () => {
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
+
   return (
     <div>
       <div className={styles.hero}>
@@ -38,13 +42,15 @@ const Handbook = () => {
               Explore Our Comprehensive Handbook
             </h2>
           </Fade>
-          <h4 style={{
-            fontSize: '2rem',
-            textAlign: 'center',
-            color: 'rgba(0, 0, 0, 0.8)',
-            lineHeight: 1.5,
-            padding: '0 10rem',
-          }}>
+          <h4
+            style={{
+              fontSize: "2rem",
+              textAlign: "center",
+              color: "rgba(0, 0, 0, 0.8)",
+              lineHeight: 1.5,
+              padding: "0 10rem",
+            }}
+          >
             Welcome to "Our Handbook" - your go-to resource for all the
             essential information and guidance you need. This section of our
             website is designed to provide you with a comprehensive guide to our

@@ -28,6 +28,32 @@
   font-weight: 700;
 }
 
+.heading {
+  font-size: 7rem;
+  color: var(--main-color);
+  font-weight: 700;
+}
+
+.campusNameContainer {
+  background-color: #ffffff3a;
+  width: fit-content;
+  padding: 1rem;
+  border-radius: 2px;
+}
+
+.detailsTag {
+  font-size: 3.5rem;
+  text-align: justify;
+  margin-bottom: 2rem;
+  font-weight: 300;
+}
+.detailsBody {
+  font-size: 2rem;
+  text-align: justify;
+  margin-bottom: 2rem;
+  font-weight: 200;
+}
+
 .hero p {
   font-size: 2rem;
   width: 800px;

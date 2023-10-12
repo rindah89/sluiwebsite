@@ -7,9 +7,8 @@ import ProgramGrid from "../../components/program-grid/ProgramGrid";
 import styles from "./about.module.css";
 
 const About = () => {
-
   useEffect(() => {
-    window.scrollTo({ top: 100, behavior: "smooth" });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
 
   return (
@@ -175,29 +174,33 @@ const About = () => {
       <div className="programs_">
         <div className="headline">
           <h3>JUST THE RIGHT FIT FOR YOU.</h3>
-          <h2>Exciting Programs</h2>
+          <h2>Exciting Programmes</h2>
         </div>
         <ProgramGrid
           programs={[
             {
               image: "/pics/optimized/ivs-7494.webp",
-              desc: "More and more exciting programs to be explored at our campuses.",
+              desc: "More and more exciting programmes to be explored at our campuses.",
               label: "Bachelor",
+              link: "/bachelors",
             },
             {
               image: "/pics/optimized/ivs-7545.webp",
-              desc: "Explore our best masters programs. Find a fit for yourself.",
+              desc: "Explore our best masters programmes. Find a fit for yourself.",
               label: "Masters",
+              link: "/masters",
             },
             {
               image: "/pics/optimized/ivs-7639.webp",
               desc: "We offer a variety of short courses. Explore today!",
               label: "Short Course",
+              link: "/foundation",
             },
             {
               image: "/pics/optimized/ivs-7531.webp",
-              desc: "HND programs are just so exciting start a career in one of these programmes.",
+              desc: "HND programmes are just so exciting start a career in one of these programmes.",
               label: "HND",
+              link: "/hnd",
             },
           ]}
         />

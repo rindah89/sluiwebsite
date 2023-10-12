@@ -1,14 +1,19 @@
-import React, { FC, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 import styles from "./team.module.css";
 import { BsArrowLeft } from "react-icons/bs";
 import { Fade } from "react-reveal";
 import { useNavigate } from "react-router-dom";
+import LeaderCard from "../../components/leader-card/LeaderCard";
 
 const Team: FC = () => {
   const width = window.innerWidth;
   const [isHover, setIsHover] = useState(false);
 
   const [isBouncing, setIsBouncing] = useState(false);
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
 
   const startBounceAnimation = () => {
     console.log("bouncing animation has started");
@@ -19,6 +24,21 @@ const Team: FC = () => {
   const navigate = useNavigate();
 
   const Team = [
+    {
+      image: "/images/nick.jpeg",
+      name: "Dr. Nick Nganyam",
+      position: "President",
+    },
+    {
+      image: "/images/florence.jpg",
+      name: "Dr. Manjong Florence",
+      position: "DVC. Academic Affairs",
+    },
+    {
+      image: "/images/olivier.jpg",
+      name: "Mr. Tolly Olivier",
+      position: "DVC. Admin and Finance",
+    },
     {
       image:
         "https://lh3.googleusercontent.com/drive-viewer/AK7aPaBRnJSe3-EREXbWH1QUtD-PiaiPv2i31B_DvijbC-jRk2HQf37Ctv2QXXLvZ67hp5Bgse6cTnt6CtBmO8M0hL2582pZ=s1600",
@@ -47,7 +67,8 @@ const Team: FC = () => {
       position: "Administrative Secretary",
     },
     {
-      image: "",
+      image:
+        "https://lh3.googleusercontent.com/drive-viewer/AK7aPaDkiHhIGnzHzWofwBaSfusOd9NSn7FBSykwKyci36okkO89EF4b29Hf3WnaJepW2IhDbNE5hvMSbEbcPruzgOycteL7yQ=s1600",
       name: "MR. KUM CYPRIAN N.",
       tel: "681 200 836",
       position: "Administravie Assistant I",
@@ -117,56 +138,13 @@ const Team: FC = () => {
       </div>
       <div className={styles.event_section}>
         {Team.map((facility, index) => {
-          const image = new URL(facility.image, import.meta.url);
           return (
-            <div className={styles.facility}>
-              <div className={styles.image}>
-                <div
-                  className={styles.backgroundImage}
-                  style={{
-                    background: `linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3)),
-                    url(${image}), no-repeat`,
-                    backgroundSize: "cover",
-                  }}
-                >
-                  <div
-                    style={{
-                      width: "100%",
-                      height: "100%",
-                      display: "flex",
-                      flexDirection: "column",
-                      justifyContent: "flex-end",
-                      rowGap: "1rem",
-                      padding: "2rem",
-                    }}
-                  >
-                    <p
-                      style={{
-                        fontSize: "2.8rem",
-                        color: "var(--main-color)",
-                        fontWeight: "500",
-                      }}
-                    >
-                      {facility.name}
-                    </p>
-                    <p
-                      style={{
-                        color: "#f5f5f5",
-                      }}
-                    >
-                      {facility.tel}
-                    </p>
-                    <p
-                      style={{
-                        fontSize: "2rem",
-                      }}
-                    >
-                      {facility.position}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <LeaderCard
+              key={index}
+              name={facility.name}
+              title={facility.position}
+              image={facility.image}
+            />
           );
         })}
       </div>

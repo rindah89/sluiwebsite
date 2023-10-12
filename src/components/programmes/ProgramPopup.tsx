@@ -30,7 +30,7 @@ const ProgramPopup: React.FC<Attrib> = ({ programs }) => {
         <h2>Our Engaging Programmes</h2>
 
         <p>
-          Find the programs that suites your from the amazing programmes we
+          Find the programmes that suites your from the amazing programmes we
           offer.
         </p>
 
