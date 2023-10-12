@@ -34,7 +34,7 @@ const Alumni: FC = () => {
         "https://lh3.googleusercontent.com/drive-viewer/AK7aPaAgl_S8fws6MD-0HS2ruZNhaJhDhVzz8j4MNA-_-CviN2Id5p8KHDTatERbhejG2q1pWRadHIgEedCL0qn4AomGsWrXbg=s1600",
       name: "MENGOT SYLVIA",
       tel: "+237 651 428 708",
-      position: "Lecturer, Nursing",
+      position: "Nursing Lecturer",
     },
     {
       image:

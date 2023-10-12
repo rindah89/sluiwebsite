@@ -8,6 +8,7 @@ import styles from "./campus.module.css";
 import CampusCard from "../../components/campus-card/CampusCard";
 import GridLayout from "../../components/grid/Grid";
 import ProgramGrid from "../../components/program-grid/ProgramGrid";
+import { programmes } from "../landing/Landing";
 
 const Campuses = () => {
   useEffect(() => {
@@ -22,7 +23,7 @@ const Campuses = () => {
 
         <p>
           ST. LOUIS UNIVERSITY INSTITUTE has five campuses. Our campuses are at
-          the heart of four exciting cities; Douala, Yaounde and Bamenda.
+          the heart of three exciting cities; Douala, Yaounde and Bamenda.
           Combine a city lifestyle with tranquil surroundings for a unique study
           experience. With thousands of student and city life right on your
           doorstep, there's never a dull moment.
@@ -78,28 +79,7 @@ const Campuses = () => {
           <h2>Exciting Programmes</h2>
         </div>
         <ProgramGrid
-          programs={[
-            {
-              image: "/pics/optimized/ivs-7494.webp",
-              desc: "More and more exciting programmes to be explored at our campuses.",
-              label: "Bachelor",
-            },
-            {
-              image: "/pics/optimized/ivs-7545.webp",
-              desc: "Explore our best masters programmes. Find a fit for yourself.",
-              label: "Masters",
-            },
-            {
-              image: "/pics/optimized/ivs-7639.webp",
-              desc: "We offer a variety of short courses. Explore today!",
-              label: "Short Course",
-            },
-            {
-              image: "/pics/optimized/ivs-7531.webp",
-              desc: "HND programmes are just so exciting start a career in one of these programmes.",
-              label: "HND",
-            },
-          ]}
+          programs={programmes}
         />
       </div>
 

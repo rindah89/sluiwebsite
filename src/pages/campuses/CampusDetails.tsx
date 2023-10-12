@@ -3,11 +3,6 @@ import React, { FC, useEffect } from "react";
 // styles
 import styles from "./campus.module.css";
 
-type Campus = {
-  name: string;
-  tag: string;
-  body: string;
-};
 
 const campuses = [
   {

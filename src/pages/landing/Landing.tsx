@@ -18,6 +18,33 @@ import Event from "../../components/event/Event";
 import { Link, useNavigate } from "react-router-dom";
 import { events } from "../news&events/News&events";
 
+export const programmes = [
+  {
+    image: require("../../assets/converted/IVS_7525.jpg"),
+    desc: "More and more exciting programmes to be explored at our campuses.",
+    label: "Bachelor",
+    link: "/bachelors",
+  },
+  {
+    image: require("../../assets/masters.jpg"),
+    desc: "Explore our best masters programmes. Find a fit for yourself.",
+    label: "Masters",
+    link: "/masters",
+  },
+  {
+    image: "/pics/optimized/ivs-7639.webp",
+    desc: "We offer a variety of short courses. Explore today!",
+    label: "Short Course",
+    link: "/foundation",
+  },
+  {
+    image: "/pics/optimized/ivs-7531.webp",
+    desc: "HND programmes are just so exciting start a career in one of these programmes.",
+    label: "HND",
+    link: "/hnd",
+  },
+];
+
 const Landing = () => {
   const width = window.innerWidth;
   const listRef = useRef<HTMLDivElement>(null);
@@ -56,6 +83,18 @@ const Landing = () => {
     mobile: {
       breakpoint: { max: 464, min: 0 },
       items: 1,
+    },
+  };
+
+  const responsive2 = {
+    superLargeDesktop: {
+      // the naming can be any, depends on you.
+      breakpoint: { max: 4000, min: 3000 },
+      items: 6,
+    },
+    tablet: {
+      breakpoint: { max: 1024, min: 464 },
+      items: 3,
     },
   };
 
@@ -240,41 +279,14 @@ const Landing = () => {
           <h3>JUST THE RIGHT FIT FOR YOU.</h3>
           <h2>Exciting Programs</h2>
         </div>
-        <ProgramGrid
-          programs={[
-            {
-              image: "/pics/optimized/ivs-7494.webp",
-              desc: "More and more exciting programmes to be explored at our campuses.",
-              label: "Bachelor",
-              link: "/bachelor",
-            },
-            {
-              image: require("../../assets/converted/IVS_7525.jpg"),
-              desc: "Explore our best masters programmes. Find a fit for yourself.",
-              label: "Masters",
-              link: "/masters",
-            },
-            {
-              image: "/pics/optimized/ivs-7639.webp",
-              desc: "We offer a variety of short courses. Explore today!",
-              label: "Short Course",
-              link: "/foundation",
-            },
-            {
-              image: "/pics/optimized/ivs-7531.webp",
-              desc: "HND programmes are just so exciting start a career in one of these programmes.",
-              label: "HND",
-              link: "/hnd",
-            },
-          ]}
-        />
+        <ProgramGrid programs={programmes} />
       </div>
 
       <div className="programs_">
         <div className="headline">
           <h2>Memberships and Partnerships</h2>
         </div>
-        <div style={{ overflowX: "hidden" }}>
+        <Carousel responsive={responsive2}>
           <div
             ref={listRef}
             style={{
@@ -294,7 +306,7 @@ const Landing = () => {
                 return <img src={`/logos/${source}.webp`} alt="logo" />;
               })}
           </div>
-        </div>
+        </Carousel>
       </div>
     </div>
   );

@@ -5,6 +5,7 @@ import ProgramGrid from "../../components/program-grid/ProgramGrid";
 
 // styles
 import styles from "./about.module.css";
+import { programmes } from "../landing/Landing";
 
 const About = () => {
   useEffect(() => {
@@ -176,34 +177,7 @@ const About = () => {
           <h3>JUST THE RIGHT FIT FOR YOU.</h3>
           <h2>Exciting Programmes</h2>
         </div>
-        <ProgramGrid
-          programs={[
-            {
-              image: "/pics/optimized/ivs-7494.webp",
-              desc: "More and more exciting programmes to be explored at our campuses.",
-              label: "Bachelor",
-              link: "/bachelors",
-            },
-            {
-              image: "/pics/optimized/ivs-7545.webp",
-              desc: "Explore our best masters programmes. Find a fit for yourself.",
-              label: "Masters",
-              link: "/masters",
-            },
-            {
-              image: "/pics/optimized/ivs-7639.webp",
-              desc: "We offer a variety of short courses. Explore today!",
-              label: "Short Course",
-              link: "/foundation",
-            },
-            {
-              image: "/pics/optimized/ivs-7531.webp",
-              desc: "HND programmes are just so exciting start a career in one of these programmes.",
-              label: "HND",
-              link: "/hnd",
-            },
-          ]}
-        />
+        <ProgramGrid programs={programmes} />
       </div>
 
       <div className="programs_">

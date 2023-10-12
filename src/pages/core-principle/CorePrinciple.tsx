@@ -6,6 +6,7 @@ import styles from "./core.module.css";
 
 // imports
 import ProgramGrid from "../../components/program-grid/ProgramGrid";
+import { programmes } from "../landing/Landing";
 
 const CorePrinciple = () => {
   useEffect(() => {
@@ -120,30 +121,7 @@ const CorePrinciple = () => {
           <h3>JUST THE RIGHT FIT FOR YOU.</h3>
           <h2>Exciting Programmes</h2>
         </div>
-        <ProgramGrid
-          programs={[
-            {
-              image: "/images/test4.JPG",
-              desc: "More and more exciting programmes to be explored at our campuses.",
-              label: "Bachelor",
-            },
-            {
-              image: "/images/test5.JPG",
-              desc: "Explore our best masters programmes. Find a fit for yourself.",
-              label: "Masters",
-            },
-            {
-              image: "/images/test7.JPG",
-              desc: "We offer a variety of short courses. Explore today!",
-              label: "Short Course",
-            },
-            {
-              image: "/images/test6.JPG",
-              desc: "HND programmes are just so exciting start a career in one of these programmes.",
-              label: "HND",
-            },
-          ]}
-        />
+        <ProgramGrid programs={programmes} />
       </div>
 
       <div className="programs_">

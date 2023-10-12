@@ -21,10 +21,12 @@ const BuddyCard: React.FC<Props> = ({ image, name, title, whatsapp }) => {
           </div>
           <div className={styles.head__text}>
             <h2>{name}</h2>
-            <h4>{title}</h4>
+            {title.split("/n").map((name, index) => (
+              <h4>{name}</h4>
+            ))}
           </div>
           <div className={styles.button}>
-            <a target="_blank" rel='noreferrer' href={whatsapp}>
+            <a target="_blank" rel="noreferrer" href={whatsapp}>
               Chat With Buddy
             </a>
           </div>

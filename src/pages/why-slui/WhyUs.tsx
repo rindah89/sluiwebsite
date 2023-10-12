@@ -1,7 +1,5 @@
 import React, { useEffect } from "react";
-import { FaQuoteLeft, FaQuoteRight } from "react-icons/fa";
 import { Fade } from "react-reveal";
-import ProgramGrid from "../../components/program-grid/ProgramGrid";
 
 // styles
 import styles from "./why-us.module.css";

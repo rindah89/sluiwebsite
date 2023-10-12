@@ -10,6 +10,7 @@ import ProgramGrid from "../../components/program-grid/ProgramGrid";
 import FacultyPopup, {
   Attrib,
 } from "../../components/faculty-popup/FacultyPopup";
+import { programmes } from "../landing/Landing";
 
 export const facultiesData: Attrib[] = [
   {
@@ -284,30 +285,7 @@ const Faculties = () => {
           <h3>JUST THE RIGHT FIT FOR YOU.</h3>
           <h2>Exciting Programmes</h2>
         </div>
-        <ProgramGrid
-          programs={[
-            {
-              image: "/pics/optimized/ivs-7494.webp",
-              desc: "More and more exciting programmes to be explored at our campuses.",
-              label: "Bachelor",
-            },
-            {
-              image: "/pics/optimized/ivs-7545.webp",
-              desc: "Explore our best masters programmes. Find a fit for yourself.",
-              label: "Masters",
-            },
-            {
-              image: "/pics/optimized/ivs-7639.webp",
-              desc: "We offer a variety of short courses. Explore today!",
-              label: "Short Course",
-            },
-            {
-              image: "/pics/optimized/ivs-7531.webp",
-              desc: "HND programmes are just so exciting start a career in one of these programmes.",
-              label: "HND",
-            },
-          ]}
-        />
+        <ProgramGrid programs={programmes} />
       </div>
       <div className="programs_">
         <div className="headline">

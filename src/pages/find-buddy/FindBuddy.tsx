@@ -17,21 +17,21 @@ const alumni = [
       "https://lh3.googleusercontent.com/drive-viewer/AK7aPaDMdpkdHY8R22xDu0eMMKpcVzYg_itZhR1Ov8nN8gCLUXpaHTR-dIojK6aot9voxhUXYyKcaiGFDpbc3XgoULEsi2xL=s1600",
     name: "CHEFON BRANDON",
     tel: "+592 680 4363",
-    position: "Doctor of Medicine (Texila American University) Zambia",
+    position: "Doctor of Medicine/n(Texila American University) Zambia",
   },
   {
     image:
       "https://lh3.googleusercontent.com/drive-viewer/AK7aPaAgl_S8fws6MD-0HS2ruZNhaJhDhVzz8j4MNA-_-CviN2Id5p8KHDTatERbhejG2q1pWRadHIgEedCL0qn4AomGsWrXbg=s1600",
     name: "MENGOT SYLVIA",
     tel: "+237 651 428 708",
-    position: "Lecturer, Nursing",
+    position: "Nurse/nNursing Lecturer",
   },
   {
     image:
       "https://lh3.googleusercontent.com/drive-viewer/AK7aPaAKSrUQy3ObA6iFgs2AzsnvSsLxHFkBBjMpReF9PJ7GA8ukf7UDUuPzdLwsgB4nxO5e6g2t-l7Jzmr4t-uCFcO26BuEyg=s1600",
     name: "VUSENG VERA",
     tel: "+237 670 878 721",
-    position: "Acting HOD Physiotherapy",
+    position: "Pysiotherapist/nActing HOD Physiotherapy",
   },
 ];
 const students = [
