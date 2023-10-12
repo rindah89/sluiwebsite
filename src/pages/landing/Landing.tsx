@@ -92,9 +92,17 @@ const Landing = () => {
       breakpoint: { max: 4000, min: 3000 },
       items: 6,
     },
+    desktop: {
+      breakpoint: { max: 3000, min: 1024 },
+      items: 6,
+    },
     tablet: {
       breakpoint: { max: 1024, min: 464 },
-      items: 3,
+      items: 4,
+    },
+    mobile: {
+      breakpoint: { max: 464, min: 0 },
+      items: 2,
     },
   };
 
@@ -286,15 +294,26 @@ const Landing = () => {
         <div className="headline">
           <h2>Memberships and Partnerships</h2>
         </div>
-        <Carousel responsive={responsive2}>
-          <div
+        <div
+          style={{
+            margin: "0 4rem",
+          }}
+        >
+          <Carousel
+            responsive={responsive2}
+            autoPlay
+            infinite
+            arrows={false}
+            autoPlaySpeed={2000}
+          >
+            {/* <div
             ref={listRef}
             style={{
               display: "flex",
               animation: "scroll 3s linear infinite",
             }}
             className="logos"
-          >
+          > */}
             {Array(6)
               .fill("a")
               .map((_, index) => {
@@ -303,10 +322,18 @@ const Landing = () => {
                   index === 5
                     ? "https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/how-to-participate/org-details/885163219"
                     : "";
-                return <img src={`/logos/${source}.webp`} alt="logo" />;
+                return (
+                  <img
+                    src={`/logos/${source}.webp`}
+                    alt="logo"
+                    width={80}
+                    height={"auto"}
+                  />
+                );
               })}
-          </div>
-        </Carousel>
+            {/* </div> */}
+          </Carousel>
+        </div>
       </div>
     </div>
   );

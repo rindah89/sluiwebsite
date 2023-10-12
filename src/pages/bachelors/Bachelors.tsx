@@ -7,7 +7,29 @@ import styles from "./masters.module.css";
 
 // imports
 import GeneralPull from "../../components/general-pull/GeneralPull";
+import ProgramCard from "../../components/programs/ProgramCard";
 
+const programs = [
+  {
+    title: "Health and Biomedical Sciences",
+    list: [
+      "Clinical Optimetry and Ophtamology",
+      "Nutrition and Dietetics",
+      "Radiology and ultrasonography",
+      "Physiotherapy",
+      "Midwifery",
+      "Pharmaceutical Technology",
+      "Dental Therapy",
+      "Medical Lab Sciences",
+      "Pharmaceutical Sciences",
+      "Nursing",
+    ],
+  },
+  {
+    title: "Agriculture and Natural Sciences",
+    list: ["Agronomy", "Animal Production"],
+  },
+];
 const Bachelors = () => {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -37,53 +59,9 @@ const Bachelors = () => {
       </div>
 
       <div className={styles.list}>
-        <div>
-          <h2>Heath and Biomedical Sciences</h2>
-          <ul>
-            <li>
-              <AiOutlineArrowRight /> Clinical Optimetry and Ophtamology
-            </li>
-            <li>
-              <AiOutlineArrowRight /> Nutrition and Dietetics
-            </li>
-            <li>
-              <AiOutlineArrowRight /> Radiology and Ultrasonography
-            </li>
-            <li>
-              <AiOutlineArrowRight /> Physiotherapy
-            </li>
-            <li>
-              <AiOutlineArrowRight /> Midwifery
-            </li>
-            <li>
-              <AiOutlineArrowRight /> Pharmacy Technology
-            </li>
-            <li>
-              <AiOutlineArrowRight /> Dental Therapy
-            </li>
-            <li>
-              <AiOutlineArrowRight /> Medical Lab Sciences
-            </li>
-            <li>
-              <AiOutlineArrowRight /> Pharmaceutical Sciences
-            </li>
-            <li>
-              <AiOutlineArrowRight /> Nursing
-            </li>
-          </ul>
-        </div>
-
-        <div>
-          <h2>Agriculture and Natural Sciences</h2>
-          <ul>
-            <li>
-              <AiOutlineArrowRight /> Agronomy
-            </li>
-            <li>
-              <AiOutlineArrowRight /> Animal Production
-            </li>
-          </ul>
-        </div>
+        {programs.map((program) => (
+          <ProgramCard program={program} />
+        ))}
       </div>
 
       <GeneralPull />

@@ -10,7 +10,7 @@
   padding: 3rem 4vw;
   padding-bottom: 5rem;
   margin-top: 100px;
-   display: flex;
+  display: flex;
   display: -ms-flexbox;
   flex-direction: column;
   -ms-flex-direction: column;
@@ -35,17 +35,28 @@
 }
 
 .desc {
-    padding: 4rem 4vw;
+  padding: 4rem 4vw;
 }
 
 .desc .head h2 {
-    font-size: 3rem;
-    font-weight: 600;
-    margin-bottom: 2rem;
-    color: var(--main-color);
+  font-size: 3rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  color: var(--main-color);
 }
 
 .desc .content h4 {
-    font-size: 1.8rem;
-    margin-bottom: 1rem;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.moto_content {
+  width: 100%;
+  background-color:  rgb(241, 200, 198);
+  padding: 2rem 0;
+}
+.desc .moto_content h4 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  /* color: #fff; */
 }

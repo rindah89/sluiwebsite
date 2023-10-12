@@ -7,11 +7,47 @@ import styles from "./masters.module.css";
 
 // imports
 import GeneralPull from "../../components/general-pull/GeneralPull";
+import ProgramCard from "../../components/programs/ProgramCard";
 
 const HND = () => {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
+
+  const programs = [
+    {
+      title: "Health and Biomedical Sciences",
+      list: [
+        "Clinical Optimetry and Ophtamology",
+        "Nutrition and Dietetics",
+        "Radiology and ultrasonography",
+        "Physiotherapy",
+        "Midwifery",
+        "Pharmaceutical Sciences",
+        "Nursing",
+      ],
+    },
+    {
+      title: "Engineering and Technology",
+      list: [
+        "Networking and Security",
+        "Telecommunication",
+        "Electrical Power Systems",
+        "Software Engineering",
+        "Computer Hardware Maintenance",
+      ],
+    },
+    {
+      title: "Agriculture and Natural Sciences",
+      list: [
+        "Agricultural Production Technology",
+        "Animal Production",
+        "Crop production",
+        "Agro-Pastoral Advisor",
+        "Food Processing Technology",
+      ],
+    },
+  ];
 
   return (
     <div>
@@ -36,84 +72,9 @@ const HND = () => {
       </div>
 
       <div className={styles.list}>
-        <div>
-          <h2>Heath and Biomedical Sciences</h2>
-          <ul>
-            <li>
-              <a href="/programme" className={styles.anchor}>
-                <AiOutlineArrowRight /> Clinical Optimetry and Ophtamology
-              </a>
-            </li>
-            <li>
-              <AiOutlineArrowRight /> Nutrition and Dietetics
-            </li>
-            <li>
-              <AiOutlineArrowRight /> Radiology and Ultrasonography
-            </li>
-            <li>
-              <AiOutlineArrowRight /> Physiotherapy
-            </li>
-            <li>
-              <AiOutlineArrowRight /> Midwifery
-            </li>
-            <li>
-              <AiOutlineArrowRight /> Pharmacy Technology
-            </li>
-            <li>
-              <AiOutlineArrowRight /> Dental Therapy
-            </li>
-            <li>
-              <AiOutlineArrowRight /> Medical Lab Sciences
-            </li>
-            <li>
-              <AiOutlineArrowRight /> Pharmaceutical Sciences
-            </li>
-            <li>
-              <AiOutlineArrowRight /> Nursing
-            </li>
-          </ul>
-        </div>
-        <div>
-          <h2>Engineering and Technology</h2>
-          <ul>
-            <li>
-              <AiOutlineArrowRight /> Networking and Security
-            </li>
-            <li>
-              <AiOutlineArrowRight /> Telecommunication
-            </li>
-            <li>
-              <AiOutlineArrowRight /> Electrical Power Systems
-            </li>
-            <li>
-              <AiOutlineArrowRight /> Software Engineering
-            </li>
-            <li>
-              <AiOutlineArrowRight /> Computer Hardware Maintenance
-            </li>
-          </ul>
-        </div>
-
-        <div>
-          <h2>Agriculture and Natural Sciences</h2>
-          <ul>
-            <li>
-              <AiOutlineArrowRight /> Agricultural Production Technology
-            </li>
-            <li>
-              <AiOutlineArrowRight /> Animal Production
-            </li>
-            <li>
-              <AiOutlineArrowRight /> Crop Production
-            </li>
-            <li>
-              <AiOutlineArrowRight /> Agro-Pastoral Advisor
-            </li>
-            <li>
-              <AiOutlineArrowRight /> Food Processing Technology
-            </li>
-          </ul>
-        </div>
+        {programs.map((program) => (
+          <ProgramCard program={program} />
+        ))}
       </div>
 
       <GeneralPull />

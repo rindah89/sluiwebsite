@@ -6,8 +6,23 @@ import styles from "./news&events.module.css";
 import { BsArrowLeft } from "react-icons/bs";
 import Event from "../../components/event/Event";
 import { useNavigate } from "react-router-dom";
+import Carousel from "react-multi-carousel";
 
 const pastEvents = [
+  {
+    heading: "Resist exams",
+    tag: "All levels",
+    subHeading: "04.09.23",
+    body: "Commencement of resit exams for 2022/23 academic year",
+    footer: "All campuses",
+  },
+  {
+    heading: "Admission",
+    tag: "L200",
+    subHeading: "21.09.23",
+    body: "Ongoing admission and registration into level 200",
+    footer: "All campuses",
+  },
   {
     heading: "Resist exams",
     tag: "All levels",
@@ -38,6 +53,13 @@ const futureEvents = [
     subHeading: "L200",
     body: "Weekend/Welcome party for freshmen",
     footer: "All campuses",
+  },
+  {
+    heading: "Career orientation",
+    tag: "06.12.23",
+    subHeading: "L200",
+    body: "Lectures/ Revision / Career orientation day",
+    footer: "Bonamoussadi",
   },
   {
     heading: "Career orientation",
@@ -80,6 +102,26 @@ export const events = [
   ...pastEvents,
   ...futureEvents,
 ];
+
+const responsive = {
+  superLargeDesktop: {
+    // the naming can be any, depends on you.
+    breakpoint: { max: 4000, min: 3000 },
+    items: 5,
+  },
+  desktop: {
+    breakpoint: { max: 3000, min: 1024 },
+    items: 3,
+  },
+  tablet: {
+    breakpoint: { max: 1024, min: 464 },
+    items: 2,
+  },
+  mobile: {
+    breakpoint: { max: 464, min: 0 },
+    items: 1,
+  },
+};
 
 const NewsnEvents = () => {
   const width = window.innerWidth;
@@ -151,17 +193,21 @@ const NewsnEvents = () => {
       <div className={styles.event}>
         {/* <h3>Onsite, Online & Hybrid Events</h3> */}
         <h3>Upcoming events</h3>
-        <div className={styles.event_section}>
+        {/* <div className={styles.event_section}> */}
+        <Carousel responsive={responsive}>
           {futureEvents.map((event, index) => (
             <Event key={index} event={event} />
           ))}
-        </div>
+        </Carousel>
+        {/* </div> */}
         <h3>Past events</h3>
-        <div className={styles.event_section}>
+        {/* <div className={styles.event_section}> */}
+        <Carousel responsive={responsive}>
           {pastEvents.map((event, index) => (
             <Event key={index} event={event} />
           ))}
-        </div>
+        </Carousel>
+        {/* </div> */}
       </div>
     </div>
   );

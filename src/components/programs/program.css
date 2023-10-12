@@ -73,6 +73,83 @@
   display: none;
 }
 
+.programCard {
+  width: 100%;
+  height: fit-content;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+}
+
+.programCard ul {
+  list-style-type: none;
+}
+
+.seeMore {
+  display: flex;
+  gap: 0.2rem;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 1rem;
+}
+
+.button {
+  display: flex;
+  gap: 0.2rem;
+  align-items: center;
+  padding: 1rem;
+  font-size: 1.5rem;
+  transition: 0.5s ease-in-out;
+  text-decoration: underline;
+}
+
+.button:hover {
+  transform: scale(1.2);
+  cursor: pointer;
+}
+
+.programCard h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  color: var(--main-color);
+}
+
+.programCard ul li {
+  font-size: 1.8rem;
+  margin-bottom: 0.8rem;
+  display: flex;
+  display: -ms-flexbox;
+  gap: 2rem;
+  align-items: center;
+  transform: translateX(0);
+  -webkit-transform: translateX(0);
+  -moz-transform: translateX(0);
+  -ms-transform: translateX(0);
+  -o-transform: translateX(0);
+  transition: 0.5s ease-in-out;
+  -webkit-transition: 0.5s ease-in-out;
+  -moz-transition: 0.5s ease-in-out;
+  -ms-transition: 0.5s ease-in-out;
+  -o-transition: 0.5s ease-in-out;
+}
+
+.programCard ul li:hover {
+  transform: translateX(20px);
+  -webkit-transform: translateX(20px);
+  -moz-transform: translateX(20px);
+  -ms-transform: translateX(20px);
+  -o-transform: translateX(20px);
+  cursor: pointer;
+  font-size: 2rem;
+}
+
+.anchor {
+  display: flex;
+  text-decoration: none;
+  color: inherit;
+  gap: 2rem;
+}
+
 @media screen and (max-width: 1075px) {
   .programs > a > div > div h2 {
     font-size: 2.8rem;

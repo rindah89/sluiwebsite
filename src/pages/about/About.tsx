@@ -135,7 +135,7 @@ const About = () => {
           <h2>Motto/Mantra:</h2>
         </div>
 
-        <div className={styles.content}>
+        <div className={styles.moto_content}>
           <h4
             style={{
               fontWeight: "600",
@@ -156,7 +156,7 @@ const About = () => {
           <h2>Slogan:</h2>
         </div>
 
-        <div className={styles.content}>
+        <div className={styles.moto_content}>
           <h4
             style={{
               fontWeight: "600",

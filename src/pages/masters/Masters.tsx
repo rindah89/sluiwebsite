@@ -7,6 +7,24 @@ import styles from "./masters.module.css";
 
 // imports
 import GeneralPull from "../../components/general-pull/GeneralPull";
+import ProgramCard from "../../components/programs/ProgramCard";
+
+const programs = [
+  {
+    title: "Masters Programmes List",
+    list: [
+      "Midwifery",
+      "Pediatric Nursing",
+      "Medical Surgical Nursing",
+      "Oncology Nursing",
+      "Nurse Anesthesia",
+      "Geriatric Nursing",
+      "Public Health",
+      "Physiotherapy",
+      "Medical Imaging Technology",
+    ],
+  },
+];
 
 const Masters = () => {
   useEffect(() => {
@@ -55,38 +73,9 @@ const Masters = () => {
       </div>
 
       <div className={styles.list}>
-        <div>
-          <h2>Masters Programmes List</h2>
-          <ul>
-            <li>
-              <AiOutlineArrowRight /> Midwifery
-            </li>
-            <li>
-              <AiOutlineArrowRight /> Pediatric Nursing
-            </li>
-            <li>
-              <AiOutlineArrowRight /> Medical Surgical Nursing
-            </li>
-            <li>
-              <AiOutlineArrowRight /> Oncology Nursing
-            </li>
-            <li>
-              <AiOutlineArrowRight /> Nurse Anesthesia
-            </li>
-            <li>
-              <AiOutlineArrowRight /> Geriatric Nursing
-            </li>
-            <li>
-              <AiOutlineArrowRight /> Public Health
-            </li>
-            <li>
-              <AiOutlineArrowRight /> Physiotherapy
-            </li>
-            <li>
-              <AiOutlineArrowRight /> Medical Imaging Technology
-            </li>
-          </ul>
-        </div>
+        {programs.map((program) => (
+          <ProgramCard program={program} />
+        ))}
         <div>
           <h2>Core values</h2>
           <ul>
