@@ -1,8 +1,12 @@
-import React from "react";
-import { FaArrowRight } from "react-icons/fa";
+import React, { useEffect, useRef, useState } from "react";
 
 // styles
 import styles from "./styles.module.css";
+import {
+  AiOutlineArrowDown,
+  AiOutlineArrowRight,
+  AiOutlineArrowUp,
+} from "react-icons/ai";
 
 export type Attrib = {
   title: string;
@@ -12,9 +16,11 @@ export type Attrib = {
 };
 
 const FacultyPopup: React.FC<Attrib> = ({ title, desc, subDesc, programs }) => {
+  const [more, setMore] = useState("");
+
   return (
-    <div className={styles.popup}>
-      <div className={styles.content}>
+    <div className={styles.popup} id="mainRef">
+      <div className={styles.content} id="content">
         <img
           style={{ marginBottom: "3rem" }}
           width={400}
@@ -33,13 +39,14 @@ const FacultyPopup: React.FC<Attrib> = ({ title, desc, subDesc, programs }) => {
         {programs?.map((program: any, index) => (
           <>
             <h2 className={styles.title}>
-              {program?.title}
+              {program?.title}AIzaSyADu28rozLacj_e1qthivzoENsKUU_ii1c
               {program.allCampuses && <span> - All Campuses</span>}
             </h2>
             <div
               style={{
                 display: "grid",
                 gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
+                gap: "4rem",
               }}
             >
               {program.campuses.map((campus: any, index: number) => (
@@ -60,14 +67,58 @@ const FacultyPopup: React.FC<Attrib> = ({ title, desc, subDesc, programs }) => {
                     {campus.title}
                   </h3>
                   <div className={styles.list}>
-                    {campus.programs.map((item: string, index: number) => {
+                    {/* {campus.programs.map((item: string, index: number) => {
+                      console.log({ item });
                       return (
                         <h5 key={index}>
                           <FaArrowRight style={{ marginRight: "1rem" }} />{" "}
                           {item}
                         </h5>
                       );
-                    })}
+                    })} */}
+                    <div className="programCard" style={{}}>
+                      <ul>
+                        {more === campus.title
+                          ? campus.programs.map((item: any) => {
+                              return (
+                                <li>
+                                  <a href="/programme" className={"anchor"}>
+                                    <AiOutlineArrowRight /> {item}
+                                  </a>
+                                </li>
+                              );
+                            })
+                          : campus.programs.slice(0, 2).map((item: any) => {
+                              return (
+                                <li>
+                                  <a href="/programme" className={"anchor"}>
+                                    <AiOutlineArrowRight /> {item}
+                                  </a>
+                                </li>
+                              );
+                            })}
+                      </ul>
+                      <div className="seeMore" id="seeMore">
+                        <div
+                          id="button"
+                          className="button"
+                          onClick={() =>
+                            more === ""
+                              ? setMore(`${campus.title}-${program.title}`)
+                              : setMore("")
+                          }
+                        >
+                          <p id="link">
+                            {more === `${campus.title}-${program.title}` ? "See less" : "See more"}
+                          </p>
+                          {more === `${campus.title}-${program.title}` ? (
+                            <AiOutlineArrowUp />
+                          ) : (
+                            <AiOutlineArrowDown />
+                          )}
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               ))}

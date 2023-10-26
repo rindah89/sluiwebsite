@@ -74,6 +74,7 @@
 }
 
 .programCard {
+  display: grid;
   width: 100%;
   height: fit-content;
   border: 1px solid rgba(0, 0, 0, 0.1);

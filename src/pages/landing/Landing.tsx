@@ -17,6 +17,7 @@ import LeaderCard from "../../components/leader-card/LeaderCard";
 import Event from "../../components/event/Event";
 import { Link, useNavigate } from "react-router-dom";
 import { events } from "../news&events/News&events";
+import Membership from "../../components/membership/Membership";
 
 export const programmes = [
   {
@@ -32,13 +33,15 @@ export const programmes = [
     link: "/masters",
   },
   {
-    image: "/pics/optimized/ivs-7639.webp",
+    // image: '/pics/optimized/IVC_6598.jpg',
+    image: require("../../assets/optimized/IVC_0135.jpg"),
     desc: "We offer a variety of short courses. Explore today!",
     label: "Short Course",
     link: "/foundation",
   },
   {
-    image: "/pics/optimized/ivs-7531.webp",
+    // image: '/pics/optimized/IVC_6598.jpg',
+    image: require("../../assets/optimized/IVS_6598.jpg"),
     desc: "HND programmes are just so exciting start a career in one of these programmes.",
     label: "HND",
     link: "/hnd",
@@ -48,7 +51,6 @@ export const programmes = [
 const Landing = () => {
   const width = window.innerWidth;
   const listRef = useRef<HTMLDivElement>(null);
-  const navigate = useNavigate();
 
   useEffect(() => {
     const scrollInterval = setInterval(() => {
@@ -86,26 +88,6 @@ const Landing = () => {
     },
   };
 
-  const responsive2 = {
-    superLargeDesktop: {
-      // the naming can be any, depends on you.
-      breakpoint: { max: 4000, min: 3000 },
-      items: 6,
-    },
-    desktop: {
-      breakpoint: { max: 3000, min: 1024 },
-      items: 6,
-    },
-    tablet: {
-      breakpoint: { max: 1024, min: 464 },
-      items: 4,
-    },
-    mobile: {
-      breakpoint: { max: 464, min: 0 },
-      items: 2,
-    },
-  };
-
   return (
     <div className="landing">
       <div className="hero">
@@ -120,7 +102,7 @@ const Landing = () => {
             rel="noreferrer"
           >
             <button>
-              Admission 2023 open <p>Click here to apply</p>
+              2023 Admission ongoing <p>Click here to apply</p>
             </button>
           </a>
         </div>
@@ -294,46 +276,7 @@ const Landing = () => {
         <div className="headline">
           <h2>Memberships and Partnerships</h2>
         </div>
-        <div
-          style={{
-            margin: "0 4rem",
-          }}
-        >
-          <Carousel
-            responsive={responsive2}
-            autoPlay
-            infinite
-            arrows={false}
-            autoPlaySpeed={2000}
-          >
-            {/* <div
-            ref={listRef}
-            style={{
-              display: "flex",
-              animation: "scroll 3s linear infinite",
-            }}
-            className="logos"
-          > */}
-            {Array(6)
-              .fill("a")
-              .map((_, index) => {
-                const source = index === 0 ? "logo" : `logo${index + 1}`;
-                const link =
-                  index === 5
-                    ? "https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/how-to-participate/org-details/885163219"
-                    : "";
-                return (
-                  <img
-                    src={`/logos/${source}.webp`}
-                    alt="logo"
-                    width={80}
-                    height={"auto"}
-                  />
-                );
-              })}
-            {/* </div> */}
-          </Carousel>
-        </div>
+        <Membership />
       </div>
     </div>
   );

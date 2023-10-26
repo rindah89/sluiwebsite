@@ -6,8 +6,10 @@ import ProgramGrid from "../../components/program-grid/ProgramGrid";
 // styles
 import styles from "./about.module.css";
 import { programmes } from "../landing/Landing";
+import Membership from "../../components/membership/Membership";
 
 const About = () => {
+
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
@@ -184,35 +186,7 @@ const About = () => {
         <div className="headline">
           <h2>Memberships and Partnerships</h2>
         </div>
-        <div className="logos">
-          <Fade up delay={100}>
-            <img src="/logos/logo.webp" alt="logo" />
-          </Fade>
-          <Fade up delay={300}>
-            <img src="/logos/logo2.webp" alt="logo" />
-          </Fade>
-          <Fade up delay={500}>
-            <img src="/logos/logo3.webp" alt="logo" />
-          </Fade>
-          <Fade up delay={700}>
-            <img src="/logos/logo4.webp" alt="logo" />
-          </Fade>
-          <Fade up delay={900}>
-            <img src="/logos/logo5.webp" alt="logo" />
-          </Fade>
-          <Fade up delay={900}>
-            <img src="/logos/logo6.webp" alt="logo" />
-          </Fade>
-          <Fade up delay={900}>
-            <a
-              href="https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/how-to-participate/org-details/885163219"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <img src="/logos/logo7.webp" alt="logo" />
-            </a>
-          </Fade>
-        </div>
+        <Membership />
       </div>
     </div>
   );

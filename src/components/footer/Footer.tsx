@@ -27,7 +27,7 @@ const Footer = () => {
             <Link to="/masters">Masters</Link>
             <Link to="/bachelors">Bachelors</Link>
             <Link to="/hnd">HND</Link>
-            <Link to="/">Short Courses</Link>
+            <Link to="/foundation">Short Courses</Link>
             <Link to="/application-and-admission">Admission Processes</Link>
             <Link to="/">Student Advisory Board</Link>
           </div>
@@ -57,10 +57,15 @@ const Footer = () => {
         <div className="component">
           <div className="contact__info">
             <h2>Contact Info</h2>
-            <div className="mail">
-              <AiOutlineMail size={20} />
-              <h4>info@slui.org</h4>
-            </div>
+            <Link
+              to="mailto:info@slui.org"
+              className="custom-link"
+            >
+              <div className="mail">
+                <AiOutlineMail size={20} />
+                <h4>info@slui.org</h4>
+              </div>
+            </Link>
 
             <div className="mail">
               <AiOutlinePhone size={20} />
@@ -110,16 +115,25 @@ const Footer = () => {
             <img src="/images/logo_dark.webp" alt="logo" />
           </div>
           <div className="social">
-            <a href="https://www.linkedin.com/in/st-louis-university-institute-cameroon-450b98248">
+            <a
+              href="https://www.linkedin.com/in/st-louis-university-institute-cameroon-450b98248"
+              target="_blank"
+            >
               <FaLinkedinIn />
             </a>
-            <a href="https://twitter.com/institute_louis?t=DPelWOEniRgQwXjpIjG-Zg&s=09">
+            <a
+              href="https://twitter.com/institute_louis?t=DPelWOEniRgQwXjpIjG-Zg&s=09"
+              target="_blank"
+            >
               <AiOutlineTwitter />
             </a>
-            <a href="https://www.facebook.com/stlouishigheruniveristy">
+            <a
+              href="https://www.facebook.com/stlouishigheruniveristy"
+              target="_blank"
+            >
               <FaFacebook />
             </a>
-            <a href="http://tiktok.com/@st.louisuniversity">
+            <a href="http://tiktok.com/@st.louisuniversity" target="_blank">
               <FaTiktok />
             </a>
           </div>

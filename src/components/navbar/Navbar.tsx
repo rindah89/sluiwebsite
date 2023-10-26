@@ -1,6 +1,6 @@
 /* eslint-disable */
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import {
   AiOutlineSearch,
@@ -37,13 +37,31 @@ const Navbar = () => {
   const [activePanel, setActivePanel] = useState(false);
 
   const [programsPanelActivated, setProgramsPanelActivated] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const elementId = (event?.target as any)?.id;
+      if (elementId === "mainRef") {
+        setActivePanel(false);
+      }
+    };
+
+    document.addEventListener("click", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, []);
+
   return (
     <nav className={`navbar bg`}>
       {activePanel && (
         <div
-          onClick={() => {
-            setActivePanel(false);
-          }}
+          // onClick={() => {
+          //   setActivePanel(false);
+          // }}
+          ref={ref}
         >
           <FacultyPopup
             title={facultiesData[activePanelIndex].title}
@@ -191,9 +209,7 @@ const Navbar = () => {
           </ul>
         </li>
         <li>
-          <Link className="non__before" to="/our-campuses">
-            Campuses
-          </Link>
+          <Link to="/our-campuses">Campuses</Link>
           {/* <ul className="dropdown">
             <li>
               <Link to="/">

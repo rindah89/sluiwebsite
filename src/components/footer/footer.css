@@ -3,7 +3,7 @@
 }
 
 .footer .components {
-  padding: 3rem 4vw;
+  padding: 5rem 4vw;
   display: flex;
   display: -ms-flexbox;
   gap: 2rem;
@@ -17,6 +17,11 @@
   font-size: 2rem;
   margin-bottom: 2rem;
   font-weight: 600;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.custom-link {
+  text-decoration: none;
   color: rgba(0, 0, 0, 0.8);
 }
 
@@ -45,58 +50,58 @@
 }
 
 .mail {
-    display: flex;
-    display: -ms-flexbox;
-    align-items: center;
-    gap: 1rem;
-    margin-bottom: 1.5rem;
+  display: flex;
+  display: -ms-flexbox;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
 }
 
 .mail h4 {
-    font-size: 1.6rem;
+  font-size: 1.6rem;
 }
 
 .mark {
-    min-height: 30vh;
-    background: var(--main-color);
-    padding: 2rem 4vw;
+  min-height: 30vh;
+  background: var(--main-color);
+  padding: 2rem 4vw;
 }
 
 .logo__section {
-    display: flex;
-    display: -ms-flexbox;
-    align-items: center;
-    justify-content: space-between;
-    gap: 2rem;
-    flex-wrap: wrap;
-    -ms-flex-wrap: wrap;
+  display: flex;
+  display: -ms-flexbox;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
 }
 
 .mark img {
-    width: 350px;
+  width: 350px;
 }
 
 .social,
 .refs {
-    display: flex;
-    display: -ms-flexbox;
-    align-items: center;
-    gap: 2rem;
+  display: flex;
+  display: -ms-flexbox;
+  align-items: center;
+  gap: 2rem;
 }
 
 .social a {
-    color: #fff;
-    font-size: 3rem;
+  color: #fff;
+  font-size: 3rem;
 }
 
 .refs {
-    margin-top: 4rem;
-    flex-wrap: wrap;
-    -ms-flex-wrap: wrap;
+  margin-top: 4rem;
+  flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
 }
 
 .refs a,
 .refs h4 {
-    color: #fff;
-    font-size: 1.3rem;
+  color: #fff;
+  font-size: 1.3rem;
 }
