@@ -7,8 +7,9 @@ import { BsArrowLeft } from "react-icons/bs";
 import Event from "../../components/event/Event";
 import { useNavigate } from "react-router-dom";
 import Carousel from "react-multi-carousel";
+import { useTranslation } from "react-i18next";
 
-const pastEvents = [
+const pastEventsEN = [
   {
     heading: "Resist exams",
     tag: "All levels",
@@ -39,7 +40,38 @@ const pastEvents = [
   },
 ];
 
-const futureEvents = [
+const pastEventsFR = [
+  {
+    heading: "Résister aux examens",
+    tag: "Tous les niveaux",
+    subHeading: "04.09.23",
+    body: "Début des examens de rattrapage pour l'année académique 2022/23",
+    footer: "Tous les campus",
+  },
+  {
+    heading: "Admission",
+    tag: "L200",
+    subHeading: "21.09.23",
+    body: "Admission et inscription en cours au niveau 200",
+    footer: "Tous les campus",
+  },
+  {
+    heading: "Resist exams",
+    tag: "Tous les niveaux",
+    subHeading: "04.09.23",
+    body: "Début des examens de rattrapage pour l'année académique 2022/23",
+    footer: "Tous les campus",
+  },
+  {
+    heading: "Admission",
+    tag: "L200",
+    subHeading: "21.09.23",
+    body: "Admission et inscription en cours au niveau 200",
+    footer: "Tous les campus",
+  },
+];
+
+const futureEventsEN = [
   {
     heading: "Club activities",
     tag: "All levels",
@@ -70,7 +102,71 @@ const futureEvents = [
   },
 ];
 
-export const events = [
+const futureEventsFR = [
+  {
+    heading: "Activités du club",
+    tag: "Tous les niveaux",
+    subHeading: "11.10.23",
+    body: "Conférences / lancement des activités du club",
+    footer: "Campus de Bonamoussadi",
+  },
+  {
+    heading: "Parti",
+    tag: "11.11.23",
+    subHeading: "L200",
+    body: "Week-end/fête de bienvenue pour les nouveaux étudiants",
+    footer: "Tous les campus",
+  },
+  {
+    heading: "Orientation professionnelle",
+    tag: "06.12.23",
+    subHeading: "L200",
+    body: "Cours magistraux / Révision / Journée d'orientation professionnelle",
+    footer: "Bonamoussadi",
+  },
+  {
+    heading: "Orientation professionnelle",
+    tag: "06.12.23",
+    subHeading: "L200",
+    body: "Cours magistraux / Révision / Journée d'orientation professionnelle",
+    footer: "Bonamoussadi",
+  },
+];
+
+export const eventsFR = [
+  {
+    heading: "Reprise des cours",
+    tag: "L100",
+    subHeading: "02.10.23",
+    body: "Reprise des cours pour le niveau 100 en médecine, le niveau 100 en agriculture et le niveau 100 en ingénierie.",
+    footer: "Tous les campus",
+  },
+  {
+    heading: "Reprise des cours",
+    tag: "L400|L500|L600",
+    subHeading: "16.10.23",
+    body: "Reprise des cours pour les niveaux 400, 500 et 600 Sciences de la santé",
+    footer: "Tous les campus",
+  },
+  {
+    heading: "Recherche de stages",
+    tag: "Stage",
+    subHeading: "30.10.20",
+    body: "Recherche de lieux de stage pour les facultés d'ingénierie, d'agriculture et de santé / obtention de l'autorisation de stage et prospection de lieux de stage",
+    footer: "Tous les campus",
+  },
+  {
+    heading: "Socials",
+    tag: "",
+    subHeading: "01.11.23",
+    body: "Fête de bienvenue pour les nouveaux étudiants",
+    footer: "Tous les campus",
+  },
+  ...pastEventsFR,
+  ...futureEventsFR,
+];
+
+export const eventsEN = [
   {
     heading: "Resumption of lectures",
     tag: "L100",
@@ -99,8 +195,8 @@ export const events = [
     body: "Welcome party for freshmen",
     footer: "All campuses",
   },
-  ...pastEvents,
-  ...futureEvents,
+  ...pastEventsFR,
+  ...futureEventsFR,
 ];
 
 const responsive = {
@@ -127,8 +223,13 @@ const NewsnEvents = () => {
   const width = window.innerWidth;
   const [isHover, setIsHover] = useState(false);
 
-  const [isBouncing, setIsBouncing] = useState(false);
+  const { t, i18n } = useTranslation();
 
+  const pastEvents = i18n.language === "en" ? pastEventsEN : pastEventsFR;
+
+  const futureEvents = i18n.language === "en" ? futureEventsEN : futureEventsFR;
+
+  const [isBouncing, setIsBouncing] = useState(false);
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
@@ -172,7 +273,7 @@ const NewsnEvents = () => {
                 color: isHover ? "#902d28" : "var(--main-color)",
               }}
             >
-              Back
+              {t("news_events.back")}
             </p>
           </div>
         </Fade>
@@ -185,14 +286,14 @@ const NewsnEvents = () => {
               width: "80%",
             }}
           >
-            Let's meet at SLUI
+            {t("news_events.meet")}
           </p>
         </Fade>
       </div>
       <div className={styles.divider} />
       <div className={styles.event}>
         {/* <h3>Onsite, Online & Hybrid Events</h3> */}
-        <h3>Upcoming events</h3>
+        <h3>{t("news_events.upcoming")}</h3>
         {/* <div className={styles.event_section}> */}
         <Carousel responsive={responsive}>
           {futureEvents.map((event, index) => (
@@ -200,7 +301,7 @@ const NewsnEvents = () => {
           ))}
         </Carousel>
         {/* </div> */}
-        <h3>Past events</h3>
+        <h3>{t("news_events.past")}</h3>
         {/* <div className={styles.event_section}> */}
         <Carousel responsive={responsive}>
           {pastEvents.map((event, index) => (

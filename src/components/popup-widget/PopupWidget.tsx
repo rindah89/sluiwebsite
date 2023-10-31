@@ -4,6 +4,7 @@ import { AiOutlineArrowRight, AiOutlineClose } from "react-icons/ai";
 
 // styles
 import "./popup.css";
+import { useTranslation } from "react-i18next";
 
 type Props = {
   show: boolean;
@@ -13,11 +14,13 @@ type Props = {
 const PopupWidget: React.FC<Props> = ({ show, toggleState }) => {
   // const navigate = useNavigate();
 
+  const { t } = useTranslation();
+
   return (
     <div className={`popup ${show ? "show" : null}`}>
       <div className="popup__content">
         <div className="title">
-          <h2>Your Studies</h2>
+          <h2>{t("header_popup.studies")}</h2>
           <button
             onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
               e.preventDefault();
@@ -35,7 +38,7 @@ const PopupWidget: React.FC<Props> = ({ show, toggleState }) => {
               target="_blank"
               rel="noreferrer"
             >
-              Request Prospectus
+              {t("header_popup.prospectus")}
             </a>
             <Link
               onClick={() => {
@@ -43,7 +46,7 @@ const PopupWidget: React.FC<Props> = ({ show, toggleState }) => {
               }}
               to="/application-and-admission"
             >
-              How to Apply
+              {t("header_popup.hta")}
             </Link>
             <Link
               onClick={() => {
@@ -51,7 +54,7 @@ const PopupWidget: React.FC<Props> = ({ show, toggleState }) => {
               }}
               to="/fees"
             >
-              Fees
+              {t("header_popup.fees")}
             </Link>
             <Link
               onClick={() => {
@@ -59,7 +62,7 @@ const PopupWidget: React.FC<Props> = ({ show, toggleState }) => {
               }}
               to="/scholarships"
             >
-              Scholarships
+              {t("header_popup.scholarship")}
             </Link>
             <a
               onClick={() => {
@@ -69,7 +72,7 @@ const PopupWidget: React.FC<Props> = ({ show, toggleState }) => {
               target="_blank"
               rel="noreferrer"
             >
-              Student Guide
+              {t("header_popup.student_guide")}
             </a>
             <div className="pic">
               <img src="/images/logo_dark.webp" alt="slui logo" />
@@ -83,7 +86,7 @@ const PopupWidget: React.FC<Props> = ({ show, toggleState }) => {
               }}
               to="/why-us"
             >
-              Why SLUI{" "}
+              {t("header_popup.yslui")}
               <span>
                 <AiOutlineArrowRight size={30} />
               </span>
@@ -94,7 +97,7 @@ const PopupWidget: React.FC<Props> = ({ show, toggleState }) => {
               }}
               to="/our-values"
             >
-              Our Values{" "}
+              {t("header_popup.our_values")}
               <span>
                 <AiOutlineArrowRight size={30} />
               </span>
@@ -105,7 +108,7 @@ const PopupWidget: React.FC<Props> = ({ show, toggleState }) => {
               }}
               to="/facilities"
             >
-              Facilities{" "}
+              {t("header_popup.faculties")}
               <span>
                 <AiOutlineArrowRight size={30} />
               </span>
@@ -118,7 +121,7 @@ const PopupWidget: React.FC<Props> = ({ show, toggleState }) => {
                 }}
                 to="/handbook"
               >
-                Handbook
+                {t("header_popup.handbook")}
               </Link>
               <Link
                 onClick={() => {
@@ -126,7 +129,7 @@ const PopupWidget: React.FC<Props> = ({ show, toggleState }) => {
                 }}
                 to="/core-principles"
               >
-                Core Principles
+                {t("header_popup.core_principles")}
               </Link>
               <Link
                 onClick={() => {
@@ -134,7 +137,7 @@ const PopupWidget: React.FC<Props> = ({ show, toggleState }) => {
                 }}
                 to="/leadership-team"
               >
-                Leadership Team
+                {t("header_popup.leadership")}
               </Link>
               <Link
                 onClick={() => {
@@ -142,7 +145,7 @@ const PopupWidget: React.FC<Props> = ({ show, toggleState }) => {
                 }}
                 to="/alumni"
               >
-                Alumni
+                {t("header_popup.alumni")}
               </Link>
               <Link
                 onClick={() => {
@@ -150,7 +153,7 @@ const PopupWidget: React.FC<Props> = ({ show, toggleState }) => {
                 }}
                 to="/news-and-events"
               >
-                News & Events
+                {t("header_popup.news_events")}
               </Link>
               <Link
                 onClick={() => {
@@ -158,7 +161,7 @@ const PopupWidget: React.FC<Props> = ({ show, toggleState }) => {
                 }}
                 to="/fill-form"
               >
-                Contact Us
+                {t("header_popup.contact")}
               </Link>
               <Link
                 onClick={() => {
@@ -167,7 +170,7 @@ const PopupWidget: React.FC<Props> = ({ show, toggleState }) => {
                 className="hide"
                 to="/"
               >
-                About Us
+                {t("header.about")}
               </Link>
               <Link
                 onClick={() => {
@@ -176,7 +179,7 @@ const PopupWidget: React.FC<Props> = ({ show, toggleState }) => {
                 className="hide"
                 to="/"
               >
-                Programmes
+                {t("header.programmes")}
               </Link>
               <Link
                 onClick={() => {
@@ -185,7 +188,7 @@ const PopupWidget: React.FC<Props> = ({ show, toggleState }) => {
                 className="hide"
                 to="/our-faculties"
               >
-                Faculties
+                {t("header.faculties")}
               </Link>
               <Link
                 onClick={() => {
@@ -194,7 +197,7 @@ const PopupWidget: React.FC<Props> = ({ show, toggleState }) => {
                 className="hide"
                 to="/our-campuses"
               >
-                Campuses
+                {t("header.campuses")}
               </Link>
               <Link
                 onClick={() => {
@@ -203,7 +206,7 @@ const PopupWidget: React.FC<Props> = ({ show, toggleState }) => {
                 className="hide"
                 to="/"
               >
-                Short Courses
+                {t("header_popup.short_courses")}
               </Link>
             </div>
           </div>

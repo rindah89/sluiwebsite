@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, Suspense } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 // components
@@ -78,4 +78,10 @@ const App = () => {
   );
 };
 
-export default App;
+export default function WrappedApp() {
+  return (
+    <Suspense>
+      <App />
+    </Suspense>
+  );
+}

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState } from "react";
 
 // styles
 import styles from "./styles.module.css";
@@ -7,6 +7,7 @@ import {
   AiOutlineArrowRight,
   AiOutlineArrowUp,
 } from "react-icons/ai";
+import { useTranslation } from "react-i18next";
 
 export type Attrib = {
   title: string;
@@ -17,7 +18,7 @@ export type Attrib = {
 
 const FacultyPopup: React.FC<Attrib> = ({ title, desc, subDesc, programs }) => {
   const [more, setMore] = useState("");
-
+  const { t } = useTranslation();
   return (
     <div className={styles.popup} id="mainRef">
       <div className={styles.content} id="content">
@@ -39,8 +40,10 @@ const FacultyPopup: React.FC<Attrib> = ({ title, desc, subDesc, programs }) => {
         {programs?.map((program: any, index) => (
           <>
             <h2 className={styles.title}>
-              {program?.title}AIzaSyADu28rozLacj_e1qthivzoENsKUU_ii1c
-              {program.allCampuses && <span> - All Campuses</span>}
+              {program?.title}
+              {program.allCampuses && (
+                <span> - {t("faculty_popup.all_campuses")}</span>
+              )}
             </h2>
             <div
               style={{
@@ -67,15 +70,6 @@ const FacultyPopup: React.FC<Attrib> = ({ title, desc, subDesc, programs }) => {
                     {campus.title}
                   </h3>
                   <div className={styles.list}>
-                    {/* {campus.programs.map((item: string, index: number) => {
-                      console.log({ item });
-                      return (
-                        <h5 key={index}>
-                          <FaArrowRight style={{ marginRight: "1rem" }} />{" "}
-                          {item}
-                        </h5>
-                      );
-                    })} */}
                     <div className="programCard" style={{}}>
                       <ul>
                         {more === campus.title
@@ -109,7 +103,9 @@ const FacultyPopup: React.FC<Attrib> = ({ title, desc, subDesc, programs }) => {
                           }
                         >
                           <p id="link">
-                            {more === `${campus.title}-${program.title}` ? "See less" : "See more"}
+                            {more === `${campus.title}-${program.title}`
+                              ? "See less"
+                              : "See more"}
                           </p>
                           {more === `${campus.title}-${program.title}` ? (
                             <AiOutlineArrowUp />

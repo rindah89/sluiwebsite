@@ -8,8 +8,10 @@ import styles from "./masters.module.css";
 // imports
 import GeneralPull from "../../components/general-pull/GeneralPull";
 import ProgramCard from "../../components/programs/ProgramCard";
+import { useTranslation } from "react-i18next";
 
-const programs = [
+const tag = "bsc";
+const programsEN = [
   {
     title: "Health and Biomedical Sciences",
     list: [
@@ -30,37 +32,57 @@ const programs = [
     list: ["Agronomy", "Animal Production"],
   },
 ];
+
+const programsFR = [
+  {
+    title: "Santé et Sciences Biomédicales",
+    list: [
+      "Optimétrie Clinique et Ophtamologie",
+      "Nutrition et Diététique",
+      "Radiologie et Échographie",
+      "Physiothérapie",
+      "Sages-femmes",
+      "Technologie de la Pharmacie",
+      "Thérapie Dentaire",
+      "Sciences de Laboratoire Médical",
+      "Sciences Pharmaceutiques",
+      "Soins Infirmiers",
+    ],
+  },
+  {
+    title: "Agriculture et Sciences Naturelles",
+    list: ["Agronomie", "Production Animale"],
+  },
+];
+
 const Bachelors = () => {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
 
+  const { t, i18n } = useTranslation();
+
+  const programs = i18n.language === "en" ? programsEN : programsFR;
+
   return (
     <div>
       <div className="hero">
-        <h3>Your start to career advancement</h3>
+        <h3>{t("bachelors.start")}</h3>
         <Fade left>
-          <h1>Bachelors Programmes.</h1>
-          <h4 className={styles.para}>
-            Health, Agriculture, Engineering and Technology industries have
-            never been so diverse. The modern range of courses offered by ST.
-            Louis University Institute holds the right Bachelors programme for
-            every talent. Discover the opportunities and your path to a dream
-            career in the health, agriculture, engineering and technology
-            sector.
-          </h4>
+          <h1>{t("bachelors.bachelors")}</h1>
+          <h4 className={styles.para}>{t("bachelors.para")}</h4>
         </Fade>
       </div>
 
       <div style={{ minHeight: "25vh" }} className="about">
         <div className="desc">
-          <h4>Below are the list of Bachelors programmes we offer</h4>
+          <h4>{t("bachelors.desc")}</h4>
         </div>
       </div>
 
       <div className={styles.list}>
-        {programs.map((program) => (
-          <ProgramCard program={program} />
+        {programs.map((program, index) => (
+          <ProgramCard program={program} tag={tag} key={index} />
         ))}
       </div>
 

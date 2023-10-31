@@ -3,6 +3,69 @@ import styles from "./facilities.module.css";
 import { BsArrowLeft } from "react-icons/bs";
 import { Fade } from "react-reveal";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+
+const facilitiesEN = [
+  {
+    image: require("../../assets/study_abroad.jpg"),
+    name: "Work & study opportunities in Germany, Canada, UK, etc..",
+  },
+  {
+    image: require("../../assets/laboratory.JPG"),
+    name: "Well-equiped laboratories for practicals",
+  },
+  {
+    image: require("../../assets/internship.jpg"),
+    name: "Internship partnership with Top Notch Hospitals and Clinics",
+  },
+  {
+    image: require("../../assets/scholarship.jpg"),
+    name: "Scholarship for deserving students",
+  },
+  {
+    image: require("../../assets/social.jpg"),
+    name: "Opportunities for students to develop alternative Talents through club activities",
+  },
+  {
+    image: require("../../assets/german_language.jpg"),
+    name: "Free German Language course for freshers",
+  },
+  {
+    image: require("../../assets/english_language.jpg"),
+    name: "Free English Language course for French speaking students",
+  },
+];
+
+const facilitiesFR = [
+  {
+    image: require("../../assets/study_abroad.jpg"),
+    name: "Opportunités de travail et d'études en Allemagne, au Canada, au Royaume-Uni, etc.",
+  },
+  {
+    image: require("../../assets/laboratory.JPG"),
+    name: "Laboratoires bien équipés pour les travaux pratiques",
+  },
+  {
+    image: require("../../assets/internship.jpg"),
+    name: "Partenariat de stage avec les hôpitaux et cliniques Top Notch",
+  },
+  {
+    image: require("../../assets/scholarship.jpg"),
+    name: "Bourse d'études pour les étudiants méritants",
+  },
+  {
+    image: require("../../assets/social.jpg"),
+    name: "Possibilités pour les étudiants de développer d'autres talents par le biais d'activités de club",
+  },
+  {
+    image: require("../../assets/german_language.jpg"),
+    name: "Cours d'allemand gratuit pour les nouveaux arrivants",
+  },
+  {
+    image: require("../../assets/english_language.jpg"),
+    name: "Cours d'Anglais gratuits pour les étudiants Francophones",
+  },
+];
 
 const Facilities: FC = () => {
   const width = window.innerWidth;
@@ -21,37 +84,9 @@ const Facilities: FC = () => {
   }, []);
 
   const navigate = useNavigate();
+  const { t, i18n } = useTranslation();
 
-  const facilities = [
-    {
-      image: require("../../assets/study_abroad.jpg"),
-      name: "Work & study opportunieis in Germany, Canada, UK, etc..",
-    },
-    {
-      image: require("../../assets/laboratory.JPG"),
-      name: "Well-equiped laboratories for practicals",
-    },
-    {
-      image: require("../../assets/internship.jpg"),
-      name: "Internship partnership with Top Notch Hospitals and Clinics",
-    },
-    {
-      image: require("../../assets/scholarship.jpg"),
-      name: "Scholarship for deserving students",
-    },
-    {
-      image: require("../../assets/social.jpg"),
-      name: "Opportunities for students to develop alternative Talents through club activities",
-    },
-    {
-      image: require("../../assets/german_language.jpg"),
-      name: "Free German Language course for freshers",
-    },
-    {
-      image: require("../../assets/english_language.jpg"),
-      name: "Free English Language course for French speaking students",
-    },
-  ];
+  const facilities = i18n.language === "en" ? facilitiesEN : facilitiesFR;
   return (
     <div className={styles.main}>
       <div className={styles.hero}>
@@ -82,7 +117,7 @@ const Facilities: FC = () => {
                 color: isHover ? "#ffffff80" : "#ffffff",
               }}
             >
-              Back
+              {t("facilities.back")}
             </p>
           </div>
         </Fade>
@@ -95,18 +130,14 @@ const Facilities: FC = () => {
               width: "80%",
             }}
           >
-            We are here to help!
+            {t("facilities.h2h")}
           </p>
         </Fade>
       </div>
       <div className={styles.intro}>
-        <p className={styles.sub_heading}>At A GLANCE</p>
-        <p className={styles.heading}>Services and facilities</p>
-        <p className={styles.paragraph}>
-          We hope that you find your way around SLUI and feel completely at ease
-          here. The staff at our numerous services and facilities are happy to
-          provide help and advice and answer all your questions
-        </p>
+        <p className={styles.sub_heading}>{t("facilities.glance")}</p>
+        <p className={styles.heading}>{t("facilities.services")}</p>
+        <p className={styles.paragraph}>{t("facilities.we_hope")}</p>
       </div>
       <div className={styles.event_section}>
         {facilities.map((facility, index) => {

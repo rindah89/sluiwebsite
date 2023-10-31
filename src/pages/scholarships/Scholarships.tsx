@@ -5,13 +5,15 @@ import { Fade } from "react-reveal";
 import styles from "./scholarships.module.css";
 import { BsArrowLeft } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
-import { Table } from "react-bootstrap";
+import { useTranslation } from "react-i18next";
 
 const Scholarships = () => {
   const width = window.innerWidth;
   const [isHover, setIsHover] = useState(false);
 
   const navigate = useNavigate();
+
+  const { t } = useTranslation();
 
   const [isBouncing, setIsBouncing] = useState(false);
 
@@ -54,7 +56,7 @@ const Scholarships = () => {
                 color: isHover ? "#902d28" : "var(--main-color)",
               }}
             >
-              Back
+              {t("scholarships.back")}
             </p>
           </div>
         </Fade>
@@ -67,28 +69,25 @@ const Scholarships = () => {
               width: "80%",
             }}
           >
-            Scholarships
+            {t("scholarships.scholarships")}
           </p>
         </Fade>
       </div>
       <div className={styles.event}>
-        <h3>Special scholarship schemes</h3>
+        <h3>{t("scholarships.special")}</h3>
         <div className={styles.event_section}>
           <p className={styles.normal}>
-            Education fund, student loan or scholarship? There are many ways to
-            finance your studies. We have put together some information to help
-            you find a suitable financing option.
+          {t("scholarships.education")}
           </p>
           <p className={styles.sub_heading}>
             <i>
-              -- Please note that the university does not offer fully funded
-              scholarships --
+            {t("scholarships.please")}
             </i>
           </p>
           <div style={{ marginTop: 20 }}>
             <div style={{ marginTop: 40 }}>
               <p className={styles.sub_heading}>
-                Reduction on tuition fee for HND students
+              {t("scholarships.reduction")}
               </p>
               <div className={styles.table_container}>
                 <table className={styles.responsive_table}>
@@ -99,20 +98,20 @@ const Scholarships = () => {
                         borderBottom: "1px solid #ccc",
                       }}
                     >
-                      <th>LEVEL</th>
-                      <th>CRITERIA</th>
-                      <th>AMOUNT(FCFA)</th>
+                      <th>{t("scholarships.level")}</th>
+                      <th>{t("scholarships.criteria")}</th>
+                      <th>{t("scholarships.amount")}</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
-                      <td>Incoming Level 100</td>
-                      <td>21 - 24 points or BAC 18/20</td>
+                      <td>{t("scholarships.100")}</td>
+                      <td>21 - 24 {t("scholarships.points")} {t("scholarships.or")} BAC 18/20</td>
                       <td>50,000</td>
                     </tr>
                     <tr>
                       <td></td>
-                      <td>25 points or BAC 20/20</td>
+                      <td>25 points {t("scholarships.or")} BAC 20/20</td>
                       <td>75,000</td>
                     </tr>
                     <tr
@@ -129,8 +128,8 @@ const Scholarships = () => {
                         borderBottom: "1px solid #ccc",
                       }}
                     >
-                      <td>Promotion Level 100</td>
-                      <td>No Resit + GPA 3.6</td>
+                      <td>{t("scholarships.promotion_100")} </td>
+                      <td>{t("scholarships.no_resit")}  + GPA 3.6</td>
                       <td>25,000</td>
                     </tr>
                     <tr
@@ -138,8 +137,8 @@ const Scholarships = () => {
                         borderBottom: "1px solid #ccc",
                       }}
                     >
-                      <td>Promotion Level 200</td>
-                      <td>No Resit + GPA 3.6</td>
+                      <td>{t("scholarships.promotion_200")} </td>
+                      <td>{t("scholarships.no_resit")}  + GPA 3.6</td>
                       <td>25,000</td>
                     </tr>
                   </tbody>
@@ -148,7 +147,7 @@ const Scholarships = () => {
             </div>
             <div style={{ marginTop: 40 }}>
               <p className={styles.sub_heading}>
-                Reduction on tuition fee for BARCHELOR STUDENTS
+              {t("scholarships.reduction_bsc")} 
               </p>
               <div className={styles.table_container}>
                 <table className={styles.responsive_table}>
@@ -159,8 +158,8 @@ const Scholarships = () => {
                         borderBottom: "1px solid #ccc",
                       }}
                     >
-                      <th>CRITERIA</th>
-                      <th>AMOUNT(FCFA)</th>
+                      <th>{t("scholarships.criteria")} </th>
+                      <th>{t("scholarships.amount")} </th>
                     </tr>
                   </thead>
                   <tbody>
@@ -169,7 +168,7 @@ const Scholarships = () => {
                         borderBottom: "1px solid #ccc",
                       }}
                     >
-                      <td>St. Louis Graduate with distinction</td>
+                      <td>{t("scholarships.graduate")} </td>
                       <td>50,000</td>
                     </tr>
                     <tr
@@ -177,7 +176,7 @@ const Scholarships = () => {
                         borderBottom: "1px solid #ccc",
                       }}
                     >
-                      <td>All St. Louis HND graduates</td>
+                      <td>{t("scholarships.all")} </td>
                       <td>25,000</td>
                     </tr>
                   </tbody>
@@ -186,7 +185,7 @@ const Scholarships = () => {
             </div>
             <div style={{ marginTop: 40 }}>
               <p className={styles.sub_heading}>
-                Reduction on tuition fee for MASTERS STUDENTS
+              {t("scholarships.reduction_msc")} 
               </p>
               <div className={styles.table_container}>
                 <table className={styles.responsive_table}>
@@ -197,8 +196,8 @@ const Scholarships = () => {
                         borderBottom: "1px solid #ccc",
                       }}
                     >
-                      <th>CRITERIA</th>
-                      <th>AMOUNT(FCFA)</th>
+                      <th>{t("scholarships.criteria")} </th>
+                      <th>{t("scholarships.amount")}</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -207,7 +206,7 @@ const Scholarships = () => {
                         borderBottom: "1px solid #ccc",
                       }}
                     >
-                      <td>St. Louis Graduate with distinction</td>
+                      <td>{t("scholarships.graduate")} </td>
                       <td>50,000</td>
                     </tr>
                     <tr
@@ -215,7 +214,7 @@ const Scholarships = () => {
                         borderBottom: "1px solid #ccc",
                       }}
                     >
-                      <td>All St. Louis graduates Alumni</td>
+                      <td>{t("scholarships.alumni")} </td>
                       <td>25,000</td>
                     </tr>
                   </tbody>

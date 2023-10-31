@@ -2,6 +2,7 @@ import React from "react";
 
 // stylesheet
 import styles from "./buddycard.module.css";
+import { useTranslation } from "react-i18next";
 
 type Props = {
   image: string;
@@ -11,6 +12,7 @@ type Props = {
 };
 
 const BuddyCard: React.FC<Props> = ({ image, name, title, whatsapp }) => {
+  const { t } = useTranslation();
   return (
     <div className={styles.card}>
       <div className={styles.head}>
@@ -27,14 +29,14 @@ const BuddyCard: React.FC<Props> = ({ image, name, title, whatsapp }) => {
           </div>
           <div className={styles.button}>
             <a target="_blank" rel="noreferrer" href={whatsapp}>
-              Chat With Buddy
+              {t('buddy_card_component.chat')}
             </a>
           </div>
         </div>
       </div>
       <div className={styles.data}>
         <h4>
-          <span>Campus: </span> Douala
+          <span>{t('buddy_card_component.campus')}: </span> Douala
         </h4>
       </div>
     </div>

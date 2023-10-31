@@ -4,54 +4,46 @@ import { Fade } from "react-reveal";
 // styles
 import styles from "./foundation.module.css";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const Foundation = () => {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
 
+  const {t} = useTranslation()
+
   return (
     <div>
       <div className="hero">
-        <h3>Our Foundation Course</h3>
+        <h3>{t("foundation.courses")}</h3>
         <Fade left>
           <h1 style={{ lineHeight: "1.1", margin: "3rem 0" }}>
-            Medical Foundation Programmes.
+          {t("foundation.medical")}
           </h1>
           <h4 className={styles.para}>
-            The new SLUI International Medical Foundation Programme is a
-            foundation course in Cameroon that provides you with the knowledge
-            and competences to meet entry requirement into medical schools
-            abroad.
+          {t("foundation.desc")}
           </h4>
         </Fade>
       </div>
 
       <div className={styles.desc}>
         <div className={styles.head}>
-          <h2>Your Preparatory Course for Undergraduate Studies</h2>
+          <h2>{t("foundation.prep")}</h2>
         </div>
 
         <div className={styles.content}>
           <h4>
-            Upon completing the programme and achieving the required grades, you
-            can directly progress to the first year in Medicine, Pharmacy,
-            Dentistry or Veterinary Medicine programme of your choice in our
-            partner medical schools across America, Europe, Asia and Africa.
+          {t("foundation.pres_desc1")}
           </h4>
 
           <h4>
-            The International Medical Foundation Programme is the perfect choice
-            for international and local students who need to complete one year
-            of university studies after graduating from secondary school to
-            enter medical school programmes abroad.
+          {t("foundation.pres_desc2")}
           </h4>
 
           <h4>
             <span>
-              Note: Some of our programmes may have additional entry criteria,
-              depending on the specific university or medical school the student
-              will like to progress too.
+            {t("foundation.note")}
             </span>
           </h4>
         </div>
@@ -59,46 +51,39 @@ const Foundation = () => {
 
       <div className={styles.desc}>
         <div className={styles.head}>
-          <h2>A Gateway to Your Medical School and Degree</h2>
+          <h2>{t("foundation.gateway")}</h2>
         </div>
 
         <div className={styles.content}>
           <h4>
-            Thanks to the preparatory courses in fields such as anatomy,
-            pharmacology or biochemistry etc.., you will be well-equipped to
-            start your medical school journey in one of our partner universities
-            abroad.
+          {t("foundation.thanks")}
           </h4>
 
           <h4>
-            By joining the SLUI International Medical Foundation Programme, you
-            will also receive a conditional offer from our partner universities
-            to guarantee your progression you progression into year of your
-            chosen medical programmes once you have completed your one year
-            foundation programme.
+          {t("foundation.by_joining")}
           </h4>
         </div>
       </div>
 
       <div className={styles.desc}>
         <div className={styles.head}>
-          <h2>Program Details</h2>
+          <h2>{t("foundation.details")}</h2>
         </div>
 
         <ul>
           <li>
-            <span>Duration:</span> 2 semesters (1 year)
+            <span>{t("foundation.duration")}</span> {t("foundation.duration_text")}
           </li>
           <li>
-            <span>Start:</span> October every year
+            <span>{t("foundation.start")}</span> {t("foundation.october")}
           </li>
           <li>
-            <span>Tuition Fees:</span> 1.000.000 FCFA
+            <span>{t("foundation.tuition")}</span> 1.000.000 FCFA
           </li>
         </ul>
 
         <div className={styles.links}>
-          <Link to="/">REQUEST INFORMATION</Link>
+          <Link to="/">{t("foundation.request")}</Link>
         </div>
       </div>
     </div>

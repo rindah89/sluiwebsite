@@ -15,11 +15,103 @@ import "./navbar.css";
 
 import PopupWidget from "../popup-widget/PopupWidget";
 import FacultyPopup from "../faculty-popup/FacultyPopup";
-import { facultiesData } from "../../pages/faculties/Faculties";
+import {
+  facultiesDataEN,
+  facultiesDataFR,
+} from "../../pages/faculties/Faculties";
 import ProgramPopup from "../programmes/ProgramPopup";
+import i18n from "i18next";
+import { useTranslation } from "react-i18next";
+
+const programsEn = [
+  {
+    icon: (
+      <>
+        <FcApproval style={{ marginTop: "0.2rem" }} size={30} />
+      </>
+    ),
+    title: "HND",
+    desc: "Discover the opportunities and your path to a dream career in the health, agriculture, engineering and technology sector.",
+    link: "/hnd",
+  },
+  {
+    icon: (
+      <>
+        <FcApproval style={{ marginTop: "0.2rem" }} size={30} />
+      </>
+    ),
+    title: "Foundation",
+    desc: "The new SLUI International Medical Foundation Programme is a foundation course in Cameroon that provides you with the knowledge and competences to meet entry requirement into medical schools abroad.",
+    link: "/foundation",
+  },
+  {
+    icon: (
+      <>
+        <FcApproval style={{ marginTop: "0.2rem" }} size={30} />
+      </>
+    ),
+    title: "Bachelors",
+    desc: "Your start to an international career. Health, Agriculture, Engineering and Technology industries have never been so diverse. The modern range of courses offered by ST. LOUIS UNIVERSITY INSTITUTE holds the right degree programme for every talent.",
+    link: "/bachelors",
+  },
+  {
+    icon: (
+      <>
+        <FcApproval style={{ marginTop: "0.2rem" }} size={30} />
+      </>
+    ),
+    title: "Masters",
+    desc: "St Louis University Institute gives the opportunity for workers in any part of the world to further their studies and gain quality degrees while still working 100% at their job site. We currently have 9 master study programmes.",
+    link: "/masters",
+  },
+];
+
+const programsFR = [
+  {
+    icon: (
+      <>
+        <FcApproval style={{ marginTop: "0.2rem" }} size={30} />
+      </>
+    ),
+    title: "HND",
+    desc: "Découvrez les opportunités et votre chemin vers une carrière de rêve dans le secteur de la santé, de l'agriculture, de l'ingénierie et de la technologie.",
+    link: "/hnd",
+  },
+  {
+    icon: (
+      <>
+        <FcApproval style={{ marginTop: "0.2rem" }} size={30} />
+      </>
+    ),
+    title: "Foundation",
+    desc: "Le nouveau programme SLUI International Medical Foundation est un cours de base au Cameroun qui vous permet d'acquérir les connaissances et les compétences nécessaires pour répondre aux exigences d'entrée dans les facultés de médecine à l'étranger.",
+    link: "/foundation",
+  },
+  {
+    icon: (
+      <>
+        <FcApproval style={{ marginTop: "0.2rem" }} size={30} />
+      </>
+    ),
+    title: "Bacheliers",
+    desc: "Le point de départ d'une carrière internationale. Les secteurs de la santé, de l'agriculture, de l'ingénierie et de la technologie n'ont jamais été aussi diversifiés. La gamme moderne de cours proposés par l'INSTITUT UNIVERSITAIRE ST. LOUIS UNIVERSITY INSTITUTE offre un programme diplômant adapté à chaque talent.",
+    link: "/bachelors",
+  },
+  {
+    icon: (
+      <>
+        <FcApproval style={{ marginTop: "0.2rem" }} size={30} />
+      </>
+    ),
+    title: "Maîtres",
+    desc: "L'Institut universitaire St Louis offre aux travailleurs de toutes les régions du monde la possibilité de poursuivre leurs études et d'obtenir des diplômes de qualité tout en continuant à travailler à 100 % sur leur lieu de travail. Nous proposons actuellement 9 programmes d'études de master.",
+    link: "/masters",
+  },
+];
 
 const Navbar = () => {
   const [showMenu, setShowMenu] = useState(false);
+  const { t, i18n } = useTranslation();
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
@@ -54,6 +146,16 @@ const Navbar = () => {
     };
   }, []);
 
+  const handleChangeLanguage = () => {
+    if (i18n.language === "en") {
+      i18n.changeLanguage("fr");
+    } else {
+      i18n.changeLanguage("en");
+    }
+  };
+
+  const facultiesData =
+    i18n.language === "fr" ? facultiesDataFR : facultiesDataEN;
   return (
     <nav className={`navbar bg`}>
       {activePanel && (
@@ -79,48 +181,7 @@ const Navbar = () => {
           }}
         >
           <ProgramPopup
-            programs={[
-              {
-                icon: (
-                  <>
-                    <FcApproval style={{ marginTop: "0.2rem" }} size={30} />
-                  </>
-                ),
-                title: "HND",
-                desc: "Discover the opportunities and your path to a dream career in the health, agriculture, engineering and technology sector.",
-                link: "/hnd",
-              },
-              {
-                icon: (
-                  <>
-                    <FcApproval style={{ marginTop: "0.2rem" }} size={30} />
-                  </>
-                ),
-                title: "Foundation",
-                desc: "The new SLUI International Medical Foundation Programme is a foundation course in Cameroon that provides you with the knowledge and competences to meet entry requirement into medical schools abroad.",
-                link: "/foundation",
-              },
-              {
-                icon: (
-                  <>
-                    <FcApproval style={{ marginTop: "0.2rem" }} size={30} />
-                  </>
-                ),
-                title: "Bachelors",
-                desc: "Your start to an international career. Health, Agriculture, Engineering and Technology industries have never been so diverse. The modern range of courses offered by ST. LOUIS UNIVERSITY INSTITUTE holds the right degree programme for every talent.",
-                link: "/bachelors",
-              },
-              {
-                icon: (
-                  <>
-                    <FcApproval style={{ marginTop: "0.2rem" }} size={30} />
-                  </>
-                ),
-                title: "Masters",
-                desc: "St Louis University Institute gives the opportunity for workers in any part of the world to further their studies and gain quality degrees while still working 100% at their job site. We currently have 9 master study programmes.",
-                link: "/masters",
-              },
-            ]}
+            programs={i18n.language === "en" ? programsEn : programsFR}
           />
         </div>
       )}
@@ -140,7 +201,7 @@ const Navbar = () => {
           </button>
         </div>
         <li>
-          <Link to="/about">About Us</Link>
+          <Link to="/about">{t("header.about")}</Link>
         </li>
         <li>
           <a
@@ -150,12 +211,12 @@ const Navbar = () => {
             }}
             href="/#"
           >
-            Programmes
+            {t("header.programmes")}
           </a>
         </li>
         <li>
           <Link className="non__before" to="/our-faculties">
-            Faculties
+            {t("header.faculties")}
           </Link>
           <ul className="dropdown">
             <li>
@@ -168,7 +229,7 @@ const Navbar = () => {
                 }}
                 style={{ cursor: "pointer" }}
               >
-                Faculty of Health and Biomedical Sciences{" "}
+                {t("header.fhbs")}
                 <span>
                   <AiOutlineArrowRight style={{ marginTop: "0.5rem" }} />
                 </span>
@@ -184,7 +245,7 @@ const Navbar = () => {
                 }}
                 style={{ cursor: "pointer" }}
               >
-                Faculty of Engineering and Technology{" "}
+                {t("header.fet")}
                 <span>
                   <AiOutlineArrowRight style={{ marginTop: "0.5rem" }} />
                 </span>
@@ -200,7 +261,7 @@ const Navbar = () => {
                 }}
                 style={{ cursor: "pointer" }}
               >
-                Faculty of Agriculture and Natural Sciences{" "}
+                {t("header.fans")}
                 <span>
                   <AiOutlineArrowRight style={{ marginTop: "0.5rem" }} />
                 </span>
@@ -209,49 +270,7 @@ const Navbar = () => {
           </ul>
         </li>
         <li>
-          <Link to="/our-campuses">Campuses</Link>
-          {/* <ul className="dropdown">
-            <li>
-              <Link to="/">
-                Bonaberi{" "}
-                <span>
-                  <AiOutlineArrowRight style={{ marginTop: "0.5rem" }} />
-                </span>
-              </Link>
-            </li>
-            <li>
-              <Link to="/">
-                Bonamoussadi{" "}
-                <span>
-                  <AiOutlineArrowRight style={{ marginTop: "0.5rem" }} />
-                </span>
-              </Link>
-            </li>
-            <li>
-              <Link to="/">
-                Bamenda{" "}
-                <span>
-                  <AiOutlineArrowRight style={{ marginTop: "0.5rem" }} />
-                </span>
-              </Link>
-            </li>
-            <li>
-              <Link to="/">
-                Yaounde{" "}
-                <span>
-                  <AiOutlineArrowRight style={{ marginTop: "0.5rem" }} />
-                </span>
-              </Link>
-            </li>
-            <li>
-              <Link to="/">
-                Ndu{" "}
-                <span>
-                  <AiOutlineArrowRight style={{ marginTop: "0.5rem" }} />
-                </span>
-              </Link>
-            </li>
-          </ul> */}
+          <Link to="/our-campuses">{t("header.campuses")}</Link>
         </li>
         <li>
           <a
@@ -260,7 +279,7 @@ const Navbar = () => {
             style={{ fontWeight: "800", color: "var(--main-color)" }}
             href="https://apply.stlouissystems.org/"
           >
-            Apply Now
+            {t("header.apply")}
           </a>
         </li>
 
@@ -269,7 +288,9 @@ const Navbar = () => {
         </li>
 
         <li className="non">
-          <Link to="/">EN</Link>
+          <Link to="#" onClick={handleChangeLanguage}>
+            {i18n.language === "en" ? "FR" : "EN"}
+          </Link>
         </li>
         <li className="non">
           <Link to="/">

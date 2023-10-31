@@ -36,7 +36,8 @@
   column-gap: 4rem;
 }
 
-.buttons > button {
+.buttons > button,
+.buttons > a {
   padding: 1rem 1.2rem;
   color: white;
   background-color: var(--main-color);
@@ -152,6 +153,7 @@
 .topContent {
   top: 10;
 }
+
 .bottomcontent {
   bottom: 10;
 }

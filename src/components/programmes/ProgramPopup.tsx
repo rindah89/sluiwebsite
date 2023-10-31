@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 
 // styles
 import styles from "./styles.module.css";
+import { useTranslation } from "react-i18next";
 
 type Program = {
   title: string;
@@ -17,6 +18,8 @@ export type Attrib = {
 };
 
 const ProgramPopup: React.FC<Attrib> = ({ programs }) => {
+  const { t } = useTranslation();
+
   return (
     <div className={styles.popup}>
       <div className={styles.content}>
@@ -27,12 +30,9 @@ const ProgramPopup: React.FC<Attrib> = ({ programs }) => {
           alt="logo"
         />
 
-        <h2>Our Engaging Programmes</h2>
+        <h2>{t("program_popup.engaging")}</h2>
 
-        <p>
-          Find the programmes that suites your from the amazing programmes we
-          offer.
-        </p>
+        <p>{t("program_popup.find")}</p>
 
         <div className={styles.programs}>
           {programs &&
@@ -40,7 +40,7 @@ const ProgramPopup: React.FC<Attrib> = ({ programs }) => {
               return (
                 <Link to={program.link}>
                   <div
-                    title="More Insight"
+                    title={t('program_popup.insight')}
                     key={index}
                     className={styles.program}
                   >

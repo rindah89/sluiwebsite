@@ -5,10 +5,13 @@ import { Fade } from "react-reveal";
 import styles from "./fees.module.css";
 import { BsArrowLeft } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const Fees = () => {
   const width = window.innerWidth;
   const [isHover, setIsHover] = useState(false);
+
+  const { t } = useTranslation();
 
   const navigate = useNavigate();
 
@@ -53,7 +56,7 @@ const Fees = () => {
                 color: isHover ? "#902d28" : "var(--main-color)",
               }}
             >
-              Back
+              {t("fees.back")}
             </p>
           </div>
         </Fade>
@@ -66,21 +69,16 @@ const Fees = () => {
               width: "80%",
             }}
           >
-            FEES
+            {t("fees.fees")}
           </p>
         </Fade>
       </div>
       <div className={styles.event}>
-        <h3>Fees and financial requirements</h3>
+        <h3>{t("fees.ffr")}s</h3>
         <div className={styles.event_section}>
-          <p className={styles.normal}>
-            Explore the tuition fees and financial aid options available at our
-            university.
-          </p>
+          <p className={styles.normal}>{t("fees.explore")}</p>
           <div style={{ marginTop: 20 }}>
-            <p className={styles.heading2}>
-              Faculty of Health and Biomedical Sciences
-            </p>
+            <p className={styles.heading2}>{t("fees.fhbs")}</p>
             <div
               style={{
                 display: "grid",
@@ -88,8 +86,8 @@ const Fees = () => {
                 marginTop: 20,
               }}
             >
-              <p className={styles.heading2}>HND PROGRAMMESS</p>
-              <p className={styles.sub_heading}>NDU CAMPUS</p>
+              <p className={styles.heading2}>{t("fees.hnd")}</p>
+              <p className={styles.sub_heading}>{t("fees.ndu")}</p>
               <div className={styles.table_container}>
                 <table className={styles.responsive_table}>
                   <thead>
@@ -99,8 +97,8 @@ const Fees = () => {
                         borderBottom: "1px solid #ccc",
                       }}
                     >
-                      <th>Yearly Tuition Fee</th>
-                      <th>Level 100</th>
+                      <th>{t("fees.yearly")}</th>
+                      <th>{t("fees.100")}</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -109,7 +107,7 @@ const Fees = () => {
                         borderBottom: "1px solid #ccc",
                       }}
                     >
-                      <td>Total Amount (FCFA)</td>
+                      <td>{t("fees.total")} (FCFA)</td>
                       <td>230,000</td>
                     </tr>
                   </tbody>
@@ -123,7 +121,7 @@ const Fees = () => {
                 marginTop: 20,
               }}
             >
-              <p className={styles.sub_heading}>BAMENDA CAMPUS</p>
+              <p className={styles.sub_heading}>{t("fees.bamenda")}</p>
               <div className={styles.table_container}>
                 <table className={styles.responsive_table}>
                   <thead>
@@ -133,10 +131,10 @@ const Fees = () => {
                         borderBottom: "1px solid #ccc",
                       }}
                     >
-                      <th>Yearly Tuition Fee</th>
-                      <th>Level 100</th>
-                      <th>Level 200</th>
-                      <th>Level 300</th>
+                      <th>{t("fees.yearly")}</th>
+                      <th>{t("fees.100")}</th>
+                      <th>{t("fees.200")}</th>
+                      <th>{t("fees.300")}</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -145,7 +143,7 @@ const Fees = () => {
                         borderBottom: "1px solid #ccc",
                       }}
                     >
-                      <td>Total Amount (FCFA)</td>
+                      <td>{t("fees.total")} (FCFA)</td>
                       <td>290,000</td>
                       <td>290,000</td>
                       <td>350,000</td>
@@ -161,8 +159,8 @@ const Fees = () => {
                 marginTop: 20,
               }}
             >
-              <p className={styles.heading2}>HND & BTS PROGRAMMES</p>
-              <p className={styles.sub_heading}>DOUALA & YAOUNDE CAMPUSES</p>
+              <p className={styles.heading2}>{t("fees.hnd_bts")}</p>
+              <p className={styles.sub_heading}>{t("fees.douala_yaounde")}</p>
               <div className={styles.table_container}>
                 <table className={styles.responsive_table}>
                   <thead>
@@ -172,11 +170,11 @@ const Fees = () => {
                         borderBottom: "1px solid #ccc",
                       }}
                     >
-                      <th>Items</th>
-                      <th>Level 100</th>
-                      <th>Level 200</th>
-                      <th>Level 300</th>
-                      <th>Foundation Year</th>
+                      <th>{t("fees.items")}</th>
+                      <th>{t("fees.100")}</th>
+                      <th>{t("fees.200")}</th>
+                      <th>{t("fees.300")}</th>
+                      <th>{t("fees.foundation")}</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -185,7 +183,7 @@ const Fees = () => {
                         borderBottom: "1px solid #ccc",
                       }}
                     >
-                      <td>Total free</td>
+                      <td>{t("fees.total")}</td>
                       <td>585,000</td>
                       <td>495,000</td>
                       <td>495,000</td>
@@ -196,7 +194,7 @@ const Fees = () => {
                         borderBottom: "1px solid #ccc",
                       }}
                     >
-                      <td>Internship/Supervision</td>
+                      <td>{t("fees.internship")}</td>
                       <td>-</td>
                       <td>30,000</td>
                       <td>10,000</td>
@@ -207,7 +205,7 @@ const Fees = () => {
                         borderBottom: "1px solid #ccc",
                       }}
                     >
-                      <td>Research Supervision</td>
+                      <td>{t("fees.research")}</td>
                       <td>-</td>
                       <td>-</td>
                       <td>20,000</td>
@@ -218,7 +216,9 @@ const Fees = () => {
                         borderBottom: "1px solid #ccc",
                       }}
                     >
-                      <td style={{ fontWeight: "600" }}>Total Amount (FCFA)</td>
+                      <td style={{ fontWeight: "600" }}>
+                        {t("fees.total")} (FCFA)
+                      </td>
                       <td style={{ fontWeight: "600" }}>585,000</td>
                       <td style={{ fontWeight: "600" }}>525,000</td>
                       <td style={{ fontWeight: "600" }}>525,000</td>
@@ -235,8 +235,8 @@ const Fees = () => {
                 marginTop: 20,
               }}
             >
-              <p className={styles.heading2}>DEGREE PROGRAMMES</p>
-              <p className={styles.sub_heading}>ALL CAMPUSES</p>
+              <p className={styles.heading2}>{t("fees.degree")}</p>
+              <p className={styles.sub_heading}>{t("fees.all")}</p>
               <div className={styles.table_container}>
                 <table className={styles.responsive_table}>
                   <thead>
@@ -246,9 +246,9 @@ const Fees = () => {
                         borderBottom: "1px solid #ccc",
                       }}
                     >
-                      <th>Program</th>
-                      <th>Bachelors</th>
-                      <th>Masters</th>
+                      <th>{t("fees.program")}</th>
+                      <th>{t("fees.bachelors")}</th>
+                      <th>{t("fees.masters")}</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -257,7 +257,7 @@ const Fees = () => {
                         borderBottom: "1px solid #ccc",
                       }}
                     >
-                      <td>Onsite</td>
+                      <td>{t("fees.onsite")}</td>
                       <td>645,000 FCFA</td>
                       <td>920,000</td>
                     </tr>
@@ -266,7 +266,7 @@ const Fees = () => {
                         borderBottom: "1px solid #ccc",
                       }}
                     >
-                      <td>Online Hybrid</td>
+                      <td>{t("fees.online_hybrid")}</td>
                       <td>745,000 FCFA</td>
                       <td>920,000 FCFA</td>
                     </tr>
@@ -275,9 +275,7 @@ const Fees = () => {
               </div>
             </div>
             <div style={{ marginTop: 40 }}>
-              <p className={styles.heading2}>
-                Faculty of Agriculture and Natural Sciences
-              </p>
+              <p className={styles.heading2}>{t("fees.fans")}</p>
               <div
                 style={{
                   display: "grid",
@@ -285,7 +283,7 @@ const Fees = () => {
                   marginTop: 20,
                 }}
               >
-                <p className={styles.heading2}>HND PROGRAMMES</p>
+                <p className={styles.heading2}>{t("fees.hnd")}</p>
                 <div className={styles.table_container}>
                   <table className={styles.responsive_table}>
                     <thead>
@@ -295,7 +293,7 @@ const Fees = () => {
                           borderBottom: "1px solid #ccc",
                         }}
                       >
-                        <th>Item</th>
+                        <th>{t("fees.items")}</th>
                         <th>Level 100</th>
                         <th>Level 200</th>
                       </tr>
@@ -306,7 +304,7 @@ const Fees = () => {
                           borderBottom: "1px solid #ccc",
                         }}
                       >
-                        <td>Yearly Tuition Fee (FCFA)</td>
+                        <td>{t("fees.yearly")} (FCFA)</td>
                         <td>365,000</td>
                         <td>382,000</td>
                       </tr>
@@ -315,7 +313,7 @@ const Fees = () => {
                           borderBottom: "1px solid #ccc",
                         }}
                       >
-                        <td>Internship / Supervision</td>
+                        <td>{t("fees.internship")}</td>
                         <td>20,000</td>
                         <td>20,000</td>
                       </tr>
@@ -324,7 +322,7 @@ const Fees = () => {
                           borderBottom: "1px solid #ccc",
                         }}
                       >
-                        <td>Research</td>
+                        <td>{t("fees.research")}</td>
                         <td>-</td>
                         <td>20,000</td>
                       </tr>
@@ -333,14 +331,14 @@ const Fees = () => {
                           borderBottom: "1px solid #ccc",
                         }}
                       >
-                        <td style={{ fontWeight: "600" }}>Total amount</td>
+                        <td style={{ fontWeight: "600" }}>{t("fees.total")}</td>
                         <td style={{ fontWeight: "600" }}>385,000</td>
                         <td style={{ fontWeight: "600" }}>422,000</td>
                       </tr>
                     </tbody>
                   </table>
                 </div>
-                <p className={styles.heading2}>DEGREE PROGRAMMES</p>
+                <p className={styles.heading2}>{t("fees.degree")}</p>
                 <div className={styles.table_container}>
                   <table className={styles.responsive_table}>
                     <thead>
@@ -350,7 +348,7 @@ const Fees = () => {
                           borderBottom: "1px solid #ccc",
                         }}
                       >
-                        <th>Item</th>
+                        <th>{t("fees.items")}</th>
                         <th>Level 100</th>
                         <th>Level 200</th>
                       </tr>
@@ -361,7 +359,7 @@ const Fees = () => {
                           borderBottom: "1px solid #ccc",
                         }}
                       >
-                        <td>Yearly Tuition Fee (FCFA)</td>
+                        <td>{t("fees.yearly")} (FCFA)</td>
                         <td>327,000</td>
                         <td>347,000</td>
                       </tr>
@@ -370,7 +368,7 @@ const Fees = () => {
                           borderBottom: "1px solid #ccc",
                         }}
                       >
-                        <td>Internship / Supervision</td>
+                        <td>{t("fees.internship")}</td>
                         <td>50,000</td>
                         <td>50,000</td>
                       </tr>
@@ -379,7 +377,7 @@ const Fees = () => {
                           borderBottom: "1px solid #ccc",
                         }}
                       >
-                        <td>Research</td>
+                        <td>{t("fees.research")}</td>
                         <td>25,000</td>
                         <td>25,000</td>
                       </tr>
@@ -388,7 +386,7 @@ const Fees = () => {
                           borderBottom: "1px solid #ccc",
                         }}
                       >
-                        <td style={{ fontWeight: "600" }}>Total amount</td>
+                        <td style={{ fontWeight: "600" }}>{t("fees.total")}</td>
                         <td style={{ fontWeight: "600" }}>402,000</td>
                         <td style={{ fontWeight: "600" }}>422,000</td>
                       </tr>
@@ -399,7 +397,7 @@ const Fees = () => {
             </div>
             <div style={{ marginTop: 40 }}>
               <p className={styles.heading2}>
-                Faculty of Engineering & Technology
+              {t("fees.fet")}
               </p>
               <div
                 style={{
@@ -417,7 +415,7 @@ const Fees = () => {
                           borderBottom: "1px solid #ccc",
                         }}
                       >
-                        <th>Item</th>
+                        <th>{t("fees.items")}</th>
                         <th>Level 100</th>
                         <th>Level 200</th>
                       </tr>
@@ -428,7 +426,7 @@ const Fees = () => {
                           borderBottom: "1px solid #ccc",
                         }}
                       >
-                        <td>Yearly Tuition Fee (FCFA)</td>
+                        <td>{t("fees.yearly")} (FCFA)</td>
                         <td>390,000</td>
                         <td>380,000</td>
                       </tr>
@@ -437,7 +435,7 @@ const Fees = () => {
                           borderBottom: "1px solid #ccc",
                         }}
                       >
-                        <td>Internship / Supervision</td>
+                        <td>{t("fees.internship")}</td>
                         <td>25,000</td>
                         <td>25,000</td>
                       </tr>
@@ -446,7 +444,7 @@ const Fees = () => {
                           borderBottom: "1px solid #ccc",
                         }}
                       >
-                        <td>Research</td>
+                        <td>{t("fees.research")}</td>
                         <td>-</td>
                         <td>20,000</td>
                       </tr>
@@ -455,7 +453,7 @@ const Fees = () => {
                           borderBottom: "1px solid #ccc",
                         }}
                       >
-                        <td style={{ fontWeight: "600" }}>Total amount</td>
+                        <td style={{ fontWeight: "600" }}>{t("fees.total")}</td>
                         <td style={{ fontWeight: "600" }}>415,000</td>
                         <td style={{ fontWeight: "600" }}>425,000</td>
                       </tr>
@@ -466,7 +464,7 @@ const Fees = () => {
             </div>
           </div>
 
-          <div>
+          {/* <div>
             <p>Other financial requiremens</p>
             <ul>
               <li>
@@ -474,7 +472,7 @@ const Fees = () => {
                 (optional)
               </li>
             </ul>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

@@ -10,8 +10,9 @@ import styles from "./buddy.module.css";
 // components
 import Content from "../../components/content/Content";
 import BuddyCard from "../../components/buddy-card/BuddyCard";
+import { useTranslation } from "react-i18next";
 
-const alumni = [
+const alumniEN = [
   {
     image:
       "https://lh3.googleusercontent.com/drive-viewer/AK7aPaDMdpkdHY8R22xDu0eMMKpcVzYg_itZhR1Ov8nN8gCLUXpaHTR-dIojK6aot9voxhUXYyKcaiGFDpbc3XgoULEsi2xL=s1600",
@@ -34,7 +35,32 @@ const alumni = [
     position: "Pysiotherapist/nActing HOD Physiotherapy",
   },
 ];
-const students = [
+
+const alumniFR = [
+  {
+    image:
+      "https://lh3.googleusercontent.com/drive-viewer/AK7aPaDMdpkdHY8R22xDu0eMMKpcVzYg_itZhR1Ov8nN8gCLUXpaHTR-dIojK6aot9voxhUXYyKcaiGFDpbc3XgoULEsi2xL=s1600",
+    name: "CHEFON BRANDON",
+    tel: "+592 680 4363",
+    position: "Docteur en médecine (Texila American University) Zambie",
+  },
+  {
+    image:
+      "https://lh3.googleusercontent.com/drive-viewer/AK7aPaAgl_S8fws6MD-0HS2ruZNhaJhDhVzz8j4MNA-_-CviN2Id5p8KHDTatERbhejG2q1pWRadHIgEedCL0qn4AomGsWrXbg=s1600",
+    name: "MENGOT SYLVIA",
+    tel: "+237 651 428 708",
+    position: "Infirmieres/nConférencieres en Soins Infirmiers",
+  },
+  {
+    image:
+      "https://lh3.googleusercontent.com/drive-viewer/AK7aPaAKSrUQy3ObA6iFgs2AzsnvSsLxHFkBBjMpReF9PJ7GA8ukf7UDUuPzdLwsgB4nxO5e6g2t-l7Jzmr4t-uCFcO26BuEyg=s1600",
+    name: "VUSENG VERA",
+    tel: "+237 670 878 721",
+    position: "Physiothérapeute/nDRH intérimaire Physiothérapie",
+  },
+];
+
+const studentsEN = [
   {
     image:
       "https://lh3.googleusercontent.com/drive-viewer/AK7aPaBtXtKbJ2ot8EEky4hBi8t9fVPzWBbZCKcm_stCP6LdSPi7jq4aYNODRH2XrRqaxpWVbg6wll3gL-gmBRv62_-HeRm1iQ=s1600",
@@ -57,7 +83,32 @@ const students = [
     position: "Medical Image Technology",
   },
 ];
-const advisers = [
+
+const studentsFR = [
+  {
+    image:
+      "https://lh3.googleusercontent.com/drive-viewer/AK7aPaBtXtKbJ2ot8EEky4hBi8t9fVPzWBbZCKcm_stCP6LdSPi7jq4aYNODRH2XrRqaxpWVbg6wll3gL-gmBRv62_-HeRm1iQ=s1600",
+    name: "Baiye Foma",
+    tel: "+237 654 552 982",
+    position: "Technologie de la pharmacie",
+  },
+  {
+    image:
+      "https://lh3.googleusercontent.com/drive-viewer/AK7aPaCFUuBaYj0eMPf95viOHEc2TMw7Q1jO7WVaZTC1CEAQLbpSo6vIp1PnWMHUZMQfthP8vLB3DTdxrXyHlxi8ET3bCPZhMQ=s1600",
+    name: "Tinkeu Britney",
+    tel: "+237 653 108 684",
+    position: "Soins Infirmiers",
+  },
+  {
+    image:
+      "https://lh3.googleusercontent.com/drive-viewer/AK7aPaBvjBSCGghjfyxz1S_k5GWC2qdOklL1Zx08CH__2fRu6E8-9lVrUd6Ub-bi13ru32qdxBW-8OC_nd23JUzppPo_tiXdjA=s1600",
+    name: "Shaliatu Mohammed",
+    tel: "+237 655 548 245",
+    position: "Technologie de l'Image Médicale",
+  },
+];
+
+const advisersEN = [
   {
     image: "",
     name: "Mme. Ashubeng Emile B.",
@@ -80,7 +131,30 @@ const advisers = [
   },
 ];
 
-const administrators = [
+const advisersFR = [
+  {
+    image: "",
+    name: "Mme. Ashubeng Emile B.",
+    tel: "+237 678 933 452",
+    position: "Secrétaire Administrative",
+  },
+  {
+    image:
+      "https://lh3.googleusercontent.com/drive-viewer/AK7aPaDkiHhIGnzHzWofwBaSfusOd9NSn7FBSykwKyci36okkO89EF4b29Hf3WnaJepW2IhDbNE5hvMSbEbcPruzgOycteL7yQ=s1600",
+    name: "Mr. Kum Cyprain N",
+    tel: "+237 681 200 836",
+    position: "Assistante Administrative I",
+  },
+  {
+    image:
+      "https://lh3.googleusercontent.com/drive-viewer/AK7aPaDqpH5SBWeSP5fLLRX8zDCXh5jT3h8JiErLwWhtSZqkZwNaAxGtRhe2Q2fXGnQw5-nKQAvAZwISGp3BJ6l3BIvwHecCNQ=s500",
+    name: "Ndipendoh Kingsly Mukom",
+    tel: "+237 679 201 766",
+    position: "Représentant Administratif",
+  },
+];
+
+const administratorsEN = [
   {
     image:
       "https://lh3.googleusercontent.com/drive-viewer/AK7aPaAzXUgUqGKsmPY3DlFVj3yOHoY8ARE6QQqHk2GJsgvduIem-GII9TD_qum6BpJJQp2_5VUG19k0mapVlKuuBqLlO6WF=s1600",
@@ -104,6 +178,30 @@ const administrators = [
   },
 ];
 
+const administratorsFR = [
+  {
+    image:
+      "https://lh3.googleusercontent.com/drive-viewer/AK7aPaAzXUgUqGKsmPY3DlFVj3yOHoY8ARE6QQqHk2GJsgvduIem-GII9TD_qum6BpJJQp2_5VUG19k0mapVlKuuBqLlO6WF=s1600",
+    name: "MR. CHEGHE PEREZ K",
+    tel: "679 933 329",
+    position: "Doyen des Études, Santé",
+  },
+  {
+    image:
+      "https://lh3.googleusercontent.com/drive-viewer/AK7aPaBczKhynO3ItzcOe7waXOHRLThcbXVS2a0BIN0DenFLG2IAvPz9s8RBWFIiSYRkt-Ku_9TVWY-k-7x4BBrW3duu6xIr=s2560",
+    name: "MR SIMON MUFOR",
+    tel: "652 615 379",
+    position: "Doyen des Études, TIC",
+  },
+  {
+    image:
+      "https://drive.google.com/file/d/1dCAD4ewHsa0A-honC1bWxxO7u5wtnvor/view?usp=drive_link",
+    name: "MR. MANDI DERICK",
+    tel: "672 137 794",
+    position: "Registraire/conférencier en soins infirmiers",
+  },
+];
+
 function convertPhoneNumber(phoneNumber: string) {
   let cleanedNumber = phoneNumber.split(" ").join("");
 
@@ -117,9 +215,16 @@ function convertPhoneNumber(phoneNumber: string) {
 }
 
 const FindBuddy = () => {
+  const { t, i18n } = useTranslation();
+
+  const students = i18n.language === "en" ? studentsEN : studentsFR;
+  const advisers = i18n.language === "en" ? advisersEN : advisersFR;
+  const alumni = i18n.language === "en" ? alumniEN : alumniFR;
+  const administrators =
+    i18n.language === "en" ? administratorsEN : administratorsFR;
+
   const [activeSelector, setActiveSelector] = useState(0);
   const [typeSelector, setTypeSelector] = useState(students);
-  // const [typeSelector, setTypeSelector] = useState("STUDENT");
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -130,12 +235,12 @@ const FindBuddy = () => {
       <div className="content__section">
         <Content
           direction="RIGHT"
-          caption="Find Your SLUI Buddy"
-          title="Chat with our staff & students"
+          caption={t("find_buddy.find_buddy")}
+          title={t("find_buddy.chat")}
           subText=""
-          description="Do you want first-hand information? Our staff & students are happy to share their experiences with you, tell you about their courses, their projects and student life in Douala, Yaounde, Bamenda & Ndu."
+          description={t("find_buddy.desc")}
           refLink="/core-principles"
-          btnText="See All Buddies"
+          btnText={t("find_buddy.see_all")}
           img="/pics/optimized/ivs-7466.webp"
         />
       </div>
@@ -150,7 +255,7 @@ const FindBuddy = () => {
             className={activeSelector === 0 ? styles.active : ""}
           >
             <FiUsers size={30} style={{ marginRight: "0.3rem" }} />
-            <h4>Students</h4>
+            <h4>{t("find_buddy.students")}</h4>
           </button>
           <button
             onClick={() => {
@@ -161,7 +266,7 @@ const FindBuddy = () => {
           >
             {" "}
             <SiTripadvisor size={30} style={{ marginRight: "0.3rem" }} />
-            <h4>Admission Advicers</h4>
+            <h4>{t("find_buddy.advicers")}</h4>
           </button>
           <button
             onClick={() => {
@@ -171,7 +276,7 @@ const FindBuddy = () => {
             className={activeSelector === 2 ? styles.active : ""}
           >
             <AiOutlineUser size={30} style={{ marginRight: "0.3rem" }} />
-            <h4>Administrator</h4>
+            <h4>{t("find_buddy.administrator")}</h4>
           </button>
           <button
             onClick={() => {
@@ -181,7 +286,7 @@ const FindBuddy = () => {
             className={activeSelector === 3 ? styles.active : ""}
           >
             <RiAdminFill size={30} style={{ marginRight: "0.3rem" }} />
-            <h4>Alumni</h4>
+            <h4>{t("find_buddy.alumni")}</h4>
           </button>
         </div>
 

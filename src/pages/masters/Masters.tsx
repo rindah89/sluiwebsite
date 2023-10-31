@@ -8,8 +8,10 @@ import styles from "./masters.module.css";
 // imports
 import GeneralPull from "../../components/general-pull/GeneralPull";
 import ProgramCard from "../../components/programs/ProgramCard";
+import { useTranslation } from "react-i18next";
 
-const programs = [
+const tag = "msc";
+const programsEN = [
   {
     title: "Masters Programmes List",
     list: [
@@ -26,24 +28,39 @@ const programs = [
   },
 ];
 
+const programsFR = [
+  {
+    title: "Liste des Programmes de Master",
+    list: [
+      "Sages-femmes",
+      "Soins Infirmiers Pédiatriques",
+      "Soins Infirmiers Médico-chirurgicaux",
+      "Soins Infirmiers en Oncologie",
+      "Infirmière Anesthésiste",
+      "Soins Infirmiers Gériatriques",
+      "Santé Publique",
+      "Physiothérapie",
+      "Technologie de L'imagerie Médicale",
+    ],
+  },
+];
+
 const Masters = () => {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
 
+  const { t, i18n } = useTranslation();
+
+  const programs = i18n.language === "en" ? programsEN : programsFR;
+
   return (
     <div>
       <div className="hero">
-        <h3>Your start to career advancement</h3>
+        <h3>{t("masters.start")}</h3>
         <Fade left>
-          <h1>Masters Programmes.</h1>
-          <h4 className={styles.para}>
-            St Louis University Institute gives the opportunity for workers in
-            any part of the world to further their studies and gain quality
-            degrees while still working 100% at their job site. This is made
-            possible through their accredited distance learning platform that
-            mimics the traditional onsite learning.
-          </h4>
+          <h1>{t("masters.masters")}</h1>
+          <h4 className={styles.para}>{t("masters.para1")}</h4>
         </Fade>
       </div>
 
@@ -52,50 +69,35 @@ const Masters = () => {
         className="about"
       >
         <div className="desc">
-          <h4 style={{ fontSize: "2.2rem" }}>
-            Three Faculties and five campuses in four cities: Douala, Yaounde,
-            Bamenda and Ndu. Lecturers and students from all over Cameroon and
-            abroad in accredited English-language study programmes. Diverse
-            opportunities in Biomedical and health sciences, Engineering and
-            technology, Agriculture and natural sciences.
-          </h4>
+          <h4 style={{ fontSize: "2.2rem" }}>{t("masters.para2")}</h4>
         </div>
       </div>
 
       <div style={{ minHeight: "25vh" }} className="about">
         <div className="desc">
-          <h4>
-            The following master&apos;s programmes are currently being offered
-            for holders of Bachelor&apos;s degrees or equivalent at St Louis
-            University Institute
-          </h4>
+          <h4>{t("masters.para3")}</h4>
         </div>
       </div>
 
       <div className={styles.list}>
-        {programs.map((program) => (
-          <ProgramCard program={program} />
+        {programs.map((program, index) => (
+          <ProgramCard program={program} tag={tag} key={index} />
         ))}
         <div>
-          <h2>Core values</h2>
+          <h2>{t("masters.core")}</h2>
           <ul>
             <li>
-              <AiOutlineArrowRight /> Flexibility, can be done almost
-              exclusively online (70% online and 30% onsite)
+              <AiOutlineArrowRight /> {t("masters.core1")}
             </li>
             <li>
-              <AiOutlineArrowRight /> Qualified lecturers with interactive
-              sessions from 6- 10 pm daily
+              <AiOutlineArrowRight /> {t("masters.core2")}
             </li>
           </ul>
         </div>
 
         <div>
-          <h2>Requirement</h2>
-          <p className={styles.requirement}>
-            In addition to entry requirement, students for this option must be
-            ready to study online and must have access to internet connectivity.
-          </p>
+          <h2>{t("masters.req")}</h2>
+          <p className={styles.requirement}>{t("masters.req_text")}</p>
         </div>
       </div>
 

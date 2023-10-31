@@ -8,27 +8,25 @@ import styles from "./campus.module.css";
 import CampusCard from "../../components/campus-card/CampusCard";
 import GridLayout from "../../components/grid/Grid";
 import ProgramGrid from "../../components/program-grid/ProgramGrid";
-import { programmes } from "../landing/Landing";
+import { programmesEN, programmesFR } from "../landing/Landing";
 import Membership from "../../components/membership/Membership";
+import { useTranslation } from "react-i18next";
 
 const Campuses = () => {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
 
+  const { t, i18n } = useTranslation();
+
+  const programmes = i18n.language === "en" ? programmesEN : programmesFR;
   return (
     <div className="landing">
       <div className={styles.hero}>
-        <h3>ST. LOUIS UNIVERSITY INSTITUTE</h3>
-        <h1>Our Campuses.</h1>
+        <h3>{t("campuses.name")}</h3>
+        <h1>{t("campuses.campuses")}</h1>
 
-        <p>
-          ST. LOUIS UNIVERSITY INSTITUTE has five campuses. Our campuses are at
-          the heart of three exciting cities; Douala, Yaounde and Bamenda.
-          Combine a city lifestyle with tranquil surroundings for a unique study
-          experience. With thousands of student and city life right on your
-          doorstep, there's never a dull moment.
-        </p>
+        <p>{t("campuses.campuses_tag")}</p>
       </div>
 
       <div className={styles.campuses}>
@@ -36,7 +34,7 @@ const Campuses = () => {
           <CampusCard
             image="/pics/optimized/ivs-7524.webp"
             name="Bonaberi"
-            title="In Bonaberi, you'll find our striking, modern, brand new campus in the city's University and Innovation Quarter. Located opposite Nestle at the entrance to the city of Douala, the economic hub of Cameroon."
+            title={t("campuses.bonaberi_tag")}
             refLink="/campus-details"
             index={0}
           />
@@ -44,7 +42,7 @@ const Campuses = () => {
           <CampusCard
             image="/pics/optimized/ivs-7536.webp"
             name="Bonamoussadi"
-            title="Our Bonamoussadi campus is located at the entrance of the vibrant Bonamoussadi quarter which is a blend of residential and business. SLUI is situated an the giant building on the right as you make your way into Bonamoussadi known as rond point maeture."
+            title={t("campuses.bonamoussadi_tag")}
             refLink="/campus-details"
             index={1}
           />
@@ -52,7 +50,7 @@ const Campuses = () => {
           <CampusCard
             image="/pics/optimized/ivs-7587.webp"
             name="Yaounde"
-            title="SLUI Yaounde campus also know as Gandhi i located at Despot de bois - Simbock quarter. A peaceful and residential area providing you with the perfect environment for studies."
+            title={t("campuses.yaounde_tag")}
             refLink="/campus-details"
             index={2}
           />
@@ -60,14 +58,14 @@ const Campuses = () => {
           <CampusCard
             image="/pics/optimized/ivs-7624.webp"
             name="Ndu"
-            title="Our Ndu campus is an extension of our Bamenda main campus. Our campus in Ndu is located Opposite the Ndu national gendarmerie, Kaka in the North West Region of Cameroon.It lies at the northeast edge of the Bamenda Grassfields, on the eastern arc of the Ring Road. It is the highest elevation town in Cameroon."
+            title={t("campuses.ndu_tag")}
             refLink="/campus-details"
             index={3}
           />
           <CampusCard
             image="/pics/optimized/ivs-7694.webp"
             name="Bamenda"
-            title="St.Louis University Institute Bamenda campus is situated at Mile 3 Nkwen. It is the birth place of SLUI. This area of the beautiful city of Bamenda is know for it serenity and accessibility harboring majority of the student population in Bamenda."
+            title={t("campuses.bamenda_tag")}
             refLink="/campus-details"
             index={4}
           />
@@ -76,17 +74,15 @@ const Campuses = () => {
 
       <div className="programs_">
         <div className="headline">
-          <h3>JUST THE RIGHT FIT FOR YOU.</h3>
-          <h2>Exciting Programmes</h2>
+          <h3>{t("campuses.right_fit")}</h3>
+          <h2>{t("campuses.exciting_programs")}</h2>
         </div>
-        <ProgramGrid
-          programs={programmes}
-        />
+        <ProgramGrid programs={programmes} />
       </div>
 
       <div className="programs_">
         <div className="headline">
-          <h2>Memberships and Partnerships</h2>
+          <h2>{t("campuses.membership_partnership")}</h2>
         </div>
         <Membership />
       </div>

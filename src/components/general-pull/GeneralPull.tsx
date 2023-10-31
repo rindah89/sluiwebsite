@@ -5,26 +5,28 @@ import styles from "./generalpull.module.css";
 
 // imports
 import ProgramGrid from "../program-grid/ProgramGrid";
+import { useTranslation } from "react-i18next";
 
 const GeneralPull = () => {
+  const {t} = useTranslation()
   return (
     <div className={styles.general__pull}>
       <div className="programs_">
         <div className="headline">
-          <h2>Still Undecided?</h2>
+          <h2>{t("general_pull.undecided")}</h2>
         </div>
         <ProgramGrid
           programs={[
             {
               image: "/images/landing.webp",
-              desc: "More and more stuffs to know about SLUI.",
-              label: "Why SLUI",
+              desc: t("general_pull.more_more"),
+              label: t("general_pull.why"),
               link: '/why-us'
             },
             {
               image: "/images/landing2.webp",
-              desc: "Get more insights on our core principles, what drives us to produce the results we produce.",
-              label: "Our Core Principles",
+              desc: t("general_pull.insight"),
+              label: t("general_pull.core"),
               link: '/core-principles'
             },
           ]}

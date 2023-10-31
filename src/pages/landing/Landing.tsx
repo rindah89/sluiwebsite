@@ -15,15 +15,18 @@ import ProgramGrid from "../../components/program-grid/ProgramGrid";
 import GridLayout from "../../components/grid/Grid";
 import LeaderCard from "../../components/leader-card/LeaderCard";
 import Event from "../../components/event/Event";
-import { Link, useNavigate } from "react-router-dom";
-import { events } from "../news&events/News&events";
+import { Link } from "react-router-dom";
+import { eventsEN, eventsFR } from "../news&events/News&events";
 import Membership from "../../components/membership/Membership";
+import { useTranslation } from "react-i18next";
 
-export const programmes = [
+const FR = "fr";
+
+export const programmesEN = [
   {
     image: require("../../assets/converted/IVS_7525.jpg"),
     desc: "More and more exciting programmes to be explored at our campuses.",
-    label: "Bachelor",
+    label: "Bachelors",
     link: "/bachelors",
   },
   {
@@ -42,7 +45,36 @@ export const programmes = [
   {
     // image: '/pics/optimized/IVC_6598.jpg',
     image: require("../../assets/optimized/IVS_6598.jpg"),
-    desc: "HND programmes are just so exciting start a career in one of these programmes.",
+    desc: "HND programmes are just so exciting, start a career in one of these programmes.",
+    label: "HND",
+    link: "/hnd",
+  },
+];
+
+export const programmesFR = [
+  {
+    image: require("../../assets/converted/IVS_7525.jpg"),
+    desc: "De plus en plus de programmes passionnants sont à découvrir sur nos campus.",
+    label: "Bacheliers",
+    link: "/bachelors",
+  },
+  {
+    image: require("../../assets/masters.jpg"),
+    desc: "Découvrez nos meilleurs masters. Trouvez celui qui vous convient.",
+    label: "Maîtres",
+    link: "/masters",
+  },
+  {
+    // image: '/pics/optimized/IVC_6598.jpg',
+    image: require("../../assets/optimized/IVC_0135.jpg"),
+    desc: "Nous proposons une variété de cours de courte durée. Découvrez-les dès aujourd'hui !",
+    label: "Cours de Courte Durée",
+    link: "/foundation",
+  },
+  {
+    // image: '/pics/optimized/IVC_6598.jpg',
+    image: require("../../assets/optimized/IVS_6598.jpg"),
+    desc: "Les programmes HND sont tout simplement passionnants, commencez une carrière dans l'un de ces programmes.",
     label: "HND",
     link: "/hnd",
   },
@@ -52,6 +84,11 @@ const Landing = () => {
   const width = window.innerWidth;
   const listRef = useRef<HTMLDivElement>(null);
 
+  const { t, i18n } = useTranslation();
+
+  const language = i18n.language;
+  const programmes = language === FR ? programmesFR : programmesEN;
+  const events = language === FR ? eventsFR : eventsEN;
   useEffect(() => {
     const scrollInterval = setInterval(() => {
       if (listRef.current) {
@@ -91,9 +128,9 @@ const Landing = () => {
   return (
     <div className="landing">
       <div className="hero">
-        <h3>ST. LOUIS UNIVERSITY INSTITUTE</h3>
+        <h3>{t("about.name")}</h3>
         <Fade left>
-          <h2>Character and Excellence</h2>
+          <h2>{t("landing.character")}</h2>
         </Fade>
         <div className="apply-now">
           <a
@@ -102,7 +139,7 @@ const Landing = () => {
             rel="noreferrer"
           >
             <button>
-              2023 Admission ongoing <p>Click here to apply</p>
+              {t("landing.addmision")} <p>{t("landing.click_here")}</p>
             </button>
           </a>
         </div>
@@ -114,27 +151,21 @@ const Landing = () => {
       <div className="about">
         <div className="desc">
           <Fade up>
-            <h2>We Shape The Future.</h2>
+            <h2>{t("landing.we_shape")}</h2>
           </Fade>
-          <h4>
-            Three Faculties and five campuses in four cities: Douala, Yaounde,
-            Bamenda and Ndu. Lecturers and students from all over Cameroon and
-            abroad in accredited English-language study programmes. Diverse
-            opportunities in Biomedical and health sciences, Engineering and
-            technology, Agriculture and natural sciences.
-          </h4>
+          <h4>{t("landing.we_shape_desc")}</h4>
         </div>
       </div>
 
       <div className="content__section">
         <Content
           direction="RIGHT"
-          caption="THE SLUI APPROACH - OUR STUDY CONCEPT!"
-          title="You are the centre of your studies"
-          subText="Study according to the CORE Principle! Hands-on learning in small teams, step-by-step skill aquisition in field work and semester internships as well as individual support from lecturers."
+          caption={t("landing.approach")}
+          title={t("landing.approach_title")}
+          subText={t("landing.approach_subText")}
           description=""
           refLink="/core-principles"
-          btnText="Our Core Principles"
+          btnText={t("landing.core_principles")}
           img="/pics/converted/IVS_6945.webp"
         />
       </div>
@@ -143,11 +174,11 @@ const Landing = () => {
         <Content
           direction="LEFT"
           caption=""
-          title="An engaging learning experience."
+          title={t("landing.engaging")}
           subText=""
-          description="There is no more lecture-centred teaching at SLUI. Instead, our instructors become personal learning coaches for you. Not only will you develop specialist knowledge together, but also work on improving your soft and hard skills. To do this, we rely on direct communication. Individual advice, digital exchange and continuous feedback are important to us as well as club activities such as the SLUI Toastmasters club."
+          description={t("landing.engaging_desc")}
           refLink="/core-principles"
-          btnText="Our Core Principles"
+          btnText={t("landing.core_principles")}
           img="/pics/converted/IVS_6879.webp"
         />
       </div>
@@ -155,38 +186,38 @@ const Landing = () => {
       <div className="content__section">
         <ContentWithBg
           direction="RIGHT"
-          caption="FIND YOUR SLUI BUDDY"
-          title="Chat with our Staff and Students"
+          caption={t("landing.find_buddy")}
+          title={t("landing.find_buddy_title")}
           subText=""
-          description="Do you want first-hand information? Our staff & students are happy to share their experiences with you, tell you about their courses, their projects and student life in Douala, Yaounde, Bamenda & Ndu."
+          description={t("landing.buddy_desc")}
           refLink="/meet-your-slui-buddy"
-          btnText="Meet Your Buddy"
+          btnText={t("landing.meet_buddy")}
           img="/pics/converted/IVS_7619.webp"
         />
       </div>
 
       <div className="programs_">
         <div className="headline">
-          <h2>Leadership Team</h2>
+          <h2>{t("landing.leader_ship_team")}</h2>
         </div>
         <div className="grid__ref">
           <GridLayout columns={3} gap={2}>
             <LeaderCard
               image="/images/nick.jpeg"
               name="Dr. Nick Ngwanyam"
-              title="PRESIDENT"
+              title={t("landing.president")}
             />
 
             <LeaderCard
               image="/images/florence.jpg"
               name="Dr. Manjong Florence"
-              title="DVC. Academic Affairs"
+              title={t("landing.dvcaa")}
             />
 
             <LeaderCard
               image="/images/olivier.jpg"
               name="Mr. Tolly Olivier"
-              title="DVC. Admin and Finance"
+              title={t("landing.dvcaf")}
             />
           </GridLayout>
           <Link to={"leadership-team"}>
@@ -205,7 +236,7 @@ const Landing = () => {
                 marginBottom: "10rem",
               }}
             >
-              View More
+              {t("landing.view_more")}
             </button>
           </Link>
         </div>
@@ -214,15 +245,11 @@ const Landing = () => {
       <div className="events">
         <div className="custom_section">
           <div>
-            <p className="caption">LET'S MEET ONLINE</p>
-            <p className="heading">Online & hybrid events</p>
+            <p className="caption">{t("landing.meet_online")}</p>
+            <p className="heading">{t("landing.online_hybrid")}</p>
           </div>
           <div>
-            <p className="subcaption">
-              Join our online & onsite events and get to know about our
-              university. Learn more about our study programmes, get personal
-              advices and experience lectures. Feel free to have a look
-            </p>
+            <p className="subcaption">{t("landing.meet_online_cap")}</p>
             <Link
               to={"/news-and-events"}
               style={{
@@ -239,7 +266,7 @@ const Landing = () => {
                 float: "right",
               }}
             >
-              All events
+              {t("landing.all_events")}
             </Link>
           </div>
         </div>
@@ -266,15 +293,15 @@ const Landing = () => {
 
       <div className="programs_">
         <div className="headline">
-          <h3>JUST THE RIGHT FIT FOR YOU.</h3>
-          <h2>Exciting Programs</h2>
+          <h3>{t("landing.just_fit")}</h3>
+          <h2>{t("landing.exciting_programs")}</h2>
         </div>
         <ProgramGrid programs={programmes} />
       </div>
 
       <div className="programs_">
         <div className="headline">
-          <h2>Memberships and Partnerships</h2>
+          <h2>{t("landing.membership_partnership")}</h2>
         </div>
         <Membership />
       </div>

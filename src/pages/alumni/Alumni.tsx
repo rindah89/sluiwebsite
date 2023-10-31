@@ -3,6 +3,7 @@ import styles from "./alumni.module.css";
 import { BsArrowLeft } from "react-icons/bs";
 import { Fade } from "react-reveal";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const Alumni: FC = () => {
   const width = window.innerWidth;
@@ -22,7 +23,7 @@ const Alumni: FC = () => {
 
   const navigate = useNavigate();
 
-  const alumni = [
+  const alumniEN = [
     {
       image: "",
       name: "CHEFON BRANDON",
@@ -44,6 +45,33 @@ const Alumni: FC = () => {
       position: "Acting HOD Physiotherapy",
     },
   ];
+
+  const alumniFr = [
+    {
+      image: "",
+      name: "CHEFON BRANDON",
+      tel: "+592 680 4363",
+      position: "Docteur en médecine (Texila American University) Zambie",
+    },
+    {
+      image:
+        "https://lh3.googleusercontent.com/drive-viewer/AK7aPaAgl_S8fws6MD-0HS2ruZNhaJhDhVzz8j4MNA-_-CviN2Id5p8KHDTatERbhejG2q1pWRadHIgEedCL0qn4AomGsWrXbg=s1600",
+      name: "MENGOT SYLVIA",
+      tel: "+237 651 428 708",
+      position: "Maître de conférences en soins infirmiers",
+    },
+    {
+      image:
+        "https://lh3.googleusercontent.com/drive-viewer/AK7aPaBTwh_BvWY-ul1eESuYwrbSTbNvGfM1dyoNTAPMhAcrPALsRdkl18n9H3ZjFkieOVug5U8bHGYuJen1oHNn6IcQJkNIuw=s1600",
+      name: "VUSENG VERA",
+      tel: "+237 670 878 721",
+      position: "Directeur intérimaire de la physiothérapie",
+    },
+  ];
+
+  const { t, i18n } = useTranslation();
+
+  const alumni = i18n.language === "en" ? alumniEN : alumniFr;
   return (
     <div className={styles.main}>
       <div className={styles.hero}>
@@ -74,7 +102,7 @@ const Alumni: FC = () => {
                 color: isHover ? "#ffffff80" : "#ffffff",
               }}
             >
-              Back
+              {t("alumni.back")}
             </p>
           </div>
         </Fade>
@@ -87,22 +115,19 @@ const Alumni: FC = () => {
               width: "80%",
             }}
           >
-            Alumni
+            {t("alumni.alumni")}
           </p>
         </Fade>
       </div>
       <div className={styles.intro}>
-        <p className={styles.heading}>Meet our Alumni</p>
-        <p className={styles.paragraph}>
-          Celebrating Our Accomplished Alumni: Inspring success Stories and
-          Lasting Connections
-        </p>
+        <p className={styles.heading}>{t("alumni.meet")}</p>
+        <p className={styles.paragraph}>{t("alumni.celebrating")}</p>
       </div>
       <div className={styles.event_section}>
         {alumni.map((facility, index) => {
           const image = new URL(facility.image, import.meta.url);
           return (
-            <div className={styles.facility}>
+            <div className={styles.facility} key={index}>
               <div className={styles.image}>
                 <div
                   className={styles.backgroundImage}

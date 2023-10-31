@@ -10,10 +10,179 @@ import ProgramGrid from "../../components/program-grid/ProgramGrid";
 import FacultyPopup, {
   Attrib,
 } from "../../components/faculty-popup/FacultyPopup";
-import { programmes } from "../landing/Landing";
+import { programmesEN, programmesFR } from "../landing/Landing";
 import Membership from "../../components/membership/Membership";
+import { useTranslation } from "react-i18next";
 
-export const facultiesData: Attrib[] = [
+const FR = "fr";
+
+export const facultiesDataFR: Attrib[] = [
+  {
+    title: "Faculté de la Santé et des Sciences Biomédicales.",
+    desc: "La Faculté des sciences de la santé et des sciences biomédicales continue de bénéficier d'un programme d'investissement de plusieurs millions de FCFA pour la modernisation des laboratoires et le développement d'installations d'enseignement et de recherche de pointe, ainsi que pour la mise en place de cours cliniques. Le personnel académique, les étudiants et les partenaires externes, y compris le MINESUP et le MINSANTE, ont travaillé en collaboration durant toutes les phases pour s'assurer que l'environnement d'apprentissage, d'enseignement et de recherche place les étudiants au premier plan.",
+    subDesc:
+      "Nos cours, y compris un vaste portefeuille de formation continue et de stages, sont coproduits avec les employeurs et reposent sur une philosophie fondée sur l'apprentissage interprofessionnel (IPL) et la recherche, selon laquelle, par exemple, les médecins, les infirmières, les pharmaciens et les auxiliaires médicaux travaillent en équipe pour le plus grand bien des patients. La faculté des sciences de la santé et des sciences biomédicales comprend les départements et programmes suivants:",
+    programs: [
+      {
+        title: "Programmes de Diplôme National Supérieur (HND), 3 Ans",
+        allCampuses: false,
+        campuses: [
+          {
+            title: "Campus de Bamenda & Ndu",
+            programs: [
+              "Physiothérapie",
+              "Sages-femmes",
+              "Technologie de la Pharmacie",
+              "Thérapie dentaire",
+              "Sciences de Laboratoire Médical",
+              "Technologie de l'Imagerie Médicale",
+              "Soins Infirmiers",
+            ],
+          },
+          {
+            title: "Campus de Douala & Yaounde",
+            programs: [
+              "Physiothérapie",
+              "Sages-femmes",
+              "Technologie de la Pharmacie",
+              "Sciences de Laboratoire Médical",
+              "Technologie de l'Imagerie Médicale",
+              "Soins Infirmiers",
+              "Nutrition et Diététique (Campus de Bonaberi)",
+            ],
+          },
+        ],
+      },
+      {
+        title: "Brevet Des Techniciens Superiers (BTS) 3 Ans",
+        allCampuses: false,
+        campuses: [
+          {
+            title: "Douala, Campus Bounamoussadi UNIQUEMENT",
+            programs: ["Soins Infirmieres", "Sage Femmes"],
+          },
+        ],
+      },
+      {
+        title: "Programme de Licence Professionnelle 1 An",
+        allCampuses: true,
+        campuses: [
+          {
+            title: "Hybride : Cours Magistraux sur Place et En Ligne",
+            programs: [
+              "Physiothérapie",
+              "Sages-femmes",
+              "Technologie de la Pharmacie",
+              "Thérapie Dentaire",
+              "Sciences de Laboratoire Médical",
+              "Imagerie Médicale Diagnostique et Radiothérapie",
+              "Soins Infirmiers",
+              "Sciences Pharmaceutiques",
+            ],
+          },
+          {
+            title: "Campus de Bamenda",
+            programs: [
+              "Soins Infirmiers",
+              "Sages-femmes et Sciences de Laboratoire Médical",
+            ],
+          },
+        ],
+      },
+      {
+        title: "Programme de Master Professionnel (2 ans)",
+        allCampuses: true,
+        campuses: [
+          {
+            title:
+              "Hybride : cours sur place et en ligne sur le campus de Douala SEULEMENT",
+            programs: [
+              "Sages-femmes",
+              "Santé Publique",
+              "Physiothérapie",
+              "Technologie de l'Imagerie Médicale",
+              "Soins Infirmiers Pédiatriques",
+              "Soins Infirmiers en Oncologie",
+              "Soins Infirmiers Médico-chirurgicaux",
+              "Infirmière Anesthésiste",
+              "Soins Infirmiers Gériatriques",
+            ],
+          },
+        ],
+      },
+      {
+        title: "Programmes Internationaux",
+        allCampuses: false,
+        campuses: [
+          {
+            title:
+              "Université Mahsa en Malaisie, Université américaine de Goerge Town, GUYANA",
+            programs: ["Médecine", "Dentisterie et Pharmacie"],
+          },
+        ],
+      },
+    ],
+  },
+  {
+    title: "Faculté d'Tngénierie et De Technologie",
+    desc: "La Faculté d'Ingénierie et De Technologie propose un éventail de cours et de programmes adaptés aux besoins et aux exigences technologiques d'aujourd'hui. Nos principaux domaines d'enseignement couvrent une grande variété de sujets liés à l'informatique et à l'ingénierie.",
+    subDesc:
+      "Nous offrons à nos étudiants toute une série de possibilités de travailler avec des employeurs, en les encourageant à demander un stage industriel entre la deuxième et la troisième année de leur diplôme de premier cycle, ainsi qu'à obtenir des certifications industrielles qui leur donneront une longueur d'avance sur leurs pairs sur le marché très concurrentiel de l'emploi. Notre faculté d'ingénierie et de technologie propose les programmes suivants :",
+    programs: [
+      {
+        title: "Diplôme National Supérieur (HND) 2 Ans",
+        allCampuses: false,
+        campuses: [
+          {
+            title: "Douala (campus de Bonaberi et Bonamoussadi)",
+            programs: [
+              "Réseau et Sécurité",
+              "Télécommunications",
+              "Systèmes d'Alimentation Électrique",
+              "Génie Logiciel",
+              "Maintenance du Matériel Informatique",
+            ],
+          },
+        ],
+      },
+    ],
+  },
+  {
+    title: "Faculté d'Agriculture et de Sciences Naturelles",
+    desc: "Dans le monde d'aujourd'hui, l'agriculture est un secteur intéressant et stimulant où vous pouvez avoir un impact réel. Nos programmes uniques combinent les disciplines fondamentales des sciences agricoles avec la gestion d'entreprise et les technologies innovantes. Nos cours comprennent des discussions animées sur des questions d'actualité ainsi qu'un apprentissage pratique en classe, en laboratoire et sur le terrain, ce qui vous donne une expérience pratique et un avantage concurrentiel pour une carrière à l'échelle locale, nationale et mondiale. Apprenez 'sur le tas' aux côtés de chercheurs scientifiques actifs. Nos conférenciers sont non seulement des leaders dans leur domaine, mais ils sont également passionnés par le partage de leurs connaissances et par le fait de vous voir atteindre votre potentiel.",
+    subDesc:
+      "Nos classes de petite taille et notre atmosphère conviviale constituent l'environnement idéal pour un apprentissage de qualité, la création de réseaux et des amitiés qui durent au-delà de l'obtention du diplôme. Notre faculté propose les programmes suivants",
+    programs: [
+      {
+        title: "Diplôme National Supérieur (HND) 2 Ans",
+        allCampuses: false,
+        campuses: [
+          {
+            title: "Douala, Campus Bonaberi UNIQUEMENT",
+            programs: [
+              "Production Végétale",
+              "Conseiller Agro-Pastoral",
+              "Technologie de Transformation des Aliments",
+            ],
+          },
+        ],
+      },
+      {
+        title:
+          "Programmes de licence (4 ans pour les titulaires d'un 'A-level', 3 ans pour les titulaires d'un HND)",
+        allCampuses: false,
+        campuses: [
+          {
+            title: "Douala, Campus Bonaberi UNIQUEMENT",
+            programs: ["Bsc en Production Animale", "Bsc en Agronomie"],
+          },
+        ],
+      },
+    ],
+  },
+];
+
+export const facultiesDataEN: Attrib[] = [
   {
     title: "Faculty of Health and Biomedical Sciences.",
     desc: "The Faculty of Health and Biomedical Sciences continues to benefit from millions of FCFA investment scheme of laboratory modernisation and the development of cutting-edge teaching and research facilities, allied to the provision of clinical-based courses. Academic staff, students and external partners, including MINESUP and MINSANTE, have worked collaboratively during all phases to ensure the learning, teaching and research environment puts students first.",
@@ -184,6 +353,13 @@ const Faculties = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
 
+  const { t, i18n } = useTranslation();
+
+  const facultiesData =
+    i18n.language === FR ? facultiesDataFR : facultiesDataEN;
+
+  const programmes = i18n.language === FR ? programmesFR : programmesEN;
+
   return (
     <div>
       {" "}
@@ -202,38 +378,28 @@ const Faculties = () => {
         </div>
       )}
       <div className={styles.hero}>
-        <h3>ST. LOUIS UNIVERSITY INSTITUTE</h3>
+        <h3>{t("faculties.name")}</h3>
         <Fade up>
-          <h1>Our Faculties.</h1>
+          <h1>{t("faculties.our")}</h1>
         </Fade>
 
         <Fade up>
-          <p>
-            We help students achieve academic excellence in a diverse range of
-            disciplines and fields - through our Three unique Faculties. Each
-            Faculty is made up of distinct departments and areas of research.
-            The faculty structure enables high-quality teaching by gathering
-            together academic and industry expertise, and also encourages
-            interdisciplinary research across faculties.
-          </p>
+          <p>{t("faculties.des")}</p>
         </Fade>
       </div>
       <div className={styles.faculties__arena}>
-        <h2>
-          SLUI current operates the following faculties across her various
-          campuses in the different cities
-        </h2>
+        <h2>{t("faculties.tag")}</h2>
       </div>
       <div className="content__section">
         <div>
           <Content
             direction="LEFT"
             caption=""
-            title="Faculty of Health and Biomedical Sciences."
+            title={t("faculties.fhbs")}
             subText=""
-            description="The Faculty of Health and Biomedical Sciences continues to benefit from millions of FCFA investment scheme of laboratory modernisation and the development of cutting-edge teaching and research facilities, allied to the provision of clinical-based courses. Academic staff, students and external partners, including MINESUP and MINSANTE, have worked collaboratively during all phases to ensure the learning, teaching and research environment puts students first."
+            description={t("faculties.fhbs_desc")}
             refLink="/"
-            btnText="View More Information"
+            btnText={t("faculties.view_more")}
             img="/pics/optimized/ivs-6804.webp"
             onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
               e.preventDefault();
@@ -248,11 +414,11 @@ const Faculties = () => {
           <Content
             direction="RIGHT"
             caption=""
-            title="Faculty of Engineering and Technology."
+            title={t("faculties.fet")}
             subText=""
-            description="The Faculty of Engineering and Technology brings together a spectrum of courses and programmes aligned to the technological needs and requirements of today. Our key areas of teaching cover a wide variety of subjects aligned to computer science and engineering."
+            description={t("faculties.fet_desc")}
             refLink="/"
-            btnText="View More Information"
+            btnText={t("faculties.view_more")}
             img="/pics/optimized/ivs-7501.webp"
             onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
               e.preventDefault();
@@ -267,11 +433,11 @@ const Faculties = () => {
           <Content
             direction="LEFT"
             caption=""
-            title="Faculty of Agriculture and Natural Sciences."
+            title={t("faculties.fans")}
             subText=""
-            description="Agriculture in today's world is an interesting and challenging industry where you can have a real impact. Our unique programmes combine the core disciplines of agricultural sciences with business management and innovative technology. Our classes include lively discussions around current issues as well as hands-on learning in the classroom, the lab and the field, giving you practical experience and a competitive advantage heading into careers on a local, national and global scale."
+            description={t("faculties.fans_desc")}
             refLink="/"
-            btnText="View More Information"
+            btnText={t("faculties.view_more")}
             img="/pics/optimized/ivs-6903.webp"
             onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
               e.preventDefault();
@@ -283,14 +449,14 @@ const Faculties = () => {
       </div>
       <div className="programs_">
         <div className="headline">
-          <h3>JUST THE RIGHT FIT FOR YOU.</h3>
-          <h2>Exciting Programmes</h2>
+          <h3>J{t("faculties.just_fit")}</h3>
+          <h2>{t("faculties.exciting_programs")}</h2>
         </div>
         <ProgramGrid programs={programmes} />
       </div>
       <div className="programs_">
         <div className="headline">
-          <h2>Memberships and Partnerships</h2>
+          <h2>{t("faculties.membership_partnership")}</h2>
         </div>
         <Membership />
       </div>

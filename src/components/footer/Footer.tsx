@@ -16,51 +16,53 @@ import {
 
 // styles
 import "./footer.css";
+import { useTranslation } from "react-i18next";
 
 const Footer = () => {
+  const { t } = useTranslation();
+
   return (
     <div className="footer">
       <div className="components">
         <div className="component">
-          <h2>All About Your Studies</h2>
+          <h2>{t("footer.about_studies")}</h2>
           <div className="links">
-            <Link to="/masters">Masters</Link>
-            <Link to="/bachelors">Bachelors</Link>
-            <Link to="/hnd">HND</Link>
-            <Link to="/foundation">Short Courses</Link>
-            <Link to="/application-and-admission">Admission Processes</Link>
-            <Link to="/">Student Advisory Board</Link>
+            <Link to="/masters">{t("footer.masters")}</Link>
+            <Link to="/bachelors">{t("footer.bachelors")}</Link>
+            <Link to="/hnd">{t("footer.hnd")}</Link>
+            <Link to="/foundation">{t("footer.short_courses")}</Link>
+            <Link to="/application-and-admission">
+              {t("footer.admission_processes")}
+            </Link>
+            <Link to="/">{t("footer.advisory_board")}</Link>
           </div>
         </div>
 
         <div className="component">
-          <h2>Our Institution</h2>
+          <h2>{t("footer.institution")}</h2>
           <div className="links">
-            <Link to="/about">About St. Louis</Link>
-            <Link to="/why-us">Why St. Louis</Link>
-            <Link to="/">Our Universities</Link>
-            <Link to="/leadership-team">Our Admin Team</Link>
-            <Link to="/facilities">Services & Facilities</Link>
+            <Link to="/about">{t("footer.about")}</Link>
+            <Link to="/why-us">{t("footer.why")}</Link>
+            <Link to="/">{t("footer.universities")}</Link>
+            <Link to="/leadership-team">{t("footer.admin_team")}</Link>
+            <Link to="/facilities">{t("footer.services")}</Link>
           </div>
         </div>
 
         <div className="component">
-          <h2>FAQs</h2>
+          <h2>{t("footer.faq")}</h2>
           <div className="links">
-            <Link to="/">What are some students benefits?</Link>
-            <Link to="/">How are sport activities organized?</Link>
-            <Link to="/">What are the graduation requirements</Link>
-            <Link to="/">Some rules & regulation</Link>
+            <Link to="/">{t("footer.student_benefits")}</Link>
+            <Link to="/">{t("footer.sport_activities")}</Link>
+            <Link to="/">{t("footer.graduation_requirements")}</Link>
+            <Link to="/">{t("footer.rules")}</Link>
           </div>
         </div>
 
         <div className="component">
           <div className="contact__info">
-            <h2>Contact Info</h2>
-            <Link
-              to="mailto:info@slui.org"
-              className="custom-link"
-            >
+            <h2>{t("footer.contact")}</h2>
+            <Link to="mailto:info@slui.org" className="custom-link">
               <div className="mail">
                 <AiOutlineMail size={20} />
                 <h4>info@slui.org</h4>
@@ -74,7 +76,7 @@ const Footer = () => {
           </div>
 
           <div className="contact__info">
-            <h2 style={{ marginTop: "3rem" }}>SLUI Campus Location</h2>
+            <h2 style={{ marginTop: "3rem" }}>{t("footer.location")}</h2>
             <div className="mail">
               <FaMapMarkerAlt size={20} />
               <h4>
@@ -140,9 +142,9 @@ const Footer = () => {
         </div>
         <div className="refs">
           <h4>&copy; {new Date().getFullYear()}</h4>
-          <Link to="/">Privacy</Link>
-          <Link to="/">Terms & Conditions</Link>
-          <Link to="/">Cookie Policies</Link>
+          <Link to="/">{t("footer.privacy")}</Link>
+          <Link to="/">{t("footer.terms")}</Link>
+          <Link to="/">{t("footer.cookie")}</Link>
         </div>
       </div>
     </div>

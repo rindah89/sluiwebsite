@@ -4,10 +4,13 @@ import { BsArrowLeft } from "react-icons/bs";
 import { Fade } from "react-reveal";
 import { useNavigate } from "react-router-dom";
 import LeaderCard from "../../components/leader-card/LeaderCard";
+import { useTranslation } from "react-i18next";
 
 const Team: FC = () => {
   const width = window.innerWidth;
   const [isHover, setIsHover] = useState(false);
+
+  const { t, i18n } = useTranslation();
 
   const [isBouncing, setIsBouncing] = useState(false);
 
@@ -23,7 +26,7 @@ const Team: FC = () => {
 
   const navigate = useNavigate();
 
-  const Team = [
+  const TeamEN = [
     {
       image: "/images/nick.jpeg",
       name: "Dr. Nick Nganyam",
@@ -81,6 +84,68 @@ const Team: FC = () => {
       position: "Administrative Representative",
     },
   ];
+
+  const TeamFR = [
+    {
+      image: "/images/nick.jpeg",
+      name: "Dr. Nick Nganyam",
+      position: "Président",
+    },
+    {
+      image: "/images/florence.jpg",
+      name: "Dr. Manjong Florence",
+      position: "DVC. Affaires Académiques",
+    },
+    {
+      image: "/images/olivier.jpg",
+      name: "Mr. Tolly Olivier",
+      position: "DVC. Administration et Finances",
+    },
+    {
+      image:
+        "https://lh3.googleusercontent.com/drive-viewer/AK7aPaBRnJSe3-EREXbWH1QUtD-PiaiPv2i31B_DvijbC-jRk2HQf37Ctv2QXXLvZ67hp5Bgse6cTnt6CtBmO8M0hL2582pZ=s1600",
+      name: "MR. CHEGHE PEREZ K",
+      tel: "679 933 329",
+      position: "Doyen des Études, Santé",
+    },
+    {
+      image:
+        "https://lh3.googleusercontent.com/drive-viewer/AK7aPaBczKhynO3ItzcOe7waXOHRLThcbXVS2a0BIN0DenFLG2IAvPz9s8RBWFIiSYRkt-Ku_9TVWY-k-7x4BBrW3duu6xIr=s2560",
+      name: "MR SIMON MUFOR",
+      tel: "652 615 379",
+      position: "Doyen des Études, TIC",
+    },
+    {
+      image:
+        "https://lh3.googleusercontent.com/drive-viewer/AK7aPaBF8vdstMIqvdBKZm32B7JkBn1CnqRBpe598UyNi-VcElVJIL9lFYqttrpx8mrhD4rTZuqXtR8GRJwcGQwwprMYatMNmw=s1600",
+      name: "MR. MANDI DERICK",
+      tel: "672 137 794",
+      position: "Registraire/Conférencier en Soins Infirmiers",
+    },
+    {
+      image: "",
+      name: "MME. ASHUBENG EMILE B.",
+      tel: "678 933 452",
+      position: "Secrétaire Administrative",
+    },
+    {
+      image:
+        "https://lh3.googleusercontent.com/drive-viewer/AK7aPaDkiHhIGnzHzWofwBaSfusOd9NSn7FBSykwKyci36okkO89EF4b29Hf3WnaJepW2IhDbNE5hvMSbEbcPruzgOycteL7yQ=s1600",
+      name: "MR. KUM CYPRIAN N.",
+      tel: "681 200 836",
+      position: "Assistant Administratif I",
+    },
+    {
+      image:
+        "https://lh3.googleusercontent.com/drive-viewer/AK7aPaDqpH5SBWeSP5fLLRX8zDCXh5jT3h8JiErLwWhtSZqkZwNaAxGtRhe2Q2fXGnQw5-nKQAvAZwISGp3BJ6l3BIvwHecCNQ=s500",
+      name: "NDIPENDOH KINGSLY MUKOM",
+      tel: "679 201 766",
+      position: "Représentant Administratif",
+    },
+  ];
+
+  const Team = i18n.language === "en" ? TeamEN : TeamFR;
+
   return (
     <div className={styles.main}>
       <div className={styles.hero}>
@@ -111,7 +176,7 @@ const Team: FC = () => {
                 color: isHover ? "#ffffff80" : "#ffffff",
               }}
             >
-              Back
+              {t("team.back")}
             </p>
           </div>
         </Fade>
@@ -124,17 +189,13 @@ const Team: FC = () => {
               width: "80%",
             }}
           >
-            Our Team
+            {t("team.team")}
           </p>
         </Fade>
       </div>
       <div className={styles.intro}>
-        <p className={styles.heading}>Let us introduce ourself</p>
-        <p className={styles.paragraph}>
-          Learn more about the faculty and staff of SLUI. Our greatest concern
-          is to support you during your studies and to prepare you for your
-          future.
-        </p>
+        <p className={styles.heading}>{t("team.introduce")}</p>
+        <p className={styles.paragraph}>{t("team.intro_para")}</p>
       </div>
       <div className={styles.event_section}>
         {Team.map((facility, index) => {

@@ -5,6 +5,7 @@ import { Fade } from "react-reveal";
 // stylesheet
 import styles from "./campuscard.module.css";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 type Props = {
   image: string;
@@ -21,6 +22,7 @@ const CampusCard: React.FC<Props> = ({
   refLink,
   index,
 }) => {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   return (
     <Fade up>
@@ -42,7 +44,7 @@ const CampusCard: React.FC<Props> = ({
                 navigate(refLink);
               }}
             >
-              Know More{" "}
+              {t("campus_card_component.more")}
               <span>
                 <AiOutlineArrowRight />
               </span>

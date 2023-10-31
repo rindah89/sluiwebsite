@@ -5,136 +5,99 @@ import ProgramGrid from "../../components/program-grid/ProgramGrid";
 
 // styles
 import styles from "./about.module.css";
-import { programmes } from "../landing/Landing";
+import { programmesEN, programmesFR } from "../landing/Landing";
 import Membership from "../../components/membership/Membership";
+import { useTranslation } from "react-i18next";
 
 const About = () => {
-
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
 
+  const { t, i18n } = useTranslation();
+
+  const programmes = i18n.language === "en" ? programmesEN : programmesFR;
   return (
     <div>
       <div className={styles.hero}>
-        <h3>ST. LOUIS UNIVERSITY INSTITUTE</h3>
+        <h3>{t("about.name")}</h3>
         <Fade left>
-          <h1>Fueling Ambitions, Forgin Success.</h1>
+          <h1>{t("about.tag")}</h1>
         </Fade>
       </div>
       <div className="about">
         <div className="desc">
           <Fade up>
-            <h2>Brief Background.</h2>
+            <h2>{t("about.brief")}</h2>
           </Fade>
-          <h4>
-            ST. LOUIS UNIVERSITY INSTITUTE is a Private Higher Education
-            Institution, born out of a clear conviction of the promoter to
-            position in a Cameroon, a learning Centre dedicated to excellence
-            and tact, and a burning desire to excel and deliver quality at the
-            acme of the Higher education ecosystem in Cameroon and Africa, with
-            reference to world class standards.
-          </h4>
+          <h4>{t("about.brief_text")}</h4>
         </div>
       </div>
 
       <div className={styles.desc}>
         <div className={styles.head}>
-          <h2>Vision:</h2>
+          <h2>{t("about.vision")}:</h2>
         </div>
 
         <div className={styles.content}>
-          <h4>
-            St. Louis sees itself as a center of university-based,
-            non-university, and industrial research, and thus takes a role as a
-            guarantor of research-based teaching in Cameroon, focused on quality
-            and holism. To become the afore-mentioned is the vision in simple
-            terms, of ST. LOUIS UNIVERSITY INSTITUTE.
-          </h4>
+          <h4>{t("about.vision_text")}</h4>
         </div>
       </div>
 
       <div className={styles.desc}>
         <div className={styles.head}>
-          <h2>Mission:</h2>
+          <h2>{t("about.mission")}:</h2>
         </div>
 
         <div className={styles.content}>
           <h4>
             <span style={{ fontWeight: "600" }}>
-              "To educate and equip impact change makers, solution-creators and
-              disruptive thinkers in all walks of life, and to engender all
-              stakeholders of the institution towards taking responsibility in
-              the achievement of it".
+              {`"${t("about.mission_text1")}".`}
             </span>
           </h4>
           <h4>
-            Towards the achievement of the above mission, friendly but tough
-            performance standards shall be adopted and clearly elaborated. At
-            St. Louis,{" "}
+            {t("about.mission_text21")},{" "}
             <span style={{ fontWeight: "600" }}>
-              "what&apos;s worth doing is worth doing well".
+              {`"${t("about.mission_text22")}".`}
             </span>
           </h4>
           <h4>
-            To achieve this mission, the St Louis Management shall engage in the
-            following priorities, hereinafter referred to as its{" "}
+            {t("about.mission_text31")}{" "}
             <span style={{ fontWeight: "600" }}>
-              Unique Value Propositions (UVP).
+              {t("about.mission_text32")}
             </span>
           </h4>
-          <h4>
-            The trainings will be delivered in English and in French languages,
-            satisfying bth systems of education in Cameroon.{" "}
-          </h4>
+          <h4>{t("about.mission_text4")} </h4>
         </div>
       </div>
 
       <div className={styles.desc}>
         <div className={styles.head}>
-          <h2>Goal:</h2>
+          <h2>{t("about.goal")}:</h2>
         </div>
 
         <div className={styles.content}>
-          <h4 style={{ fontWeight: "600" }}>
-            Promoting the welfare of people worldwide through quality teaching,
-            research, innovation and community engagement.
-          </h4>
+          <h4 style={{ fontWeight: "600" }}>{t("about.goal_text")}</h4>
         </div>
       </div>
 
       <div className={styles.desc}>
         <div className={styles.head}>
-          <h2>Objectives:</h2>
+          <h2>{t("about.objectives")}:</h2>
         </div>
 
         <div className={styles.content}>
-          <h4>
-            1. Become a revered of excellence for teaching innovation, research
-            and community engagement in Cameroon and Africa
-          </h4>
-          <h4>
-            2. Become the number one higher institution of choice for
-            Cameroonian students
-          </h4>
-          <h4>
-            3. Establish a domain as an emphatic sustainable development
-            institution
-          </h4>
-          <h4>
-            4. Establish as a hub of partnership learning and international
-            networking
-          </h4>
-          <h4>
-            5. Establish a clear demonstration as the employers&apos; number one
-            trainer
-          </h4>
+          <h4>1. {t("about.objective1")}</h4>
+          <h4>2. {t("about.objective2")}</h4>
+          <h4>3. {t("about.objective3")}</h4>
+          <h4>4. {t("about.objective4")}</h4>
+          <h4>5. {t("about.objective5")}</h4>
         </div>
       </div>
 
       <div className={styles.desc}>
         <div className={styles.head}>
-          <h2>Motto/Mantra:</h2>
+          <h2>{t("about.motto")}:</h2>
         </div>
 
         <div className={styles.moto_content}>
@@ -147,7 +110,7 @@ const About = () => {
             }}
           >
             <FaQuoteLeft size={10} style={{ margin: "0 2rem" }} />
-            Quality goes in before the name goes on
+            {t("about.motto_text")}
             <FaQuoteRight size={10} style={{ margin: "0 2rem" }} />
           </h4>
         </div>
@@ -155,7 +118,7 @@ const About = () => {
 
       <div className={styles.desc}>
         <div className={styles.head}>
-          <h2>Slogan:</h2>
+          <h2>{t("about.slogan")}:</h2>
         </div>
 
         <div className={styles.moto_content}>
@@ -168,7 +131,7 @@ const About = () => {
             }}
           >
             <FaQuoteLeft size={10} style={{ margin: "0 2rem" }} />
-            St. Louis - The Pathfinder.
+            {t("about.slogan_text")}
             <FaQuoteRight size={10} style={{ margin: "0 2rem" }} />
           </h4>
         </div>
@@ -176,15 +139,15 @@ const About = () => {
 
       <div className="programs_">
         <div className="headline">
-          <h3>JUST THE RIGHT FIT FOR YOU.</h3>
-          <h2>Exciting Programmes</h2>
+          <h3>{t("about.right_fit")}</h3>
+          <h2>{t("about.exciting_programs")}</h2>
         </div>
         <ProgramGrid programs={programmes} />
       </div>
 
       <div className="programs_">
         <div className="headline">
-          <h2>Memberships and Partnerships</h2>
+          <h2>{t("about.memberships")}</h2>
         </div>
         <Membership />
       </div>

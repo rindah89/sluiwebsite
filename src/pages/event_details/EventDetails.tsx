@@ -1,10 +1,11 @@
 import React, { FC, useEffect, useState } from "react";
 import styles from "./event_details.module.css";
 import { CiLocationOn } from "react-icons/ci";
-import { events } from "../news&events/News&events";
+import { eventsEN, eventsFR } from "../news&events/News&events";
 import { Fade } from "react-reveal";
 import { useNavigate } from "react-router-dom";
 import { BsArrowLeft } from "react-icons/bs";
+import { useTranslation } from "react-i18next";
 
 type Props = {
   event: {
@@ -17,6 +18,10 @@ type Props = {
 };
 
 const EventDetails: FC = () => {
+  const { i18n } = useTranslation();
+
+  const events = i18n.language === "fr" ? eventsFR : eventsEN;
+  
   const event = events[0];
   const width = window.innerWidth;
   const [isHover, setIsHover] = useState(false);
@@ -24,6 +29,7 @@ const EventDetails: FC = () => {
   const [isBouncing, setIsBouncing] = useState(false);
 
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -65,12 +71,12 @@ const EventDetails: FC = () => {
                 color: isHover ? "#902d28" : "var(--main-color)",
               }}
             >
-              Back
+              {t("event_details.back")}
             </p>
           </div>
         </Fade>
         <div className={styles.heading}>{event.heading}</div>
-        <p className={styles.tag}>Let's talk about business</p>
+        <p className={styles.tag}>{t("event_details.talk_business")}s</p>
         <p className={styles.sub_head}>{event.subHeading}</p>
         <div className={styles.location}>
           <CiLocationOn className={styles.body} />
@@ -91,18 +97,9 @@ const EventDetails: FC = () => {
       </div>
       <div className={styles.divider} />
       <div className={styles.sub}>
-        <p className={styles.sub_head}>
-          Are you interested in starting a management degree at SLUI?
-        </p>
-        <p className={styles.body}>
-          We invite you to attend 3 virtual lectures to learn more about the
-          Bachelor's, Master's and MBA programmes in Business and management
-        </p>
-        <p className={styles.body}>
-          After a short introduction to SLUI, our campuses, Douala, Yaounde and
-          Bamenda and our unique CORE teaching principle, you dive into our
-          lectures
-        </p>
+        <p className={styles.sub_head}>{t("event_details.interested")}</p>
+        <p className={styles.body}>{t("event_details.invite")}</p>
+        <p className={styles.body}>{t("event_details.after")}</p>
       </div>
     </>
   );
