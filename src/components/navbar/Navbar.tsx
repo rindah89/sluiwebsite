@@ -146,7 +146,10 @@ const Navbar = () => {
     };
   }, []);
 
-  const handleChangeLanguage = () => {
+  const handleChangeLanguage = (e: any) => {
+
+    e.preventDefault();
+    
     if (i18n.language === "en") {
       i18n.changeLanguage("fr");
     } else {
