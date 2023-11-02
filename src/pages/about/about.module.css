@@ -35,13 +35,13 @@
 }
 
 .desc {
-  padding: 4rem 4vw;
+  padding: 2rem 4vw;
 }
 
 .desc .head h2 {
   font-size: 3rem;
   font-weight: 600;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   color: var(--main-color);
 }
 
@@ -52,7 +52,7 @@
 
 .moto_content {
   width: 100%;
-  background-color:  rgb(241, 200, 198);
+  background-color: rgb(241, 200, 198);
   padding: 2rem 0;
 }
 .desc .moto_content h4 {

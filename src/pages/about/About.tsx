@@ -30,7 +30,13 @@ const About = () => {
           <Fade up>
             <h2>{t("about.brief")}</h2>
           </Fade>
-          <h4>{t("about.brief_text")}</h4>
+          <h4
+            style={{
+              maxWidth: "100%",
+            }}
+          >
+            {t("about.brief_text")}
+          </h4>
         </div>
       </div>
 
@@ -87,11 +93,11 @@ const About = () => {
         </div>
 
         <div className={styles.content}>
-          <h4>1. {t("about.objective1")}</h4>
-          <h4>2. {t("about.objective2")}</h4>
-          <h4>3. {t("about.objective3")}</h4>
-          <h4>4. {t("about.objective4")}</h4>
-          <h4>5. {t("about.objective5")}</h4>
+          <h4>✨ {t("about.objective1")}</h4>
+          <h4>✨ {t("about.objective2")}</h4>
+          <h4>✨ {t("about.objective3")}</h4>
+          <h4>✨ {t("about.objective4")}</h4>
+          <h4>✨ {t("about.objective5")}</h4>
         </div>
       </div>
 

@@ -52,6 +52,7 @@
 
 .hero h1 {
   font-size: 7rem;
+  line-height: 130%;
   color: #fff;
   font-weight: 700;
 }
@@ -133,7 +134,7 @@
   font-size: 2rem;
   text-align: center;
   color: rgba(0, 0, 0, 0.8);
-  width: 900px;
+  max-width: 900px;
   line-height: 1.5;
 }
 
@@ -182,6 +183,22 @@
 .grid__ref {
   padding: 2rem 4vw;
   padding-bottom: 4rem;
+}
+
+.react-multiple-carousel__arrow--left {
+  left: -20px !important;
+  z-index: 9999 !important;
+  isolation: isolate;
+}
+
+.react-multiple-carousel__arrow--right {
+  right: -20px !important;
+  z-index: 9999 !important;
+  isolation: isolate;
+}
+
+.react-multi-carousel-list {
+  overflow: visible !important;
 }
 
 @media screen and (max-width: 950px) {
