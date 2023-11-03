@@ -199,9 +199,9 @@ const Programme: FC<any> = () => {
             </ul>
           </div>
           <div className={styles.section}>
-            <h4>{t("program.fees")}</h4>
-            <h3>{t("program.tuition")}</h3>
-            <h5>{t("program.tuition_fees")}</h5>
+            {/* <h4>{t("program.fees")}</h4> */}
+            <h3>{t("program.fees")}</h3>
+            {/* <h5>{t("program.tuition_fees")}</h5> */}
             <ul>
               <li>{t("program.registration")} 30,000 CFAF</li>
               <li>
@@ -302,7 +302,7 @@ const Programme: FC<any> = () => {
           </div>
           <div className={styles.backgroundImage} />
           <div className={styles.section}>
-            <h4>Your course content</h4>
+            <h4>Course Content</h4>
             <h3>
               Study Bussiness Administration at St. Louis University Institute
             </h3>
@@ -336,7 +336,7 @@ const Programme: FC<any> = () => {
             </ul>
           </div>
           <div className={styles.section}>
-            <h4>Your lecturers</h4>
+            <h4>Lecturers</h4>
             <h3>We help you meet your goals</h3>
             <div className={styles.imageSection}>
               {staffs.map((staff, index) => {
@@ -379,9 +379,9 @@ const Programme: FC<any> = () => {
             </ul>
           </div>
           <div className={styles.section}>
-            <h4>Fees and Funding</h4>
-            <h3>Your tuition fees</h3>
-            <h5>Tuition fees: </h5>
+            {/* <h4>Fees and Funding</h4> */}
+            <h3>Tuition fees:</h3>
+            {/* <h5>Tuition fees: </h5> */}
             <ul>
               <li>Registration fee: 30,000 CFAF</li>
               <li>

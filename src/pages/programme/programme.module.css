@@ -1,17 +1,19 @@
 .heads {
   display: flex;
-  column-gap: 10rem;
+  column-gap: 6rem;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   margin-top: 4rem;
+  flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
 }
 
 .main {
-  padding: 0 16rem;
+  padding: 0 4vw;
 }
 
 .heads > h3 {
-  font-size: 3rem;
+  font-size: 2.6rem;
   font-weight: 600;
 }
 
@@ -19,6 +21,9 @@
   display: flex;
   justify-content: space-between;
   margin: 2rem 0;
+  flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  gap: 32px;
 }
 
 .left_content {
@@ -43,8 +48,10 @@
   background-color: var(--main-color);
   border-radius: 8px;
   border: 0;
+  white-space: nowrap;
   font-size: 1.8rem;
   transition: 0.5s ease-in-out;
+  text-decoration: none;
 }
 
 .buttons > button:hover {
