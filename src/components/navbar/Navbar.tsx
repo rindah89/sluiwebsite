@@ -147,9 +147,8 @@ const Navbar = () => {
   }, []);
 
   const handleChangeLanguage = (e: any) => {
-
     e.preventDefault();
-    
+
     if (i18n.language === "en") {
       i18n.changeLanguage("fr");
     } else {
@@ -286,22 +285,41 @@ const Navbar = () => {
           </a>
         </li>
 
-        <li>
+        <li
+          style={{
+            maxWidth: "fit-content",
+          }}
+        >
           <div></div>
         </li>
 
-        <li className="non">
+        <li
+          style={{
+            maxWidth: "fit-content",
+          }}
+          className="non"
+        >
           <Link to="#" onClick={handleChangeLanguage}>
             {i18n.language === "en" ? "FR" : "EN"}
           </Link>
         </li>
-        <li className="non">
+        <li
+          style={{
+            maxWidth: "fit-content",
+          }}
+          className="non"
+        >
           <Link to="/">
             <AiOutlineSearch style={{ marginTop: "0.3rem" }} size={26} />
           </Link>
         </li>
         <PopupWidget show={showMenu} toggleState={toggleState} />
-        <li className="non">
+        <li
+          style={{
+            maxWidth: "100%",
+          }}
+          className="non"
+        >
           <HiBars3BottomLeft
             onClick={() => setShowMenu(true)}
             style={{ marginTop: "0.3rem", cursor: "pointer" }}
@@ -310,15 +328,29 @@ const Navbar = () => {
         </li>
       </ul>
       <ul className="mobile">
-        <li>
-          <Link to="/">EN</Link>
+        <li
+          style={{
+            maxWidth: "fit-content",
+          }}
+        >
+          <Link to="#" onClick={handleChangeLanguage}>
+            {i18n.language === "en" ? "FR" : "EN"}
+          </Link>
         </li>
-        <li>
+        <li
+          style={{
+            maxWidth: "fit-content",
+          }}
+        >
           <Link to="/">
             <AiOutlineSearch style={{ marginTop: "0.3rem" }} size={26} />
           </Link>
         </li>
-        <li>
+        <li
+          style={{
+            maxWidth: "fit-content",
+          }}
+        >
           <HiBars3BottomLeft
             onClick={() => setShowMenu(true)}
             style={{ marginTop: "0.3rem", cursor: "pointer" }}
