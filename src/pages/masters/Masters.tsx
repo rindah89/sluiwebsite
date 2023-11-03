@@ -83,19 +83,21 @@ const Masters = () => {
         {programs.map((program, index) => (
           <ProgramCard program={program} tag={tag} key={index} />
         ))}
-        <div>
+        <div className="core-program">
           <h2>{t("masters.core")}</h2>
           <ul>
             <li>
-              <AiOutlineArrowRight /> {t("masters.core1")}
+              <AiOutlineArrowRight color="var(--main-color)" />{" "}
+              {t("masters.core1")}
             </li>
             <li>
-              <AiOutlineArrowRight /> {t("masters.core2")}
+              <AiOutlineArrowRight color="var(--main-color)" />{" "}
+              {t("masters.core2")}
             </li>
           </ul>
         </div>
 
-        <div>
+        <div className="core-program">
           <h2>{t("masters.req")}</h2>
           <p className={styles.requirement}>{t("masters.req_text")}</p>
         </div>
