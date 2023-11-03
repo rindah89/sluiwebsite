@@ -58,10 +58,19 @@
   border-right: 1px solid rgba(0, 0, 0, 0.2);
 }
 
+.programs > a > div .h2 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+  max-width: 250px;
+  text-overflow: ellipsis;
+}
+
 .programs > a > div > div h2 {
   color: #e2413c;
   font-size: 3rem;
   font-weight: 700;
+  white-space: nowrap;
 }
 
 .programs > a > div > div h3 {
@@ -83,7 +92,7 @@
 }
 
 .programCard::before {
-  content: '';
+  content: "";
   position: absolute;
   left: 0;
   top: 0;

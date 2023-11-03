@@ -11,10 +11,12 @@ const Programs = () => {
   const { t } = useTranslation();
   return (
     <div className="programs">
-      <Link to="/hnd">
+      <Link title={t("programs.hnd")} to="/hnd">
         <div>
           <div className="program">
-            <h2>{t("programs.hnd")}</h2>
+            <div className="h2">
+              <h2>{t("programs.hnd")}</h2>
+            </div>
             <h3>18 {t("programs.study_programmes")}</h3>
           </div>
           <div className="icon">
@@ -26,10 +28,12 @@ const Programs = () => {
         </div>
       </Link>
 
-      <Link to="/bachelors">
+      <Link title={t("programs.bachelors")} to="/bachelors">
         <div>
           <div className="program">
-            <h2>{t("programs.bachelors")}</h2>
+            <div className="h2">
+              <h2>{t("programs.bachelors")}</h2>
+            </div>
             <h3>9 {t("programs.study_programmes")}</h3>
           </div>
           <div className="icon__window">
@@ -41,10 +45,12 @@ const Programs = () => {
         </div>
       </Link>
 
-      <Link to="/masters">
+      <Link title={t("programs.masters")} to="/masters">
         <div>
           <div className="program">
-            <h2>{t("programs.masters")}</h2>
+            <div className="h2">
+              <h2>{t("programs.masters")}</h2>
+            </div>
             <h3>9 {t("programs.study_programmes")}</h3>
           </div>
           <div className="icon__window">
@@ -56,10 +62,12 @@ const Programs = () => {
         </div>
       </Link>
 
-      <Link to="/foundation">
+      <Link title={t("programs.short_course")} to="/foundation">
         <div>
           <div className="program">
-            <h2>{t("programs.short_course")}</h2>
+            <div className="h2">
+              <h2>{t("programs.short_course")}</h2>
+            </div>
             <h3>1 {t("programs.short_course")}</h3>
           </div>
           <div className="icon__window">
