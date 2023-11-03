@@ -33,7 +33,10 @@ const ProgramCard: FC<Props> = ({ program, tag }) => {
               return (
                 <li key={index}>
                   <Link to={`/programme?id=${param}`} className={"anchor"}>
-                    <AiOutlineArrowRight color="var(--main-color)" /> {item}
+                    <span>
+                      <AiOutlineArrowRight color="var(--main-color)" />
+                    </span>{" "}
+                    {item}
                   </Link>
                 </li>
               );
@@ -47,7 +50,10 @@ const ProgramCard: FC<Props> = ({ program, tag }) => {
               return (
                 <li key={index}>
                   <Link to={`/programme?id=${param}`} className={"anchor"}>
-                    <AiOutlineArrowRight color="var(--main-color)" /> {item}
+                    <span>
+                      <AiOutlineArrowRight color="var(--main-color)" />
+                    </span>{" "}
+                    {item}
                   </Link>
                 </li>
               );

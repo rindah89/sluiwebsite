@@ -87,11 +87,15 @@ const Masters = () => {
           <h2>{t("masters.core")}</h2>
           <ul>
             <li>
-              <AiOutlineArrowRight color="var(--main-color)" />{" "}
+              <span>
+                <AiOutlineArrowRight color="var(--main-color)" />
+              </span>{" "}
               {t("masters.core1")}
             </li>
             <li>
-              <AiOutlineArrowRight color="var(--main-color)" />{" "}
+              <span>
+                <AiOutlineArrowRight color="var(--main-color)" />
+              </span>{" "}
               {t("masters.core2")}
             </li>
           </ul>
