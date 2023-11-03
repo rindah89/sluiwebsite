@@ -89,13 +89,13 @@
   -o-transform: translateX(0);
 }
 
-.program:hover .icon__abs {
+/* .program:hover .icon__abs {
   transform: translateX(10px);
   -webkit-transform: translateX(10px);
   -moz-transform: translateX(10px);
   -ms-transform: translateX(10px);
   -o-transform: translateX(10px);
-}
+} */
 
 .program::before {
   content: "";

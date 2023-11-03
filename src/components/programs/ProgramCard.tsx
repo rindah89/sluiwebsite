@@ -18,7 +18,7 @@ type Props = {
 };
 const ProgramCard: FC<Props> = ({ program, tag }) => {
   const [more, setMore] = useState(false);
-  const {t} = useTranslation()
+  const { t } = useTranslation();
   return (
     <div className="programCard">
       <h2>{program.title}</h2>
@@ -55,7 +55,7 @@ const ProgramCard: FC<Props> = ({ program, tag }) => {
       </ul>
       <div className="seeMore">
         <div className="button" onClick={() => setMore(!more)}>
-          <p>{more ? t("program_card.more") : t("program_card.less")}</p>
+          <p>{more ? t("program_card.less") : t("program_card.more")}</p>
           {more ? <AiOutlineArrowUp /> : <AiOutlineArrowDown />}
         </div>
       </div>
