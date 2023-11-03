@@ -24,28 +24,28 @@ const ProgramCard: FC<Props> = ({ program, tag }) => {
       <h2>{program.title}</h2>
       <ul>
         {more
-          ? program.list.map((item) => {
+          ? program.list.map((item, index) => {
               const param = item
                 .toLowerCase()
                 .split(" ")
                 .join("-")
                 .concat(`-${tag}`);
               return (
-                <li>
+                <li key={index}>
                   <Link to={`/programme?id=${param}`} className={"anchor"}>
                     <AiOutlineArrowRight color="var(--main-color)" /> {item}
                   </Link>
                 </li>
               );
             })
-          : program.list.slice(0, 2).map((item) => {
+          : program.list.slice(0, 2).map((item, index) => {
               const param = item
                 .toLowerCase()
                 .split(" ")
                 .join("-")
                 .concat(`-${tag}`);
               return (
-                <li>
+                <li key={index}>
                   <Link to={`/programme?id=${param}`} className={"anchor"}>
                     <AiOutlineArrowRight color="var(--main-color)" /> {item}
                   </Link>
