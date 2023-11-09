@@ -242,4 +242,8 @@
   .about .desc h4 {
     font-size: 1.8rem;
   }
+
+  .hero {
+    background-position: top right;
+  }
 }
