@@ -218,7 +218,7 @@
 
   .menu {
     position: absolute;
-    left: -200vw;
+    left: -300vw;
     z-index: 9999;
     top: 0;
     top: 0;
@@ -249,9 +249,9 @@
     font-size: 2.2rem;
   }
 
-  /* .menu.show {
+  .menu.show {
     left: 0;
-  } */
+  }
 
   .menu .close {
     display: flex;
