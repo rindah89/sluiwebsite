@@ -99,8 +99,8 @@ const HND = () => {
         </Fade>
       </div>
 
-      <div className="about">
-        <div className="desc">
+      <div style={{ minHeight: "10vh", marginTop: "30px" }} className="about">
+        <div className={styles.desc}>
           <h4>{t("hnd.below")}</h4>
         </div>
       </div>
