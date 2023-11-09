@@ -34,6 +34,9 @@ const PopupWidget: React.FC<Props> = ({ show, toggleState }) => {
 
         <div className="popup__text">
           <div className="links">
+            <div className="pic mobile">
+              <img src="/images/logo_dark.webp" alt="slui logo" />
+            </div>
             <a
               href="https://drive.google.com/file/d/10mGyssnKFADEbhsUjY_UG7caT4UDRzu7/view?usp=drive_link"
               target="_blank"
@@ -75,9 +78,6 @@ const PopupWidget: React.FC<Props> = ({ show, toggleState }) => {
             >
               {t("header_popup.student_guide")}
             </a>
-            <div className="pic">
-              <img src="/images/logo_dark.webp" alt="slui logo" />
-            </div>
           </div>
 
           <div className="ref">

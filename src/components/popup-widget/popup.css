@@ -84,7 +84,7 @@
 }
 
 .popup__text {
-  margin-top: 3rem;
+  margin-top: 2rem;
   display: flex;
   display: -ms-flexbox;
   gap: 7rem;
@@ -160,7 +160,7 @@
 
 .popup__text .pic img {
   width: 250px;
-  margin-top: 3rem;
+  margin-bottom: 4rem;
 }
 
 @media screen and (min-width: 1030px) {
@@ -171,6 +171,10 @@
   .popup .links a,
   .popup .ref a {
     font-size: 2.5rem;
+  }
+
+  .popup .ref > a {
+    font-size: 2.4rem;
   }
 }
 
@@ -183,6 +187,10 @@
 
   .popup .links a,
   .popup .ref a {
+    font-size: 2rem;
+  }
+
+  .popup .ref > a {
     font-size: 2rem;
   }
 }
