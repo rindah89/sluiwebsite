@@ -65,7 +65,7 @@
 .container {
   display: flex;
   justify-content: space-between;
-  margin-top: 30px;
+  margin-top: 20px;
 }
 
 .image {
@@ -124,6 +124,10 @@
   margin-top: 30px;
 }
 
+.lower {
+  padding-block: 60px;
+}
+
 @media screen and (max-width: 1000px) {
   .tag {
     font-size: 5rem;
@@ -132,6 +136,10 @@
   .main {
     flex-direction: column;
     -ms-flex-direction: column;
+  }
+
+  .lower {
+    padding-block: 50px;
   }
 }
 
@@ -161,5 +169,9 @@
 @media screen and (max-width: 760px) {
   .sub_head {
     font-size: 2.4rem;
+  }
+
+  .lower {
+    padding-block: 30px;
   }
 }

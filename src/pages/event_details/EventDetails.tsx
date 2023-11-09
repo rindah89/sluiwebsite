@@ -99,10 +99,7 @@ const EventDetails: FC = () => {
       </div>
       <div className={styles.divider} />
       <div
-        style={{
-          paddingBlock: "60px",
-        }}
-        className={styles.sub}
+        className={`${styles.sub} ${styles.lower}`}
       >
         <p className={styles.sub_head}>{t("event_details.interested")}</p>
         <p className={styles.body}>{t("event_details.invite")}</p>
