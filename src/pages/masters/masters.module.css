@@ -4,6 +4,10 @@
   color: #fff;
 }
 
+.bachelors h1 {
+  margin-bottom: 30px;
+}
+
 .list {
   display: grid;
   display: -ms-grid;
