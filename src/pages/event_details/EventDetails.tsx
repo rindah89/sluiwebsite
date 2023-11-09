@@ -21,7 +21,7 @@ const EventDetails: FC = () => {
   const { i18n } = useTranslation();
 
   const events = i18n.language === "fr" ? eventsFR : eventsEN;
-  
+
   const event = events[0];
   const width = window.innerWidth;
   const [isHover, setIsHover] = useState(false);
