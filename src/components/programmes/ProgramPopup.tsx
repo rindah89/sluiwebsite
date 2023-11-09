@@ -39,9 +39,7 @@ const ProgramPopup: React.FC<Attrib> = ({ programs }) => {
           alt="logo"
         />
 
-        <h2>{t("program_popup.engaging")}</h2>
-
-        <p>{t("program_popup.find")}</p>
+        <h2>{t("program_popup.find")}</h2>
 
         <div className={styles.programs}>
           {programs &&
