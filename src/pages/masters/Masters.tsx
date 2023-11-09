@@ -57,7 +57,7 @@ const Masters = () => {
   return (
     <div className={styles.bachelors}>
       <div className="hero">
-        <h3>{t("masters.start")}</h3>
+        {/* <h3>{t("masters.start")}</h3> */}
         <Fade left>
           <h1>{t("masters.masters")}</h1>
           <h4 className={styles.para}>{t("masters.para1")}</h4>

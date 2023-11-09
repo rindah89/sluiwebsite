@@ -92,7 +92,7 @@ const HND = () => {
   return (
     <div className={`${styles.bachelors}`}>
       <div className="hero">
-        <h3>{t("hnd.start")}</h3>
+        {/* <h3>{t("hnd.start")}</h3> */}
         <Fade left>
           <h1>{t("hnd.programmes")}</h1>
           <h4 className={styles.para}>{t("hnd.desc")}</h4>
