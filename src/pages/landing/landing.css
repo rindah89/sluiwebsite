@@ -207,7 +207,8 @@
   }
 
   .about {
-    min-height: 50vh;
+    min-height: 20vh;
+    padding-block: 4rem;
   }
 }
 
