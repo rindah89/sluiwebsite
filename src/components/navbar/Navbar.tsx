@@ -20,7 +20,6 @@ import {
   facultiesDataFR,
 } from "../../pages/faculties/Faculties";
 import ProgramPopup from "../programmes/ProgramPopup";
-import i18n from "i18next";
 import { useTranslation } from "react-i18next";
 
 const programsEn = [

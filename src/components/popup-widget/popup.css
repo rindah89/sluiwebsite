@@ -1,17 +1,17 @@
 .popup {
   position: fixed;
-  top: 50%;
+  top: 0;
   transform-origin: top;
-  transform: translateY(-50%) scaleY(0);
-  height: calc(100vh - 100px);
+  /* transform: translateY(-50%) scaleY(0); */
+  height: 100vh;
   left: 0;
   width: 100%;
   z-index: 99999;
-  padding: 2rem 4vw;
-  -webkit-transform: translateY(-50%) scaleY(0);
-  -moz-transform: translateY(-50%) scaleY(0);
-  -ms-transform: translateY(-50%) scaleY(0);
-  -o-transform: translateY(-50%) scaleY(0);
+  /* padding: 2rem 4vw; */
+  /* -webkit-transform: translateY(-50%) scaleY(0); */
+  /* -moz-transform: translateY(-50%) scaleY(0); */
+  /* -ms-transform: translateY(-50%) scaleY(0); */
+  /* -o-transform: translateY(-50%) scaleY(0); */
   transition: 0.2s ease-in-out;
   -webkit-transition: 0.2s ease-in-out;
   -moz-transition: 0.2s ease-in-out;
@@ -30,11 +30,11 @@
 .popup .popup__content {
   background: var(--main-color);
   padding: 3rem 4vw;
-  border-radius: 20px;
+  /* border-radius: 20px;
   -webkit-border-radius: 20px;
   -moz-border-radius: 20px;
   -ms-border-radius: 20px;
-  -o-border-radius: 20px;
+  -o-border-radius: 20px; */
   width: 100%;
   height: 100%;
   overflow-y: auto;
@@ -147,15 +147,6 @@
   -o-transition: 0.2s ease-in-out;
 }
 
-.popup .ref > a:hover span,
-.popup .ref > a:focus-within span {
-  /* transform: translateX(20px);
-  -webkit-transform: translateX(20px);
-  -moz-transform: translateX(20px);
-  -ms-transform: translateX(20px);
-  -o-transform: translateX(20px); */
-}
-
 .popup .other a {
   text-decoration: none;
   font-size: 1.8rem;
@@ -176,6 +167,11 @@
   .hide {
     display: none;
   }
+
+  .popup .links a,
+  .popup .ref a {
+    font-size: 2.5rem;
+  }
 }
 
 @media screen and (max-width: 1000px) {
@@ -183,5 +179,10 @@
     flex-direction: column;
     -ms-flex-direction: column;
     gap: 3rem;
+  }
+
+  .popup .links a,
+  .popup .ref a {
+    font-size: 2rem;
   }
 }

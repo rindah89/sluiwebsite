@@ -20,7 +20,8 @@ const PopupWidget: React.FC<Props> = ({ show, toggleState }) => {
     <div className={`popup ${show ? "show" : null}`}>
       <div className="popup__content">
         <div className="title">
-          <h2>{t("header_popup.studies")}</h2>
+          {/* <h2>{t("header_popup.studies")}</h2> */}
+          <div></div>
           <button
             onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
               e.preventDefault();
