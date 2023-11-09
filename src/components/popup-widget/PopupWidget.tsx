@@ -9,9 +9,10 @@ import { useTranslation } from "react-i18next";
 type Props = {
   show: boolean;
   toggleState: () => void;
+  togglePopup: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-const PopupWidget: React.FC<Props> = ({ show, toggleState }) => {
+const PopupWidget: React.FC<Props> = ({ show, toggleState, togglePopup }) => {
   // const navigate = useNavigate();
 
   const { t } = useTranslation();
@@ -175,6 +176,7 @@ const PopupWidget: React.FC<Props> = ({ show, toggleState }) => {
               </Link>
               <Link
                 onClick={() => {
+                  togglePopup(true);
                   toggleState();
                 }}
                 className="hide"

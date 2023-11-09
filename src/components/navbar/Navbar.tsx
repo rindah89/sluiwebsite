@@ -317,7 +317,11 @@ const Navbar = () => {
             <AiOutlineSearch style={{ marginTop: "0.3rem" }} size={26} />
           </Link>
         </li>
-        <PopupWidget show={showMenu} toggleState={toggleState} />
+        <PopupWidget
+          togglePopup={setProgramsPanelActivated}
+          show={showMenu}
+          toggleState={toggleState}
+        />
         <li
           style={{
             maxWidth: "100%",
