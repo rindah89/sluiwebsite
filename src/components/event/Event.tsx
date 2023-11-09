@@ -17,14 +17,21 @@ const Event: FC<Props> = ({ event }) => {
   return (
     <div className={styles.main} onClick={() => navigate("/event-details")}>
       <div className={styles.heading}>{event.heading}</div>
-      <p className={styles.tag}>{event.tag}</p>
-      <p className={styles.sub_head}>{event.subHeading}</p>
-      <p className={styles.body}>{event.body}</p>
-
-      <div className={styles.location}>
-        <CiLocationOn className={styles.body} />
-        <p className={styles.body}>{event.footer}</p>
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+        }}
+      >
+        <p className={styles.sub_head}>{event.subHeading}</p>
+        <div className={styles.location}>
+          <CiLocationOn className={styles.body} />
+          <p className={styles.body}>{event.footer}</p>
+        </div>
       </div>
+      <p className={styles.tag}>{event.tag}</p>
+      <p className={styles.body}>{event.body}</p>
     </div>
   );
 };
