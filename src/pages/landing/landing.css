@@ -81,6 +81,7 @@
   font-size: 2rem;
   animation: glowing 1000ms infinite;
 }
+
 .caption {
   margin-bottom: 2rem;
   font-size: 1.8rem;
@@ -205,8 +206,8 @@
     grid-gap: 2rem;
   }
 
-  .about .desc h2 {
-    font-size: 4rem;
+  .about {
+    min-height: 30vh;
   }
 }
 
@@ -236,5 +237,9 @@
 
   .about .desc h2 {
     font-size: 3rem;
+  }
+
+  .about .desc h4 {
+    font-size: 1.8rem;
   }
 }
