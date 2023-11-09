@@ -43,60 +43,67 @@ const EventDetails: FC = () => {
   return (
     <>
       <div className={styles.main}>
-        <Fade left>
-          <div
-            className={styles.back}
-            onMouseEnter={() => {
-              setIsHover(true);
-              startBounceAnimation();
-            }}
-            onMouseLeave={() => setIsHover(false)}
-            onClick={() => navigate(-1)}
-          >
-            <div className={isBouncing ? styles.bounce : ""}>
-              <BsArrowLeft
-                size={isHover ? 16 : 20}
+        <div className={styles.inner}>
+          <Fade left>
+            <div
+              className={styles.back}
+              onMouseEnter={() => {
+                setIsHover(true);
+                startBounceAnimation();
+              }}
+              onMouseLeave={() => setIsHover(false)}
+              onClick={() => navigate(-1)}
+            >
+              <div className={isBouncing ? styles.bounce : ""}>
+                <BsArrowLeft
+                  size={isHover ? 16 : 20}
+                  style={{
+                    fontSize: "3rem",
+                    fontWeight: "bold",
+                    color: isHover ? "#902d28" : "var(--main-color)",
+                    transition: "0.5s ease-out",
+                  }}
+                />
+              </div>
+              <p
                 style={{
-                  fontSize: "3rem",
+                  fontSize: "2rem",
                   fontWeight: "bold",
                   color: isHover ? "#902d28" : "var(--main-color)",
-                  transition: "0.5s ease-out",
                 }}
-              />
+              >
+                {t("event_details.back")}
+              </p>
             </div>
-            <p
-              style={{
-                fontSize: "2rem",
-                fontWeight: "bold",
-                color: isHover ? "#902d28" : "var(--main-color)",
-              }}
-            >
-              {t("event_details.back")}
-            </p>
+          </Fade>
+          <div className={styles.heading}>{event.heading}</div>
+          <p className={styles.tag}>{t("event_details.talk_business")}s</p>
+          <p className={styles.sub_head}>{event.subHeading}</p>
+          <div className={styles.location}>
+            <CiLocationOn className={styles.body} />
+            <p className={styles.body}>{event.footer}</p>
           </div>
-        </Fade>
-        <div className={styles.heading}>{event.heading}</div>
-        <p className={styles.tag}>{t("event_details.talk_business")}s</p>
-        <p className={styles.sub_head}>{event.subHeading}</p>
-        <div className={styles.location}>
-          <CiLocationOn className={styles.body} />
-          <p className={styles.body}>{event.footer}</p>
+          <div className={styles.container}>
+            <div className={styles.bodyContainer}>
+              <p className={`${styles.body} ${styles.p}`}>{event.body}</p>
+            </div>
+          </div>
         </div>
-        <div className={styles.container}>
-          <div className={styles.bodyContainer}>
-            <p className={`${styles.body} ${styles.p}`}>{event.body}</p>
-          </div>
-          <div>
-            <img
-              src={require("../../assets/core.jpg")}
-              alt=""
-              className={styles.image}
-            />
-          </div>
+        <div>
+          <img
+            src={require("../../assets/core.jpg")}
+            alt=""
+            className={styles.image}
+          />
         </div>
       </div>
       <div className={styles.divider} />
-      <div className={styles.sub}>
+      <div
+        style={{
+          paddingBlock: "60px",
+        }}
+        className={styles.sub}
+      >
         <p className={styles.sub_head}>{t("event_details.interested")}</p>
         <p className={styles.body}>{t("event_details.invite")}</p>
         <p className={styles.body}>{t("event_details.after")}</p>
