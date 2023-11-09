@@ -276,6 +276,7 @@ const Landing = () => {
             flexDirection: "column",
             width: "100vw",
             padding: "0 4vw",
+            paddingBottom: "52px",
           }}
         >
           <Fade right>
