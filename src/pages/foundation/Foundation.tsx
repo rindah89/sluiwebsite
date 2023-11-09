@@ -16,7 +16,7 @@ const Foundation = () => {
   return (
     <div className={styles.bachelors}>
       <div className="hero">
-        <h3>{t("foundation.courses")}</h3>
+        {/* <h3>{t("foundation.courses")}</h3> */}
         <Fade left>
           <h1 style={{ lineHeight: "1.1", margin: "3rem 0" }}>
           {t("foundation.medical")}
