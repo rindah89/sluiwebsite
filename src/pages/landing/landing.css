@@ -210,6 +210,10 @@
     min-height: 20vh;
     padding-block: 4rem;
   }
+
+  .programs_ .headline > h2 {
+    font-size: 4rem;
+  }
 }
 
 @media screen and (max-width: 750px) {
@@ -246,5 +250,9 @@
 
   .hero {
     background-position: top right;
+  }
+
+  .programs_ .headline > h2 {
+    font-size: 3rem;
   }
 }
