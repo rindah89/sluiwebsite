@@ -66,8 +66,9 @@
 }
 
 .desc h3 {
-  font-size: 4rem;
+  font-size: 5rem;
   font-weight: 600;
+  color: rgba(0, 0, 0, 0.8);
 }
 
 @media screen and (max-width: 980px) {
