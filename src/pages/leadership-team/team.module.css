@@ -10,7 +10,7 @@
     url("../../assets/team_camera.jpg"), no-repeat;
   background-position: top center;
   background-size: cover;
-  padding: 3rem 8vw;
+  padding: 3rem 4vw;
   padding-bottom: 10rem;
   display: flex;
   display: -ms-flexbox;
@@ -50,10 +50,9 @@
 
 .intro {
   display: grid;
-  padding: 4rem 8rem;
+  padding: 4rem 4vw;
   row-gap: 2rem;
-  width: 80%;
-  margin: auto;
+  width: 100%;
 }
 
 .heading {
@@ -61,6 +60,7 @@
   font-size: 5rem;
   font-weight: 600;
   text-align: center;
+  line-height: 1.1;
 }
 
 .sub_heading {
@@ -73,6 +73,7 @@
   font-size: 2.5rem;
   text-align: center;
 }
+
 .event {
   padding: 1rem 6rem;
 }
@@ -121,10 +122,8 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 2rem;
-  padding: 2rem 6rem;
+  padding: 2rem 4vw;
 }
-
-
 
 @media screen and (max-width: 1024px) {
   .hero {
@@ -163,6 +162,15 @@
   .event h3 {
     font-size: 3.5rem;
     margin: 3rem 0;
+  }
+
+  .heading {
+    font-size: 3rem;
+    line-height: 1.1;
+  }
+
+  .paragraph {
+    font-size: 2rem;
   }
 
   .event_section {
