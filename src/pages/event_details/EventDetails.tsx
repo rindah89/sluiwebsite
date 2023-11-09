@@ -84,7 +84,7 @@ const EventDetails: FC = () => {
         </div>
         <div className={styles.container}>
           <div className={styles.bodyContainer}>
-            <p className={styles.body}>{event.body}</p>
+            <p className={`${styles.body} ${styles.p}`}>{event.body}</p>
           </div>
           <div>
             <img
