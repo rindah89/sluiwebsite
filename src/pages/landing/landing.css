@@ -207,7 +207,7 @@
   }
 
   .about {
-    min-height: 30vh;
+    min-height: 50vh;
   }
 }
 
@@ -240,7 +240,7 @@
   }
 
   .about .desc h4 {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
   }
 
   .hero {
