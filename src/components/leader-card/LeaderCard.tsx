@@ -15,7 +15,7 @@ const LeaderCard: React.FC<Props> = ({ image, name, title }) => {
     <Fade up>
       <div className={styles.leader}>
         <div className={styles.image}>
-          <img src={image} alt={name} />
+          {image.length > 0 ? <img src={image} alt={name} /> : ""}
         </div>
         <div className={styles.body}>
           <h2>{name}</h2>

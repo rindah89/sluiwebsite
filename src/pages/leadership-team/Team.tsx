@@ -43,22 +43,19 @@ const Team: FC = () => {
       position: "DVC. Admin and Finance",
     },
     {
-      image:
-        "https://lh3.googleusercontent.com/drive-viewer/AK7aPaBRnJSe3-EREXbWH1QUtD-PiaiPv2i31B_DvijbC-jRk2HQf37Ctv2QXXLvZ67hp5Bgse6cTnt6CtBmO8M0hL2582pZ=s1600",
+      image: "/new/perez.jpg",
       name: "MR. CHEGHE PEREZ K",
       tel: "679 933 329",
       position: "Dean of Studies, Health",
     },
     {
-      image:
-        "https://lh3.googleusercontent.com/drive-viewer/AK7aPaBczKhynO3ItzcOe7waXOHRLThcbXVS2a0BIN0DenFLG2IAvPz9s8RBWFIiSYRkt-Ku_9TVWY-k-7x4BBrW3duu6xIr=s2560",
+      image: "/new/simon.jpeg",
       name: "MR SIMON MUFOR",
       tel: "652 615 379",
       position: "Dean of Studies, ICT",
     },
     {
-      image:
-        "https://lh3.googleusercontent.com/drive-viewer/AK7aPaBF8vdstMIqvdBKZm32B7JkBn1CnqRBpe598UyNi-VcElVJIL9lFYqttrpx8mrhD4rTZuqXtR8GRJwcGQwwprMYatMNmw=s1600",
+      image: "/new/mandi.jpg",
       name: "MR. MANDI DERICK",
       tel: "672 137 794",
       position: "Registrar/Lecturer Nursing",
@@ -77,8 +74,7 @@ const Team: FC = () => {
       position: "Administravie Assistant I",
     },
     {
-      image:
-        "https://lh3.googleusercontent.com/drive-viewer/AK7aPaDqpH5SBWeSP5fLLRX8zDCXh5jT3h8JiErLwWhtSZqkZwNaAxGtRhe2Q2fXGnQw5-nKQAvAZwISGp3BJ6l3BIvwHecCNQ=s500",
+      image: "/new/kingsley.jpeg",
       name: "NDIPENDOH KINGSLY MUKOM",
       tel: "679 201 766",
       position: "Administrative Representative",
@@ -102,22 +98,19 @@ const Team: FC = () => {
       position: "DVC. Administration et Finances",
     },
     {
-      image:
-        "https://lh3.googleusercontent.com/drive-viewer/AK7aPaBRnJSe3-EREXbWH1QUtD-PiaiPv2i31B_DvijbC-jRk2HQf37Ctv2QXXLvZ67hp5Bgse6cTnt6CtBmO8M0hL2582pZ=s1600",
+      image: "/new/perez.jpg",
       name: "MR. CHEGHE PEREZ K",
       tel: "679 933 329",
       position: "Doyen des Études, Santé",
     },
     {
-      image:
-        "https://lh3.googleusercontent.com/drive-viewer/AK7aPaBczKhynO3ItzcOe7waXOHRLThcbXVS2a0BIN0DenFLG2IAvPz9s8RBWFIiSYRkt-Ku_9TVWY-k-7x4BBrW3duu6xIr=s2560",
+      image: "/new/simon.jpeg",
       name: "MR SIMON MUFOR",
       tel: "652 615 379",
       position: "Doyen des Études, TIC",
     },
     {
-      image:
-        "https://lh3.googleusercontent.com/drive-viewer/AK7aPaBF8vdstMIqvdBKZm32B7JkBn1CnqRBpe598UyNi-VcElVJIL9lFYqttrpx8mrhD4rTZuqXtR8GRJwcGQwwprMYatMNmw=s1600",
+      image: "/new/mandi.jpg",
       name: "MR. MANDI DERICK",
       tel: "672 137 794",
       position: "Registraire/Conférencier en Soins Infirmiers",
@@ -136,8 +129,7 @@ const Team: FC = () => {
       position: "Assistant Administratif I",
     },
     {
-      image:
-        "https://lh3.googleusercontent.com/drive-viewer/AK7aPaDqpH5SBWeSP5fLLRX8zDCXh5jT3h8JiErLwWhtSZqkZwNaAxGtRhe2Q2fXGnQw5-nKQAvAZwISGp3BJ6l3BIvwHecCNQ=s500",
+      image: "/new/kingsley.jpeg",
       name: "NDIPENDOH KINGSLY MUKOM",
       tel: "679 201 766",
       position: "Représentant Administratif",
