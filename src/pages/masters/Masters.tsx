@@ -73,7 +73,7 @@ const Masters = () => {
         </div>
       </div>
 
-      <div className="about">
+      <div style={{ minHeight: "10vh", marginTop: "30px" }} className="about">
         <div className="desc">
           <h4>{t("masters.para3")}</h4>
         </div>

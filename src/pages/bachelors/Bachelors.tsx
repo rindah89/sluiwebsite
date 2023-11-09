@@ -74,7 +74,7 @@ const Bachelors = () => {
         </Fade>
       </div>
 
-      <div style={{ minHeight: "20vh" }} className="about">
+      <div style={{ minHeight: "10vh", marginTop: "30px" }} className="about">
         <div className={styles.desc}>
           <h3>{t("bachelors.start")}</h3>
         </div>
