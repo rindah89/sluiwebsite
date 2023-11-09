@@ -47,10 +47,6 @@
   line-height: 1.2;
 }
 
-.tag:hover {
-  color: #902d28;
-}
-
 .sub_head {
   color: #001725;
   font-size: 4rem;
@@ -65,7 +61,6 @@
 .container {
   display: flex;
   justify-content: space-between;
-  margin-top: 20px;
 }
 
 .image {
