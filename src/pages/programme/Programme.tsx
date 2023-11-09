@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from "react";
+import { useEffect, FC, useState } from "react";
 import { Fade } from "react-reveal";
 import {
   programDetailsEN,
@@ -10,14 +10,15 @@ import styles from "./programme.module.css";
 import { useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
+import Mandi from "../../assets/new/mandi.jpg";
+
 const staffsEN = [
   {
     name: "Mr. Mandi Derick",
     position: "Programme Coordinator",
     mail: "info@stlui.org",
     phoneNumber: "",
-    image:
-      "https://drive.google.com/file/d/1cwew8JXG_kuC3JMfDTlCizW-V1ibQ4MO/view?usp=drive_link",
+    image: Mandi,
   },
   {
     name: "Mme. Mengot Sylvia",
@@ -158,28 +159,46 @@ const Programme: FC<any> = () => {
                       }}
                     >
                       <div className={styles.topContent}>
-                        <p style={{
-                          // color: "white",
-                          fontSize: 24,
-                          fontWeight: '500',
-                        }}>{staff.position}</p>
+                        <p
+                          style={{
+                            fontSize: 24,
+                            fontWeight: "500",
+                          }}
+                          className={styles.pos}
+                        >
+                          {staff.position}
+                        </p>
                       </div>
                       <div className={styles.bottomContent}>
-                        <p style={{
-                          color: "white",
-                          fontSize: 24,
-                          fontWeight: '500',
-                        }}>{staff.name}</p>
-                        <p style={{
-                          color: "white",
-                          fontSize: 24,
-                          fontWeight: '500',
-                        }}>{staff.mail}</p>
-                        {!!staff.phoneNumber && <p style={{
-                          color: "white",
-                          fontSize: 24,
-                          fontWeight: '500',
-                        }}>{staff.phoneNumber}</p>}
+                        <p
+                          style={{
+                            color: "white",
+                            fontSize: 24,
+                            fontWeight: "500",
+                          }}
+                        >
+                          {staff.name}
+                        </p>
+                        <p
+                          style={{
+                            color: "white",
+                            fontSize: 24,
+                            fontWeight: "500",
+                          }}
+                        >
+                          {staff.mail}
+                        </p>
+                        {!!staff.phoneNumber && (
+                          <p
+                            style={{
+                              color: "white",
+                              fontSize: 24,
+                              fontWeight: "500",
+                            }}
+                          >
+                            {staff.phoneNumber}
+                          </p>
+                        )}
                       </div>
                     </div>
                   </div>

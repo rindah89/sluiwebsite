@@ -31,6 +31,7 @@
   row-gap: 2rem;
   width: 70%;
 }
+
 .left_content > p {
   font-size: 2rem;
   text-align: justify;
@@ -111,7 +112,6 @@
 
 .section > p {
   font-size: 1.8rem;
-  text-align: justify;
   line-height: 4rem;
 }
 
@@ -132,8 +132,8 @@
 .imageSection {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: 6rem;
-  padding: 2rem 6rem;
+  grid-gap: 2rem;
+  padding: 2rem 0;
 }
 
 .image {
@@ -155,8 +155,15 @@
 }
 
 .staffImage p {
-  font-size: 1.8rem;
+  font-size: 2rem;
+  font-weight: 600;
+  color: #fff;
 }
+
+.pos {
+  color: #000 !important;
+}
+
 .topContent {
   top: 10;
 }
