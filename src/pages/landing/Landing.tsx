@@ -39,7 +39,7 @@ export const programmesEN = [
     // image: '/pics/optimized/IVC_6598.jpg',
     image: require("../../assets/optimized/IVC_0135.jpg"),
     desc: "We offer a variety of short courses. Explore today!",
-    label: "Short Course",
+    label: "Foundation",
     link: "/foundation",
   },
   {
@@ -275,14 +275,13 @@ const Landing = () => {
             display: "flex",
             flexDirection: "column",
             width: "100vw",
-            padding:
-              width <= 464 ? "0 2rem" : width <= 1024 ? "0 4rem" : "0 10rem",
+            padding: "0 4vw",
           }}
         >
           <Fade right>
             <Carousel responsive={responsive}>
               {events.map((event, index) => (
-                <div style={{ margin: "0 30px" }}>
+                <div style={{ margin: "0 10px", height: "100%" }}>
                   <Event key={index} event={event} />
                 </div>
               ))}

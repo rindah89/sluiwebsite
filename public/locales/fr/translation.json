@@ -17,7 +17,7 @@
     "meet_buddy": "Rencontrez Votre Copain",
     "leader_ship_team": "Équipe de direction",
     "view_more": "Voir plus",
-    "meet_online": "Rencontrons-nous en ligne",
+    "meet_online": "Rencontrons-nous",
     "meet_online_cap": "Rejoignez nos événements en ligne et sur place et découvrez notre université. Apprenez-en davantage sur nos programmes d'études, obtenez des conseils personnalisés et vivez des conférences. N'hésitez pas à jeter un oeil",
     "online_hybrid": "Événements en ligne et hybrides",
     "all_events": "Tous les évènements",
@@ -54,7 +54,7 @@
     "alumni": "Anciens Élèves",
     "news_events": "Nouvelles & Événements",
     "contact": "Contactez-nous",
-    "short_courses": "Cours Courts"
+    "short_courses": "Fondation"
   },
   "buddy_card_component": {
     "chat": "Chat avec un copain",
@@ -76,7 +76,7 @@
     "masters": "Maîtres",
     "bachelors": "Bacheliers",
     "hnd": "HND",
-    "short_courses": "Cours de Courte Durée",
+    "short_courses": "Fondation",
     "admission_processes": "Processus d'Admission",
     "advisory_board": "Conseil Consultatif des Étudiants",
     "institution": "Notre Institution",
@@ -117,7 +117,7 @@
     "study_programmes": "Programmes d'Études",
     "bachelors": "Bacheliers",
     "masters": "Maîtres",
-    "short_course": "Cours de Courte Durée"
+    "short_course": "Fondation"
   },
   "about": {
     "name": "INSTITUT UNIVERSITAIRE ST. LOUIS ",
@@ -465,7 +465,7 @@
     "alumni": "Tous les diplômés de St. Louis Alumni"
   },
   "why_us": {
-    "name":"INSTITUT UNIVERSITAIRE ST. LOUIS ",
+    "name": "INSTITUT UNIVERSITAIRE ST. LOUIS ",
     "why": "Pourquoi Nous Choisir?",
     "explore": "Exploration",
     "serve": "Servir la communauté, la nation et le monde, en éduquant et en préparant les étudiants à s'acquitter des tâches de la vie avec utilité et réputation",

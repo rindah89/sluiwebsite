@@ -17,7 +17,7 @@
     "meet_buddy": "Meet Your Buddy",
     "leader_ship_team": "Leadership Team",
     "view_more": "View More",
-    "meet_online": "LET'S MEET ONLINE",
+    "meet_online": "LET'S MEET",
     "meet_online_cap": "Join our online & onsite events and get to know about our university. Learn more about our programmes, personal advices and experience lectures. Feel free to have a look",
     "online_hybrid": "Online & Hybrid Events",
     "all_events": "All events",
@@ -54,7 +54,7 @@
     "alumni": "Alumni",
     "news_events": "News & Events",
     "contact": "Contact Us",
-    "short_courses": "Short Courses"
+    "short_courses": "Foundation"
   },
   "buddy_card_component": {
     "chat": "Chat with buddy",
@@ -76,7 +76,7 @@
     "masters": "Masters",
     "bachelors": "Bachelors",
     "hnd": "HND",
-    "short_courses": "Short Courses",
+    "short_courses": "Foundation",
     "admission_processes": "Admission Processes",
     "advisory_board": "Student Advisory Board",
     "institution": "Our Institution",
@@ -117,7 +117,7 @@
     "study_programmes": "Study Programmes",
     "bachelors": "Bachelors",
     "masters": "Masters",
-    "short_course": "Short Course"
+    "short_course": "Foundation"
   },
   "about": {
     "name": "ST. LOUIS UNIVERSITY INSTITUTE",
@@ -466,7 +466,7 @@
     "alumni": "All St. Louis graduates Alumni"
   },
   "why_us": {
-    "name":"ST. LOUIS UNIVERSITY INSTITUTE",
+    "name": "ST. LOUIS UNIVERSITY INSTITUTE",
     "why": "Why Choose Us",
     "explore": "Exploration",
     "serve": "Serve the community, the nation, and the world, by educating and preparing students to discharge the offices of life with usefulness and reputation",

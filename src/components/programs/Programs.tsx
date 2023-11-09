@@ -17,7 +17,7 @@ const Programs = () => {
             <div className="h2">
               <h2>{t("programs.hnd")}</h2>
             </div>
-            <h3>18 {t("programs.study_programmes")}</h3>
+            {/* <h3>18 {t("programs.study_programmes")}</h3> */}
           </div>
           <div className="icon">
             <AiOutlineArrowRight color="#000" size={30} />
@@ -34,7 +34,7 @@ const Programs = () => {
             <div className="h2">
               <h2>{t("programs.bachelors")}</h2>
             </div>
-            <h3>9 {t("programs.study_programmes")}</h3>
+            {/* <h3>9 {t("programs.study_programmes")}</h3> */}
           </div>
           <div className="icon__window">
             <BsArrowUpRight color="#000" size={20} />
@@ -51,7 +51,7 @@ const Programs = () => {
             <div className="h2">
               <h2>{t("programs.masters")}</h2>
             </div>
-            <h3>9 {t("programs.study_programmes")}</h3>
+            {/* <h3>9 {t("programs.study_programmes")}</h3> */}
           </div>
           <div className="icon__window">
             <BsArrowUpRight color="#000" size={20} />
@@ -68,7 +68,7 @@ const Programs = () => {
             <div className="h2">
               <h2>{t("programs.short_course")}</h2>
             </div>
-            <h3>1 {t("programs.short_course")}</h3>
+            {/* <h3>1 {t("programs.short_course")}</h3> */}
           </div>
           <div className="icon__window">
             <BsArrowUpRight color="#000" size={20} />
