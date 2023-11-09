@@ -28,6 +28,15 @@ const ProgramPopup: React.FC<Attrib> = ({ programs }) => {
           width={400}
           src="/images/logo_red.webp"
           alt="logo"
+          className={`${styles.desktop__version}`}
+        />
+
+        <img
+          className={`${styles.mobile__version}`}
+          style={{ marginBottom: "3rem" }}
+          width={100}
+          src="/logos/logomobile.png"
+          alt="logo"
         />
 
         <h2>{t("program_popup.engaging")}</h2>

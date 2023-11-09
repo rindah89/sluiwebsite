@@ -4,7 +4,7 @@
   left: 0;
   top: 0;
   width: 100%;
-  padding: 4rem;
+  padding: 10px 2vw;
   z-index: 99999;
   background: rgba(0, 0, 0, 0.5);
   display: flex;
@@ -46,9 +46,22 @@
   gap: 2rem;
 }
 
+.mobile__version {
+  display: none;
+}
+
 @media screen and (max-width: 900px) {
   .programs {
     grid-template-columns: 1fr;
+  }
+
+  .mobile__version {
+    display: flex;
+    display: -ms-flexbox;
+  }
+
+  .desktop__version {
+    display: none;
   }
 }
 
