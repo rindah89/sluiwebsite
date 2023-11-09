@@ -104,3 +104,9 @@
     -o-border-radius: none;
   }
 }
+
+@media screen and (max-width: 860px) {
+  .content h2 {
+    font-size: 3rem;
+  }
+}
