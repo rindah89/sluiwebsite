@@ -193,6 +193,10 @@
   display: none;
 }
 
+.mobile {
+  display: none;
+}
+
 @media screen and (max-width: 1275px) {
   .navbar .logo img {
     width: 270px;
@@ -202,6 +206,19 @@
 @media screen and (max-width: 1030px) {
   .dropdown {
     display: none;
+  }
+
+  .mobile {
+    display: flex;
+    display: -ms-flexbox;
+  }
+
+  .desktop {
+    display: none;
+  }
+
+  .navbar .logo img {
+    width: 80px;
   }
 
   .menu {

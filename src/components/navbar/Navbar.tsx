@@ -187,9 +187,14 @@ const Navbar = () => {
           />
         </div>
       )}
-      <div className="logo">
+      <div className="logo desktop">
         <Link to="/">
           <img src="/images/logo_red.webp" alt="logo" />
+        </Link>
+      </div>
+      <div className="logo mobile">
+        <Link to="/">
+          <img src="/logos/logomobile.png" alt="logo" />
         </Link>
       </div>
       <ul className={`menu ${showMenu ? "show" : null}`}>
