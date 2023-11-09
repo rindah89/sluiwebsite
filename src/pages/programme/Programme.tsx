@@ -11,6 +11,7 @@ import { useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 import Mandi from "../../assets/new/mandi.jpg";
+import Mengot from "../../assets/new/mengot.jpg";
 
 const staffsEN = [
   {
@@ -25,8 +26,7 @@ const staffsEN = [
     position: "Lecturer",
     mail: "info@stlui.org",
     phoneNumber: "",
-    image:
-      "https://drive.google.com/file/d/1cwew8JXG_kuC3JMfDTlCizW-V1ibQ4MO/view?usp=drive_link",
+    image: Mengot,
   },
 ];
 
@@ -36,16 +36,14 @@ const staffsFR = [
     position: "Coordinateur de Programme",
     mail: "info@stlui.org",
     phoneNumber: "",
-    image:
-      "https://drive.google.com/file/d/1cwew8JXG_kuC3JMfDTlCizW-V1ibQ4MO/view?usp=drive_link",
+    image: Mandi,
   },
   {
     name: "Mme. Mengot Sylvia",
     position: "Maître de Conférences",
     mail: "info@stlui.org",
     phoneNumber: "",
-    image:
-      "https://drive.google.com/file/d/1cwew8JXG_kuC3JMfDTlCizW-V1ibQ4MO/view?usp=drive_link",
+    image: Mengot,
   },
 ];
 
