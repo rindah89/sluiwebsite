@@ -24,7 +24,8 @@ const FR = "fr";
 
 export const programmesEN = [
   {
-    image: require("../../assets/converted/IVS_7525.jpg"),
+    // image: require("../../assets/converted/IVS_7525.jpg"),
+    image: require("../../assets/optimized/IVS_6598.jpg"),
     desc: "More and more exciting programmes to be explored at our campuses.",
     label: "Bachelors",
     link: "/bachelors",
@@ -37,14 +38,16 @@ export const programmesEN = [
   },
   {
     // image: '/pics/optimized/IVC_6598.jpg',
-    image: require("../../assets/optimized/IVC_0135.jpg"),
+    // image: require("../../assets/optimized/IVC_0135.jpg"),
+    image: require("../../assets/converted/IVS_7525.jpg"),
     desc: "We offer a variety of short courses. Explore today!",
     label: "Foundation",
     link: "/foundation",
   },
   {
     // image: '/pics/optimized/IVC_6598.jpg',
-    image: require("../../assets/optimized/IVS_6598.jpg"),
+    // image: require("../../assets/optimized/IVS_6598.jpg"),
+    image: require("../../assets/optimized/IVC_0135.jpg"),
     desc: "HND programmes are just so exciting, start a career in one of these programmes.",
     label: "HND",
     link: "/hnd",
@@ -53,7 +56,8 @@ export const programmesEN = [
 
 export const programmesFR = [
   {
-    image: require("../../assets/converted/IVS_7525.jpg"),
+    // image: require("../../assets/converted/IVS_7525.jpg"),
+    image: require("../../assets/optimized/IVS_6598.jpg"),
     desc: "De plus en plus de programmes passionnants sont à découvrir sur nos campus.",
     label: "Bacheliers",
     link: "/bachelors",
@@ -66,14 +70,16 @@ export const programmesFR = [
   },
   {
     // image: '/pics/optimized/IVC_6598.jpg',
-    image: require("../../assets/optimized/IVC_0135.jpg"),
+    // image: require("../../assets/optimized/IVC_0135.jpg"),
+    image: require("../../assets/converted/IVS_7525.jpg"),
     desc: "Nous proposons une variété de cours de courte durée. Découvrez-les dès aujourd'hui !",
     label: "Cours de Courte Durée",
     link: "/foundation",
   },
   {
     // image: '/pics/optimized/IVC_6598.jpg',
-    image: require("../../assets/optimized/IVS_6598.jpg"),
+    // image: require("../../assets/optimized/IVS_6598.jpg"),
+    image: require("../../assets/optimized/IVC_0135.jpg"),
     desc: "Les programmes HND sont tout simplement passionnants, commencez une carrière dans l'un de ces programmes.",
     label: "HND",
     link: "/hnd",
