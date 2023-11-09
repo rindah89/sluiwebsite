@@ -43,7 +43,7 @@ const App = () => {
   return (
     <div className="app">
       <Router>
-        {/* <ContactIcon /> */}
+        <ContactIcon />
         <Navbar />
         <Routes>
           <Route path="/" element={<Landing />} />
