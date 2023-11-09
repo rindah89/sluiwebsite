@@ -15,12 +15,6 @@
   justify-content: flex-end;
 }
 
-@media screen and (max-width: 1012px) {
-  .hero {
-    padding-top: 70rem;
-  }
-}
-
 .hero h3 {
   font-size: 2rem;
   color: #fff;
@@ -46,4 +40,32 @@
 .desc .content h4 {
   font-size: 1.8rem;
   margin-bottom: 1rem;
+}
+
+@media screen and (max-width: 1012px) {
+  .hero {
+    padding-top: 70rem;
+  }
+
+  .hero h1 {
+    font-size: 6rem;
+  }
+}
+
+@media screen and (max-width: 976px) {
+  .hero h1 {
+    font-size: 5rem;
+  }
+}
+
+@media screen and (max-width: 760px) {
+  .hero h1 {
+    font-size: 4rem;
+  }
+}
+
+@media screen and (max-width: 560px) {
+  .hero h1 {
+    font-size: 3rem;
+  }
 }
