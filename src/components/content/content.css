@@ -28,7 +28,6 @@
 .content h2 {
   font-size: 5rem;
   font-weight: 800;
-  line-height: 1.2 !important;
   color: rgba(0, 0, 0, 0.8);
   margin-bottom: 2rem;
 }
@@ -107,12 +106,6 @@
 
 @media screen and (max-width: 860px) {
   .content h2 {
-    font-size: 3rem;
-  }
-}
-
-@media screen and (max-width: 560px) {
-  .content h2 {
-    font-size: 2rem;
+    font-size: 3rem !important;
   }
 }
