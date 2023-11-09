@@ -63,8 +63,6 @@
   -moz-border-radius: 35px;
   -ms-border-radius: 35px;
   -o-border-radius: 35px;
-  /* background: rgba(0, 0, 0, 0.6);
-   */
   background: var(--main-color);
   transform-origin: left;
   -webkit-transform-origin: left;
@@ -112,10 +110,6 @@
 
 .menu li {
   position: relative;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  /* width: 100%; */
-  max-width: 200px;
 }
 
 .menu li .dropdown {
@@ -142,6 +136,7 @@
   -moz-transform: scaleY(0);
   -ms-transform: scaleY(0);
   -o-transform: scaleY(0);
+  z-index: 1;
 }
 
 .menu li:hover > .dropdown,
