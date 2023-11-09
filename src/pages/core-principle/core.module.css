@@ -32,18 +32,18 @@
   font-weight: 700;
 }
 
-.hero .desc {
-  padding: 4rem 4vw;
+.desc {
+  padding: 2rem 4vw;
 }
 
-.hero .desc .head h2 {
+.desc .head h2 {
   font-size: 3rem;
   font-weight: 600;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   color: var(--main-color);
 }
 
-.hero .desc .content h4 {
+.desc .content h4 {
   font-size: 1.8rem;
   margin-bottom: 1rem;
 }
