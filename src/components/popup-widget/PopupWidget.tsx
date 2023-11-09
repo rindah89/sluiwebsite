@@ -34,7 +34,7 @@ const PopupWidget: React.FC<Props> = ({ show, toggleState }) => {
 
         <div className="popup__text">
           <div className="links">
-            <div className="pic mobile">
+            <div className="pic">
               <img src="/images/logo_dark.webp" alt="slui logo" />
             </div>
             <a
