@@ -55,7 +55,7 @@ const Masters = () => {
   const programs = i18n.language === "en" ? programsEN : programsFR;
 
   return (
-    <div>
+    <div className={styles.bachelors}>
       <div className="hero">
         <h3>{t("masters.start")}</h3>
         <Fade left>

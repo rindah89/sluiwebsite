@@ -8,7 +8,7 @@
   display: grid;
   display: -ms-grid;
   grid-template-columns: 1fr 1fr;
-  gap: 4rem;
+  gap: 3rem;
   padding: 2rem 4vw;
 }
 
@@ -57,11 +57,33 @@
 
 .list > ul li:hover,
 .list > div ul li:hover {
-  /* transform: translateX(20px);
-  -webkit-transform: translateX(20px);
-  -moz-transform: translateX(20px);
-  -ms-transform: translateX(20px);
-  -o-transform: translateX(20px); */
   cursor: pointer;
   font-size: 2rem;
+}
+
+.desc h3 {
+  font-size: 4rem;
+  font-weight: 600;
+}
+
+@media screen and (max-width: 980px) {
+  .list {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .bachelors h1 {
+    font-size: 4rem;
+    margin-bottom: 20px;
+  }
+
+  .bachelors h4 {
+    font-size: 1.6rem;
+  }
+}
+
+@media screen and (max-width: 780px) {
+  .desc h3 {
+    font-size: 3rem;
+  }
 }

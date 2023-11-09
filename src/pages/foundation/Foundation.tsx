@@ -14,7 +14,7 @@ const Foundation = () => {
   const {t} = useTranslation()
 
   return (
-    <div>
+    <div className={styles.bachelors}>
       <div className="hero">
         <h3>{t("foundation.courses")}</h3>
         <Fade left>

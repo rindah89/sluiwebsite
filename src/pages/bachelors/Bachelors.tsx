@@ -65,18 +65,18 @@ const Bachelors = () => {
   const programs = i18n.language === "en" ? programsEN : programsFR;
 
   return (
-    <div>
+    <div className={`${styles.bachelors}`}>
       <div className="hero">
-        <h3>{t("bachelors.start")}</h3>
+        {/* <h3>{t("bachelors.start")}</h3> */}
         <Fade left>
           <h1>{t("bachelors.bachelors")}</h1>
           <h4 className={styles.para}>{t("bachelors.para")}</h4>
         </Fade>
       </div>
 
-      <div style={{ minHeight: "25vh" }} className="about">
-        <div className="desc">
-          <h4>{t("bachelors.desc")}</h4>
+      <div style={{ minHeight: "20vh" }} className="about">
+        <div className={styles.desc}>
+          <h3>{t("bachelors.start")}</h3>
         </div>
       </div>
 

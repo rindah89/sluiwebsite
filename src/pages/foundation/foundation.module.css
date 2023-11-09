@@ -60,3 +60,25 @@
   border-bottom-right-radius: 25px;
   border-top-left-radius: 25px;
 }
+
+@media screen and (max-width: 980px) {
+  .list {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .bachelors h1 {
+    font-size: 4rem;
+    margin-bottom: 20px;
+  }
+
+  .bachelors h4 {
+    font-size: 1.6rem;
+  }
+}
+
+@media screen and (max-width: 780px) {
+  .desc h3 {
+    font-size: 3rem;
+  }
+}
