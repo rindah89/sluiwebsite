@@ -204,11 +204,6 @@
     padding: 0 4rem 2rem 2rem;
     grid-gap: 2rem;
   }
-
-  .hero {
-    height: fit-content;
-    padding-top: 0;
-  }
 }
 
 @media screen and (max-width: 750px) {
@@ -229,5 +224,9 @@
   .custom_section {
     padding: 2rem;
     grid-template-columns: repeat(1, 1fr);
+  }
+
+  .hero {
+    padding-top: 160px;
   }
 }
