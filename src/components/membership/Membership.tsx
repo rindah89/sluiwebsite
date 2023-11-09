@@ -25,6 +25,7 @@ const Membership = () => {
     <div
       style={{
         margin: "0 4rem 6rem 4rem",
+        overflow: "hidden",
       }}
     >
       <Carousel
