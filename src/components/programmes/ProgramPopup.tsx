@@ -38,11 +38,19 @@ const ProgramPopup: React.FC<Attrib> = ({ programs }) => {
           {programs &&
             programs.map((program, index) => {
               return (
-                <Link to={program.link}>
+                <Link
+                  style={{
+                    height: "100%",
+                  }}
+                  to={program.link}
+                >
                   <div
-                    title={t('program_popup.insight')}
+                    title={t("program_popup.insight")}
                     key={index}
                     className={styles.program}
+                    style={{
+                      height: "100%",
+                    }}
                   >
                     <div className={styles.icon__abs}>
                       <AiOutlineArrowRight
