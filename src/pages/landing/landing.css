@@ -180,6 +180,10 @@
   padding-bottom: 4rem;
 }
 
+.grid__ref a {
+  text-decoration: none;
+}
+
 .react-multiple-carousel__arrow--left {
   left: -20px !important;
   z-index: 9999 !important;

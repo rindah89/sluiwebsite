@@ -125,6 +125,10 @@
   padding: 2rem 4vw;
 }
 
+.event_section a {
+  text-decoration: none;
+}
+
 @media screen and (max-width: 1024px) {
   .hero {
     max-height: 30vh;

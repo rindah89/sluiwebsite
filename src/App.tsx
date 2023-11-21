@@ -34,6 +34,7 @@ import Programme from "./pages/programme/Programme";
 import EventDetails from "./pages/event_details/EventDetails";
 import Alumni from "./pages/alumni/Alumni";
 import CampusDetails from "./pages/campuses/CampusDetails";
+import TeamDetailsPage from "./pages/team-details/TeamDetails.page";
 
 const App = () => {
   useEffect(() => {
@@ -66,6 +67,7 @@ const App = () => {
           <Route path="/scholarships" element={<Scholarships />} />
           <Route path="/facilities" element={<Facilities />} />
           <Route path="/leadership-team" element={<Team />} />
+          <Route path="/leadership-team/:id" element={<TeamDetailsPage />} />
           <Route path="/programme" element={<Programme />} />
           <Route path="/event-details" element={<EventDetails />} />
           <Route path="/alumni" element={<Alumni />} />

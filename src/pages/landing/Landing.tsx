@@ -208,29 +208,37 @@ const Landing = () => {
         </div>
         <div className="grid__ref">
           <GridLayout columns={4} gap={2}>
-            <LeaderCard
-              image="/images/nick.jpeg"
-              name="Dr. Nick Ngwanyam"
-              title={t("landing.president")}
-            />
+            <Link to={`/leadership-team/1`}>
+              <LeaderCard
+                image="/images/nick.jpeg"
+                name="Dr. Nick Ngwanyam"
+                title={t("landing.president")}
+              />
+            </Link>
 
-            <LeaderCard
-              image="/images/krishna.png"
-              name="Prof. Krishna N. Sharma"
-              title={t("Vice-Chancellor")}
-            />
+            <Link to={`/leadership-team/2`}>
+              <LeaderCard
+                image="/images/krishna.png"
+                name="Prof. Krishna N. Sharma"
+                title={t("Vice-Chancellor")}
+              />
+            </Link>
 
-            <LeaderCard
-              image="/images/florence.jpg"
-              name="Dr. Manjong Florence"
-              title={t("landing.dvcaa")}
-            />
+            <Link to={`/leadership-team/3`}>
+              <LeaderCard
+                image="/images/florence.jpg"
+                name="Dr. Manjong Florence"
+                title={t("landing.dvcaa")}
+              />
+            </Link>
 
-            <LeaderCard
-              image="/images/olivier.jpg"
-              name="Mr. Tolly Olivier"
-              title={t("landing.dvcaf")}
-            />
+            <Link to={`/leadership-team/4`}>
+              <LeaderCard
+                image="/images/olivier.jpg"
+                name="Mr. Tolly Olivier"
+                title={t("landing.dvcaf")}
+              />
+            </Link>
           </GridLayout>
           <Link to={"leadership-team"}>
             <button

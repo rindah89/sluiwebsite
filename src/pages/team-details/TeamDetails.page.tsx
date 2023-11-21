@@ -1,30 +1,15 @@
-import React, { FC, useEffect, useState } from "react";
-import styles from "./team.module.css";
-import { BsArrowLeft } from "react-icons/bs";
-import { Fade } from "react-reveal";
-import { Link, useNavigate } from "react-router-dom";
-import LeaderCard from "../../components/leader-card/LeaderCard";
+import React, { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 
-const Team: FC = () => {
-  const width = window.innerWidth;
-  const [isHover, setIsHover] = useState(false);
+import styles from "./teamdetails.module.css";
+import { useParams } from "react-router-dom";
 
+const TeamDetailsPage = () => {
   const { t, i18n } = useTranslation();
-
-  const [isBouncing, setIsBouncing] = useState(false);
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
-
-  const startBounceAnimation = () => {
-    console.log("bouncing animation has started");
-    setIsBouncing(true);
-    setTimeout(() => setIsBouncing(false), 2000); // Stop the bouncing after 1 second (adjust the duration as needed)
-  };
-
-  const navigate = useNavigate();
 
   const TeamEN = [
     {
@@ -35,9 +20,11 @@ const Team: FC = () => {
     },
     {
       id: 2,
-      image: "/images/krishna.png",
+      image: "/images/krishna2.jpg",
       name: "Prof. Krishna N. Sharma",
       position: "Vice-Chancellor",
+      description:
+        "Prof. Krishna N. Sharma - world's youngest Vice-Chancellor (2017) is 9 times world record holder educator, researcher and prolific author with 40+ best-sellers out of his more than 250 published books. He is Vice-Chancellor at St. Louis University, Cameroon. He has also served as Vice-Chancellor at Victoria University, Uganda. He is 2 times TEDx speaker and teaches health, wellness and spirituality for life transformation. He has over 250,000 enrolments in his courses and the students in his courses are from 191 countries (98% of countries in the world).",
     },
     {
       id: 3,
@@ -105,9 +92,11 @@ const Team: FC = () => {
     },
     {
       id: 2,
-      image: "/images/krishna.png",
+      image: "/images/krishna2.jpg",
       name: "Prof. Krishna N. Sharma",
       position: "Vice-Chancellor",
+      description:
+        "Prof. Krishna N. Sharma - world's youngest Vice-Chancellor (2017) is 9 times world record holder educator, researcher and prolific author with 40+ best-sellers out of his more than 250 published books. He is Vice-Chancellor at St. Louis University, Cameroon. He has also served as Vice-Chancellor at Victoria University, Uganda. He is 2 times TEDx speaker and teaches health, wellness and spirituality for life transformation. He has over 250,000 enrolments in his courses and the students in his courses are from 191 countries (98% of countries in the world).",
     },
     {
       id: 3,
@@ -166,75 +155,29 @@ const Team: FC = () => {
     },
   ];
 
-  const Team = i18n.language === "en" ? TeamEN : TeamFR;
+  const team = i18n.language === "en" ? TeamEN : TeamFR;
+
+  const { id } = useParams();
 
   return (
-    <div className={styles.main}>
-      <div className={styles.hero}>
-        <Fade left>
-          <div
-            className={styles.back}
-            onMouseEnter={() => {
-              setIsHover(true);
-              startBounceAnimation();
-            }}
-            onMouseLeave={() => setIsHover(false)}
-            onClick={() => navigate(-1)}
-          >
-            <div className={isBouncing ? styles.bounce : ""}>
-              <BsArrowLeft
-                size={isHover ? 14 : 16}
-                style={{
-                  fontSize: "1.2rem",
-                  fontWeight: "bold",
-                  color: isHover ? "#ffffff80" : "#ffffff",
-                }}
-              />
-            </div>
-            <p
-              style={{
-                fontSize: "1.6rem",
-                fontWeight: "bold",
-                color: isHover ? "#ffffff80" : "#ffffff",
-              }}
-            >
-              {t("team.back")}
-            </p>
+    <div className={styles.hero}>
+      <div className={styles.details}>
+        <div>
+          <div className={styles.image}>
+            <img
+              src={team.find((team) => team.id === Number(id))?.image}
+              alt={team.find((team) => team.id === Number(id))?.name}
+            />
           </div>
-        </Fade>
-        <Fade right>
-          <p
-            style={{
-              fontSize: width <= 450 ? "4rem" : "6rem",
-              fontWeight: "bold",
-              color: "#ffffff",
-              width: "80%",
-            }}
-          >
-            {t("team.team")}
-          </p>
-        </Fade>
-      </div>
-      <div className={styles.intro}>
-        <p className={styles.heading}>{t("team.introduce")}</p>
-        <p className={styles.paragraph}>{t("team.intro_para")}</p>
-      </div>
-      <div className={styles.event_section}>
-        {Team.map((facility, index) => {
-          return (
-            <Link to={`/leadership-team/${facility.id}`}>
-              <LeaderCard
-                key={index}
-                name={facility.name}
-                title={facility.position}
-                image={facility.image}
-              />
-            </Link>
-          );
-        })}
+        </div>
+        <div>
+          <h2>{team.find((team) => team.id === Number(id))?.name}</h2>
+          <h3>{team.find((team) => team.id === Number(id))?.position}</h3>
+          <p>{team.find((team) => team.id === Number(id))?.description}</p>
+        </div>
       </div>
     </div>
   );
 };
 
-export default Team;
+export default TeamDetailsPage;
