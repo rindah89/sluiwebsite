@@ -207,11 +207,17 @@ const Landing = () => {
           <h2>{t("landing.leader_ship_team")}</h2>
         </div>
         <div className="grid__ref">
-          <GridLayout columns={3} gap={2}>
+          <GridLayout columns={4} gap={2}>
             <LeaderCard
               image="/images/nick.jpeg"
               name="Dr. Nick Ngwanyam"
               title={t("landing.president")}
+            />
+
+            <LeaderCard
+              image="/images/krishna.png"
+              name="Prof. Krishna N. Sharma"
+              title={t("Vice-Chancellor")}
             />
 
             <LeaderCard
