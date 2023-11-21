@@ -33,6 +33,11 @@ const Team: FC = () => {
       position: "President",
     },
     {
+      image: "/images/krishna.png",
+      name: "Prof. Krishna N. Sharma",
+      position: "Vice-Chancellor",
+    },
+    {
       image: "/images/florence.jpg",
       name: "Dr. Manjong Florence",
       position: "DVC. Academic Affairs",
@@ -86,6 +91,11 @@ const Team: FC = () => {
       image: "/images/nick.jpeg",
       name: "Dr. Nick Nganyam",
       position: "Président",
+    },
+    {
+      image: "/images/krishna.png",
+      name: "Prof. Krishna N. Sharma",
+      position: "Vice-Chancellor",
     },
     {
       image: "/images/florence.jpg",
