@@ -56,7 +56,7 @@ const pastEventsFR = [
     footer: "Tous les campus",
   },
   {
-    heading: "Resist exams",
+    heading: "Résister aux examens",
     tag: "Tous les niveaux",
     subHeading: "04.09.23",
     body: "Début des examens de rattrapage pour l'année académique 2022/23",
@@ -118,14 +118,14 @@ const futureEventsFR = [
     footer: "Tous les campus",
   },
   {
-    heading: "Orientation professionnelle",
+    heading: "Orientation Professionnelle",
     tag: "06.12.23",
     subHeading: "L200",
     body: "Cours magistraux / Révision / Journée d'orientation professionnelle",
     footer: "Bonamoussadi",
   },
   {
-    heading: "Orientation professionnelle",
+    heading: "Orientation Professionnelle",
     tag: "06.12.23",
     subHeading: "L200",
     body: "Cours magistraux / Révision / Journée d'orientation professionnelle",
