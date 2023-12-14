@@ -151,7 +151,10 @@ const Landing = () => {
         </div>
 
         <Fade bottom delay={500}>
-          <Programs />
+          <div className="landing__search">
+            <input type="text" placeholder={t("landing.search_field_data")} />
+            <button>{t("landing.search_field")}</button>
+          </div>
         </Fade>
       </div>
       <div className="about">

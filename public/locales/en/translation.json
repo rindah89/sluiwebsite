@@ -26,7 +26,9 @@
     "membership_partnership": "Memberships and Partnerships",
     "president": "PRESIDENT",
     "dvcaa": "DVC. Academic Affairs",
-    "dvcaf": "DVC. Admin and Finance"
+    "dvcaf": "DVC. Admin and Finance",
+    "search_field": "Search",
+    "search_field_data": "Search through our faculties or programs..."
   },
   "header": {
     "about": "About Us",

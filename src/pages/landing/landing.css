@@ -200,6 +200,41 @@
   overflow: visible !important;
 }
 
+.landing__search {
+  width: 100%;
+  display: flex;
+  display: -ms-flexbox;
+  border-radius: 55px;
+  -webkit-border-radius: 55px;
+  -moz-border-radius: 55px;
+  -ms-border-radius: 55px;
+  -o-border-radius: 55px;
+  overflow: hidden;
+  align-items: center;
+  overflow: -moz-hidden-unscrollable;
+}
+
+.landing__search button {
+  padding: 0 24px;
+  height: 69px;
+  font-size: 1.8rem;
+  background: #e2413c;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.landing__search input {
+  width: 100%;
+  height: 68px;
+  background: #fff;
+  color: #000;
+  font-size: 1.8rem;
+  padding: 0 24px;
+  border: none;
+  outline: none;
+}
+
 @media screen and (max-width: 950px) {
   .about .desc h4 {
     width: 100%;

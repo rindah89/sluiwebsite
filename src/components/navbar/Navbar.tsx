@@ -2,11 +2,7 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import {
-  AiOutlineSearch,
-  AiOutlineClose,
-  AiOutlineArrowRight,
-} from "react-icons/ai";
+import { AiOutlineClose, AiOutlineArrowRight } from "react-icons/ai";
 import { FcApproval } from "react-icons/fc";
 import { HiBars3BottomLeft } from "react-icons/hi2";
 
@@ -21,7 +17,6 @@ import {
 } from "../../pages/faculties/Faculties";
 import ProgramPopup from "../programmes/ProgramPopup";
 import { useTranslation } from "react-i18next";
-import SelectMolecule from "../select/Select.molecule";
 
 const programsEn = [
   {
@@ -111,11 +106,6 @@ const programsFR = [
 
 const Navbar = () => {
   const [showMenu, setShowMenu] = useState(false);
-  const [searchOverlay, setSearchOverlay] = useState(false);
-  const [filter, setFilter] = useState({
-    type: "Programs",
-    value: "Search our faculties and programs...",
-  });
 
   const { t, i18n } = useTranslation();
 
@@ -179,37 +169,6 @@ const Navbar = () => {
             subDesc={facultiesData[activePanelIndex].subDesc}
             programs={facultiesData[activePanelIndex].programs}
           />
-        </div>
-      )}
-
-      {searchOverlay && (
-        <div className={"search__overlay"}>
-          <button onClick={() => setSearchOverlay(false)} className="close">X</button>
-          <Link to="/">
-            <img
-              style={{
-                width: "100px",
-              }}
-              src="/logos/logomobile.png"
-              alt="logo"
-            />
-          </Link>
-          <h2>Search Faculties</h2>
-          <input type="text" placeholder="Search through our faculties..." />
-          <h2>Select Program</h2>
-          <div className="search__overlay__input">
-            <SelectMolecule
-              list={["HND", "Masters", "Foundation", "Bachelors"]}
-              onSelect={(data) => {
-                setFilter({
-                  type: "Programs",
-                  value: data,
-                });
-              }}
-              selected={filter.value}
-            />
-          </div>
-          <button className="launch__search">Search</button>
         </div>
       )}
 
@@ -345,21 +304,6 @@ const Navbar = () => {
             {i18n.language === "en" ? "FR" : "EN"}
           </Link>
         </li>
-        <li
-          style={{
-            maxWidth: "fit-content",
-          }}
-          className="non"
-        >
-          <Link
-            onClick={() => {
-              setSearchOverlay(!searchOverlay);
-            }}
-            to="#"
-          >
-            <AiOutlineSearch style={{ marginTop: "0.3rem" }} size={26} />
-          </Link>
-        </li>
         <PopupWidget
           togglePopup={setProgramsPanelActivated}
           show={showMenu}
@@ -386,20 +330,6 @@ const Navbar = () => {
         >
           <Link to="#" onClick={handleChangeLanguage}>
             {i18n.language === "en" ? "FR" : "EN"}
-          </Link>
-        </li>
-        <li
-          style={{
-            maxWidth: "fit-content",
-          }}
-        >
-          <Link
-            onClick={() => {
-              setSearchOverlay(!searchOverlay);
-            }}
-            to="#"
-          >
-            <AiOutlineSearch style={{ marginTop: "0.3rem" }} size={26} />
           </Link>
         </li>
         <li
