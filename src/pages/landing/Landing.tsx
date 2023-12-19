@@ -14,7 +14,7 @@ import ProgramGrid from "../../components/program-grid/ProgramGrid";
 import GridLayout from "../../components/grid/Grid";
 import LeaderCard from "../../components/leader-card/LeaderCard";
 import Event from "../../components/event/Event";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { eventsEN, eventsFR } from "../news&events/News&events";
 import Membership from "../../components/membership/Membership";
 import { useTranslation } from "react-i18next";
@@ -94,9 +94,31 @@ const Landing = () => {
   const listRef = useRef<HTMLDivElement>(null);
   const [input, setInput] = useState("");
   const { t, i18n } = useTranslation();
+  const navigate = useNavigate();
   const [selected, setSelected] = useState(
     i18n.language === "en" ? programsEn[0] : programsFR[0]
   );
+
+  const searchFunc = () => {
+    if (selected.length > 0 && input.length === 0) {
+      if (selected === "HND") {
+        navigate("/hnd");
+      } else if (
+        selected === "Foundation" ||
+        selected === "Cours de Courte Durée"
+      ) {
+        navigate("/foundation");
+      } else if (selected === "Bachelors" || selected === "Bacheliers") {
+        navigate("/bachelors");
+      } else if (selected === "Masters" || selected === "Maîtres") {
+        navigate("/masters");
+      }
+    }
+
+    // if (selected.length > 0 && input.length > 0) {
+    //   navigate(`/${selected}/${input}`);
+    // }
+  };
 
   const language = i18n.language;
   const programmes = language === FR ? programmesFR : programmesEN;
@@ -173,7 +195,7 @@ const Landing = () => {
               }}
               placeholder={t("landing.search_field_data")}
             />
-            <button>{t("landing.search_field")}</button>
+            <button onClick={searchFunc}>{t("landing.search_field")}</button>
           </div>
         </Fade>
       </div>
