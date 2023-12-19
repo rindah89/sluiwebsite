@@ -19,7 +19,7 @@
     "view_more": "View More",
     "meet_online": "LET'S MEET!",
     "meet_online_cap": "Join our online & onsite events and get to know about our university. Learn more about our programmes, personal advices and experience lectures. Feel free to have a look",
-    "online_hybrid": "Online & Hybrid Events",
+    "online_hybrid": "News and Events",
     "all_events": "All events",
     "just_fit": "JUST THE RIGHT FIT FOR YOU",
     "exciting_programs": "Exciting Programs",
@@ -28,7 +28,7 @@
     "dvcaa": "DVC. Academic Affairs",
     "dvcaf": "DVC. Admin and Finance",
     "search_field": "Search",
-    "search_field_data": "Search through our faculties or programs..."
+    "search_field_data": "Search through our faculties..."
   },
   "header": {
     "about": "About Us",
@@ -56,7 +56,7 @@
     "alumni": "Alumni",
     "news_events": "News & Events",
     "contact": "Contact Us",
-    "short_courses": "Foundation"
+    "short_courses": "Short Courses"
   },
   "buddy_card_component": {
     "chat": "Chat with buddy",
@@ -78,7 +78,7 @@
     "masters": "Masters",
     "bachelors": "Bachelors",
     "hnd": "HND",
-    "short_courses": "Foundation",
+    "short_courses": "Short Courses",
     "admission_processes": "Admission Processes",
     "advisory_board": "Student Advisory Board",
     "institution": "Our Institution",

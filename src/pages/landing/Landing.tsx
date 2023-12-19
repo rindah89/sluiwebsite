@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Fade } from "react-reveal";
 
 // styles
@@ -8,7 +8,6 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
 // components
-import Programs from "../../components/programs/Programs";
 import Content from "../../components/content/Content";
 import ContentWithBg from "../../components/content-with-bg/ContentWithBg";
 import ProgramGrid from "../../components/program-grid/ProgramGrid";
@@ -19,6 +18,7 @@ import { Link } from "react-router-dom";
 import { eventsEN, eventsFR } from "../news&events/News&events";
 import Membership from "../../components/membership/Membership";
 import { useTranslation } from "react-i18next";
+import SelectMolecule from "../../components/select/Select.molecule";
 
 const FR = "fr";
 
@@ -86,11 +86,17 @@ export const programmesFR = [
   },
 ];
 
+const programsEn = ["HND", "Foundation", "Bachelors", "Masters"];
+const programsFR = ["HND", "Cours de Courte Durée", "Bacheliers", "Maîtres"];
+
 const Landing = () => {
   const width = window.innerWidth;
   const listRef = useRef<HTMLDivElement>(null);
-
+  const [input, setInput] = useState("");
   const { t, i18n } = useTranslation();
+  const [selected, setSelected] = useState(
+    i18n.language === "en" ? programsEn[0] : programsFR[0]
+  );
 
   const language = i18n.language;
   const programmes = language === FR ? programmesFR : programmesEN;
@@ -138,7 +144,7 @@ const Landing = () => {
         <Fade left>
           <h2>{t("landing.character")}</h2>
         </Fade>
-        <div className="apply-now">
+        {/* <div className="apply-now">
           <a
             href="https://apply.stlouissystems.org/"
             target="_blank"
@@ -148,11 +154,25 @@ const Landing = () => {
               {t("landing.addmision")} <p>{t("landing.click_here")}</p>
             </button>
           </a>
-        </div>
+        </div> */}
 
         <Fade bottom delay={500}>
           <div className="landing__search">
-            <input type="text" placeholder={t("landing.search_field_data")} />
+            <SelectMolecule
+              list={i18n.language === "fr" ? programsFR : programsEn}
+              selected={selected}
+              onSelect={(data) => {
+                setSelected(data);
+              }}
+            />
+            <input
+              type="text"
+              value={input}
+              onChange={(e) => {
+                setInput(e.target.value);
+              }}
+              placeholder={t("landing.search_field_data")}
+            />
             <button>{t("landing.search_field")}</button>
           </div>
         </Fade>

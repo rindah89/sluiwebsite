@@ -19,7 +19,7 @@
     "view_more": "Voir plus",
     "meet_online": "Rencontrons-Nous!",
     "meet_online_cap": "Rejoignez nos événements en ligne et sur place et découvrez notre université. Apprenez-en davantage sur nos programmes d'études, obtenez des conseils personnalisés et vivez des conférences. N'hésitez pas à jeter un oeil",
-    "online_hybrid": "Événements en ligne et hybrides",
+    "online_hybrid": "Nouvelles et Événements",
     "all_events": "Tous les évènements",
     "just_fit": "JUSTE LA BONNE ADAPTATION POUR VOUS.",
     "exciting_programs": "Des Programmes Passionnants",
@@ -28,7 +28,7 @@
     "dvcaa": "DVC. Affaires Académiques",
     "dvcaf": "DVC. Administration et Finances",
     "search_field": "Recherche",
-    "search_field_data": "Recherchez parmi nos facultés ou programmes..."
+    "search_field_data": "Recherchez parmi nos facultés..."
   },
   "header": {
     "about": "À Propos de Nous",
@@ -56,7 +56,7 @@
     "alumni": "Anciens Élèves",
     "news_events": "Nouvelles & Événements",
     "contact": "Contactez-nous",
-    "short_courses": "Fondation"
+    "short_courses": "Formations Courtes"
   },
   "buddy_card_component": {
     "chat": "Chat avec un copain",
@@ -78,7 +78,7 @@
     "masters": "Maîtres",
     "bachelors": "Bacheliers",
     "hnd": "HND",
-    "short_courses": "Fondation",
+    "short_courses": "Formations Courtes",
     "admission_processes": "Processus d'Admission",
     "advisory_board": "Conseil Consultatif des Étudiants",
     "institution": "Notre Institution",

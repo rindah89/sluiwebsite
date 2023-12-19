@@ -1,13 +1,14 @@
 .select__wrapper .select {
   padding: 14px 18px;
-  border-radius: 4px;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  -ms-border-radius: 4px;
-  -o-border-radius: 4px;
+  border-radius: 0px;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  -ms-border-radius: 0px;
+  -o-border-radius: 0px;
   border: 1px solid #00000033;
   width: 100%;
   font-size: 1.6rem;
+  height: 68px;
   outline: none;
   color: var(--DARK_BLUE_COLOR);
   font-weight: 600;
@@ -22,11 +23,11 @@
 .select__wrapper {
   position: relative;
   background: #fff;
-  border-radius: 4px;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  -ms-border-radius: 4px;
-  -o-border-radius: 4px;
+  border-radius: 0px;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  -ms-border-radius: 0px;
+  -o-border-radius: 0px;
 }
 
 .select__wrapper h4 {
@@ -47,7 +48,7 @@
   z-index: 99;
   top: 0;
   padding: 8px 0;
-  height: 132px;
+  height: 150px;
   width: fit-content;
   overflow-y: auto;
 }
