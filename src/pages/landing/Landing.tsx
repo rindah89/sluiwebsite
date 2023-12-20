@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Fade } from "react-reveal";
 
+
 // styles
 import "./landing.css";
 
@@ -19,9 +20,12 @@ import { eventsEN, eventsFR } from "../news&events/News&events";
 import Membership from "../../components/membership/Membership";
 import { useTranslation } from "react-i18next";
 import SelectMolecule from "../../components/select/Select.molecule";
+import { i18n } from "i18next";
+import { hndProgramsEN } from "../hnd/HND";
+import { bachelorsProgramsEN } from "../bachelors/Bachelors";
+import { mastersProgramsEN } from "../masters/Masters";
 
 const FR = "fr";
-
 export const programmesEN = [
   {
     // image: require("../../assets/converted/IVS_7525.jpg"),
@@ -86,8 +90,173 @@ export const programmesFR = [
   },
 ];
 
-const programsEn = ["HND", "Foundation", "Bachelors", "Masters"];
-const programsFR = ["HND", "Cours de Courte Durée", "Bacheliers", "Maîtres"];
+export const programsEn = ["HND", "Foundation", "Bachelors", "Masters"];
+export const programsFR = ["HND", "Cours de Courte Durée", "Bacheliers", "Maîtres"];
+
+// Helper function for language-specific programs
+const getLanguagePrograms = (language: string) => {
+  return language === FR ? programsFR : programsEn;
+};
+
+// Helper function to navigate based on selection
+const handleSearchNavigation = (selected: string, navigate: Function, input: string) => {
+  if (selected.length > 0) {
+    const param = input
+      .toLowerCase()
+      .split(" ")
+      .join("-")
+      .concat(`-hnd`);
+    switch (selected) {
+      case "HND":
+        if (input) {
+          navigate(`/programme?id=${param}`)
+          alert(`/programme?id=${param}`)
+        }
+        else {
+          navigate("/hnd");
+
+        }
+        break;
+      case "Foundation":
+      case "Cours de Courte Durée":
+        navigate("/foundation");
+        break;
+      case "Bachelors":
+      case "Bacheliers":
+        if (input) {
+          navigate(`/programme?id=${param}`)
+          alert(`/programme?id=${param}`)
+        }
+        else {
+          navigate("/bachelors");
+
+        }
+        break;
+      case "Masters":
+      case "Maîtres":
+        if (input) {
+          navigate(`/programme?id=${param}`)
+          alert(`/programme?id=${param}`)
+        }
+        else {
+          navigate("/masters");
+        }
+        break;
+      default:
+        break;
+    }
+  }
+};
+
+export const SearchComponent = ({
+  selected,
+  setSelected,
+  input,
+  setInput,
+  navigate,
+  i18n,
+  t,
+  fadeDir,
+  delay,
+}: {
+  selected: string;
+  setSelected: Function;
+  input: string;
+  setInput: Function;
+  navigate: Function;
+  i18n: i18n;
+  t: Function;
+  fadeDir?: string;
+  delay?: number;
+}) => {
+  const [suggestions, setSuggestions] = useState<any[]>([]);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
+    const value = e.target.value;
+    setInput(value);
+
+    if (value.trim() !== "") {
+      switch (selected) {
+        case "HND":
+          const filteredHndSuggestions = hndProgramsEN.filter((item) => {
+            const itemName = item.list.map((prog) => prog.toUpperCase());
+            const searchValue = value.toUpperCase();
+            return itemName.some((prog) => prog.startsWith(searchValue)) && !itemName.includes(searchValue);
+            
+          });
+          setSuggestions(filteredHndSuggestions);
+          break;
+        case "Bachelors":
+        case "Bacheliers":
+          const filteredBachelorsSuggestions = bachelorsProgramsEN.filter((item) => {
+            const itemName = item.list.map((prog) => prog.toUpperCase());
+            const searchValue = value.toUpperCase();
+            return itemName.some((prog) => prog.startsWith(searchValue)) && !itemName.includes(searchValue);
+          });
+          setSuggestions(filteredBachelorsSuggestions);
+          break;
+        case "Masters":
+        case "Maîtres":
+          const filteredMastersSuggestions = mastersProgramsEN.filter((item) => {
+            const itemName = item.list.map((prog) => prog.toUpperCase());
+            const searchValue = value.toUpperCase();
+            return itemName.some((prog) => prog.startsWith(searchValue)) && !itemName.includes(searchValue);
+          });
+          setSuggestions(filteredMastersSuggestions);
+          break;
+        default:
+          break;
+      }
+    } else {
+      setSuggestions([]);
+    }
+  };
+
+  const handleSuggestionClick = (suggestion: any) => {
+    setInput(suggestion.title); // Set input value to the clicked suggestion
+    setSuggestions([]); // Clear suggestions
+  };
+
+  const handleSearch = () => {
+    handleSearchNavigation(selected, navigate, input)
+  };
+
+  return (
+    <Fade bottom={fadeDir === "bottom"} right={fadeDir === "right"} delay={delay ? delay : 500}>
+      <div className="landing__search">
+        <SelectMolecule
+          list={getLanguagePrograms(i18n.language)}
+          selected={selected}
+          onSelect={(data: string) => {
+            setSelected(data);
+          }}
+        />
+
+        <input
+          type="text"
+          value={input}
+          onChange={handleChange}
+          placeholder={suggestions.length > 0 ? suggestions[0].title : t("landing.search_field_data")}
+        />
+
+
+
+        <button onClick={handleSearch}>{t("landing.search_field")}</button>
+      </div>
+      <Fade top>
+        {suggestions.length > 0 && <ul style={{ backgroundColor: "white", textDecoration: "none", fontSize: "17px", padding: "1rem" }}>
+          {suggestions.map((suggestion, index) => (
+            <li style={{ listStyle: "none", margin: "1rem", cursor: "pointer" }} key={index} onClick={() => handleSuggestionClick(suggestion)}>
+              {suggestion.title}
+            </li>
+          ))}
+        </ul>
+        }
+      </Fade>
+    </Fade>
+  );
+};
+
 
 const Landing = () => {
   const width = window.innerWidth;
@@ -99,6 +268,7 @@ const Landing = () => {
     i18n.language === "en" ? programsEn[0] : programsFR[0]
   );
 
+  const searchRef = useRef<HTMLInputElement>(null);
   const searchFunc = () => {
     if (selected.length > 0 && input.length === 0) {
       if (selected === "HND") {
@@ -160,9 +330,10 @@ const Landing = () => {
   };
 
   return (
-    <div className="landing">
+    <div className="landing"
+    >
       <div className="hero">
-        <h3>{t("about.name")}</h3>
+        <h3 >{t("about.name")}</h3>
         <Fade left>
           <h2>{t("landing.character")}</h2>
         </Fade>
@@ -177,9 +348,19 @@ const Landing = () => {
             </button>
           </a>
         </div> */}
-
-        <Fade bottom delay={500}>
-          <div className="landing__search">
+        <SearchComponent
+          selected={selected}
+          setSelected={setSelected}
+          input={input}
+          setInput={setInput}
+          navigate={navigate}
+          t={t}
+          i18n={i18n}
+          fadeDir="bottom"
+        />
+        {/*<Fade bottom delay={500}>
+          <div
+            className="landing__search">
             <SelectMolecule
               list={i18n.language === "fr" ? programsFR : programsEn}
               selected={selected}
@@ -187,7 +368,9 @@ const Landing = () => {
                 setSelected(data);
               }}
             />
+
             <input
+              ref={searchRef}
               type="text"
               value={input}
               onChange={(e) => {
@@ -197,7 +380,7 @@ const Landing = () => {
             />
             <button onClick={searchFunc}>{t("landing.search_field")}</button>
           </div>
-        </Fade>
+            </Fade> */}
       </div>
       <div className="about">
         <div className="desc">

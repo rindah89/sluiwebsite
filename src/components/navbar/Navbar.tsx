@@ -1,10 +1,13 @@
 /* eslint-disable */
 
 import React, { useEffect, useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AiOutlineClose, AiOutlineArrowRight } from "react-icons/ai";
 import { FcApproval } from "react-icons/fc";
 import { HiBars3BottomLeft } from "react-icons/hi2";
+
+// Icon(s)
+import { FaSearch } from "react-icons/fa";
 
 // styles
 import "./navbar.css";
@@ -17,6 +20,7 @@ import {
 } from "../../pages/faculties/Faculties";
 import ProgramPopup from "../programmes/ProgramPopup";
 import { useTranslation } from "react-i18next";
+import { SearchComponent, programsEn as listProgramsEn, programsFR as listProgramsFr } from "../../pages/landing/Landing";
 
 const programsEn = [
   {
@@ -121,6 +125,21 @@ const Navbar = () => {
     setShowMenu(false);
   };
 
+  // For the search
+  const [searchClicked, setSearchClicked] = useState(false);
+  const [input, setInput] = useState("");
+  const navigate = useNavigate();
+  const [selected, setSelected] = useState(
+    i18n.language === "en" ? listProgramsEn[0] : listProgramsFr[0]
+  );
+  const handleSearchIconClick = () => {
+    setSearchClicked(true)
+    const searchElement = document.getElementById('landing__search');
+
+    if (searchElement) {
+      // searchElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
   const [activePanelIndex, setActivePanelIndex] = useState<number>(0);
   const [activePanel, setActivePanel] = useState(false);
 
@@ -304,6 +323,25 @@ const Navbar = () => {
             {i18n.language === "en" ? "FR" : "EN"}
           </Link>
         </li>
+        {
+          searchClicked ?
+            <SearchComponent
+              selected={selected}
+              setSelected={setSelected}
+              input={input}
+              setInput={setInput}
+              navigate={navigate}
+              t={t}
+              i18n={i18n}
+              fadeDir="right"
+              delay={100}
+            />
+            :
+            <FaSearch onClick={handleSearchIconClick} size="22px" style={{ cursor: "pointer", fontWeight: "800", color: "var(--main-color)" }} />
+
+
+        }
+
         <PopupWidget
           togglePopup={setProgramsPanelActivated}
           show={showMenu}

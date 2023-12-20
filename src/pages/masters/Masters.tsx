@@ -11,7 +11,7 @@ import ProgramCard from "../../components/programs/ProgramCard";
 import { useTranslation } from "react-i18next";
 
 const tag = "msc";
-const programsEN = [
+export const mastersProgramsEN = [
   {
     title: "Masters Programmes List",
     list: [
@@ -28,7 +28,7 @@ const programsEN = [
   },
 ];
 
-const programsFR = [
+export const mastersProgramsFR = [
   {
     title: "Liste des Programmes de Master",
     list: [
@@ -52,7 +52,7 @@ const Masters = () => {
 
   const { t, i18n } = useTranslation();
 
-  const programs = i18n.language === "en" ? programsEN : programsFR;
+  const programs = i18n.language === "en" ? mastersProgramsEN : mastersProgramsFR;
 
   return (
     <div className={styles.bachelors}>
