@@ -200,7 +200,7 @@
   overflow: visible !important;
 }
 
-.landing__search {
+.landing__search, landing__search__navbar {
   width: 100%;
   display: flex;
   display: -ms-flexbox;
@@ -214,6 +214,9 @@
   align-items: center;
 }
 
+.landing__search__navbar {
+  padding: 1rem;
+}
 .landing__search button {
   padding: 0 24px;
   height: 69px;

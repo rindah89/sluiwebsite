@@ -335,6 +335,7 @@ const Navbar = () => {
               i18n={i18n}
               fadeDir="right"
               delay={100}
+              className="landing__search__navbar"
             />
             :
             <FaSearch onClick={handleSearchIconClick} size="22px" style={{ cursor: "pointer", fontWeight: "800", color: "var(--main-color)" }} />
@@ -361,6 +362,25 @@ const Navbar = () => {
         </li>
       </ul>
       <ul className="mobile">
+      {
+          searchClicked ?
+            <SearchComponent
+              selected={selected}
+              setSelected={setSelected}
+              input={input}
+              setInput={setInput}
+              navigate={navigate}
+              t={t}
+              i18n={i18n}
+              fadeDir="right"
+              delay={100}
+              className="landing__search__navbar"
+            />
+            :
+            <FaSearch onClick={handleSearchIconClick} size="22px" style={{ cursor: "pointer", fontWeight: "800", color: "var(--main-color)" }} />
+
+
+        }
         <li
           style={{
             maxWidth: "fit-content",

@@ -155,6 +155,7 @@ export const SearchComponent = ({
   t,
   fadeDir,
   delay,
+  className,
 }: {
   selected: string;
   setSelected: Function;
@@ -165,6 +166,7 @@ export const SearchComponent = ({
   t: Function;
   fadeDir?: string;
   delay?: number;
+  className?: string;
 }) => {
   const [suggestions, setSuggestions] = useState<any[]>([]);
 
@@ -212,7 +214,7 @@ export const SearchComponent = ({
 
   return (
     <Fade bottom={fadeDir === "bottom"} right={fadeDir === "right"} delay={delay ? delay : 500}>
-      <div className="landing__search">
+      <div className={`landing__search ${className && className}`}>
         <SelectMolecule
           list={getLanguagePrograms(i18n.language)}
           selected={selected}
