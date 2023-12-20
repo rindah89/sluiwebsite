@@ -101,16 +101,15 @@ const getLanguagePrograms = (language: string) => {
 // Helper function to navigate based on selection
 const handleSearchNavigation = (selected: string, navigate: Function, input: string) => {
   if (selected.length > 0) {
-    const param = input
+    const param = (tag: string) => input
       .toLowerCase()
       .split(" ")
       .join("-")
-      .concat(`-hnd`);
+      .concat(`-${tag}`);
     switch (selected) {
       case "HND":
         if (input) {
-          navigate(`/programme?id=${param}`)
-          alert(`/programme?id=${param}`)
+          navigate(`/programme?id=${param("hnd")}`)
         }
         else {
           navigate("/hnd");
@@ -124,8 +123,7 @@ const handleSearchNavigation = (selected: string, navigate: Function, input: str
       case "Bachelors":
       case "Bacheliers":
         if (input) {
-          navigate(`/programme?id=${param}`)
-          alert(`/programme?id=${param}`)
+          navigate(`/programme?id=${param("bsc")}`)
         }
         else {
           navigate("/bachelors");
@@ -135,8 +133,7 @@ const handleSearchNavigation = (selected: string, navigate: Function, input: str
       case "Masters":
       case "Maîtres":
         if (input) {
-          navigate(`/programme?id=${param}`)
-          alert(`/programme?id=${param}`)
+          navigate(`/programme?id=${param("bsc")}`)
         }
         else {
           navigate("/masters");
@@ -178,30 +175,22 @@ export const SearchComponent = ({
     if (value.trim() !== "") {
       switch (selected) {
         case "HND":
-          const filteredHndSuggestions = hndProgramsEN.filter((item) => {
-            const itemName = item.list.map((prog) => prog.toUpperCase());
-            const searchValue = value.toUpperCase();
-            return itemName.some((prog) => prog.startsWith(searchValue)) && !itemName.includes(searchValue);
-            
-          });
-          setSuggestions(filteredHndSuggestions);
+          const filteredSuggestions = hndProgramsEN
+          .flatMap((program) => program.list)
+          .filter((prog) => prog.toUpperCase().startsWith(value.toUpperCase()));
+
+        setSuggestions(filteredSuggestions);
           break;
         case "Bachelors":
         case "Bacheliers":
-          const filteredBachelorsSuggestions = bachelorsProgramsEN.filter((item) => {
-            const itemName = item.list.map((prog) => prog.toUpperCase());
-            const searchValue = value.toUpperCase();
-            return itemName.some((prog) => prog.startsWith(searchValue)) && !itemName.includes(searchValue);
-          });
+          const filteredBachelorsSuggestions = bachelorsProgramsEN.flatMap((program) => program.list)
+          .filter((prog) => prog.toUpperCase().startsWith(value.toUpperCase()));
           setSuggestions(filteredBachelorsSuggestions);
           break;
         case "Masters":
         case "Maîtres":
-          const filteredMastersSuggestions = mastersProgramsEN.filter((item) => {
-            const itemName = item.list.map((prog) => prog.toUpperCase());
-            const searchValue = value.toUpperCase();
-            return itemName.some((prog) => prog.startsWith(searchValue)) && !itemName.includes(searchValue);
-          });
+          const filteredMastersSuggestions = mastersProgramsEN.flatMap((program) => program.list)
+          .filter((prog) => prog.toUpperCase().startsWith(value.toUpperCase()));
           setSuggestions(filteredMastersSuggestions);
           break;
         default:
@@ -213,7 +202,7 @@ export const SearchComponent = ({
   };
 
   const handleSuggestionClick = (suggestion: any) => {
-    setInput(suggestion.title); // Set input value to the clicked suggestion
+    setInput(suggestion); // Set input value to the clicked suggestion
     setSuggestions([]); // Clear suggestions
   };
 
@@ -247,7 +236,7 @@ export const SearchComponent = ({
         {suggestions.length > 0 && <ul style={{ backgroundColor: "white", textDecoration: "none", fontSize: "17px", padding: "1rem" }}>
           {suggestions.map((suggestion, index) => (
             <li style={{ listStyle: "none", margin: "1rem", cursor: "pointer" }} key={index} onClick={() => handleSuggestionClick(suggestion)}>
-              {suggestion.title}
+              {suggestion}
             </li>
           ))}
         </ul>
