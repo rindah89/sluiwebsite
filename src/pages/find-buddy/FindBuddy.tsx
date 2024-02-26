@@ -239,7 +239,7 @@ const FindBuddy = () => {
           title={t("find_buddy.chat")}
           subText=""
           description={t("find_buddy.desc")}
-          refLink="/core-principles"
+          refLink="/alumni"
           btnText={t("find_buddy.see_all")}
           img="/pics/optimized/ivs-7466.webp"
         />

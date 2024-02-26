@@ -15,9 +15,9 @@ const CorePrinciple = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
 
-  const {t, i18n} = useTranslation()
+  const { t, i18n } = useTranslation();
 
-  const programmes = i18n.language === 'en' ? programmesEN : programmesFR;
+  const programmes = i18n.language === "en" ? programmesEN : programmesFR;
 
   return (
     <div>
@@ -25,10 +25,10 @@ const CorePrinciple = () => {
         <h3>{t("core_principles.core_principles")}</h3>
         <Fade left>
           <h1 style={{ lineHeight: "1.1", margin: "2rem 0" }}>
-          {t("core_principles.hhh")}
+            {t("core_principles.hhh")}
           </h1>
           <h4 style={{ fontSize: "1.8rem", color: "#fff" }}>
-          {t("core_principles.slui_approach")}
+            {t("core_principles.slui_approach")}
           </h4>
         </Fade>
       </div>
@@ -37,9 +37,7 @@ const CorePrinciple = () => {
           <Fade up>
             <h2>{t("core_principles.around_you")}</h2>
           </Fade>
-          <h4>
-          {t("core_principles.around_you_tag")}
-          </h4>
+          <h4>{t("core_principles.around_you_tag")}</h4>
         </div>
       </div>
 
@@ -49,11 +47,9 @@ const CorePrinciple = () => {
         </div>
 
         <div className={styles.content}>
-          <h4>
-          {t("core_principles.we_believe")}
-          </h4>
+          <h4>{t("core_principles.we_believe")}</h4>
           <h4 style={{ marginTop: "4rem" }}>
-          {t("core_principles.principles")}?{" "}
+            {t("core_principles.principles")}?{" "}
           </h4>
           <h4>{t("core_principles.no_thanks")}</h4>
         </div>
@@ -65,9 +61,7 @@ const CorePrinciple = () => {
         </div>
 
         <div className={styles.content}>
-          <h4>
-          {t("core_principles.eye_level_text")}
-          </h4>
+          <h4>{t("core_principles.eye_level_text")}</h4>
         </div>
       </div>
 
@@ -78,8 +72,10 @@ const CorePrinciple = () => {
 
         <div className={styles.content}>
           <h4>
-          {t("core_principles.mistakes_text1")}
-            <span style={{ fontWeight: "600" }}>{t("core_principles.mistakes_text2")}</span>
+            {t("core_principles.mistakes_text1")}
+            <span style={{ fontWeight: "600" }}>
+              {t("core_principles.mistakes_text2")}
+            </span>
             {t("core_principles.mistakes_text3")}
           </h4>
         </div>
@@ -91,12 +87,8 @@ const CorePrinciple = () => {
         </div>
 
         <div className={styles.content}>
-          <h4>
-          {t("core_principles.real_world_text1")}
-          </h4>
-          <h4>
-          {t("core_principles.real_world_text2")}
-          </h4>
+          <h4>{t("core_principles.real_world_text1")}</h4>
+          <h4>{t("core_principles.real_world_text2")}</h4>
         </div>
       </div>
 

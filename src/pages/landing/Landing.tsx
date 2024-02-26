@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Fade } from "react-reveal";
 
-
 // styles
 import "./landing.css";
 
@@ -91,7 +90,12 @@ export const programmesFR = [
 ];
 
 export const programsEn = ["HND", "Foundation", "Bachelors", "Masters"];
-export const programsFR = ["HND", "Cours de Courte Durée", "Bacheliers", "Maîtres"];
+export const programsFR = [
+  "HND",
+  "Cours de Courte Durée",
+  "Bacheliers",
+  "Maîtres",
+];
 
 // Helper function for language-specific programs
 const getLanguagePrograms = (language: string) => {
@@ -99,21 +103,20 @@ const getLanguagePrograms = (language: string) => {
 };
 
 // Helper function to navigate based on selection
-const handleSearchNavigation = (selected: string, navigate: Function, input: string) => {
+const handleSearchNavigation = (
+  selected: string,
+  navigate: Function,
+  input: string
+) => {
   if (selected.length > 0) {
-    const param = (tag: string) => input
-      .toLowerCase()
-      .split(" ")
-      .join("-")
-      .concat(`-${tag}`);
+    const param = (tag: string) =>
+      input.toLowerCase().split(" ").join("-").concat(`-${tag}`);
     switch (selected) {
       case "HND":
         if (input) {
-          navigate(`/programme?id=${param("hnd")}`)
-        }
-        else {
+          navigate(`/programme?id=${param("hnd")}`);
+        } else {
           navigate("/hnd");
-
         }
         break;
       case "Foundation":
@@ -123,19 +126,16 @@ const handleSearchNavigation = (selected: string, navigate: Function, input: str
       case "Bachelors":
       case "Bacheliers":
         if (input) {
-          navigate(`/programme?id=${param("bsc")}`)
-        }
-        else {
+          navigate(`/programme?id=${param("bsc")}`);
+        } else {
           navigate("/bachelors");
-
         }
         break;
       case "Masters":
       case "Maîtres":
         if (input) {
-          navigate(`/programme?id=${param("bsc")}`)
-        }
-        else {
+          navigate(`/programme?id=${param("bsc")}`);
+        } else {
           navigate("/masters");
         }
         break;
@@ -178,21 +178,29 @@ export const SearchComponent = ({
       switch (selected) {
         case "HND":
           const filteredSuggestions = hndProgramsEN
-          .flatMap((program) => program.list)
-          .filter((prog) => prog.toUpperCase().startsWith(value.toUpperCase()));
+            .flatMap((program) => program.list)
+            .filter((prog) =>
+              prog.toUpperCase().startsWith(value.toUpperCase())
+            );
 
-        setSuggestions(filteredSuggestions);
+          setSuggestions(filteredSuggestions);
           break;
         case "Bachelors":
         case "Bacheliers":
-          const filteredBachelorsSuggestions = bachelorsProgramsEN.flatMap((program) => program.list)
-          .filter((prog) => prog.toUpperCase().startsWith(value.toUpperCase()));
+          const filteredBachelorsSuggestions = bachelorsProgramsEN
+            .flatMap((program) => program.list)
+            .filter((prog) =>
+              prog.toUpperCase().startsWith(value.toUpperCase())
+            );
           setSuggestions(filteredBachelorsSuggestions);
           break;
         case "Masters":
         case "Maîtres":
-          const filteredMastersSuggestions = mastersProgramsEN.flatMap((program) => program.list)
-          .filter((prog) => prog.toUpperCase().startsWith(value.toUpperCase()));
+          const filteredMastersSuggestions = mastersProgramsEN
+            .flatMap((program) => program.list)
+            .filter((prog) =>
+              prog.toUpperCase().startsWith(value.toUpperCase())
+            );
           setSuggestions(filteredMastersSuggestions);
           break;
         default:
@@ -209,11 +217,15 @@ export const SearchComponent = ({
   };
 
   const handleSearch = () => {
-    handleSearchNavigation(selected, navigate, input)
+    handleSearchNavigation(selected, navigate, input);
   };
 
   return (
-    <Fade bottom={fadeDir === "bottom"} right={fadeDir === "right"} delay={delay ? delay : 500}>
+    <Fade
+      bottom={fadeDir === "bottom"}
+      right={fadeDir === "right"}
+      delay={delay ? delay : 500}
+    >
       <div className={`landing__search ${className && className}`}>
         <SelectMolecule
           list={getLanguagePrograms(i18n.language)}
@@ -227,27 +239,40 @@ export const SearchComponent = ({
           type="text"
           value={input}
           onChange={handleChange}
-          placeholder={suggestions.length > 0 ? suggestions[0].title : t("landing.search_field_data")}
+          placeholder={
+            suggestions.length > 0
+              ? suggestions[0].title
+              : t("landing.search_field_data")
+          }
         />
-
-
 
         <button onClick={handleSearch}>{t("landing.search_field")}</button>
       </div>
       <Fade top>
-        {suggestions.length > 0 && <ul style={{ backgroundColor: "white", textDecoration: "none", fontSize: "17px", padding: "1rem" }}>
-          {suggestions.map((suggestion, index) => (
-            <li style={{ listStyle: "none", margin: "1rem", cursor: "pointer" }} key={index} onClick={() => handleSuggestionClick(suggestion)}>
-              {suggestion}
-            </li>
-          ))}
-        </ul>
-        }
+        {suggestions.length > 0 && (
+          <ul
+            style={{
+              backgroundColor: "white",
+              textDecoration: "none",
+              fontSize: "17px",
+              padding: "1rem",
+            }}
+          >
+            {suggestions.map((suggestion, index) => (
+              <li
+                style={{ listStyle: "none", margin: "1rem", cursor: "pointer" }}
+                key={index}
+                onClick={() => handleSuggestionClick(suggestion)}
+              >
+                {suggestion}
+              </li>
+            ))}
+          </ul>
+        )}
       </Fade>
     </Fade>
   );
 };
-
 
 const Landing = () => {
   const width = window.innerWidth;
@@ -321,10 +346,9 @@ const Landing = () => {
   };
 
   return (
-    <div className="landing"
-    >
+    <div className="landing">
       <div className="hero">
-        <h3 >{t("about.name")}</h3>
+        <h3>{t("about.name")}</h3>
         <Fade left>
           <h2>{t("landing.character")}</h2>
         </Fade>
@@ -521,7 +545,12 @@ const Landing = () => {
           <Fade right>
             <Carousel responsive={responsive}>
               {events.map((event, index) => (
-                <div style={{ margin: "0 10px", height: "100%" }}>
+                <div
+                  style={{
+                    margin: "0 10px",
+                    height: "100%",
+                  }}
+                >
                   <Event key={index} event={event} />
                 </div>
               ))}

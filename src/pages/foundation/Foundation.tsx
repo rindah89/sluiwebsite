@@ -11,7 +11,7 @@ const Foundation = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
 
-  const {t} = useTranslation()
+  const { t } = useTranslation();
 
   return (
     <div className={styles.bachelors}>
@@ -19,11 +19,9 @@ const Foundation = () => {
         {/* <h3>{t("foundation.courses")}</h3> */}
         <Fade left>
           <h1 style={{ lineHeight: "1.1", margin: "3rem 0" }}>
-          {t("foundation.medical")}
+            {t("foundation.medical")}
           </h1>
-          <h4 className={styles.para}>
-          {t("foundation.desc")}
-          </h4>
+          <h4 className={styles.para}>{t("foundation.desc")}</h4>
         </Fade>
       </div>
 
@@ -33,18 +31,12 @@ const Foundation = () => {
         </div>
 
         <div className={styles.content}>
-          <h4>
-          {t("foundation.pres_desc1")}
-          </h4>
+          <h4>{t("foundation.pres_desc1")}</h4>
+
+          <h4>{t("foundation.pres_desc2")}</h4>
 
           <h4>
-          {t("foundation.pres_desc2")}
-          </h4>
-
-          <h4>
-            <span>
-            {t("foundation.note")}
-            </span>
+            <span>{t("foundation.note")}</span>
           </h4>
         </div>
       </div>
@@ -55,13 +47,9 @@ const Foundation = () => {
         </div>
 
         <div className={styles.content}>
-          <h4>
-          {t("foundation.thanks")}
-          </h4>
+          <h4>{t("foundation.thanks")}</h4>
 
-          <h4>
-          {t("foundation.by_joining")}
-          </h4>
+          <h4>{t("foundation.by_joining")}</h4>
         </div>
       </div>
 
@@ -72,13 +60,14 @@ const Foundation = () => {
 
         <ul>
           <li>
-            <span>{t("foundation.duration")}</span> {t("foundation.duration_text")}
+            <span>{t("foundation.duration")}</span>{" "}
+            {t("foundation.duration_text")}
           </li>
           <li>
             <span>{t("foundation.start")}</span> {t("foundation.october")}
           </li>
           <li>
-            <span>{t("foundation.tuition")}</span> 1.000.000 FCFA
+            <span>{t("foundation.tuition")}</span> 1,000,000 FCFA
           </li>
         </ul>
 
