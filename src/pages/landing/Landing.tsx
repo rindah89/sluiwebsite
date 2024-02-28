@@ -97,14 +97,35 @@ export const programsFR = [
   "Maîtres",
 ];
 
+export const campusEn = [
+  "Bonaberi",
+  "Bonamoussadi",
+  "Yaounde",
+  "Ndu",
+  "Bamenda",
+];
+export const campusFR = [
+  "Bonaberi",
+  "Bonamoussadi",
+  "Yaounde",
+  "Ndu",
+  "Bamenda",
+];
+
 // Helper function for language-specific programs
 const getLanguagePrograms = (language: string) => {
   return language === FR ? programsFR : programsEn;
 };
 
+// Helper function for camous-specific campus
+const getCampuses = (campus: string) => {
+  return campus === FR ? campusFR : campusEn;
+};
+
 // Helper function to navigate based on selection
 const handleSearchNavigation = (
   selected: string,
+  selectedCampus: string,
   navigate: Function,
   input: string
 ) => {
@@ -143,11 +164,45 @@ const handleSearchNavigation = (
         break;
     }
   }
+  // if (selectedCampus.length > 0) {
+  //   const param = (tag: string) =>
+  //     input.toLowerCase().split(" ").join("-").concat(`-${tag}`);
+  //   switch (selectedCampus) {
+  //     case "Bonaberi":
+  //       localStorage.setItem("@campusSelected", JSON.stringify(0));
+  //       navigate("/campus-details");
+  //       break;
+  //     case "Foundation":
+  //     case "Cours de Courte Durée":
+  //       navigate("/foundation");
+  //       break;
+  //     case "Bachelors":
+  //     case "Bacheliers":
+  //       if (input) {
+  //         navigate(`/programme?id=${param("bsc")}`);
+  //       } else {
+  //         navigate("/bachelors");
+  //       }
+  //       break;
+  //     case "Masters":
+  //     case "Maîtres":
+  //       if (input) {
+  //         navigate(`/programme?id=${param("bsc")}`);
+  //       } else {
+  //         navigate("/masters");
+  //       }
+  //       break;
+  //     default:
+  //       break;
+  //   }
+  // }
 };
 
 export const SearchComponent = ({
   selected,
   setSelected,
+  selectedCampus,
+  setSelectedCampus,
   input,
   setInput,
   navigate,
@@ -159,6 +214,8 @@ export const SearchComponent = ({
 }: {
   selected: string;
   setSelected: Function;
+  selectedCampus: string;
+  setSelectedCampus: Function;
   input: string;
   setInput: Function;
   navigate: Function;
@@ -217,7 +274,7 @@ export const SearchComponent = ({
   };
 
   const handleSearch = () => {
-    handleSearchNavigation(selected, navigate, input);
+    handleSearchNavigation(selected, selectedCampus, navigate, input);
   };
 
   return (
@@ -234,6 +291,14 @@ export const SearchComponent = ({
             setSelected(data);
           }}
         />
+
+        {/* <SelectMolecule
+          list={getCampuses(i18n.language)}
+          selected={selectedCampus}
+          onSelect={(data: string) => {
+            setSelectedCampus(data);
+          }}
+        /> */}
 
         <input
           type="text"
@@ -282,6 +347,9 @@ const Landing = () => {
   const navigate = useNavigate();
   const [selected, setSelected] = useState(
     i18n.language === "en" ? programsEn[0] : programsFR[0]
+  );
+  const [selectedCampus, setSelectedCampus] = useState(
+    i18n.language === "en" ? campusEn[0] : campusFR[0]
   );
 
   const searchRef = useRef<HTMLInputElement>(null);
@@ -366,6 +434,8 @@ const Landing = () => {
         <SearchComponent
           selected={selected}
           setSelected={setSelected}
+          selectedCampus={selectedCampus}
+          setSelectedCampus={setSelectedCampus}
           input={input}
           setInput={setInput}
           navigate={navigate}

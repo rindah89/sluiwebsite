@@ -20,7 +20,11 @@ import {
 } from "../../pages/faculties/Faculties";
 import ProgramPopup from "../programmes/ProgramPopup";
 import { useTranslation } from "react-i18next";
-import { SearchComponent, programsEn as listProgramsEn, programsFR as listProgramsFr } from "../../pages/landing/Landing";
+import {
+  SearchComponent,
+  programsEn as listProgramsEn,
+  programsFR as listProgramsFr,
+} from "../../pages/landing/Landing";
 
 const programsEn = [
   {
@@ -108,6 +112,9 @@ const programsFR = [
   },
 ];
 
+const campusEn = ["Bonaberi", "Bonamoussadi", "Yaounde", "Ndu", "Bamenda"];
+const campusFR = ["Bonaberi", "Bonamoussadi", "Yaounde", "Ndu", "Bamenda"];
+
 const Navbar = () => {
   const [showMenu, setShowMenu] = useState(false);
 
@@ -132,9 +139,13 @@ const Navbar = () => {
   const [selected, setSelected] = useState(
     i18n.language === "en" ? listProgramsEn[0] : listProgramsFr[0]
   );
+  const [selectedCampus, setSelectedCampus] = useState(
+    i18n.language === "en" ? campusEn[0] : campusFR[0]
+  );
+
   const handleSearchIconClick = () => {
-    setSearchClicked(true)
-    const searchElement = document.getElementById('landing__search');
+    setSearchClicked(true);
+    const searchElement = document.getElementById("landing__search");
 
     if (searchElement) {
       // searchElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -323,25 +334,32 @@ const Navbar = () => {
             {i18n.language === "en" ? "FR" : "EN"}
           </Link>
         </li>
-        {
-          searchClicked ?
-            <SearchComponent
-              selected={selected}
-              setSelected={setSelected}
-              input={input}
-              setInput={setInput}
-              navigate={navigate}
-              t={t}
-              i18n={i18n}
-              fadeDir="right"
-              delay={100}
-              className="landing__search__navbar"
-            />
-            :
-            <FaSearch onClick={handleSearchIconClick} size="22px" style={{ cursor: "pointer", fontWeight: "800", color: "var(--main-color)" }} />
-
-
-        }
+        {searchClicked ? (
+          <SearchComponent
+            selected={selected}
+            setSelected={setSelected}
+            selectedCampus={selectedCampus}
+            setSelectedCampus={setSelectedCampus}
+            input={input}
+            setInput={setInput}
+            navigate={navigate}
+            t={t}
+            i18n={i18n}
+            fadeDir="right"
+            delay={100}
+            className="landing__search__navbar"
+          />
+        ) : (
+          <FaSearch
+            onClick={handleSearchIconClick}
+            size="22px"
+            style={{
+              cursor: "pointer",
+              fontWeight: "800",
+              color: "var(--main-color)",
+            }}
+          />
+        )}
 
         <PopupWidget
           togglePopup={setProgramsPanelActivated}
@@ -362,25 +380,32 @@ const Navbar = () => {
         </li>
       </ul>
       <ul className="mobile">
-      {
-          searchClicked ?
-            <SearchComponent
-              selected={selected}
-              setSelected={setSelected}
-              input={input}
-              setInput={setInput}
-              navigate={navigate}
-              t={t}
-              i18n={i18n}
-              fadeDir="right"
-              delay={100}
-              className="landing__search__navbar"
-            />
-            :
-            <FaSearch onClick={handleSearchIconClick} size="22px" style={{ cursor: "pointer", fontWeight: "800", color: "var(--main-color)" }} />
-
-
-        }
+        {searchClicked ? (
+          <SearchComponent
+            selected={selected}
+            setSelected={setSelected}
+            selectedCampus={selectedCampus}
+            setSelectedCampus={setSelectedCampus}
+            input={input}
+            setInput={setInput}
+            navigate={navigate}
+            t={t}
+            i18n={i18n}
+            fadeDir="right"
+            delay={100}
+            className="landing__search__navbar"
+          />
+        ) : (
+          <FaSearch
+            onClick={handleSearchIconClick}
+            size="22px"
+            style={{
+              cursor: "pointer",
+              fontWeight: "800",
+              color: "var(--main-color)",
+            }}
+          />
+        )}
         <li
           style={{
             maxWidth: "fit-content",
