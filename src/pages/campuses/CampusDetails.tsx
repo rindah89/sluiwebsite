@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from "react";
+import { FC, useEffect, useState } from "react";
 
 // styles
 import styles from "./campus.module.css";
@@ -19,9 +19,9 @@ const CampusDetails: FC = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
 
-  const selected =
-    parseInt(JSON.parse(localStorage.getItem("@campusSelected") as string)) ||
-    0;
+  // const selected =
+  //   parseInt(JSON.parse(localStorage.getItem("@campusSelected") as string)) ||
+  //   0;
 
   // const campuses = i18n.language === "en" ? campusesEN : campusesFR;
   // const campus = campuses[selected];
