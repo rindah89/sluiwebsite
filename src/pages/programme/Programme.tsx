@@ -217,7 +217,10 @@ const Programme: FC<any> = () => {
     filterLecturers();
   }, [lecturers, course]);
 
-  console.log(filteredLectures);
+  const formatMoney = (amount: any) => {
+    let dollarUSLocale = Intl.NumberFormat("en-US");
+    return dollarUSLocale.format(amount);
+  };
 
   if (program) {
     return (
@@ -433,7 +436,7 @@ const Programme: FC<any> = () => {
             <h3>{title}</h3>
             <h3>{course?.duration}</h3>
             <h3>{course?.location}</h3>
-            <h3>{course?.fee} XAF</h3>
+            <h3>{formatMoney(course?.fee)} XAF</h3>
             <h3>{course?.courseType}</h3>
           </div>
           <div className={styles.content}>
