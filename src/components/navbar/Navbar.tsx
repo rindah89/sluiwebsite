@@ -25,7 +25,12 @@ import {
   programsEn as listProgramsEn,
   programsFR as listProgramsFr,
 } from "../../pages/landing/Landing";
-import { getProgrammes } from "../../redux/reducers/app";
+import {
+  getProgrammes,
+  getFaculties,
+  getCategories,
+  getCourses,
+} from "../../redux/reducers/app";
 
 const programsEn = [
   {
@@ -187,6 +192,11 @@ const Navbar = () => {
     i18n.language === "fr" ? facultiesDataFR : facultiesDataEN;
 
   const [programmes, setProgrammes] = useState([]);
+  const [faculties, setFaculties] = useState<any>([]);
+  const [departments, setDepartments] = useState<any>([]);
+  const [filteredDepartment, setFilteredDepartment] = useState<any>([]);
+  const [courses, setCourses] = useState([]);
+  const [filteredCourses, setFilteredCourse] = useState<any[]>([]);
   const [loading, setLoading] = useState(false);
 
   const handlerGetProgrammes = async () => {
@@ -209,11 +219,105 @@ const Navbar = () => {
       console.error(error);
     }
   };
+  const handlerGetFaculties = async () => {
+    try {
+      setLoading(true);
+      await getFaculties()
+        .then((res: any) => {
+          if (res.status === 200) {
+            setFaculties(res.data);
+            setLoading(false);
+            return;
+          }
+          setLoading(false);
+        })
+        .catch((err: any) => {
+          console.error(err);
+          setLoading(false);
+        });
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  const handlerGetDepartments = async () => {
+    try {
+      setLoading(true);
+      await getCategories()
+        .then((res: any) => {
+          if (res.status === 200) {
+            setDepartments(res.data);
+            setLoading(false);
+            return;
+          }
+          setLoading(false);
+        })
+        .catch((err: any) => {
+          console.error(err);
+          setLoading(false);
+        });
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  const handlerGetCourses = async () => {
+    try {
+      setLoading(true);
+      await getCourses()
+        .then((res: any) => {
+          if (res.status === 200) {
+            setCourses(res.data);
+            setLoading(false);
+            return;
+          }
+          setLoading(false);
+        })
+        .catch((err: any) => {
+          console.error(err);
+          setLoading(false);
+        });
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const filterDept = () => {
+    const filtered = departments.filter(
+      (item: any) => item.facultyID === faculties[activePanelIndex]?._id
+    );
+    setFilteredDepartment(filtered);
+  };
+
+  const filterCourses = () => {
+    const filteredCoursesByCategory: any[] = [];
+
+    filteredDepartment.forEach((item: any) => {
+      const filtered = courses.filter(
+        (crs: any) => crs.programType === item._id
+      );
+      filteredCoursesByCategory.push({
+        programCategory: item,
+        courses: filtered,
+      });
+    });
+
+    return setFilteredCourse(filteredCoursesByCategory);
+  };
 
   useEffect(() => {
+    handlerGetCourses();
+    handlerGetFaculties();
     handlerGetProgrammes();
+    handlerGetDepartments();
   }, []);
-  console.log(programmes);
+
+  useEffect(() => {
+    filterDept();
+  }, [activePanelIndex]);
+
+  useEffect(() => {
+    filterCourses();
+  }, [filteredDepartment, courses]);
+
   return (
     <nav className={`navbar bg`}>
       {activePanel && (
@@ -224,10 +328,10 @@ const Navbar = () => {
           ref={ref}
         >
           <FacultyPopup
-            title={facultiesData[activePanelIndex].title}
-            desc={facultiesData[activePanelIndex].desc}
-            subDesc={facultiesData[activePanelIndex].subDesc}
-            programs={facultiesData[activePanelIndex].programs}
+            title={faculties[activePanelIndex]?.title}
+            desc={faculties[activePanelIndex]?.details}
+            subDesc={faculties[activePanelIndex]?.subDesc}
+            programs={filteredCourses}
           />
         </div>
       )}
@@ -280,54 +384,27 @@ const Navbar = () => {
             {t("header.faculties")}
           </Link>
           <ul className="dropdown">
-            <li>
-              <a
-                href="#"
-                onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
-                  e.preventDefault();
-                  setActivePanelIndex(0);
-                  setActivePanel(true);
-                }}
-                style={{ cursor: "pointer" }}
-              >
-                {t("header.fhbs")}
-                <span>
-                  <AiOutlineArrowRight style={{ marginTop: "0.5rem" }} />
-                </span>
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
-                  e.preventDefault();
-                  setActivePanelIndex(1);
-                  setActivePanel(true);
-                }}
-                style={{ cursor: "pointer" }}
-              >
-                {t("header.fet")}
-                <span>
-                  <AiOutlineArrowRight style={{ marginTop: "0.5rem" }} />
-                </span>
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
-                  e.preventDefault();
-                  setActivePanelIndex(2);
-                  setActivePanel(true);
-                }}
-                style={{ cursor: "pointer" }}
-              >
-                {t("header.fans")}
-                <span>
-                  <AiOutlineArrowRight style={{ marginTop: "0.5rem" }} />
-                </span>
-              </a>
-            </li>
+            {faculties?.map((item: any, index: number) => {
+              return (
+                <li key={index}>
+                  <a
+                    href="#"
+                    onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
+                      e.preventDefault();
+                      setActivePanelIndex(index);
+                      setActivePanel(true);
+                    }}
+                    style={{ cursor: "pointer" }}
+                  >
+                    {/* {t("header.fhbs")} */}
+                    {item?.title}
+                    <span>
+                      <AiOutlineArrowRight style={{ marginTop: "0.5rem" }} />
+                    </span>
+                  </a>
+                </li>
+              );
+            })}
           </ul>
         </li>
         <li>

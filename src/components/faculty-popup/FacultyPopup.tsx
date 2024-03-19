@@ -1,13 +1,11 @@
-import React, { useState } from "react";
-
-// styles
 import styles from "./styles.module.css";
-import {
-  AiOutlineArrowDown,
-  AiOutlineArrowRight,
-  AiOutlineArrowUp,
-} from "react-icons/ai";
-import { useTranslation } from "react-i18next";
+// import {
+//   AiOutlineArrowDown,
+//   AiOutlineArrowRight,
+//   AiOutlineArrowUp,
+// } from "react-icons/ai";
+// import { useTranslation } from "react-i18next";
+import ProgramCard from "../programs/ProgramCard";
 
 export type Attrib = {
   title: string;
@@ -17,8 +15,8 @@ export type Attrib = {
 };
 
 const FacultyPopup: React.FC<Attrib> = ({ title, desc, subDesc, programs }) => {
-  const [more, setMore] = useState("");
-  const { t } = useTranslation();
+  // const [more, setMore] = useState("");
+  // const { t } = useTranslation();
   return (
     <div className={styles.popup} id="mainRef">
       <div className={styles.content} id="content">
@@ -33,11 +31,22 @@ const FacultyPopup: React.FC<Attrib> = ({ title, desc, subDesc, programs }) => {
         </div>
 
         <div className={styles.desc}>
-          {desc && <h4>{desc}</h4>}
+          {desc && <h4 dangerouslySetInnerHTML={{ __html: desc }} />}
           {subDesc && <h4>{subDesc}</h4>}
         </div>
 
-        {programs?.map((program: any, index) => (
+        <div className={styles.list}>
+          {programs?.map((item, index) => (
+            <ProgramCard
+              program={item.programCategory}
+              courses={item.courses}
+              key={index}
+              tag={""}
+            />
+          ))}
+        </div>
+
+        {/* {programs?.map((program: any, index) => (
           <>
             <h2 className={styles.title}>
               {program?.title}
@@ -120,7 +129,7 @@ const FacultyPopup: React.FC<Attrib> = ({ title, desc, subDesc, programs }) => {
               ))}
             </div>
           </>
-        ))}
+        ))} */}
       </div>
     </div>
   );

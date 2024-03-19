@@ -155,3 +155,31 @@ export const getCampusSingle = async (id) => {
         return (message);
     }
 }
+
+export const getFaculties = async () => {
+    try {
+        const response = await axios.get(`${base_url}/faculties/`);
+        return response;
+    } catch (error) {
+        const message =
+            (error.message && error.response.data && error.response.data.message) ||
+            error.message ||
+            error.toString();
+
+        return (message);
+    }
+}
+
+export const getFacultiesSingle = async (id) => {
+    try {
+        const response = await axios.get(`${base_url}/faculties/${id}`);
+        return response;
+    } catch (error) {
+        const message =
+            (error.message && error.response.data && error.response.data.message) ||
+            error.message ||
+            error.toString();
+
+        return (message);
+    }
+}

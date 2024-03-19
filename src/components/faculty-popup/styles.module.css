@@ -47,7 +47,60 @@
   margin-top: 2rem;
 }
 
-.list h5 {
-  font-size: 1.6rem;
-  margin-bottom: 0.6rem;
+.list {
+  padding: 0;
+  display: grid;
+  display: -ms-grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  /* padding: 2rem 4vw; */
+}
+
+.list>ul,
+.list>div {
+  width: 100%;
+  list-style-type: none;
+}
+
+.list>div {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+}
+
+.list>div h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  color: var(--main-color);
+}
+
+.list>ul li,
+.list>div ul li {
+  font-size: 1.8rem;
+  margin-bottom: 0.8rem;
+  display: flex;
+  display: -ms-flexbox;
+  gap: 2rem;
+  align-items: center;
+  transform: translateX(0);
+  -webkit-transform: translateX(0);
+  -moz-transform: translateX(0);
+  -ms-transform: translateX(0);
+  -o-transform: translateX(0);
+  transition: 0.5s ease-in-out;
+  -webkit-transition: 0.5s ease-in-out;
+  -moz-transition: 0.5s ease-in-out;
+  -ms-transition: 0.5s ease-in-out;
+  -o-transition: 0.5s ease-in-out;
+}
+
+.list>ul li:hover,
+.list>div ul li:hover {
+  /* transform: translateX(20px);
+  -webkit-transform: translateX(20px);
+  -moz-transform: translateX(20px);
+  -ms-transform: translateX(20px);
+  -o-transform: translateX(20px); */
+  cursor: pointer;
+  font-size: 2rem;
 }

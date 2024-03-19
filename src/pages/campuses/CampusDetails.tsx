@@ -132,10 +132,12 @@ const CampusDetails: FC = () => {
       const filtered = filteredCourses.filter(
         (crs: any) => crs.programType === item._id
       );
-      filteredCoursesByCategory.push({
-        programCategory: item,
-        courses: filtered,
-      });
+      if (filtered.length > 0) {
+        filteredCoursesByCategory.push({
+          programCategory: item,
+          courses: filtered,
+        });
+      }
     });
     return setFlteredPrograms(filteredCoursesByCategory);
   };

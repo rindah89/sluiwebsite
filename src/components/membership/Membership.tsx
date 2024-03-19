@@ -39,16 +39,17 @@ const Membership = () => {
           .fill("a")
           .map((_, index) => {
             const source = index === 0 ? "logo" : `logo${index + 1}`;
-            const link =
-              index === 5
-                ? "https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/how-to-participate/org-details/885163219"
-                : "";
+            // const link =
+            //   index === 5
+            //     ? "https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/how-to-participate/org-details/885163219"
+            //     : "";
             return (
               <div
                 style={{
                   height: "100%",
                   display: "grid",
                 }}
+                key={index}
               >
                 <img
                   src={`/logos/${source}.webp`}
