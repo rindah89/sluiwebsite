@@ -35,6 +35,7 @@ import EventDetails from "./pages/event_details/EventDetails";
 import Alumni from "./pages/alumni/Alumni";
 import CampusDetails from "./pages/campuses/CampusDetails";
 import TeamDetailsPage from "./pages/team-details/TeamDetails.page";
+import Program from "./pages/program-details/program";
 
 const App = () => {
   useEffect(() => {
@@ -54,6 +55,8 @@ const App = () => {
           <Route path="/hnd" element={<HND />} />
           <Route path="/bachelors" element={<Bachelors />} />
           <Route path="/foundation" element={<Foundation />} />
+          <Route path="/program-details/:id" element={<Program />} />
+
           <Route path="/about" element={<About />} />
           <Route path="/our-values" element={<OurValues />} />
           <Route path="/core-principles" element={<CorePrinciple />} />
@@ -68,10 +71,10 @@ const App = () => {
           <Route path="/facilities" element={<Facilities />} />
           <Route path="/leadership-team" element={<Team />} />
           <Route path="/leadership-team/:id" element={<TeamDetailsPage />} />
-          <Route path="/programme" element={<Programme />} />
-          <Route path="/event-details" element={<EventDetails />} />
+          <Route path="/programme/:id/:title" element={<Programme />} />
+          <Route path="/event-details/:id" element={<EventDetails />} />
           <Route path="/alumni" element={<Alumni />} />
-          <Route path="/campus-details" element={<CampusDetails />} />
+          <Route path="/campus-details/:id" element={<CampusDetails />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer />

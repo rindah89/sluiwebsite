@@ -1,13 +1,13 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { FaQuoteLeft, FaQuoteRight } from "react-icons/fa";
 import { Fade } from "react-reveal";
 import ProgramGrid from "../../components/program-grid/ProgramGrid";
-
-// styles
 import styles from "./about.module.css";
-import { programmesEN, programmesFR } from "../landing/Landing";
+// import { programmesEN, programmesFR } from "../landing/Landing";
 import Membership from "../../components/membership/Membership";
 import { useTranslation } from "react-i18next";
+
+import { getProgrammes } from "../../redux/reducers/app";
 
 const About = () => {
   useEffect(() => {
@@ -16,7 +16,35 @@ const About = () => {
 
   const { t, i18n } = useTranslation();
 
-  const programmes = i18n.language === "en" ? programmesEN : programmesFR;
+  // const programmes = i18n.language === "en" ? programmesEN : programmesFR;
+  const [programmes, setProgrammes] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+  const handlerGetProgrammes = async () => {
+    try {
+      setLoading(true);
+      await getProgrammes()
+        .then((res: any) => {
+          if (res.status === 200) {
+            setProgrammes(res.data);
+            setLoading(false);
+            return;
+          }
+          setLoading(false);
+        })
+        .catch((err: any) => {
+          console.error(err);
+          setLoading(false);
+        });
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  useEffect(() => {
+    handlerGetProgrammes();
+  }, []);
+
   return (
     <div>
       <div className={styles.hero}>

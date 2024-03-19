@@ -62,7 +62,8 @@ const Bachelors = () => {
 
   const { t, i18n } = useTranslation();
 
-  const programs = i18n.language === "en" ?bachelorsProgramsEN : bachelorsProgramsFR;
+  const programs =
+    i18n.language === "en" ? bachelorsProgramsEN : bachelorsProgramsFR;
 
   return (
     <div className={`${styles.bachelors}`}>

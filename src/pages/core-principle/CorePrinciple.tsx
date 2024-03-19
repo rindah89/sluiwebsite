@@ -1,14 +1,11 @@
-import React, { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Fade } from "react-reveal";
-
-// style
 import styles from "./core.module.css";
-
-// imports
 import ProgramGrid from "../../components/program-grid/ProgramGrid";
-import { programmesEN, programmesFR } from "../landing/Landing";
+// import { programmesEN, programmesFR } from "../landing/Landing";
 import Membership from "../../components/membership/Membership";
 import { useTranslation } from "react-i18next";
+import { getProgrammes } from "../../redux/reducers/app";
 
 const CorePrinciple = () => {
   useEffect(() => {
@@ -17,7 +14,35 @@ const CorePrinciple = () => {
 
   const { t, i18n } = useTranslation();
 
-  const programmes = i18n.language === "en" ? programmesEN : programmesFR;
+  // const programmes = i18n.language === "en" ? programmesEN : programmesFR;
+
+  const [programmes, setProgrammes] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+  const handlerGetProgrammes = async () => {
+    try {
+      setLoading(true);
+      await getProgrammes()
+        .then((res: any) => {
+          if (res.status === 200) {
+            setProgrammes(res.data);
+            setLoading(false);
+            return;
+          }
+          setLoading(false);
+        })
+        .catch((err: any) => {
+          console.error(err);
+          setLoading(false);
+        });
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  useEffect(() => {
+    handlerGetProgrammes();
+  }, []);
 
   return (
     <div>

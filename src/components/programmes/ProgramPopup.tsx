@@ -1,6 +1,7 @@
 import React from "react";
 import { AiOutlineArrowRight } from "react-icons/ai";
 import { Link } from "react-router-dom";
+import { FcApproval } from "react-icons/fc";
 
 // styles
 import styles from "./styles.module.css";
@@ -8,9 +9,10 @@ import { useTranslation } from "react-i18next";
 
 type Program = {
   title: string;
-  desc: string;
+  summary: string;
   icon?: JSX.Element;
   link: string;
+  _id: string;
 };
 
 export type Attrib = {
@@ -49,7 +51,7 @@ const ProgramPopup: React.FC<Attrib> = ({ programs }) => {
                   style={{
                     height: "100%",
                   }}
-                  to={program.link}
+                  to={`/program-details/${program._id}`}
                 >
                   <div
                     title={t("program_popup.insight")}
@@ -65,14 +67,17 @@ const ProgramPopup: React.FC<Attrib> = ({ programs }) => {
                         size={20}
                       />
                     </div>
-                    <div className={styles.icon}>{program.icon}</div>
+                    <div className={styles.icon}>
+                      {" "}
+                      <FcApproval style={{ marginTop: "0.2rem" }} size={30} />
+                    </div>
                     <div className={styles.data}>
                       <div className={styles.head}>
                         <h2>{program.title}</h2>
                       </div>
 
                       <div className={styles.desc}>
-                        {program.desc && <h4>{program.desc}</h4>}
+                        {program.summary && <h4>{program.summary}</h4>}
                       </div>
                     </div>
                   </div>

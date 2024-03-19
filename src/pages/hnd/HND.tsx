@@ -87,8 +87,6 @@ const HND = () => {
 
   const { t, i18n } = useTranslation();
 
-  
-
   const programs = i18n.language === "en" ? hndProgramsEN : hndProgramsFR;
   return (
     <div className={`${styles.bachelors}`}>

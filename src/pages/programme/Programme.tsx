@@ -13,6 +13,15 @@ import { useTranslation } from "react-i18next";
 import Mandi from "../../assets/new/mandi.jpg";
 import Mengot from "../../assets/new/mengot.jpg";
 
+import {
+  getCourseSingle,
+  getCampuses,
+  getCategories,
+  getTeam,
+} from "../../redux/reducers/app";
+import { useParams } from "react-router-dom";
+import moment from "moment";
+
 const staffsEN = [
   {
     name: "Mr. Mandi Derick",
@@ -57,7 +66,8 @@ const Programme: FC<any> = () => {
 
   const [program, setProgram] = useState<any>();
 
-  const id = location.search.split("?id=")[1];
+  const { id, title } = useParams();
+  const staticId = location.search.split("?id=")[1];
 
   const language = i18n.language;
 
@@ -67,9 +77,147 @@ const Programme: FC<any> = () => {
     const programDetails =
       language === "fr" ? programDetailsFR : programDetailsEN;
     setProgram(
-      programDetails.find((program) => program.id === decodeURIComponent(id))
+      programDetails.find(
+        (program) => program.id === decodeURIComponent(staticId)
+      )
     );
-  }, [language, id]);
+  }, [language, staticId]);
+
+  const [loading, setLoading] = useState(false);
+  const [course, setCourse] = useState<any>([]);
+  const [campuses, setCampuses] = useState([]);
+  const [categories, setCategories] = useState([]);
+  const [lecturers, setLectures] = useState([]);
+  const [filteredCategory, setFilteredCategory] = useState<any>(null);
+  const [filteredCampuses, setFilteredCampuses] = useState<any[]>([]);
+  const [filteredLectures, setFilteredLecturers] = useState<any[]>([]);
+
+  const handlerGetCourseSingle = async () => {
+    try {
+      setLoading(true);
+      await getCourseSingle(id)
+        .then((res: any) => {
+          if (res.status === 200) {
+            setCourse(res.data);
+            setLoading(false);
+            return;
+          }
+          setLoading(false);
+        })
+        .catch((err: any) => {
+          console.error(err);
+          setLoading(false);
+        });
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const handlerGetCampuses = async () => {
+    try {
+      setLoading(true);
+      await getCampuses()
+        .then((res: any) => {
+          if (res.status === 200) {
+            setCampuses(res.data);
+            setLoading(false);
+            return;
+          }
+          setLoading(false);
+        })
+        .catch((err: any) => {
+          console.error(err);
+          setLoading(false);
+        });
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const handlerGetCategories = async () => {
+    try {
+      setLoading(true);
+      await getCategories()
+        .then((res: any) => {
+          if (res.status === 200) {
+            setCategories(res.data);
+            setLoading(false);
+            return;
+          }
+          setLoading(false);
+        })
+        .catch((err: any) => {
+          console.error(err);
+          setLoading(false);
+        });
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const handlerGetTeam = async () => {
+    try {
+      setLoading(true);
+      await getTeam()
+        .then((res: any) => {
+          if (res.status === 200) {
+            setLectures(res.data);
+            setLoading(false);
+            return;
+          }
+          setLoading(false);
+        })
+        .catch((err: any) => {
+          console.error(err);
+          setLoading(false);
+        });
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const filterCampuses = () => {
+    if (course) {
+      const filtered: any[] = campuses.filter((item: any) =>
+        course?.campuses?.includes(item?._id)
+      );
+      setFilteredCampuses(filtered);
+    }
+  };
+
+  const filterCategory = () => {
+    const filtered: any[] = categories.filter(
+      (item: any) => course?.programType === item?._id
+    )[0];
+    setFilteredCategory(filtered);
+  };
+  const filterLecturers = () => {
+    const filtered: any[] = lecturers.filter((item: any) =>
+      course?.lecturers?.includes(item?._id)
+    );
+    setFilteredLecturers(filtered);
+  };
+
+  useEffect(() => {
+    handlerGetCourseSingle();
+    handlerGetCampuses();
+    handlerGetCategories();
+    handlerGetTeam();
+  }, [id]);
+
+  useEffect(() => {
+    filterCampuses();
+  }, [campuses, course]);
+
+  useEffect(() => {
+    filterCategory();
+  }, [categories, course]);
+
+  useEffect(() => {
+    filterLecturers();
+  }, [lecturers, course]);
+
+  console.log(filteredLectures);
 
   if (program) {
     return (
@@ -274,28 +422,23 @@ const Programme: FC<any> = () => {
     return (
       <div>
         <div className="hero">
-          <h3>Bachelor</h3>
+          <h3>{filteredCategory?.title}</h3>
           <Fade left>
-            <h1>International Business Administration</h1>
+            <h1>{course?.title}</h1>
           </Fade>
         </div>
 
         <div className={styles.main}>
           <div className={styles.heads}>
-            <h3>Bachelor of Arts</h3>
-            <h3>3 Years</h3>
-            <h3>On Campus</h3>
-            <h3>500,000 XAF</h3>
-            <h3>Full time</h3>
+            <h3>{title}</h3>
+            <h3>{course?.duration}</h3>
+            <h3>{course?.location}</h3>
+            <h3>{course?.fee} XAF</h3>
+            <h3>{course?.courseType}</h3>
           </div>
           <div className={styles.content}>
             <div className={styles.left_content}>
-              <p>
-                Digitalisation, globalisation, social change - today's companies
-                are facing many challenges. Strengthen your international
-                profile: study business administration and develop innovative
-                solutions and sustainable management concepts for tomorrow.
-              </p>
+              <p>{course?.summary}</p>
               <div className={styles.buttons}>
                 <button>Request for information</button>
                 <a href="https://apply.stlouissystems.org/">Apply now</a>
@@ -304,15 +447,18 @@ const Programme: FC<any> = () => {
             <div className={styles.right_content}>
               <div className={styles.list1}>
                 <ul>
-                  <li>English</li>
-                  <li>Starts in October</li>
+                  <li>{course?.language}</li>
+                  <li>
+                    Starts in{" "}
+                    {moment(course?.startMonth, "YYYY-MM").format("MMMM")}
+                  </li>
                 </ul>
               </div>
               <div className={styles.list2}>
                 <ul>
-                  <li>Yaounde</li>
-                  <li>Bamenda</li>
-                  <li>Bonaberi - Douala</li>
+                  {filteredCampuses?.map((item, index) => {
+                    return <li key={index}>{item.title}</li>;
+                  })}
                 </ul>
               </div>
             </div>
@@ -320,60 +466,41 @@ const Programme: FC<any> = () => {
           <div className={styles.backgroundImage} />
           <div className={styles.section}>
             <h4>Course Content</h4>
-            <h3>
-              Study Bussiness Administration at St. Louis University Institute
-            </h3>
-            <p>
-              The International Business Administration programme offers you a
-              holistic management education that helps you develop your soft
-              skills. You get to understand economic contexts and know-how, in
-              order to develop innovative and solution-oriented strategies for
-              international companies. As a student, you will bbark on a journey
-              with people from different cultures and countries and you will
-              strengthen your international profile.
-            </p>
+            <p
+              dangerouslySetInnerHTML={{ __html: course?.content }}
+              style={{ fontSize: 18 }}
+            />
           </div>
           <div className={styles.section}>
             <h4>Your career prospectus</h4>
             <h3>Our innovative approach that pays off</h3>
-            <p>
-              During your management studies you work on projects with other
-              students from around the globe and solve complex issues together.
-              You learn about your own strengths and develop your communication,
-              team working, intercultural and leadership skills - skills that
-              are needed in the job market.
-            </p>
-            <p>Choose from the following career paths:</p>
-            <ul>
-              <li>Human resource manager</li>
-              <li>Marketing & sales manager</li>
-              <li>Management consultant</li>
-              <li>Management positions in banking and finance</li>
-              <li>And many more...</li>
-            </ul>
+            <p
+              dangerouslySetInnerHTML={{ __html: course?.prospectus }}
+              style={{ fontSize: 18 }}
+            />
           </div>
           <div className={styles.section}>
             <h4>Lecturers</h4>
             <h3>We help you meet your goals</h3>
             <div className={styles.imageSection}>
-              {staffs.map((staff, index) => {
+              {filteredLectures?.map((staff, index) => {
                 // const image = new URL(staff.image, import.meta.url).href;
                 return (
-                  <div className={styles.image}>
+                  <div className={styles.image} key={index}>
                     <div
                       className={styles.staffImage}
                       style={{
-                        background: `linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6)), url(${staff.image}), no-repeat`,
+                        background: `linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6)), 
+                        url('${process.env.REACT_APP_BASE_URL}/uploads/gallery/${staff?.image}'), no-repeat`,
                         backgroundSize: "cover",
                       }}
                     >
                       <div className={styles.topContent}>
-                        <p>{staff.position}</p>
+                        <p>{staff?.profession}</p>
                       </div>
                       <div className={styles.bottomContent}>
-                        <p>{staff.name}</p>
-                        <p>{staff.mail}</p>
-                        <p>{staff.phoneNumber}</p>
+                        <p>{staff?.name}</p>
+                        {/* <p>info@stlui.org</p> */}
                       </div>
                     </div>
                   </div>
@@ -384,83 +511,42 @@ const Programme: FC<any> = () => {
           <div className={styles.section}>
             <h4>Admission requirments</h4>
             <h3>Our requirements</h3>
-            <p>To submit your application, please provide us the following:</p>
-            <ul>
-              <li>
-                General Higher Education Entrance Qualification (GCE Advanced
-                Level)
-              </li>
-              <li>Proof of English Language Proficiency</li>
-              <li>Curriculum Vitae</li>
-              <li>Copy of your passport/ID</li>
-            </ul>
+            <p
+              dangerouslySetInnerHTML={{
+                __html: course?.admissionRequirements,
+              }}
+              style={{ fontSize: 18 }}
+            />
           </div>
           <div className={styles.section}>
             {/* <h4>Fees and Funding</h4> */}
             <h3>Tuition fees:</h3>
             {/* <h5>Tuition fees: </h5> */}
-            <ul>
-              <li>Registration fee: 30,000 CFAF</li>
-              <li>
-                Total anual tuition:
-                <ul>
-                  <li>
-                    First installment: 250,000 CFAF due upon issuance of
-                    conditional offer{" "}
-                  </li>
-                  <li>
-                    Second installment: 150,000 CFAF Due at the end of first
-                    semester
-                  </li>
-                </ul>
-              </li>
-            </ul>
-            <h5>Scholarships</h5>
-            <p>
-              Information on financing options & scholarships can be found{" "}
-              <a href="/scholarships">here</a>
-            </p>
+            <p
+              dangerouslySetInnerHTML={{
+                __html: course?.feeDetails,
+              }}
+              style={{ fontSize: 18 }}
+            />
+
+            <h3>Scholarships</h3>
+            <p
+              dangerouslySetInnerHTML={{
+                __html: course?.scholarship,
+              }}
+              style={{ fontSize: 18 }}
+            />
           </div>
 
           <div className={styles.section}>
             <h4>Apply now</h4>
             <h3>Application process and deadlines</h3>
-            <p>
-              Please find the Application and Late Arrivals deadlines{" "}
-              <a href="#">here</a>
-            </p>
-            <p>
-              We are happy to welcome you to our university. This is our
-              application process:{" "}
-            </p>{" "}
-            <ul>
-              <li>
-                You submit your online application via{" "}
-                <a
-                  href="https://apply.stlouissystems.org/"
-                  style={{ textDecoration: "none" }}
-                >
-                  SLUI application portal
-                </a>
-              </li>
-              <li>
-                If you meet the admission requirements, we will invite you to a
-                personal/phone interview
-              </li>
-              <li>
-                If the inverview is successful, you will receive an acceptance
-                letter and the study contract
-              </li>
-              <li>You sign the study contract and send it back to us</li>
-              <li>
-                You pay the enrollment fee (all students) and - if you are an
-                international student - a 100,000 CFAF deposit
-              </li>
-              <li>You receive your letter of admission</li>
-              <li>
-                You take part in our Welcome Week and then you are good to go!
-              </li>
-            </ul>
+            <p
+              dangerouslySetInnerHTML={{
+                __html: course?.applicationProcess,
+              }}
+              style={{ fontSize: 18 }}
+            />
           </div>
         </div>
       </div>

@@ -24,6 +24,8 @@ import { hndProgramsEN } from "../hnd/HND";
 import { bachelorsProgramsEN } from "../bachelors/Bachelors";
 import { mastersProgramsEN } from "../masters/Masters";
 
+import { getTeam, getEvents, getProgrammes } from "../../redux/reducers/app";
+
 const FR = "fr";
 export const programmesEN = [
   {
@@ -375,8 +377,8 @@ const Landing = () => {
   };
 
   const language = i18n.language;
-  const programmes = language === FR ? programmesFR : programmesEN;
-  const events = language === FR ? eventsFR : eventsEN;
+  // const programmes = language === FR ? programmesFR : programmesEN;
+  // const events = language === FR ? eventsFR : eventsEN;
   useEffect(() => {
     const scrollInterval = setInterval(() => {
       if (listRef.current) {
@@ -412,6 +414,80 @@ const Landing = () => {
       items: 1,
     },
   };
+
+  const [team, setTeam] = useState([]);
+  const [events, setEvents] = useState([]);
+  const [programmes, setProgrammes] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+  const handlerGetTeam = async () => {
+    try {
+      setLoading(true);
+      await getTeam()
+        .then((res: any) => {
+          if (res.status === 200) {
+            setTeam(res.data);
+            setLoading(false);
+            return;
+          }
+          setLoading(false);
+        })
+        .catch((err: any) => {
+          console.error(err);
+          setLoading(false);
+        });
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const handlerGetProgrammes = async () => {
+    try {
+      setLoading(true);
+      await getProgrammes()
+        .then((res: any) => {
+          if (res.status === 200) {
+            setProgrammes(res.data);
+            setLoading(false);
+            return;
+          }
+          setLoading(false);
+        })
+        .catch((err: any) => {
+          console.error(err);
+          setLoading(false);
+        });
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const handlerGetEvents = async () => {
+    try {
+      setLoading(true);
+      await getEvents()
+        .then((res: any) => {
+          if (res.status === 200) {
+            setEvents(res.data);
+            setLoading(false);
+            return;
+          }
+          setLoading(false);
+        })
+        .catch((err: any) => {
+          console.error(err);
+          setLoading(false);
+        });
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  useEffect(() => {
+    handlerGetTeam();
+    handlerGetEvents();
+    handlerGetProgrammes();
+  }, []);
 
   return (
     <div className="landing">
@@ -521,37 +597,36 @@ const Landing = () => {
         </div>
         <div className="grid__ref">
           <GridLayout columns={4} gap={2}>
-            <Link to={`/leadership-team/1`}>
-              <LeaderCard
-                image="/images/nick.jpeg"
-                name="Dr. Nick Ngwanyam"
-                title={t("landing.president")}
-              />
-            </Link>
-
-            <Link to={`/leadership-team/2`}>
-              <LeaderCard
-                image="/images/krishna.png"
-                name="Prof. Krishna N. Sharma"
-                title={t("Vice-Chancellor")}
-              />
-            </Link>
-
-            <Link to={`/leadership-team/3`}>
-              <LeaderCard
-                image="/images/florence.jpg"
-                name="Dr. Manjong Florence"
-                title={t("landing.dvcaa")}
-              />
-            </Link>
-
-            <Link to={`/leadership-team/4`}>
-              <LeaderCard
-                image="/images/olivier.jpg"
-                name="Mr. Tolly Olivier"
-                title={t("landing.dvcaf")}
-              />
-            </Link>
+            {team && team.length > 0 ? (
+              team
+                .slice(0, 4)
+                .map(
+                  (
+                    item: {
+                      name: string;
+                      profession: string;
+                      _id: string;
+                      image: string;
+                    },
+                    index
+                  ) => {
+                    return (
+                      <Link to={`/leadership-team/${item._id}`} key={index}>
+                        <LeaderCard
+                          image={`${process.env.REACT_APP_BASE_URL}/uploads/gallery/${item?.image}`}
+                          name={item.name}
+                          title={item.profession}
+                        />
+                      </Link>
+                    );
+                  }
+                )
+                .reverse()
+            ) : (
+              <div style={{ display: "flex", justifyContent: "center" }}>
+                <p style={{ fontSize: 20 }}>No Data Found</p>
+              </div>
+            )}
           </GridLayout>
           <Link to={"leadership-team"}>
             <button

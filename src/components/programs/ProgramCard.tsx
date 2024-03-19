@@ -4,19 +4,20 @@ import {
   AiOutlineArrowRight,
   AiOutlineArrowUp,
 } from "react-icons/ai";
-
 import "./program.css";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 type Props = {
   program: {
-    title: String;
-    list: String[];
+    title: string;
+    list: Array<any>;
   };
   tag?: String;
+  courses?: Array<any>;
 };
-const ProgramCard: FC<Props> = ({ program, tag }) => {
+
+const ProgramCard: FC<Props> = ({ program, courses, tag }) => {
   const [more, setMore] = useState(false);
   const { t } = useTranslation();
   return (
@@ -24,36 +25,42 @@ const ProgramCard: FC<Props> = ({ program, tag }) => {
       <h2>{program.title}</h2>
       <ul>
         {more
-          ? program.list.map((item, index) => {
-              const param = item
-                .toLowerCase()
-                .split(" ")
-                .join("-")
-                .concat(`-${tag}`);
+          ? courses?.map((item, index) => {
+              // const param = item
+              //   .toLowerCase()
+              //   .split(" ")
+              //   .join("-")
+              //   .concat(`-${tag}`);
               return (
                 <li key={index}>
-                  <Link to={`/programme?id=${param}`} className={"anchor"}>
+                  <Link
+                    to={`/programme/${item._id}/${tag}`}
+                    className={"anchor"}
+                  >
                     <span>
                       <AiOutlineArrowRight color="var(--main-color)" />
                     </span>{" "}
-                    {item}
+                    {item.title}
                   </Link>
                 </li>
               );
             })
-          : program.list.slice(0, 2).map((item, index) => {
-              const param = item
-                .toLowerCase()
-                .split(" ")
-                .join("-")
-                .concat(`-${tag}`);
+          : courses?.slice(0, 2).map((item, index) => {
+              // const param = item
+              //   .toLowerCase()
+              //   .split(" ")
+              //   .join("-")
+              //   .concat(`-${tag}`);
               return (
                 <li key={index}>
-                  <Link to={`/programme?id=${param}`} className={"anchor"}>
+                  <Link
+                    to={`/programme/${item._id}/${tag}`}
+                    className={"anchor"}
+                  >
                     <span>
                       <AiOutlineArrowRight color="var(--main-color)" />
                     </span>{" "}
-                    {item}
+                    {item.title}
                   </Link>
                 </li>
               );

@@ -25,6 +25,7 @@ import {
   programsEn as listProgramsEn,
   programsFR as listProgramsFr,
 } from "../../pages/landing/Landing";
+import { getProgrammes } from "../../redux/reducers/app";
 
 const programsEn = [
   {
@@ -184,6 +185,35 @@ const Navbar = () => {
 
   const facultiesData =
     i18n.language === "fr" ? facultiesDataFR : facultiesDataEN;
+
+  const [programmes, setProgrammes] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+  const handlerGetProgrammes = async () => {
+    try {
+      setLoading(true);
+      await getProgrammes()
+        .then((res: any) => {
+          if (res.status === 200) {
+            setProgrammes(res.data);
+            setLoading(false);
+            return;
+          }
+          setLoading(false);
+        })
+        .catch((err: any) => {
+          console.error(err);
+          setLoading(false);
+        });
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  useEffect(() => {
+    handlerGetProgrammes();
+  }, []);
+  console.log(programmes);
   return (
     <nav className={`navbar bg`}>
       {activePanel && (
@@ -208,9 +238,7 @@ const Navbar = () => {
             setProgramsPanelActivated(false);
           }}
         >
-          <ProgramPopup
-            programs={i18n.language === "en" ? programsEn : programsFR}
-          />
+          <ProgramPopup programs={programmes} />
         </div>
       )}
       <div className="logo desktop">

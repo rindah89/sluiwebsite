@@ -5,6 +5,7 @@ import { Fade } from "react-reveal";
 import { Link, useNavigate } from "react-router-dom";
 import LeaderCard from "../../components/leader-card/LeaderCard";
 import { useTranslation } from "react-i18next";
+import { getTeam } from "../../redux/reducers/app";
 
 const Team: FC = () => {
   const width = window.innerWidth;
@@ -25,148 +26,33 @@ const Team: FC = () => {
   };
 
   const navigate = useNavigate();
+  const [team, setTeam] = useState([]);
+  const [loading, setLoading] = useState(false);
 
-  const TeamEN = [
-    {
-      id: 1,
-      image: "/images/nick.jpeg",
-      name: "Dr. Nick Nganyam",
-      position: "President",
-    },
-    {
-      id: 2,
-      image: "/images/krishna.png",
-      name: "Prof. Krishna N. Sharma",
-      position: "Vice-Chancellor",
-    },
-    {
-      id: 3,
-      image: "/images/florence.jpg",
-      name: "Dr. Manjong Florence",
-      position: "DVC. Academic Affairs",
-    },
-    {
-      id: 4,
-      image: "/images/olivier.jpg",
-      name: "Mr. Tolly Olivier",
-      position: "DVC. Admin and Finance",
-    },
-    {
-      id: 5,
-      image: "/new/perez.jpg",
-      name: "MR. CHEGHE PEREZ K",
-      tel: "679 933 329",
-      position: "Dean of Studies, Health",
-    },
-    {
-      id: 6,
-      image: "/new/simon.jpeg",
-      name: "MR SIMON MUFOR",
-      tel: "652 615 379",
-      position: "Dean of Studies, ICT",
-    },
-    {
-      id: 7,
-      image: "/new/mandi.jpg",
-      name: "MR. MANDI DERICK",
-      tel: "672 137 794",
-      position: "Registrar/Lecturer Nursing",
-    },
-    {
-      id: 8,
-      image: "",
-      name: "MME. ASHUBENG EMILE B.",
-      tel: "678 933 452",
-      position: "Administrative Secretary",
-    },
-    {
-      id: 9,
-      image:
-        "https://lh3.googleusercontent.com/drive-viewer/AK7aPaDkiHhIGnzHzWofwBaSfusOd9NSn7FBSykwKyci36okkO89EF4b29Hf3WnaJepW2IhDbNE5hvMSbEbcPruzgOycteL7yQ=s1600",
-      name: "MR. KUM CYPRIAN N.",
-      tel: "681 200 836",
-      position: "Administravie Assistant I",
-    },
-    {
-      id: 10,
-      image: "/new/kingsley.jpeg",
-      name: "NDIPENDOH KINGSLY MUKOM",
-      tel: "679 201 766",
-      position: "Administrative Representative",
-    },
-  ];
+  const handlerGetTeam = async () => {
+    try {
+      setLoading(true);
+      await getTeam()
+        .then((res: any) => {
+          if (res.status === 200) {
+            setTeam(res.data);
+            setLoading(false);
+            return;
+          }
+          setLoading(false);
+        })
+        .catch((err: any) => {
+          console.error(err);
+          setLoading(false);
+        });
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
-  const TeamFR = [
-    {
-      id: 1,
-      image: "/images/nick.jpeg",
-      name: "Dr. Nick Nganyam",
-      position: "Président",
-    },
-    {
-      id: 2,
-      image: "/images/krishna.png",
-      name: "Prof. Krishna N. Sharma",
-      position: "Vice-Chancellor",
-    },
-    {
-      id: 3,
-      image: "/images/florence.jpg",
-      name: "Dr. Manjong Florence",
-      position: "DVC. Affaires Académiques",
-    },
-    {
-      id: 4,
-      image: "/images/olivier.jpg",
-      name: "Mr. Tolly Olivier",
-      position: "DVC. Administration et Finances",
-    },
-    {
-      id: 5,
-      image: "/new/perez.jpg",
-      name: "MR. CHEGHE PEREZ K",
-      tel: "679 933 329",
-      position: "Doyen des Études, Santé",
-    },
-    {
-      id: 6,
-      image: "/new/simon.jpeg",
-      name: "MR SIMON MUFOR",
-      tel: "652 615 379",
-      position: "Doyen des Études, TIC",
-    },
-    {
-      id: 7,
-      image: "/new/mandi.jpg",
-      name: "MR. MANDI DERICK",
-      tel: "672 137 794",
-      position: "Registraire/Conférencier en Soins Infirmiers",
-    },
-    {
-      id: 8,
-      image: "",
-      name: "MME. ASHUBENG EMILE B.",
-      tel: "678 933 452",
-      position: "Secrétaire Administrative",
-    },
-    {
-      id: 9,
-      image:
-        "https://lh3.googleusercontent.com/drive-viewer/AK7aPaDkiHhIGnzHzWofwBaSfusOd9NSn7FBSykwKyci36okkO89EF4b29Hf3WnaJepW2IhDbNE5hvMSbEbcPruzgOycteL7yQ=s1600",
-      name: "MR. KUM CYPRIAN N.",
-      tel: "681 200 836",
-      position: "Assistant Administratif I",
-    },
-    {
-      id: 10,
-      image: "/new/kingsley.jpeg",
-      name: "NDIPENDOH KINGSLY MUKOM",
-      tel: "679 201 766",
-      position: "Représentant Administratif",
-    },
-  ];
-
-  const Team = i18n.language === "en" ? TeamEN : TeamFR;
+  useEffect(() => {
+    handlerGetTeam();
+  }, []);
 
   return (
     <div className={styles.main}>
@@ -220,18 +106,28 @@ const Team: FC = () => {
         <p className={styles.paragraph}>{t("team.intro_para")}</p>
       </div>
       <div className={styles.event_section}>
-        {Team.map((facility, index) => {
-          return (
-            <Link to={`/leadership-team/${facility.id}`}>
-              <LeaderCard
-                key={index}
-                name={facility.name}
-                title={facility.position}
-                image={facility.image}
-              />
-            </Link>
-          );
-        })}
+        {team.map(
+          (
+            item: {
+              name: string;
+              profession: string;
+              _id: string;
+              image: string;
+            },
+            index
+          ) => {
+            return (
+              <Link to={`/leadership-team/${item._id}`}>
+                <LeaderCard
+                  key={index}
+                  name={item.name}
+                  title={item.profession}
+                  image={`${process.env.REACT_APP_BASE_URL}/uploads/gallery/${item?.image}`}
+                />
+              </Link>
+            );
+          }
+        )}
       </div>
     </div>
   );

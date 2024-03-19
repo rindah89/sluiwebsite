@@ -7,7 +7,10 @@ import { BsArrowLeft } from "react-icons/bs";
 import Event from "../../components/event/Event";
 import { useNavigate } from "react-router-dom";
 import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
 import { useTranslation } from "react-i18next";
+
+import { getEvents } from "../../redux/reducers/app";
 
 const pastEventsEN = [
   {
@@ -242,6 +245,34 @@ const NewsnEvents = () => {
     setTimeout(() => setIsBouncing(false), 2000); // Stop the bouncing after 1 second (adjust the duration as needed)
   };
 
+  const [events, setEvents] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+  const handlerGetEvents = async () => {
+    try {
+      setLoading(true);
+      await getEvents()
+        .then((res: any) => {
+          if (res.status === 200) {
+            setEvents(res.data);
+            setLoading(false);
+            return;
+          }
+          setLoading(false);
+        })
+        .catch((err: any) => {
+          console.error(err);
+          setLoading(false);
+        });
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  useEffect(() => {
+    handlerGetEvents();
+  }, []);
+
   return (
     <div className={styles.main}>
       <div className={styles.hero}>
@@ -296,17 +327,25 @@ const NewsnEvents = () => {
         <h3>{t("news_events.upcoming")}</h3>
         {/* <div className={styles.event_section}> */}
         <Carousel responsive={responsive}>
-          {futureEvents.map((event, index) => (
-            <Event key={index} event={event} />
-          ))}
+          {events.length > 0 ? (
+            events.map((event, index) => <Event key={index} event={event} />)
+          ) : (
+            <div style={{ display: "flex", justifyContent: "center" }}>
+              <p style={{ fontSize: 20 }}>No Data Found</p>
+            </div>
+          )}
         </Carousel>
         {/* </div> */}
         <h3>{t("news_events.past")}</h3>
         {/* <div className={styles.event_section}> */}
         <Carousel responsive={responsive}>
-          {pastEvents.map((event, index) => (
-            <Event key={index} event={event} />
-          ))}
+          {events.length > 0 ? (
+            events.map((event, index) => <Event key={index} event={event} />)
+          ) : (
+            <div style={{ display: "flex", justifyContent: "center" }}>
+              <p style={{ fontSize: 20 }}>No Data Found</p>
+            </div>
+          )}
         </Carousel>
         {/* </div> */}
       </div>

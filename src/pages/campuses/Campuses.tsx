@@ -1,6 +1,4 @@
-import React, { useEffect } from "react";
-import { Fade } from "react-reveal";
-
+import { useEffect, useState } from "react";
 // styles
 import styles from "./campus.module.css";
 
@@ -11,6 +9,7 @@ import ProgramGrid from "../../components/program-grid/ProgramGrid";
 import { programmesEN, programmesFR } from "../landing/Landing";
 import Membership from "../../components/membership/Membership";
 import { useTranslation } from "react-i18next";
+import { getProgrammes, getCampuses } from "../../redux/reducers/app";
 
 const Campuses = () => {
   useEffect(() => {
@@ -19,7 +18,57 @@ const Campuses = () => {
 
   const { t, i18n } = useTranslation();
 
-  const programmes = i18n.language === "en" ? programmesEN : programmesFR;
+  // const programmes = i18n.language === "en" ? programmesEN : programmesFR;
+  const [programmes, setProgrammes] = useState([]);
+  const [campuses, setCampuses] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+  const handlerGetProgrammes = async () => {
+    try {
+      setLoading(true);
+      await getProgrammes()
+        .then((res: any) => {
+          if (res.status === 200) {
+            setProgrammes(res.data);
+            setLoading(false);
+            return;
+          }
+          setLoading(false);
+        })
+        .catch((err: any) => {
+          console.error(err);
+          setLoading(false);
+        });
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  const handlerGetCampuses = async () => {
+    try {
+      setLoading(true);
+      await getCampuses()
+        .then((res: any) => {
+          if (res.status === 200) {
+            setCampuses(res.data);
+            setLoading(false);
+            return;
+          }
+          setLoading(false);
+        })
+        .catch((err: any) => {
+          console.error(err);
+          setLoading(false);
+        });
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  useEffect(() => {
+    handlerGetCampuses();
+    handlerGetProgrammes();
+  }, []);
+
   return (
     <div className="landing">
       <div className={styles.hero}>
@@ -31,44 +80,19 @@ const Campuses = () => {
 
       <div className={styles.campuses}>
         <GridLayout columns={2} gap={3}>
-          <CampusCard
-            image="/pics/optimized/ivs-7524.webp"
-            name="Bonaberi"
-            title={t("campuses.bonaberi_tag")}
-            refLink="/campus-details"
-            index={0}
-          />
-
-          <CampusCard
-            image="/pics/optimized/ivs-7536.webp"
-            name="Bonamoussadi"
-            title={t("campuses.bonamoussadi_tag")}
-            refLink="/campus-details"
-            index={1}
-          />
-
-          <CampusCard
-            image="/pics/optimized/ivs-7587.webp"
-            name="Yaounde"
-            title={t("campuses.yaounde_tag")}
-            refLink="/campus-details"
-            index={2}
-          />
-
-          <CampusCard
-            image="/pics/optimized/ivs-7624.webp"
-            name="Ndu"
-            title={t("campuses.ndu_tag")}
-            refLink="/campus-details"
-            index={3}
-          />
-          <CampusCard
-            image="/pics/optimized/ivs-7694.webp"
-            name="Bamenda"
-            title={t("campuses.bamenda_tag")}
-            refLink="/campus-details"
-            index={4}
-          />
+          {campuses?.map(
+            (item: { image: string; title: string; _id: string }, index) => {
+              return (
+                <CampusCard
+                  image={`${process.env.REACT_APP_BASE_URL}/uploads/gallery/${item?.image}`}
+                  name={item?.title}
+                  title={t("campuses.bonaberi_tag")}
+                  refLink={`/campus-details/${item?._id}`}
+                  index={index}
+                />
+              );
+            }
+          )}
         </GridLayout>
       </div>
 

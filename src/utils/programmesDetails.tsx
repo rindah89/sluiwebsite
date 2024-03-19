@@ -47,7 +47,8 @@ export const programDetailsEN = [
         phoneNumber: "",
       },
       {
-        image: "https://lh3.googleusercontent.com/drive-viewer/AK7aPaAj0B4AVkzMs9OUU60aRe2YqgMARRjpBc-FWrM3NNpAgqwtUGp44lk27FGQ2DFKzFuVM0upVKACXc6J6OLcIxhx1mIRxQ=s1600",
+        image:
+          "https://lh3.googleusercontent.com/drive-viewer/AK7aPaAj0B4AVkzMs9OUU60aRe2YqgMARRjpBc-FWrM3NNpAgqwtUGp44lk27FGQ2DFKzFuVM0upVKACXc6J6OLcIxhx1mIRxQ=s1600",
         name: "Mr. Bryan Senji",
         position: "Lecturer",
         mail: "",
@@ -104,7 +105,8 @@ export const programDetailsEN = [
         phoneNumber: "",
       },
       {
-        image: "https://lh3.googleusercontent.com/drive-viewer/AK7aPaAj0B4AVkzMs9OUU60aRe2YqgMARRjpBc-FWrM3NNpAgqwtUGp44lk27FGQ2DFKzFuVM0upVKACXc6J6OLcIxhx1mIRxQ=s1600",
+        image:
+          "https://lh3.googleusercontent.com/drive-viewer/AK7aPaAj0B4AVkzMs9OUU60aRe2YqgMARRjpBc-FWrM3NNpAgqwtUGp44lk27FGQ2DFKzFuVM0upVKACXc6J6OLcIxhx1mIRxQ=s1600",
         name: "Mr. Bryan Senji",
         position: "Lecturer",
         mail: "",
@@ -148,14 +150,16 @@ export const programDetailsEN = [
         phoneNumber: "",
       },
       {
-        image: "https://lh3.googleusercontent.com/drive-viewer/AK7aPaCcTgOZChtmHLCihHmu9a-CoAKUKGEM8nTMqf1tFIgo3Klpv_mxMfvrWzMe1O_ukcLLXGguiPvuZ72A08T9qfmKnj9Y=s1600",
+        image:
+          "https://lh3.googleusercontent.com/drive-viewer/AK7aPaCcTgOZChtmHLCihHmu9a-CoAKUKGEM8nTMqf1tFIgo3Klpv_mxMfvrWzMe1O_ukcLLXGguiPvuZ72A08T9qfmKnj9Y=s1600",
         name: "Mr. Nfor Clauvis S.",
         position: "Lecturer",
         mail: "",
         phoneNumber: "",
       },
       {
-        image: "https://lh3.googleusercontent.com/drive-viewer/AK7aPaAU_kJYlnUxEYye7YMoG_XqD8t13Hiu1Bfc8RxCiGQJNVHf3YptO4KO_XC0CCsKJZXKIn16XuqpF18qn6imRmHQOSc28w=s1600",
+        image:
+          "https://lh3.googleusercontent.com/drive-viewer/AK7aPaAU_kJYlnUxEYye7YMoG_XqD8t13Hiu1Bfc8RxCiGQJNVHf3YptO4KO_XC0CCsKJZXKIn16XuqpF18qn6imRmHQOSc28w=s1600",
         name: "Mr. Kabila Foncha",
         position: "Lecturer",
         mail: "",
@@ -183,36 +187,38 @@ export const programDetailsEN = [
     coverImage: "",
     studySection:
       "This is Degree programs which enables students to gain expertise in several types of clinical imaging, including bone densitometry, cardiac or vascular interventional radiography, computed tomography, Magnetic Resonance Imaging, mammography, echocardiography, vascular sonography, diagnostic medical sonography, and nuclear medicine technology.",
-      stafs: [
-        {
-          image: "",
-          name: "Mr. Ngek Wilson Chongwam",
-          position: "Lecturer",
-          mail: "",
-          phoneNumber: "",
-        },
-        {
-          image: "",
-          name: "Mr. Ngouopayo Dalhad",
-          position: "Lecturer",
-          mail: "",
-          phoneNumber: "",
-        },
-        {
-          image: "https://lh3.googleusercontent.com/drive-viewer/AK7aPaCcTgOZChtmHLCihHmu9a-CoAKUKGEM8nTMqf1tFIgo3Klpv_mxMfvrWzMe1O_ukcLLXGguiPvuZ72A08T9qfmKnj9Y=s1600",
-          name: "Mr. Nfor Clauvis S.",
-          position: "Lecturer",
-          mail: "",
-          phoneNumber: "",
-        },
-        {
-          image: "https://lh3.googleusercontent.com/drive-viewer/AK7aPaAU_kJYlnUxEYye7YMoG_XqD8t13Hiu1Bfc8RxCiGQJNVHf3YptO4KO_XC0CCsKJZXKIn16XuqpF18qn6imRmHQOSc28w=s1600",
-          name: "Mr. Kabila Foncha",
-          position: "Lecturer",
-          mail: "",
-          phoneNumber: "",
-        },
-      ],
+    stafs: [
+      {
+        image: "",
+        name: "Mr. Ngek Wilson Chongwam",
+        position: "Lecturer",
+        mail: "",
+        phoneNumber: "",
+      },
+      {
+        image: "",
+        name: "Mr. Ngouopayo Dalhad",
+        position: "Lecturer",
+        mail: "",
+        phoneNumber: "",
+      },
+      {
+        image:
+          "https://lh3.googleusercontent.com/drive-viewer/AK7aPaCcTgOZChtmHLCihHmu9a-CoAKUKGEM8nTMqf1tFIgo3Klpv_mxMfvrWzMe1O_ukcLLXGguiPvuZ72A08T9qfmKnj9Y=s1600",
+        name: "Mr. Nfor Clauvis S.",
+        position: "Lecturer",
+        mail: "",
+        phoneNumber: "",
+      },
+      {
+        image:
+          "https://lh3.googleusercontent.com/drive-viewer/AK7aPaAU_kJYlnUxEYye7YMoG_XqD8t13Hiu1Bfc8RxCiGQJNVHf3YptO4KO_XC0CCsKJZXKIn16XuqpF18qn6imRmHQOSc28w=s1600",
+        name: "Mr. Kabila Foncha",
+        position: "Lecturer",
+        mail: "",
+        phoneNumber: "",
+      },
+    ],
   },
   {
     id: "medical-imaging-technology-msc",
@@ -234,44 +240,47 @@ export const programDetailsEN = [
     coverImage: "",
     studySection:
       "With a contemporary and evidence-based curriculum, our innovative course will keep you up to-date with advanced technologies and help you build translational skills in image analysis and processing with cardiac, MSK and neuroimaging CT and MRI, data management, health informatics and research. Gain tools to shape your future practice and develop new career pathways within your workplace.",
-      stafs: [
-        {
-          image: "",
-          name: "Mr. Ngek Wilson Chongwam",
-          position: "Lecturer",
-          mail: "",
-          phoneNumber: "",
-        },
-        {
-          image: "",
-          name: "Mr. Ngouopayo Dalhad",
-          position: "Lecturer",
-          mail: "",
-          phoneNumber: "",
-        },
-        {
-          image: "https://lh3.googleusercontent.com/drive-viewer/AK7aPaCcTgOZChtmHLCihHmu9a-CoAKUKGEM8nTMqf1tFIgo3Klpv_mxMfvrWzMe1O_ukcLLXGguiPvuZ72A08T9qfmKnj9Y=s1600",
-          name: "Mr. Nfor Clauvis S.",
-          position: "Lecturer",  stafs: [
-            {
-              image: "",
-              name: "",
-              position: "",
-              mail: "",
-              phoneNumber: "",
-            },
-          ],
-          mail: "",
-          phoneNumber: "",
-        },
-        {
-          image: "https://lh3.googleusercontent.com/drive-viewer/AK7aPaAU_kJYlnUxEYye7YMoG_XqD8t13Hiu1Bfc8RxCiGQJNVHf3YptO4KO_XC0CCsKJZXKIn16XuqpF18qn6imRmHQOSc28w=s1600",
-          name: "Mr. Kabila Foncha",
-          position: "Lecturer",
-          mail: "",
-          phoneNumber: "",
-        },
-      ],
+    stafs: [
+      {
+        image: "",
+        name: "Mr. Ngek Wilson Chongwam",
+        position: "Lecturer",
+        mail: "",
+        phoneNumber: "",
+      },
+      {
+        image: "",
+        name: "Mr. Ngouopayo Dalhad",
+        position: "Lecturer",
+        mail: "",
+        phoneNumber: "",
+      },
+      {
+        image:
+          "https://lh3.googleusercontent.com/drive-viewer/AK7aPaCcTgOZChtmHLCihHmu9a-CoAKUKGEM8nTMqf1tFIgo3Klpv_mxMfvrWzMe1O_ukcLLXGguiPvuZ72A08T9qfmKnj9Y=s1600",
+        name: "Mr. Nfor Clauvis S.",
+        position: "Lecturer",
+        stafs: [
+          {
+            image: "",
+            name: "",
+            position: "",
+            mail: "",
+            phoneNumber: "",
+          },
+        ],
+        mail: "",
+        phoneNumber: "",
+      },
+      {
+        image:
+          "https://lh3.googleusercontent.com/drive-viewer/AK7aPaAU_kJYlnUxEYye7YMoG_XqD8t13Hiu1Bfc8RxCiGQJNVHf3YptO4KO_XC0CCsKJZXKIn16XuqpF18qn6imRmHQOSc28w=s1600",
+        name: "Mr. Kabila Foncha",
+        position: "Lecturer",
+        mail: "",
+        phoneNumber: "",
+      },
+    ],
   },
 ];
 
@@ -324,7 +333,8 @@ export const programDetailsFR = [
         phoneNumber: "",
       },
       {
-        image: "https://lh3.googleusercontent.com/drive-viewer/AK7aPaAj0B4AVkzMs9OUU60aRe2YqgMARRjpBc-FWrM3NNpAgqwtUGp44lk27FGQ2DFKzFuVM0upVKACXc6J6OLcIxhx1mIRxQ=s1600",
+        image:
+          "https://lh3.googleusercontent.com/drive-viewer/AK7aPaAj0B4AVkzMs9OUU60aRe2YqgMARRjpBc-FWrM3NNpAgqwtUGp44lk27FGQ2DFKzFuVM0upVKACXc6J6OLcIxhx1mIRxQ=s1600",
         name: "Mr. Bryan Senji",
         position: "Maître de conférences",
         mail: "",
@@ -381,7 +391,8 @@ export const programDetailsFR = [
         phoneNumber: "",
       },
       {
-        image: "https://lh3.googleusercontent.com/drive-viewer/AK7aPaAj0B4AVkzMs9OUU60aRe2YqgMARRjpBc-FWrM3NNpAgqwtUGp44lk27FGQ2DFKzFuVM0upVKACXc6J6OLcIxhx1mIRxQ=s1600",
+        image:
+          "https://lh3.googleusercontent.com/drive-viewer/AK7aPaAj0B4AVkzMs9OUU60aRe2YqgMARRjpBc-FWrM3NNpAgqwtUGp44lk27FGQ2DFKzFuVM0upVKACXc6J6OLcIxhx1mIRxQ=s1600",
         name: "Mr. Bryan Senji",
         position: "Maître de conférences",
         mail: "",
@@ -409,36 +420,38 @@ export const programDetailsFR = [
     coverImage: "",
     studySection:
       "Ce programme met l'accent sur diverses formes de technologie d'imagerie pour examiner l'intérieur du corps d'un patient et aider à diagnostiquer les blessures et les maladies. Avec de l'expérience, vous pourrez également contribuer à l'interprétation des images, à l'établissement de plans de traitement et à l'aide aux procédures d'intervention. Au cours de chaque année d'études, vous effectuerez des stages cliniques dans les services de radiologie de nos hôpitaux de stage afin d'acquérir une vaste expérience clinique tout en explorant tout ce que les modalités d'imagerie médicale peuvent offrir..",
-      stafs: [
-        {
-          image: "",
-          name: "Mr. Ngek Wilson Chongwam",
-          position: "Maître de conférences",
-          mail: "",
-          phoneNumber: "",
-        },
-        {
-          image: "",
-          name: "Mr. Ngouopayo Dalhad",
-          position: "Maître de conférences",
-          mail: "",
-          phoneNumber: "",
-        },
-        {
-          image: "https://lh3.googleusercontent.com/drive-viewer/AK7aPaCcTgOZChtmHLCihHmu9a-CoAKUKGEM8nTMqf1tFIgo3Klpv_mxMfvrWzMe1O_ukcLLXGguiPvuZ72A08T9qfmKnj9Y=s1600",
-          name: "Mr. Nfor Clauvis S.",
-          position: "Maître de conférences",
-          mail: "",
-          phoneNumber: "",
-        },
-        {
-          image: "https://lh3.googleusercontent.com/drive-viewer/AK7aPaAU_kJYlnUxEYye7YMoG_XqD8t13Hiu1Bfc8RxCiGQJNVHf3YptO4KO_XC0CCsKJZXKIn16XuqpF18qn6imRmHQOSc28w=s1600",
-          name: "Mr. Kabila Foncha",
-          position: "Maître de conférences",
-          mail: "",
-          phoneNumber: "",
-        },
-      ],
+    stafs: [
+      {
+        image: "",
+        name: "Mr. Ngek Wilson Chongwam",
+        position: "Maître de conférences",
+        mail: "",
+        phoneNumber: "",
+      },
+      {
+        image: "",
+        name: "Mr. Ngouopayo Dalhad",
+        position: "Maître de conférences",
+        mail: "",
+        phoneNumber: "",
+      },
+      {
+        image:
+          "https://lh3.googleusercontent.com/drive-viewer/AK7aPaCcTgOZChtmHLCihHmu9a-CoAKUKGEM8nTMqf1tFIgo3Klpv_mxMfvrWzMe1O_ukcLLXGguiPvuZ72A08T9qfmKnj9Y=s1600",
+        name: "Mr. Nfor Clauvis S.",
+        position: "Maître de conférences",
+        mail: "",
+        phoneNumber: "",
+      },
+      {
+        image:
+          "https://lh3.googleusercontent.com/drive-viewer/AK7aPaAU_kJYlnUxEYye7YMoG_XqD8t13Hiu1Bfc8RxCiGQJNVHf3YptO4KO_XC0CCsKJZXKIn16XuqpF18qn6imRmHQOSc28w=s1600",
+        name: "Mr. Kabila Foncha",
+        position: "Maître de conférences",
+        mail: "",
+        phoneNumber: "",
+      },
+    ],
   },
   {
     id: "technologie-de-l'imagerie-médicale-bsc",
@@ -460,36 +473,38 @@ export const programDetailsFR = [
     coverImage: "",
     studySection:
       "Il s'agit d'un programme diplômant qui permet aux étudiants d'acquérir une expertise dans plusieurs types d'imagerie clinique, notamment l'ostéodensitométrie, la radiographie interventionnelle cardiaque ou vasculaire, la tomodensitométrie, l'imagerie par résonance magnétique, la mammographie, l'échocardiographie, l'échographie vasculaire, l'échographie médicale diagnostique et la technologie de la médecine nucléaire.",
-      stafs: [
-        {
-          image: "",
-          name: "Mr. Ngek Wilson Chongwam",
-          position: "Maître de conférences",
-          mail: "",
-          phoneNumber: "",
-        },
-        {
-          image: "",
-          name: "Mr. Ngouopayo Dalhad",
-          position: "Maître de conférences",
-          mail: "",
-          phoneNumber: "",
-        },
-        {
-          image: "https://lh3.googleusercontent.com/drive-viewer/AK7aPaCcTgOZChtmHLCihHmu9a-CoAKUKGEM8nTMqf1tFIgo3Klpv_mxMfvrWzMe1O_ukcLLXGguiPvuZ72A08T9qfmKnj9Y=s1600",
-          name: "Mr. Nfor Clauvis S.",
-          position: "Maître de conférences",
-          mail: "",
-          phoneNumber: "",
-        },
-        {
-          image: "https://lh3.googleusercontent.com/drive-viewer/AK7aPaAU_kJYlnUxEYye7YMoG_XqD8t13Hiu1Bfc8RxCiGQJNVHf3YptO4KO_XC0CCsKJZXKIn16XuqpF18qn6imRmHQOSc28w=s1600",
-          name: "Mr. Kabila Foncha",
-          position: "Maître de conférences",
-          mail: "",
-          phoneNumber: "",
-        },
-      ],
+    stafs: [
+      {
+        image: "",
+        name: "Mr. Ngek Wilson Chongwam",
+        position: "Maître de conférences",
+        mail: "",
+        phoneNumber: "",
+      },
+      {
+        image: "",
+        name: "Mr. Ngouopayo Dalhad",
+        position: "Maître de conférences",
+        mail: "",
+        phoneNumber: "",
+      },
+      {
+        image:
+          "https://lh3.googleusercontent.com/drive-viewer/AK7aPaCcTgOZChtmHLCihHmu9a-CoAKUKGEM8nTMqf1tFIgo3Klpv_mxMfvrWzMe1O_ukcLLXGguiPvuZ72A08T9qfmKnj9Y=s1600",
+        name: "Mr. Nfor Clauvis S.",
+        position: "Maître de conférences",
+        mail: "",
+        phoneNumber: "",
+      },
+      {
+        image:
+          "https://lh3.googleusercontent.com/drive-viewer/AK7aPaAU_kJYlnUxEYye7YMoG_XqD8t13Hiu1Bfc8RxCiGQJNVHf3YptO4KO_XC0CCsKJZXKIn16XuqpF18qn6imRmHQOSc28w=s1600",
+        name: "Mr. Kabila Foncha",
+        position: "Maître de conférences",
+        mail: "",
+        phoneNumber: "",
+      },
+    ],
   },
   {
     id: "technologie-de-l'imagerie-médicale-msc",
@@ -511,35 +526,37 @@ export const programDetailsFR = [
     coverImage: "",
     studySection:
       "Grâce à un programme d'études contemporain et fondé sur des données probantes, notre cours innovant vous permettra de rester au fait des technologies de pointe et vous aidera à acquérir des compétences translationnelles en matière d'analyse et de traitement d'images avec la tomodensitométrie et l'IRM cardiaques, MSK et neuro-imagerie, de gestion des données, d'informatique de la santé et de recherche. Acquérir des outils pour façonner votre pratique future et développer de nouvelles voies de carrière sur votre lieu de travail.",
-      stafs: [
-        {
-          image: "",
-          name: "Mr. Ngek Wilson Chongwam",
-          position: "Maître de conférences",
-          mail: "",
-          phoneNumber: "",
-        },
-        {
-          image: "",
-          name: "Mr. Ngouopayo Dalhad",
-          position: "Maître de conférences",
-          mail: "",
-          phoneNumber: "",
-        },
-        {
-          image: "https://lh3.googleusercontent.com/drive-viewer/AK7aPaCcTgOZChtmHLCihHmu9a-CoAKUKGEM8nTMqf1tFIgo3Klpv_mxMfvrWzMe1O_ukcLLXGguiPvuZ72A08T9qfmKnj9Y=s1600",
-          name: "Mr. Nfor Clauvis S.",
-          position: "Maître de conférences",
-          mail: "",
-          phoneNumber: "",
-        },
-        {
-          image: "https://lh3.googleusercontent.com/drive-viewer/AK7aPaAU_kJYlnUxEYye7YMoG_XqD8t13Hiu1Bfc8RxCiGQJNVHf3YptO4KO_XC0CCsKJZXKIn16XuqpF18qn6imRmHQOSc28w=s1600",
-          name: "Mr. Kabila Foncha",
-          position: "Maître de conférences",
-          mail: "",
-          phoneNumber: "",
-        },
-      ],
+    stafs: [
+      {
+        image: "",
+        name: "Mr. Ngek Wilson Chongwam",
+        position: "Maître de conférences",
+        mail: "",
+        phoneNumber: "",
+      },
+      {
+        image: "",
+        name: "Mr. Ngouopayo Dalhad",
+        position: "Maître de conférences",
+        mail: "",
+        phoneNumber: "",
+      },
+      {
+        image:
+          "https://lh3.googleusercontent.com/drive-viewer/AK7aPaCcTgOZChtmHLCihHmu9a-CoAKUKGEM8nTMqf1tFIgo3Klpv_mxMfvrWzMe1O_ukcLLXGguiPvuZ72A08T9qfmKnj9Y=s1600",
+        name: "Mr. Nfor Clauvis S.",
+        position: "Maître de conférences",
+        mail: "",
+        phoneNumber: "",
+      },
+      {
+        image:
+          "https://lh3.googleusercontent.com/drive-viewer/AK7aPaAU_kJYlnUxEYye7YMoG_XqD8t13Hiu1Bfc8RxCiGQJNVHf3YptO4KO_XC0CCsKJZXKIn16XuqpF18qn6imRmHQOSc28w=s1600",
+        name: "Mr. Kabila Foncha",
+        position: "Maître de conférences",
+        mail: "",
+        phoneNumber: "",
+      },
+    ],
   },
 ];

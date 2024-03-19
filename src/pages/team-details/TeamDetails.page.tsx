@@ -1,9 +1,15 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-
 import styles from "./teamdetails.module.css";
 import { useParams } from "react-router-dom";
+import { getTeamSingle } from "../../redux/reducers/app";
 
+interface TeamMember {
+  image: string;
+  name: string;
+  profession: string;
+  details: string;
+}
 const TeamDetailsPage = () => {
   const { t, i18n } = useTranslation();
 
@@ -158,24 +164,57 @@ const TeamDetailsPage = () => {
   const team = i18n.language === "en" ? TeamEN : TeamFR;
 
   const { id } = useParams();
+  const [teamMember, setTeamMember] = useState<TeamMember | null>(null);
+  const [loading, setLoading] = useState(false);
+
+  const handlerGetTeamMember = async () => {
+    try {
+      setLoading(true);
+      await getTeamSingle(id)
+        .then((res: any) => {
+          if (res.status === 200) {
+            setTeamMember(res.data);
+            setLoading(false);
+            return;
+          }
+          setLoading(false);
+        })
+        .catch((err: any) => {
+          console.error(err);
+          setLoading(false);
+        });
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  useEffect(() => {
+    handlerGetTeamMember();
+  }, [id]);
 
   return (
     <div className={styles.hero}>
-      <div className={styles.details}>
-        <div>
-          <div className={styles.image}>
-            <img
-              src={team.find((team) => team.id === Number(id))?.image}
-              alt={team.find((team) => team.id === Number(id))?.name}
-            />
+      {teamMember ? (
+        <div className={styles.details}>
+          <div>
+            <div className={styles.image}>
+              <img
+                src={`${process.env.REACT_APP_BASE_URL}/uploads/gallery/${teamMember?.image}`}
+                alt=""
+              />
+            </div>
+          </div>
+          <div>
+            <h2>{teamMember?.name}</h2>
+            <h3>{teamMember?.profession}</h3>
+            <p>{teamMember?.details}</p>
           </div>
         </div>
-        <div>
-          <h2>{team.find((team) => team.id === Number(id))?.name}</h2>
-          <h3>{team.find((team) => team.id === Number(id))?.position}</h3>
-          <p>{team.find((team) => team.id === Number(id))?.description}</p>
+      ) : (
+        <div style={{ display: "flex", justifyContent: "center" }}>
+          <p style={{ fontSize: 20 }}>No Data Found</p>
         </div>
-      </div>
+      )}
     </div>
   );
 };
