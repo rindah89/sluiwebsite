@@ -1,4 +1,4 @@
-import React, { useEffect, Suspense } from "react";
+import { useEffect, Suspense } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 // components
@@ -36,6 +36,7 @@ import Alumni from "./pages/alumni/Alumni";
 import CampusDetails from "./pages/campuses/CampusDetails";
 import TeamDetailsPage from "./pages/team-details/TeamDetails.page";
 import Program from "./pages/program-details/program";
+import SearchProgram from "./pages/program-details/search";
 
 const App = () => {
   useEffect(() => {
@@ -56,6 +57,10 @@ const App = () => {
           <Route path="/bachelors" element={<Bachelors />} />
           <Route path="/foundation" element={<Foundation />} />
           <Route path="/program-details/:id" element={<Program />} />
+          <Route
+            path="/program-search/:programId/:campusId/:facultyId"
+            element={<SearchProgram />}
+          />
 
           <Route path="/about" element={<About />} />
           <Route path="/our-values" element={<OurValues />} />

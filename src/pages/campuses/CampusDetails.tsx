@@ -160,6 +160,8 @@ const CampusDetails: FC = () => {
     filterCategories();
   }, [categories, filteredCourses]);
 
+  console.log(filteredPrograms);
+
   return (
     <div className="landing">
       <div className={styles.hero}>
@@ -179,8 +181,9 @@ const CampusDetails: FC = () => {
       </div>
 
       <div>
-        <h4 className={styles.details_heading}>{t("campus_details.list")}</h4>
-
+        {filteredPrograms.length > 0 && (
+          <h4 className={styles.details_heading}>{t("campus_details.list")}</h4>
+        )}
         <div className={styles.list}>
           {filteredPrograms?.map((item, index) => {
             const tempProgram: any = programmes.filter((p: any) =>
@@ -196,7 +199,6 @@ const CampusDetails: FC = () => {
             );
           })}
         </div>
-
         {/* {filteredPrograms?.map((program, index) => {
           return (
             <>

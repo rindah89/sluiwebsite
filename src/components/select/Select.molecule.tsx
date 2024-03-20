@@ -3,10 +3,11 @@ import { useCallback, useRef, useEffect, useState } from "react";
 import styles from "./select.module.css";
 
 type SelectProps = {
-  onSelect: (data: string, index?: number) => void;
-  list: string[];
-  selected: string;
+  onSelect: (data: any, index?: number) => void;
+  list: any[];
+  selected: any;
   height?: string;
+  program?: string;
 };
 
 const UseOnClickOutside = (ref: any, handler: Function) => {
@@ -28,7 +29,13 @@ const UseOnClickOutside = (ref: any, handler: Function) => {
   }, [ref, handler]);
 };
 
-const SelectMolecule = ({ onSelect, height, list, selected }: SelectProps) => {
+const SelectMolecule = ({
+  onSelect,
+  height,
+  list,
+  selected,
+  program,
+}: SelectProps) => {
   const [dropActive, setDropActive] = useState(false);
   const ref = useRef<HTMLDivElement | null>(null);
 
@@ -55,7 +62,7 @@ const SelectMolecule = ({ onSelect, height, list, selected }: SelectProps) => {
         ref={ref}
         id="select"
       >
-        <h4>{selected}</h4>
+        <h4>{selected.title || `Select ${program}`}</h4>
         <CaretDownIcon />
         <div
           style={{
@@ -66,7 +73,7 @@ const SelectMolecule = ({ onSelect, height, list, selected }: SelectProps) => {
           }}
           className={styles.options}
         >
-          {list.map((data, index) => {
+          {list?.map((data, index) => {
             return (
               <h4
                 onClick={(e) => {
@@ -76,7 +83,8 @@ const SelectMolecule = ({ onSelect, height, list, selected }: SelectProps) => {
                 }}
                 key={index}
               >
-                {data.length === 0 ? list[0] : data}
+                {/* {data.length === 0 ? list[0] : data} */}
+                {data?.title}
               </h4>
             );
           })}

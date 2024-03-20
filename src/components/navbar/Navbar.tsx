@@ -22,8 +22,8 @@ import ProgramPopup from "../programmes/ProgramPopup";
 import { useTranslation } from "react-i18next";
 import {
   SearchComponent,
-  programsEn as listProgramsEn,
-  programsFR as listProgramsFr,
+  // programsEn as listProgramsEn,
+  // programsFR as listProgramsFr,
 } from "../../pages/landing/Landing";
 import {
   getProgrammes,
@@ -142,12 +142,20 @@ const Navbar = () => {
   const [searchClicked, setSearchClicked] = useState(false);
   const [input, setInput] = useState("");
   const navigate = useNavigate();
-  const [selected, setSelected] = useState(
-    i18n.language === "en" ? listProgramsEn[0] : listProgramsFr[0]
-  );
-  const [selectedCampus, setSelectedCampus] = useState(
-    i18n.language === "en" ? campusEn[0] : campusFR[0]
-  );
+
+  const [selected, setSelected] = useState("");
+  const [selectedCampus, setSelectedCampus] = useState("");
+  const [selectedFaculty, setSelectedFaculty] = useState("");
+
+  // const [selected, setSelected] = useState(
+  //   i18n.language === "en" ? listProgramsEn[0] : listProgramsFr[0]
+  // );
+  // const [selectedCampus, setSelectedCampus] = useState(
+  //   i18n.language === "en" ? campusEn[0] : campusFR[0]
+  // );
+  // const [selectedFaculty, setSelectedFaculty] = useState(
+  //   i18n.language === "en" ? campusEn[0] : campusFR[0]
+  // );
 
   const handleSearchIconClick = () => {
     setSearchClicked(true);
@@ -445,6 +453,8 @@ const Navbar = () => {
             setSelected={setSelected}
             selectedCampus={selectedCampus}
             setSelectedCampus={setSelectedCampus}
+            selectedFaculty={selectedFaculty}
+            setSelectedFaculty={setSelectedFaculty}
             input={input}
             setInput={setInput}
             navigate={navigate}
@@ -491,6 +501,8 @@ const Navbar = () => {
             setSelected={setSelected}
             selectedCampus={selectedCampus}
             setSelectedCampus={setSelectedCampus}
+            selectedFaculty={selectedFaculty}
+            setSelectedFaculty={setSelectedFaculty}
             input={input}
             setInput={setInput}
             navigate={navigate}

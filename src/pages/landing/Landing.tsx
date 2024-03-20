@@ -1,13 +1,8 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Fade } from "react-reveal";
-
-// styles
 import "./landing.css";
-
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-
-// components
 import Content from "../../components/content/Content";
 import ContentWithBg from "../../components/content-with-bg/ContentWithBg";
 import ProgramGrid from "../../components/program-grid/ProgramGrid";
@@ -15,18 +10,24 @@ import GridLayout from "../../components/grid/Grid";
 import LeaderCard from "../../components/leader-card/LeaderCard";
 import Event from "../../components/event/Event";
 import { Link, useNavigate } from "react-router-dom";
-import { eventsEN, eventsFR } from "../news&events/News&events";
+// import { eventsEN, eventsFR } from "../news&events/News&events";
 import Membership from "../../components/membership/Membership";
 import { useTranslation } from "react-i18next";
 import SelectMolecule from "../../components/select/Select.molecule";
 import { i18n } from "i18next";
-import { hndProgramsEN } from "../hnd/HND";
-import { bachelorsProgramsEN } from "../bachelors/Bachelors";
-import { mastersProgramsEN } from "../masters/Masters";
+// import { hndProgramsEN } from "../hnd/HND";
+// import { bachelorsProgramsEN } from "../bachelors/Bachelors";
+// import { mastersProgramsEN } from "../masters/Masters";
 
-import { getTeam, getEvents, getProgrammes } from "../../redux/reducers/app";
+import {
+  getTeam,
+  getEvents,
+  getProgrammes,
+  getCampuses,
+  getFaculties,
+} from "../../redux/reducers/app";
 
-const FR = "fr";
+// const FR = "fr";
 export const programmesEN = [
   {
     // image: require("../../assets/converted/IVS_7525.jpg"),
@@ -91,113 +92,84 @@ export const programmesFR = [
   },
 ];
 
-export const programsEn = ["HND", "Foundation", "Bachelors", "Masters"];
-export const programsFR = [
-  "HND",
-  "Cours de Courte Durée",
-  "Bacheliers",
-  "Maîtres",
-];
+// export const programsEn = ["HND", "Foundation", "Bachelors", "Masters"];
+// export const programsFR = [
+//   "HND",
+//   "Cours de Courte Durée",
+//   "Bacheliers",
+//   "Maîtres",
+// ];
 
-export const campusEn = [
-  "Bonaberi",
-  "Bonamoussadi",
-  "Yaounde",
-  "Ndu",
-  "Bamenda",
-];
-export const campusFR = [
-  "Bonaberi",
-  "Bonamoussadi",
-  "Yaounde",
-  "Ndu",
-  "Bamenda",
-];
+// export const campusEn = [
+//   "Bonaberi",
+//   "Bonamoussadi",
+//   "Yaounde",
+//   "Ndu",
+//   "Bamenda",
+// ];
+// export const campusFR = [
+//   "Bonaberi",
+//   "Bonamoussadi",
+//   "Yaounde",
+//   "Ndu",
+//   "Bamenda",
+// ];
 
 // Helper function for language-specific programs
-const getLanguagePrograms = (language: string) => {
-  return language === FR ? programsFR : programsEn;
-};
+// const getLanguagePrograms = (language: string) => {
+//   return language === FR ? programsFR : programsEn;
+// };
 
 // Helper function for camous-specific campus
-const getCampuses = (campus: string) => {
-  return campus === FR ? campusFR : campusEn;
-};
+// const getCampuses = (campus: string) => {
+//   return campus === FR ? campusFR : campusEn;
+// };
 
 // Helper function to navigate based on selection
 const handleSearchNavigation = (
-  selected: string,
-  selectedCampus: string,
+  selected: any,
+  selectedCampus: any,
+  selectedFaculty: any,
   navigate: Function,
   input: string
 ) => {
-  if (selected.length > 0) {
-    const param = (tag: string) =>
-      input.toLowerCase().split(" ").join("-").concat(`-${tag}`);
-    switch (selected) {
-      case "HND":
-        if (input) {
-          navigate(`/programme?id=${param("hnd")}`);
-        } else {
-          navigate("/hnd");
-        }
-        break;
-      case "Foundation":
-      case "Cours de Courte Durée":
-        navigate("/foundation");
-        break;
-      case "Bachelors":
-      case "Bacheliers":
-        if (input) {
-          navigate(`/programme?id=${param("bsc")}`);
-        } else {
-          navigate("/bachelors");
-        }
-        break;
-      case "Masters":
-      case "Maîtres":
-        if (input) {
-          navigate(`/programme?id=${param("bsc")}`);
-        } else {
-          navigate("/masters");
-        }
-        break;
-      default:
-        break;
-    }
+  if (selected && selectedCampus && selectedCampus) {
+    const param = `/program-search/${selected._id}/${selectedCampus._id}/${selectedFaculty._id}`;
+    navigate(param);
+    // const param = (tag: string) =>
+    //   input.toLowerCase().split(" ").join("-").concat(`-${tag}`);
+    // switch (selected) {
+    //   case "HND":
+    //     if (input) {
+    //       navigate(`/programme?id=${param("hnd")}`);
+    //     } else {
+    //       navigate("/hnd");
+    //     }
+    //     break;
+    //   case "Foundation":
+    //   case "Cours de Courte Durée":
+    //     navigate("/foundation");
+    //     break;
+    //   case "Bachelors":
+    //   case "Bacheliers":
+    //     if (input) {
+    //       navigate(`/programme?id=${param("bsc")}`);
+    //     } else {
+    //       navigate("/bachelors");
+    //     }
+    //     break;
+    //   case "Masters":
+    //   case "Maîtres":
+    //     if (input) {
+    //       navigate(`/programme?id=${param("bsc")}`);
+    //     } else {
+    //       navigate("/masters");
+    //     }
+    //     break;
+    //   default:
+    //     break;
+    // }
   }
-  // if (selectedCampus.length > 0) {
-  //   const param = (tag: string) =>
-  //     input.toLowerCase().split(" ").join("-").concat(`-${tag}`);
-  //   switch (selectedCampus) {
-  //     case "Bonaberi":
-  //       localStorage.setItem("@campusSelected", JSON.stringify(0));
-  //       navigate("/campus-details");
-  //       break;
-  //     case "Foundation":
-  //     case "Cours de Courte Durée":
-  //       navigate("/foundation");
-  //       break;
-  //     case "Bachelors":
-  //     case "Bacheliers":
-  //       if (input) {
-  //         navigate(`/programme?id=${param("bsc")}`);
-  //       } else {
-  //         navigate("/bachelors");
-  //       }
-  //       break;
-  //     case "Masters":
-  //     case "Maîtres":
-  //       if (input) {
-  //         navigate(`/programme?id=${param("bsc")}`);
-  //       } else {
-  //         navigate("/masters");
-  //       }
-  //       break;
-  //     default:
-  //       break;
-  //   }
-  // }
 };
 
 export const SearchComponent = ({
@@ -205,6 +177,8 @@ export const SearchComponent = ({
   setSelected,
   selectedCampus,
   setSelectedCampus,
+  selectedFaculty,
+  setSelectedFaculty,
   input,
   setInput,
   navigate,
@@ -218,6 +192,8 @@ export const SearchComponent = ({
   setSelected: Function;
   selectedCampus: string;
   setSelectedCampus: Function;
+  selectedFaculty: string;
+  setSelectedFaculty: Function;
   input: string;
   setInput: Function;
   navigate: Function;
@@ -229,46 +205,46 @@ export const SearchComponent = ({
 }) => {
   const [suggestions, setSuggestions] = useState<any[]>([]);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
-    const value = e.target.value;
-    setInput(value);
+  // const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
+  //   const value = e.target.value;
+  //   setInput(value);
 
-    if (value.trim() !== "") {
-      switch (selected) {
-        case "HND":
-          const filteredSuggestions = hndProgramsEN
-            .flatMap((program) => program.list)
-            .filter((prog) =>
-              prog.toUpperCase().startsWith(value.toUpperCase())
-            );
+  //   if (value.trim() !== "") {
+  //     switch (selected) {
+  //       case "HND":
+  //         const filteredSuggestions = hndProgramsEN
+  //           .flatMap((program) => program.list)
+  //           .filter((prog) =>
+  //             prog.toUpperCase().startsWith(value.toUpperCase())
+  //           );
 
-          setSuggestions(filteredSuggestions);
-          break;
-        case "Bachelors":
-        case "Bacheliers":
-          const filteredBachelorsSuggestions = bachelorsProgramsEN
-            .flatMap((program) => program.list)
-            .filter((prog) =>
-              prog.toUpperCase().startsWith(value.toUpperCase())
-            );
-          setSuggestions(filteredBachelorsSuggestions);
-          break;
-        case "Masters":
-        case "Maîtres":
-          const filteredMastersSuggestions = mastersProgramsEN
-            .flatMap((program) => program.list)
-            .filter((prog) =>
-              prog.toUpperCase().startsWith(value.toUpperCase())
-            );
-          setSuggestions(filteredMastersSuggestions);
-          break;
-        default:
-          break;
-      }
-    } else {
-      setSuggestions([]);
-    }
-  };
+  //         setSuggestions(filteredSuggestions);
+  //         break;
+  //       case "Bachelors":
+  //       case "Bacheliers":
+  //         const filteredBachelorsSuggestions = bachelorsProgramsEN
+  //           .flatMap((program) => program.list)
+  //           .filter((prog) =>
+  //             prog.toUpperCase().startsWith(value.toUpperCase())
+  //           );
+  //         setSuggestions(filteredBachelorsSuggestions);
+  //         break;
+  //       case "Masters":
+  //       case "Maîtres":
+  //         const filteredMastersSuggestions = mastersProgramsEN
+  //           .flatMap((program) => program.list)
+  //           .filter((prog) =>
+  //             prog.toUpperCase().startsWith(value.toUpperCase())
+  //           );
+  //         setSuggestions(filteredMastersSuggestions);
+  //         break;
+  //       default:
+  //         break;
+  //     }
+  //   } else {
+  //     setSuggestions([]);
+  //   }
+  // };
 
   const handleSuggestionClick = (suggestion: any) => {
     setInput(suggestion); // Set input value to the clicked suggestion
@@ -276,8 +252,86 @@ export const SearchComponent = ({
   };
 
   const handleSearch = () => {
-    handleSearchNavigation(selected, selectedCampus, navigate, input);
+    handleSearchNavigation(
+      selected,
+      selectedCampus,
+      selectedFaculty,
+      navigate,
+      input
+    );
   };
+
+  const [programmes, setProgrammes] = useState([]);
+  const [campuses, setCampuses] = useState([]);
+  const [faculties, setFaculties] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+  const handlerGetProgrammes = async () => {
+    try {
+      setLoading(true);
+      await getProgrammes()
+        .then((res: any) => {
+          if (res.status === 200) {
+            setProgrammes(res.data);
+            setLoading(false);
+            return;
+          }
+          setLoading(false);
+        })
+        .catch((err: any) => {
+          console.error(err);
+          setLoading(false);
+        });
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  const handlerGetCampuses = async () => {
+    try {
+      setLoading(true);
+      await getCampuses()
+        .then((res: any) => {
+          if (res.status === 200) {
+            setCampuses(res.data);
+            setLoading(false);
+            return;
+          }
+          setLoading(false);
+        })
+        .catch((err: any) => {
+          console.error(err);
+          setLoading(false);
+        });
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  const handlerGetFaculties = async () => {
+    try {
+      setLoading(true);
+      await getFaculties()
+        .then((res: any) => {
+          if (res.status === 200) {
+            setFaculties(res.data);
+            setLoading(false);
+            return;
+          }
+          setLoading(false);
+        })
+        .catch((err: any) => {
+          console.error(err);
+          setLoading(false);
+        });
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  useEffect(() => {
+    handlerGetFaculties();
+    handlerGetCampuses();
+    handlerGetProgrammes();
+  }, []);
 
   return (
     <Fade
@@ -287,22 +341,33 @@ export const SearchComponent = ({
     >
       <div className={`landing__search ${className && className}`}>
         <SelectMolecule
-          list={getLanguagePrograms(i18n.language)}
+          list={programmes}
           selected={selected}
           onSelect={(data: string) => {
             setSelected(data);
           }}
+          program={"Programme"}
         />
 
-        {/* <SelectMolecule
-          list={getCampuses(i18n.language)}
+        <SelectMolecule
+          list={campuses}
           selected={selectedCampus}
           onSelect={(data: string) => {
             setSelectedCampus(data);
           }}
-        /> */}
+          program={"Campus"}
+        />
 
-        <input
+        <SelectMolecule
+          list={faculties}
+          selected={selectedFaculty}
+          onSelect={(data: string) => {
+            setSelectedFaculty(data);
+          }}
+          program={"Faculty"}
+        />
+
+        {/* <input
           type="text"
           value={input}
           onChange={handleChange}
@@ -311,7 +376,7 @@ export const SearchComponent = ({
               ? suggestions[0].title
               : t("landing.search_field_data")
           }
-        />
+        /> */}
 
         <button onClick={handleSearch}>{t("landing.search_field")}</button>
       </div>
@@ -342,41 +407,49 @@ export const SearchComponent = ({
 };
 
 const Landing = () => {
-  const width = window.innerWidth;
+  // const width = window.innerWidth;
   const listRef = useRef<HTMLDivElement>(null);
   const [input, setInput] = useState("");
   const { t, i18n } = useTranslation();
   const navigate = useNavigate();
-  const [selected, setSelected] = useState(
-    i18n.language === "en" ? programsEn[0] : programsFR[0]
-  );
-  const [selectedCampus, setSelectedCampus] = useState(
-    i18n.language === "en" ? campusEn[0] : campusFR[0]
-  );
 
-  const searchRef = useRef<HTMLInputElement>(null);
-  const searchFunc = () => {
-    if (selected.length > 0 && input.length === 0) {
-      if (selected === "HND") {
-        navigate("/hnd");
-      } else if (
-        selected === "Foundation" ||
-        selected === "Cours de Courte Durée"
-      ) {
-        navigate("/foundation");
-      } else if (selected === "Bachelors" || selected === "Bacheliers") {
-        navigate("/bachelors");
-      } else if (selected === "Masters" || selected === "Maîtres") {
-        navigate("/masters");
-      }
-    }
+  const [selected, setSelected] = useState("");
+  const [selectedCampus, setSelectedCampus] = useState("");
+  const [selectedFaculty, setSelectedFaculty] = useState("");
 
-    // if (selected.length > 0 && input.length > 0) {
-    //   navigate(`/${selected}/${input}`);
-    // }
-  };
+  // const [selected, setSelected] = useState(
+  //   i18n.language === "en" ? programsEn[0] : programsFR[0]
+  // );
+  // const [selectedCampus, setSelectedCampus] = useState(
+  //   i18n.language === "en" ? campusEn[0] : campusFR[0]
+  // );
+  // const [selectedFaculty, setSelectedFaculty] = useState(
+  //   i18n.language === "en" ? campusEn[0] : campusFR[0]
+  // );
 
-  const language = i18n.language;
+  // const searchRef = useRef<HTMLInputElement>(null);
+  // const searchFunc = () => {
+  //   if (selected.length > 0 && input.length === 0) {
+  //     if (selected === "HND") {
+  //       navigate("/hnd");
+  //     } else if (
+  //       selected === "Foundation" ||
+  //       selected === "Cours de Courte Durée"
+  //     ) {
+  //       navigate("/foundation");
+  //     } else if (selected === "Bachelors" || selected === "Bacheliers") {
+  //       navigate("/bachelors");
+  //     } else if (selected === "Masters" || selected === "Maîtres") {
+  //       navigate("/masters");
+  //     }
+  //   }
+
+  //   // if (selected.length > 0 && input.length > 0) {
+  //   //   navigate(`/${selected}/${input}`);
+  //   // }
+  // };
+
+  // const language = i18n.language;
   // const programmes = language === FR ? programmesFR : programmesEN;
   // const events = language === FR ? eventsFR : eventsEN;
   useEffect(() => {
@@ -512,6 +585,8 @@ const Landing = () => {
           setSelected={setSelected}
           selectedCampus={selectedCampus}
           setSelectedCampus={setSelectedCampus}
+          selectedFaculty={selectedFaculty}
+          setSelectedFaculty={setSelectedFaculty}
           input={input}
           setInput={setInput}
           navigate={navigate}
@@ -695,6 +770,7 @@ const Landing = () => {
                     margin: "0 10px",
                     height: "100%",
                   }}
+                  key={index}
                 >
                   <Event key={index} event={event} />
                 </div>
