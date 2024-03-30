@@ -455,6 +455,7 @@ const Navbar = () => {
             setSelectedCampus={setSelectedCampus}
             selectedFaculty={selectedFaculty}
             setSelectedFaculty={setSelectedFaculty}
+            setSearchClicked={() => setSearchClicked(false)}
             input={input}
             setInput={setInput}
             navigate={navigate}
@@ -503,6 +504,7 @@ const Navbar = () => {
             setSelectedCampus={setSelectedCampus}
             selectedFaculty={selectedFaculty}
             setSelectedFaculty={setSelectedFaculty}
+            setSearchClicked={() => setSearchClicked(false)}
             input={input}
             setInput={setInput}
             navigate={navigate}

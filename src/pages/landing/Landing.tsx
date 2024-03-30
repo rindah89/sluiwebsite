@@ -179,6 +179,7 @@ export const SearchComponent = ({
   setSelectedCampus,
   selectedFaculty,
   setSelectedFaculty,
+  setSearchClicked,
   input,
   setInput,
   navigate,
@@ -194,6 +195,7 @@ export const SearchComponent = ({
   setSelectedCampus: Function;
   selectedFaculty: string;
   setSelectedFaculty: Function;
+  setSearchClicked: Function;
   input: string;
   setInput: Function;
   navigate: Function;
@@ -252,6 +254,9 @@ export const SearchComponent = ({
   };
 
   const handleSearch = () => {
+    if (selected && selectedCampus && selectedCampus) {
+      setSearchClicked(false);
+    }
     handleSearchNavigation(
       selected,
       selectedCampus,
@@ -416,6 +421,7 @@ const Landing = () => {
   const [selected, setSelected] = useState("");
   const [selectedCampus, setSelectedCampus] = useState("");
   const [selectedFaculty, setSelectedFaculty] = useState("");
+  const [searchClicked, setSearchClicked] = useState(false);
 
   // const [selected, setSelected] = useState(
   //   i18n.language === "en" ? programsEn[0] : programsFR[0]
@@ -587,6 +593,7 @@ const Landing = () => {
           setSelectedCampus={setSelectedCampus}
           selectedFaculty={selectedFaculty}
           setSelectedFaculty={setSelectedFaculty}
+          setSearchClicked={setSearchClicked}
           input={input}
           setInput={setInput}
           navigate={navigate}

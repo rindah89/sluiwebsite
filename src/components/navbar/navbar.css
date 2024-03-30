@@ -200,8 +200,8 @@
   z-index: 1;
 }
 
-.menu li:hover > .dropdown,
-.menu li:focus-within > .dropdown {
+.menu li:hover>.dropdown,
+.menu li:focus-within>.dropdown {
   transform: scaleY(1);
   -webkit-transform: scaleY(1);
   -moz-transform: scaleY(1);
@@ -233,7 +233,7 @@
   -ms-flex: 1;
 }
 
-.menu li .dropdown li a:hover > span {
+.menu li .dropdown li a:hover>span {
   transform: translateX(10px);
   -webkit-transform: translateX(10px);
   -moz-transform: translateX(10px);

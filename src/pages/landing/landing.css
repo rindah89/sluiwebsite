@@ -64,9 +64,11 @@
   0% {
     background-color: #e2413c29;
   }
+
   50% {
     background-color: #e2413c66;
   }
+
   100% {
     background-color: #e2413c;
   }
@@ -137,13 +139,13 @@
   padding: 2rem 4vw;
 }
 
-.programs_ .headline > h2 {
+.programs_ .headline>h2 {
   font-size: 5rem;
   font-weight: 700;
   color: rgba(0, 0, 0, 0.8);
 }
 
-.programs_ .headline > h3 {
+.programs_ .headline>h3 {
   font-size: 1.8rem;
   margin-bottom: 1.5rem;
 }
@@ -200,7 +202,8 @@
   overflow: visible !important;
 }
 
-.landing__search, landing__search__navbar {
+.landing__search,
+.landing__search__navbar {
   width: 100%;
   display: flex;
   display: -ms-flexbox;
@@ -217,6 +220,7 @@
 .landing__search__navbar {
   padding: 1rem;
 }
+
 .landing__search button {
   padding: 0 24px;
   height: 69px;
@@ -263,12 +267,21 @@
     padding-block: 4rem;
   }
 
-  .programs_ .headline > h2 {
+  .programs_ .headline>h2 {
     font-size: 4rem;
   }
 }
 
 @media screen and (max-width: 750px) {
+  .landing__search {
+    display: block;
+    margin-top: 30px;
+  }
+
+  .landing__search__navbar {
+    margin-top: 200px;
+  }
+
   .about .desc h4 {
     font-size: 1.8rem;
   }
@@ -304,7 +317,7 @@
     background-position: top right;
   }
 
-  .programs_ .headline > h2 {
+  .programs_ .headline>h2 {
     font-size: 3rem;
   }
 }

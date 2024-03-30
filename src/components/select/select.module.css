@@ -51,6 +51,7 @@
   height: 150px;
   width: fit-content;
   overflow-y: auto;
+  overflow: scroll;
 }
 
 .options h4 {
