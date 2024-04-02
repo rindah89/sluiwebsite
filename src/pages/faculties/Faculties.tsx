@@ -525,7 +525,7 @@ const Faculties = () => {
       <div className={styles.faculties__arena}>
         <h2>{t("faculties.tag")}</h2>
       </div>
-      {faculties.map((item: any, index: number) => {
+      {faculties?.map((item: any, index: number) => {
         return (
           <div className="content__section" key={index}>
             <div>
