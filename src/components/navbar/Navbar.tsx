@@ -287,7 +287,6 @@ const Navbar = () => {
       console.error(error);
     }
   };
-
   const filterDept = () => {
     const filtered = departments.filter(
       (item: any) => item.facultyID === faculties[activePanelIndex]?._id
@@ -384,7 +383,7 @@ const Navbar = () => {
             }}
             href="/#"
           >
-            {t("header.programmes")}
+            {t("header.study")}
           </a>
         </li>
         <li>

@@ -13,7 +13,12 @@ import FacultyPopup, {
 import { programmesEN, programmesFR } from "../landing/Landing";
 import Membership from "../../components/membership/Membership";
 import { useTranslation } from "react-i18next";
-import { getProgrammes } from "../../redux/reducers/app";
+import {
+  getProgrammes,
+  getFaculties,
+  getCategories,
+  getCourses,
+} from "../../redux/reducers/app";
 
 const FR = "fr";
 
@@ -361,6 +366,11 @@ const Faculties = () => {
 
   // const programmes = i18n.language === FR ? programmesFR : programmesEN;
   const [programmes, setProgrammes] = useState([]);
+  const [faculties, setFaculties] = useState<any>([]);
+  const [departments, setDepartments] = useState<any>([]);
+  const [filteredDepartment, setFilteredDepartment] = useState<any>([]);
+  const [courses, setCourses] = useState([]);
+  const [filteredCourses, setFilteredCourse] = useState<any[]>([]);
   const [loading, setLoading] = useState(false);
 
   const handlerGetProgrammes = async () => {
@@ -384,9 +394,106 @@ const Faculties = () => {
     }
   };
 
+  const handlerGetFaculties = async () => {
+    try {
+      setLoading(true);
+      await getFaculties()
+        .then((res: any) => {
+          if (res.status === 200) {
+            setFaculties(res.data);
+            setLoading(false);
+            return;
+          }
+          setLoading(false);
+        })
+        .catch((err: any) => {
+          console.error(err);
+          setLoading(false);
+        });
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const handlerGetDepartments = async () => {
+    try {
+      setLoading(true);
+      await getCategories()
+        .then((res: any) => {
+          if (res.status === 200) {
+            setDepartments(res.data);
+            setLoading(false);
+            return;
+          }
+          setLoading(false);
+        })
+        .catch((err: any) => {
+          console.error(err);
+          setLoading(false);
+        });
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const handlerGetCourses = async () => {
+    try {
+      setLoading(true);
+      await getCourses()
+        .then((res: any) => {
+          if (res.status === 200) {
+            setCourses(res.data);
+            setLoading(false);
+            return;
+          }
+          setLoading(false);
+        })
+        .catch((err: any) => {
+          console.error(err);
+          setLoading(false);
+        });
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const filterDept = () => {
+    const filtered = departments.filter(
+      (item: any) => item.facultyID === faculties[activePanelIndex]?._id
+    );
+    setFilteredDepartment(filtered);
+  };
+
+  const filterCourses = () => {
+    const filteredCoursesByCategory: any[] = [];
+
+    filteredDepartment.forEach((item: any) => {
+      const filtered = courses.filter(
+        (crs: any) => crs.programType === item._id
+      );
+      filteredCoursesByCategory.push({
+        programCategory: item,
+        courses: filtered,
+      });
+    });
+
+    return setFilteredCourse(filteredCoursesByCategory);
+  };
+
   useEffect(() => {
+    handlerGetCourses();
+    handlerGetFaculties();
     handlerGetProgrammes();
+    handlerGetDepartments();
   }, []);
+
+  useEffect(() => {
+    filterDept();
+  }, [activePanelIndex]);
+
+  useEffect(() => {
+    filterCourses();
+  }, [filteredDepartment, courses]);
 
   return (
     <div>
@@ -398,10 +505,10 @@ const Faculties = () => {
           }}
         >
           <FacultyPopup
-            title={facultiesData[activePanelIndex].title}
-            desc={facultiesData[activePanelIndex].desc}
-            subDesc={facultiesData[activePanelIndex].subDesc}
-            programs={facultiesData[activePanelIndex].programs}
+            title={faculties[activePanelIndex]?.title}
+            desc={faculties[activePanelIndex]?.details}
+            subDesc={faculties[activePanelIndex]?.subDesc}
+            programs={filteredCourses}
           />
         </div>
       )}
@@ -411,70 +518,38 @@ const Faculties = () => {
           <h1>{t("faculties.our")}</h1>
         </Fade>
 
-        <Fade up>
+        {/* <Fade up>
           <p>{t("faculties.des")}</p>
-        </Fade>
+        </Fade> */}
       </div>
       <div className={styles.faculties__arena}>
         <h2>{t("faculties.tag")}</h2>
       </div>
-      <div className="content__section">
-        <div>
-          <Content
-            direction="LEFT"
-            caption=""
-            title={t("faculties.fhbs")}
-            subText=""
-            description={t("faculties.fhbs_desc")}
-            refLink="/"
-            btnText={t("faculties.view_more")}
-            img="/pics/optimized/ivs-6804.webp"
-            onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
-              e.preventDefault();
-              setActivePanel(true);
-              setActivePanelIndex(0);
-            }}
-          />
-        </div>
-      </div>
-      <div className="content__section">
-        <div>
-          <Content
-            direction="RIGHT"
-            caption=""
-            title={t("faculties.fet")}
-            subText=""
-            description={t("faculties.fet_desc")}
-            refLink="/"
-            btnText={t("faculties.view_more")}
-            img="/pics/optimized/ivs-7501.webp"
-            onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
-              e.preventDefault();
-              setActivePanel(true);
-              setActivePanelIndex(1);
-            }}
-          />
-        </div>
-      </div>
-      <div className="content__section">
-        <div>
-          <Content
-            direction="LEFT"
-            caption=""
-            title={t("faculties.fans")}
-            subText=""
-            description={t("faculties.fans_desc")}
-            refLink="/"
-            btnText={t("faculties.view_more")}
-            img="/pics/optimized/ivs-6903.webp"
-            onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
-              e.preventDefault();
-              setActivePanel(true);
-              setActivePanelIndex(2);
-            }}
-          />
-        </div>
-      </div>
+      {faculties.map((item: any, index: number) => {
+        return (
+          <div className="content__section" key={index}>
+            <div>
+              <Content
+                direction={index === 1 ? "RIGHT" : "LEFT"}
+                caption=""
+                // title={t("faculties.fhbs")}
+                title={item?.title}
+                subText=""
+                // description={t("faculties.fhbs_desc")}
+                description={item?.details}
+                refLink="/"
+                btnText={t("faculties.view_more")}
+                img={`${process.env.REACT_APP_BASE_URL}/uploads/gallery/${item?.image}`}
+                onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
+                  e.preventDefault();
+                  setActivePanel(true);
+                  setActivePanelIndex(index);
+                }}
+              />
+            </div>
+          </div>
+        );
+      })}
       <div className="programs_">
         <div className="headline">
           <h3>J{t("faculties.just_fit")}</h3>
