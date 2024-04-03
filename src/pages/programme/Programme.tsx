@@ -443,7 +443,7 @@ const Programme: FC<any> = () => {
             <div className={styles.left_content}>
               <p>{course?.summary}</p>
               <div className={styles.buttons}>
-                <button>Request for information</button>
+                <a href="/fill-form">Request for information</a>
                 <a href="https://apply.stlouissystems.org/">Apply now</a>
               </div>
             </div>
