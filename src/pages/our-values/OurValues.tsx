@@ -48,11 +48,13 @@ const OurValues = () => {
 
   return (
     <div>
-      <div className="hero">
+      <div className={styles.hero}>
         <h3>{t("values.name")}</h3>
         <Fade left>
           <h1>{t("values.value")}</h1>
         </Fade>
+        <h3>{t("core_principles.around_you")}</h3>
+        <h3>{t("core_principles.around_you_tag")}</h3>
       </div>
 
       <div style={{ minHeight: "10vh", padding: "4rem 0" }} className="about">
@@ -128,6 +130,59 @@ const OurValues = () => {
 
         <div className={styles.content}>
           <h4>{t("values.steward_text1")}</h4>
+        </div>
+      </div>
+
+      {/* PRINCIPLES */}
+
+      <div className={styles.desc}>
+        <div className={styles.head}>
+          <h2>{t("core_principles.sbs")}</h2>
+        </div>
+
+        <div className={styles.content}>
+          <h4>{t("core_principles.we_believe")}</h4>
+          <h4 style={{ marginTop: "4rem" }}>
+            {t("core_principles.principles")}?{" "}
+          </h4>
+          <h4>{t("core_principles.no_thanks")}</h4>
+        </div>
+      </div>
+
+      <div className={styles.desc}>
+        <div className={styles.head}>
+          <h2>{t("core_principles.eye_level")}</h2>
+        </div>
+
+        <div className={styles.content}>
+          <h4>{t("core_principles.eye_level_text")}</h4>
+        </div>
+      </div>
+
+      <div className={styles.desc}>
+        <div className={styles.head}>
+          <h2>{t("core_principles.mistakes")}</h2>
+        </div>
+
+        <div className={styles.content}>
+          <h4>
+            {t("core_principles.mistakes_text1")}
+            <span style={{ fontWeight: "600" }}>
+              {t("core_principles.mistakes_text2")}
+            </span>
+            {t("core_principles.mistakes_text3")}
+          </h4>
+        </div>
+      </div>
+
+      <div className={styles.desc}>
+        <div className={styles.head}>
+          <h2>{t("core_principles.real_world")}</h2>
+        </div>
+
+        <div className={styles.content}>
+          <h4>{t("core_principles.real_world_text1")}</h4>
+          <h4>{t("core_principles.real_world_text2")}</h4>
         </div>
       </div>
 

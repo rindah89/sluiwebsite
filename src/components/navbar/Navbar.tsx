@@ -3,7 +3,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AiOutlineClose, AiOutlineArrowRight } from "react-icons/ai";
-import { FcApproval } from "react-icons/fc";
+// import { FcApproval } from "react-icons/fc";
 import { HiBars3BottomLeft } from "react-icons/hi2";
 import Slider from "../TextSlider/Slider";
 
@@ -33,95 +33,6 @@ import {
   getCourses,
 } from "../../redux/reducers/app";
 
-const programsEn = [
-  {
-    icon: (
-      <>
-        <FcApproval style={{ marginTop: "0.2rem" }} size={30} />
-      </>
-    ),
-    title: "HND",
-    desc: "Discover the opportunities and your path to a dream career in the health, agriculture, engineering and technology sector.",
-    link: "/hnd",
-  },
-  {
-    icon: (
-      <>
-        <FcApproval style={{ marginTop: "0.2rem" }} size={30} />
-      </>
-    ),
-    title: "Foundation",
-    desc: "The new SLUI International Medical Foundation Programme is a foundation course in Cameroon that provides you with the knowledge and competences to meet entry requirement into medical schools abroad.",
-    link: "/foundation",
-  },
-  {
-    icon: (
-      <>
-        <FcApproval style={{ marginTop: "0.2rem" }} size={30} />
-      </>
-    ),
-    title: "Bachelors",
-    desc: "Your start to an international career. Health, Agriculture, Engineering and Technology industries have never been so diverse. The modern range of courses offered by ST. LOUIS UNIVERSITY INSTITUTE holds the right degree programme for every talent.",
-    link: "/bachelors",
-  },
-  {
-    icon: (
-      <>
-        <FcApproval style={{ marginTop: "0.2rem" }} size={30} />
-      </>
-    ),
-    title: "Masters",
-    desc: "St Louis University Institute gives the opportunity for workers in any part of the world to further their studies and gain quality degrees while still working 100% at their job site. We currently have 9 master study programmes.",
-    link: "/masters",
-  },
-];
-
-const programsFR = [
-  {
-    icon: (
-      <>
-        <FcApproval style={{ marginTop: "0.2rem" }} size={30} />
-      </>
-    ),
-    title: "HND",
-    desc: "Découvrez les opportunités et votre chemin vers une carrière de rêve dans le secteur de la santé, de l'agriculture, de l'ingénierie et de la technologie.",
-    link: "/hnd",
-  },
-  {
-    icon: (
-      <>
-        <FcApproval style={{ marginTop: "0.2rem" }} size={30} />
-      </>
-    ),
-    title: "Foundation",
-    desc: "Le nouveau programme SLUI International Medical Foundation est un cours de base au Cameroun qui vous permet d'acquérir les connaissances et les compétences nécessaires pour répondre aux exigences d'entrée dans les facultés de médecine à l'étranger.",
-    link: "/foundation",
-  },
-  {
-    icon: (
-      <>
-        <FcApproval style={{ marginTop: "0.2rem" }} size={30} />
-      </>
-    ),
-    title: "Bacheliers",
-    desc: "Le point de départ d'une carrière internationale. Les secteurs de la santé, de l'agriculture, de l'ingénierie et de la technologie n'ont jamais été aussi diversifiés. La gamme moderne de cours proposés par l'INSTITUT UNIVERSITAIRE ST. LOUIS UNIVERSITY INSTITUTE offre un programme diplômant adapté à chaque talent.",
-    link: "/bachelors",
-  },
-  {
-    icon: (
-      <>
-        <FcApproval style={{ marginTop: "0.2rem" }} size={30} />
-      </>
-    ),
-    title: "Maîtres",
-    desc: "L'Institut universitaire St Louis offre aux travailleurs de toutes les régions du monde la possibilité de poursuivre leurs études et d'obtenir des diplômes de qualité tout en continuant à travailler à 100 % sur leur lieu de travail. Nous proposons actuellement 9 programmes d'études de master.",
-    link: "/masters",
-  },
-];
-
-const campusEn = ["Bonaberi", "Bonamoussadi", "Yaounde", "Ndu", "Bamenda"];
-const campusFR = ["Bonaberi", "Bonamoussadi", "Yaounde", "Ndu", "Bamenda"];
-
 const Navbar = () => {
   const [showMenu, setShowMenu] = useState(false);
 
@@ -147,16 +58,6 @@ const Navbar = () => {
   const [selected, setSelected] = useState("");
   const [selectedCampus, setSelectedCampus] = useState("");
   const [selectedFaculty, setSelectedFaculty] = useState("");
-
-  // const [selected, setSelected] = useState(
-  //   i18n.language === "en" ? listProgramsEn[0] : listProgramsFr[0]
-  // );
-  // const [selectedCampus, setSelectedCampus] = useState(
-  //   i18n.language === "en" ? campusEn[0] : campusFR[0]
-  // );
-  // const [selectedFaculty, setSelectedFaculty] = useState(
-  //   i18n.language === "en" ? campusEn[0] : campusFR[0]
-  // );
 
   const handleSearchIconClick = () => {
     setSearchClicked(true);
@@ -332,56 +233,46 @@ const Navbar = () => {
         <div className={`topNav`}>
           <ul>
             <li>
-              <Link to="/">Home</Link>
+              <Link to="/news-and-events">{t("header_popup.news_events")}</Link>
             </li>
             <li>
-              <Link to="/why-us">Why SLUI</Link>
+              <Link to="/facilities">{t("header_popup.faculties")}</Link>
             </li>
             <li>
-              <Link to="/news-and-events">News</Link>
+              <Link to="/application-and-admission">
+                {t("header_popup.hta")}
+              </Link>
             </li>
             <li>
-              <Link to="/facilities">Facilities</Link>
-            </li>
-            <li>
-              <Link to="/our-values">Our Values</Link>
-            </li>
-            <li>
-              <Link to="/application-and-admission">How to Apply</Link>
-            </li>
-            <li>
-              <Link to="/scholarships">Scholarships</Link>
+              <Link to="/scholarships"> {t("header_popup.scholarship")}</Link>
             </li>
             <li>
               <Link
                 target="_blank"
                 to="https://drive.google.com/file/d/1YeHgdwW60XqlO07ixf__0IEhSPKj-rGH/view?usp=drive_link"
               >
-                Student Guide
+                {t("header_popup.student_guide")}
               </Link>
             </li>
             <li>
-              <Link to="/handbook">Handbook</Link>
+              <Link to="/handbook">{t("header_popup.handbook")}</Link>
             </li>
             <li>
               <Link
                 target="_blank"
                 to="https://drive.google.com/file/d/10mGyssnKFADEbhsUjY_UG7caT4UDRzu7/view?usp=drive_link"
               >
-                Prospectus
+                {t("header_popup.prospectus")}
               </Link>
             </li>
             <li>
-              <Link to="/fees">Fees</Link>
+              <Link to="/fees"> {t("header_popup.fees")}</Link>
             </li>
             <li>
-              <Link to="/leadership-team">Leadership Team</Link>
+              <Link to="/alumni"> {t("header_popup.alumni")}</Link>
             </li>
             <li>
-              <Link to="/alumni">Alumni</Link>
-            </li>
-            <li>
-              <Link to="/fill-form">Contact Us</Link>
+              <Link to="/fill-form">{t("header_popup.contact")}</Link>
             </li>
           </ul>
           <Slider />
@@ -433,18 +324,67 @@ const Navbar = () => {
               </button>
             </div>
             <li>
-              <Link to="/about">{t("header.about")}</Link>
+              <Link className="non__before" to="/about">
+                {t("header.about")}
+              </Link>
+              <ul className="dropdown">
+                <li>
+                  <Link to="/why-us" style={{ cursor: "pointer" }}>
+                    {t("header_popup.yslui")}
+                    <span>
+                      <AiOutlineArrowRight style={{ marginTop: "0.5rem" }} />
+                    </span>
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/our-values" style={{ cursor: "pointer" }}>
+                    {t("header_popup.our_values")}
+                    <span>
+                      <AiOutlineArrowRight style={{ marginTop: "0.5rem" }} />
+                    </span>
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/leadership-team" style={{ cursor: "pointer" }}>
+                    {t("header_popup.leadership")}
+                    <span>
+                      <AiOutlineArrowRight style={{ marginTop: "0.5rem" }} />
+                    </span>
+                  </Link>
+                </li>
+              </ul>
             </li>
             <li>
-              <a
+              <Link
+                className="non__before"
                 onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
                   e.preventDefault();
                   setProgramsPanelActivated(true);
                 }}
-                href="/#"
+                to="/#"
               >
                 {t("header.programmes")}
-              </a>
+              </Link>
+              <ul className="dropdown">
+                {programmes?.map((item: any, index: number) => {
+                  return (
+                    <li key={index}>
+                      <Link
+                        to={`/program-details/${item._id}`}
+                        style={{ cursor: "pointer" }}
+                      >
+                        {/* {t("header.fhbs")} */}
+                        {item?.title}
+                        <span>
+                          <AiOutlineArrowRight
+                            style={{ marginTop: "0.5rem" }}
+                          />
+                        </span>
+                      </Link>
+                    </li>
+                  );
+                })}
+              </ul>
             </li>
             <li>
               <Link className="non__before" to="/our-faculties">

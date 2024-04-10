@@ -26,8 +26,8 @@
 }
 
 .navbar .topNav ul li {
-  width: 130px;
-  margin: 2px;
+  /* width: 100px; */
+  margin: 0 5px;
 }
 
 .navbar .topNav ul a {
@@ -113,7 +113,7 @@
   background: #fff;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   -webkit-box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  height: 200px;
+  height: 170px;
 }
 
 .navbar .logo img {
