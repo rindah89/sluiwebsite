@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { AiOutlineClose, AiOutlineArrowRight } from "react-icons/ai";
 import { FcApproval } from "react-icons/fc";
 import { HiBars3BottomLeft } from "react-icons/hi2";
+import Slider from "../TextSlider/Slider";
 
 // Icon(s)
 import { FaSearch } from "react-icons/fa";
@@ -326,226 +327,289 @@ const Navbar = () => {
   }, [filteredDepartment, courses]);
 
   return (
-    <nav className={`navbar bg`}>
-      {activePanel && (
-        <div
-          // onClick={() => {
-          //   setActivePanel(false);
-          // }}
-          ref={ref}
-        >
-          <FacultyPopup
-            title={faculties[activePanelIndex]?.title}
-            desc={faculties[activePanelIndex]?.details}
-            subDesc={faculties[activePanelIndex]?.subDesc}
-            programs={filteredCourses}
-          />
-        </div>
-      )}
-
-      {programsPanelActivated && (
-        <div
-          onClick={() => {
-            setProgramsPanelActivated(false);
-          }}
-        >
-          <ProgramPopup programs={programmes} />
-        </div>
-      )}
-      <div className="logo desktop">
-        <Link to="/">
-          <img src="/images/logo_red.webp" alt="logo" />
-        </Link>
-      </div>
-      <div className="logo mobile">
-        <Link to="/">
-          <img src="/logos/logomobile.png" alt="logo" />
-        </Link>
-      </div>
-      <ul className={`menu ${showMenu ? "show" : null}`}>
-        <div className="close">
-          <button
-            onClick={(e: React.MouseEvent<HTMLButtonElement>) =>
-              setShowMenu(false)
-            }
-          >
-            <AiOutlineClose />
-          </button>
-        </div>
-        <li>
-          <Link to="/about">{t("header.about")}</Link>
-        </li>
-        <li>
-          <a
-            onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
-              e.preventDefault();
-              setProgramsPanelActivated(true);
-            }}
-            href="/#"
-          >
-            {t("header.study")}
-          </a>
-        </li>
-        <li>
-          <Link className="non__before" to="/our-faculties">
-            {t("header.faculties")}
-          </Link>
-          <ul className="dropdown">
-            {faculties?.map((item: any, index: number) => {
-              return (
-                <li key={index}>
-                  <a
-                    href="#"
-                    onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
-                      e.preventDefault();
-                      setActivePanelIndex(index);
-                      setActivePanel(true);
-                    }}
-                    style={{ cursor: "pointer" }}
-                  >
-                    {/* {t("header.fhbs")} */}
-                    {item?.title}
-                    <span>
-                      <AiOutlineArrowRight style={{ marginTop: "0.5rem" }} />
-                    </span>
-                  </a>
-                </li>
-              );
-            })}
+    <>
+      <nav className={`navbar bg`}>
+        <div className={`topNav`}>
+          <ul>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/why-us">Why SLUI</Link>
+            </li>
+            <li>
+              <Link to="/news-and-events">News</Link>
+            </li>
+            <li>
+              <Link to="/facilities">Facilities</Link>
+            </li>
+            <li>
+              <Link to="/our-values">Our Values</Link>
+            </li>
+            <li>
+              <Link to="/application-and-admission">How to Apply</Link>
+            </li>
+            <li>
+              <Link to="/scholarships">Scholarships</Link>
+            </li>
+            <li>
+              <Link
+                target="_blank"
+                to="https://drive.google.com/file/d/1YeHgdwW60XqlO07ixf__0IEhSPKj-rGH/view?usp=drive_link"
+              >
+                Student Guide
+              </Link>
+            </li>
+            <li>
+              <Link to="/handbook">Handbook</Link>
+            </li>
+            <li>
+              <Link
+                target="_blank"
+                to="https://drive.google.com/file/d/10mGyssnKFADEbhsUjY_UG7caT4UDRzu7/view?usp=drive_link"
+              >
+                Prospectus
+              </Link>
+            </li>
+            <li>
+              <Link to="/fees">Fees</Link>
+            </li>
+            <li>
+              <Link to="/leadership-team">Leadership Team</Link>
+            </li>
+            <li>
+              <Link to="/alumni">Alumni</Link>
+            </li>
+            <li>
+              <Link to="/fill-form">Contact Us</Link>
+            </li>
           </ul>
-        </li>
-        <li>
-          <Link to="/our-campuses">{t("header.campuses")}</Link>
-        </li>
-        <li>
-          <a
-            rel="noreferrer"
-            target="_blank"
-            style={{ fontWeight: "800", color: "var(--main-color)" }}
-            href="https://apply.stlouissystems.org/"
-          >
-            {t("header.apply")}
-          </a>
-        </li>
+          <Slider />
+        </div>
 
-        <li
-          style={{
-            maxWidth: "fit-content",
-          }}
-        >
-          <div></div>
-        </li>
+        <div className={`bottomNav`}>
+          {activePanel && (
+            <div
+              // onClick={() => {
+              //   setActivePanel(false);
+              // }}
+              ref={ref}
+            >
+              <FacultyPopup
+                title={faculties[activePanelIndex]?.title}
+                desc={faculties[activePanelIndex]?.details}
+                subDesc={faculties[activePanelIndex]?.subDesc}
+                programs={filteredCourses}
+              />
+            </div>
+          )}
+          {programsPanelActivated && (
+            <div
+              onClick={() => {
+                setProgramsPanelActivated(false);
+              }}
+            >
+              <ProgramPopup programs={programmes} />
+            </div>
+          )}
+          <div className="logo desktop">
+            <Link to="/">
+              <img src="/images/logo_red.webp" alt="logo" />
+            </Link>
+          </div>
+          <div className="logo mobile">
+            <Link to="/">
+              <img src="/logos/logomobile.png" alt="logo" />
+            </Link>
+          </div>
+          <ul className={`menu ${showMenu ? "show" : null}`}>
+            <div className="close">
+              <button
+                onClick={(e: React.MouseEvent<HTMLButtonElement>) =>
+                  setShowMenu(false)
+                }
+              >
+                <AiOutlineClose />
+              </button>
+            </div>
+            <li>
+              <Link to="/about">{t("header.about")}</Link>
+            </li>
+            <li>
+              <a
+                onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
+                  e.preventDefault();
+                  setProgramsPanelActivated(true);
+                }}
+                href="/#"
+              >
+                {t("header.programmes")}
+              </a>
+            </li>
+            <li>
+              <Link className="non__before" to="/our-faculties">
+                {t("header.faculties")}
+              </Link>
+              <ul className="dropdown">
+                {faculties?.map((item: any, index: number) => {
+                  return (
+                    <li key={index}>
+                      <a
+                        href="#"
+                        onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
+                          e.preventDefault();
+                          setActivePanelIndex(index);
+                          setActivePanel(true);
+                        }}
+                        style={{ cursor: "pointer" }}
+                      >
+                        {/* {t("header.fhbs")} */}
+                        {item?.title}
+                        <span>
+                          <AiOutlineArrowRight
+                            style={{ marginTop: "0.5rem" }}
+                          />
+                        </span>
+                      </a>
+                    </li>
+                  );
+                })}
+              </ul>
+            </li>
+            <li>
+              <Link to="/our-campuses">{t("header.campuses")}</Link>
+            </li>
+            <li>
+              <a
+                rel="noreferrer"
+                target="_blank"
+                style={{ fontWeight: "800", color: "var(--main-color)" }}
+                href="https://apply.stlouissystems.org/"
+              >
+                {t("header.apply")}
+              </a>
+            </li>
 
-        <li
-          style={{
-            maxWidth: "fit-content",
-          }}
-          className="non"
-        >
-          <Link to="#" onClick={handleChangeLanguage}>
-            {i18n.language === "en" ? "FR" : "EN"}
-          </Link>
-        </li>
-        {searchClicked ? (
-          <SearchComponent
-            selected={selected}
-            setSelected={setSelected}
-            selectedCampus={selectedCampus}
-            setSelectedCampus={setSelectedCampus}
-            selectedFaculty={selectedFaculty}
-            setSelectedFaculty={setSelectedFaculty}
-            setSearchClicked={() => setSearchClicked(false)}
-            input={input}
-            setInput={setInput}
-            navigate={navigate}
-            t={t}
-            i18n={i18n}
-            fadeDir="right"
-            delay={100}
-            className="landing__search__navbar"
-          />
-        ) : (
-          <FaSearch
-            onClick={handleSearchIconClick}
-            size="22px"
-            style={{
-              cursor: "pointer",
-              fontWeight: "800",
-              color: "var(--main-color)",
-            }}
-          />
-        )}
+            <li
+              style={{
+                maxWidth: "fit-content",
+              }}
+            >
+              <div></div>
+            </li>
 
-        <PopupWidget
-          togglePopup={setProgramsPanelActivated}
-          show={showMenu}
-          toggleState={toggleState}
-        />
-        <li
-          style={{
-            maxWidth: "100%",
-          }}
-          className="non"
-        >
-          <HiBars3BottomLeft
-            onClick={() => setShowMenu(true)}
-            style={{ marginTop: "0.3rem", cursor: "pointer" }}
-            size={28}
-          />
-        </li>
-      </ul>
-      <ul className="mobile">
-        {searchClicked ? (
-          <SearchComponent
-            selected={selected}
-            setSelected={setSelected}
-            selectedCampus={selectedCampus}
-            setSelectedCampus={setSelectedCampus}
-            selectedFaculty={selectedFaculty}
-            setSelectedFaculty={setSelectedFaculty}
-            setSearchClicked={() => setSearchClicked(false)}
-            input={input}
-            setInput={setInput}
-            navigate={navigate}
-            t={t}
-            i18n={i18n}
-            fadeDir="right"
-            delay={100}
-            className="landing__search__navbar"
-          />
-        ) : (
-          <FaSearch
-            onClick={handleSearchIconClick}
-            size="22px"
-            style={{
-              cursor: "pointer",
-              fontWeight: "800",
-              color: "var(--main-color)",
-            }}
-          />
-        )}
-        <li
-          style={{
-            maxWidth: "fit-content",
-          }}
-        >
-          <Link to="#" onClick={handleChangeLanguage}>
-            {i18n.language === "en" ? "FR" : "EN"}
-          </Link>
-        </li>
-        <li
-          style={{
-            maxWidth: "fit-content",
-          }}
-        >
-          <HiBars3BottomLeft
-            onClick={() => setShowMenu(true)}
-            style={{ marginTop: "0.3rem", cursor: "pointer" }}
-            size={28}
-          />
-        </li>
-      </ul>
-    </nav>
+            <li
+              style={{
+                maxWidth: "fit-content",
+              }}
+              className="non"
+            >
+              <Link to="#" onClick={handleChangeLanguage}>
+                {i18n.language === "en" ? "FR" : "EN"}
+              </Link>
+            </li>
+            {searchClicked ? (
+              <SearchComponent
+                selected={selected}
+                setSelected={setSelected}
+                selectedCampus={selectedCampus}
+                setSelectedCampus={setSelectedCampus}
+                selectedFaculty={selectedFaculty}
+                setSelectedFaculty={setSelectedFaculty}
+                setSearchClicked={() => setSearchClicked(false)}
+                input={input}
+                setInput={setInput}
+                navigate={navigate}
+                t={t}
+                i18n={i18n}
+                fadeDir="right"
+                delay={100}
+                className="landing__search__navbar"
+              />
+            ) : (
+              <FaSearch
+                onClick={handleSearchIconClick}
+                size="22px"
+                style={{
+                  cursor: "pointer",
+                  fontWeight: "800",
+                  color: "var(--main-color)",
+                }}
+              />
+            )}
+
+            <PopupWidget
+              togglePopup={setProgramsPanelActivated}
+              show={showMenu}
+              toggleState={toggleState}
+            />
+            <li
+              style={{
+                maxWidth: "100%",
+              }}
+              className="non"
+            >
+              <HiBars3BottomLeft
+                onClick={() => setShowMenu(true)}
+                style={{ marginTop: "0.3rem", cursor: "pointer" }}
+                size={28}
+              />
+            </li>
+          </ul>
+          <ul className="mobile">
+            {searchClicked ? (
+              <SearchComponent
+                selected={selected}
+                setSelected={setSelected}
+                selectedCampus={selectedCampus}
+                setSelectedCampus={setSelectedCampus}
+                selectedFaculty={selectedFaculty}
+                setSelectedFaculty={setSelectedFaculty}
+                setSearchClicked={() => setSearchClicked(false)}
+                input={input}
+                setInput={setInput}
+                navigate={navigate}
+                t={t}
+                i18n={i18n}
+                fadeDir="right"
+                delay={100}
+                className="landing__search__navbar"
+              />
+            ) : (
+              <FaSearch
+                onClick={handleSearchIconClick}
+                size="22px"
+                style={{
+                  cursor: "pointer",
+                  fontWeight: "800",
+                  color: "var(--main-color)",
+                }}
+              />
+            )}
+            <li
+              style={{
+                maxWidth: "fit-content",
+              }}
+            >
+              <Link to="#" onClick={handleChangeLanguage}>
+                {i18n.language === "en" ? "FR" : "EN"}
+              </Link>
+            </li>
+            <li
+              style={{
+                maxWidth: "fit-content",
+              }}
+            >
+              <HiBars3BottomLeft
+                onClick={() => setShowMenu(true)}
+                style={{ marginTop: "0.3rem", cursor: "pointer" }}
+                size={28}
+              />
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </>
   );
 };
 

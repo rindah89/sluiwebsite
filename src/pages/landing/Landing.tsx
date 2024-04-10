@@ -568,9 +568,37 @@ const Landing = () => {
     handlerGetProgrammes();
   }, []);
 
+  // Background Image Slider
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const images = [
+    "/pics/optimized/ivs-7545.webp",
+    "/pics/optimized/IVC_0135.jpg",
+    "/pics/optimized/IVS_6598.jpg",
+    "/pics/optimized/ivs-6804.webp",
+    "/pics/optimized/ivs-7466.webp",
+    "/pics/optimized/ivs-7478.webp",
+    "/pics/optimized/ivs-7536.webp",
+  ];
+  const nextImage = () => {
+    setCurrentImageIndex((prevIndex) =>
+      prevIndex === images.length - 1 ? 0 : prevIndex + 1
+    );
+  };
+  const startSlider = () => {
+    setInterval(nextImage, 3000);
+  };
+  useEffect(() => {
+    startSlider();
+  }, []);
+
   return (
     <div className="landing">
-      <div className="hero">
+      <div
+        className="hero"
+        style={{
+          backgroundImage: `url(${images[currentImageIndex]})`,
+        }}
+      >
         <h3>{t("about.name")}</h3>
         <Fade left>
           <h2>{t("landing.character")}</h2>
