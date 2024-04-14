@@ -709,7 +709,6 @@ const Landing = () => {
           <GridLayout columns={4} gap={2}>
             {team && team.length > 0 ? (
               team
-                .slice(0, 4)
                 .map(
                   (
                     item: {
@@ -717,18 +716,23 @@ const Landing = () => {
                       profession: string;
                       _id: string;
                       image: string;
+                      isManagement: boolean;
                     },
                     index
                   ) => {
-                    return (
-                      <Link to={`/leadership-team/${item._id}`} key={index}>
-                        <LeaderCard
-                          image={`${process.env.REACT_APP_BASE_URL}/uploads/gallery/${item?.image}`}
-                          name={item.name}
-                          title={item.profession}
-                        />
-                      </Link>
-                    );
+                    if (item?.isManagement) {
+                      return (
+                        <Link to={`/leadership-team/${item._id}`} key={index}>
+                          <LeaderCard
+                            image={`${process.env.REACT_APP_BASE_URL}/uploads/gallery/${item?.image}`}
+                            name={item.name}
+                            title={item.profession}
+                          />
+                        </Link>
+                      );
+                    } else {
+                      return null;
+                    }
                   }
                 )
                 .reverse()
@@ -738,7 +742,7 @@ const Landing = () => {
               </div>
             )}
           </GridLayout>
-          <Link to={"leadership-team"}>
+          {/* <Link to={"leadership-team"}>
             <button
               style={{
                 padding: "1.5rem 3rem",
@@ -756,7 +760,7 @@ const Landing = () => {
             >
               {t("landing.view_more")}
             </button>
-          </Link>
+          </Link> */}
         </div>
       </div>
 
@@ -768,7 +772,7 @@ const Landing = () => {
           </div>
           <div>
             <p className="subcaption">{t("landing.meet_online_cap")}</p>
-            <Link
+            {/* <Link
               to={"/news-and-events"}
               style={{
                 textDecoration: "none",
@@ -785,7 +789,7 @@ const Landing = () => {
               }}
             >
               {t("landing.all_events")}
-            </Link>
+            </Link> */}
           </div>
         </div>
         <div

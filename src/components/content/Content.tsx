@@ -36,8 +36,11 @@ const Content: React.FC<Props> = ({
         <h3 className="caption">{caption}</h3>
         <h2 style={{ fontWeight: "700" }}>{title}</h2>
         <h3 className="subcaption">{subText}</h3>
-        {/* <p>{description}</p> */}
-        <p dangerouslySetInnerHTML={{ __html: description }} />
+        {/<[a-z][\s\S]*>/i.test(description) ? (
+          <p dangerouslySetInnerHTML={{ __html: description }} />
+        ) : (
+          <p>{description}</p>
+        )}
         {onClick ? (
           <button onClick={onClick}>{btnText}</button>
         ) : (

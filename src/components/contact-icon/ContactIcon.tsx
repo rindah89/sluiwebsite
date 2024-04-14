@@ -9,7 +9,7 @@ import { useTranslation } from "react-i18next";
 const ContactIcon = () => {
   const [active, setActive] = useState(false);
 
-  const {t} = useTranslation()
+  const { t } = useTranslation();
 
   return (
     <div className="chat__icon">
@@ -19,7 +19,8 @@ const ContactIcon = () => {
           rel="noreferrer"
           href="https://api.whatsapp.com/send?phone=671710928&text=Hello20%there"
         >
-          <FcCustomerSupport size={20} /> {t("contact_icon_component.communication")}
+          <FcCustomerSupport size={20} />{" "}
+          {t("contact_icon_component.communication")}
         </a>
         <a
           target="_blank"

@@ -5,10 +5,10 @@
 .hero {
   min-height: 100vh;
   width: 100%;
-  /* background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)),
-    url("../../assets/landing.webp"), no-repeat; */
-  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4)),
-    no-repeat;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)),
+    url("../../assets/landing.webp"), no-repeat;
+  /* background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4)),
+    no-repeat; */
   background-position: top center;
   background-size: cover;
   transition: background-image 0.5s ease;
@@ -19,6 +19,15 @@
   flex-direction: column;
   -ms-flex-direction: column;
   justify-content: flex-end;
+}
+
+.content__section {
+  min-height: 60vh;
+  display: flex;
+  display: -ms-flexbox;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
 }
 
 .events {

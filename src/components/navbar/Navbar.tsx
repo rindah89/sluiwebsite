@@ -272,6 +272,9 @@ const Navbar = () => {
               <Link to="/alumni"> {t("header_popup.alumni")}</Link>
             </li>
             <li>
+              <Link to="/research"> {t("header_popup.research")}</Link>
+            </li>
+            <li>
               <Link to="/fill-form">{t("header_popup.contact")}</Link>
             </li>
           </ul>
@@ -442,7 +445,7 @@ const Navbar = () => {
               style={{
                 maxWidth: "fit-content",
               }}
-              className="non"
+              className="translate"
             >
               <Link to="#" onClick={handleChangeLanguage}>
                 {i18n.language === "en" ? "FR" : "EN"}

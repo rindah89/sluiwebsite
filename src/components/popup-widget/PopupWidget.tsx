@@ -129,9 +129,9 @@ const PopupWidget: React.FC<Props> = ({ show, toggleState, togglePopup }) => {
                 onClick={() => {
                   toggleState();
                 }}
-                to="/core-principles"
+                to="/research"
               >
-                {t("header_popup.core_principles")}
+                {t("header_popup.research")}
               </Link>
               <Link
                 onClick={() => {

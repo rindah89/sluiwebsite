@@ -57,7 +57,9 @@
     "alumni": "Alumni",
     "news_events": "News & Events",
     "contact": "Contact Us",
-    "short_courses": "Short Courses"
+    "short_courses": "Short Courses",
+    "research": "Research"
+
   },
   "buddy_card_component": {
     "chat": "Chat with buddy",

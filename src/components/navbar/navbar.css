@@ -45,7 +45,7 @@
   display: -ms-flexbox;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem 4vw;
+  padding: 0.5rem 4vw;
 }
 
 .search__overlay {
@@ -283,6 +283,10 @@
   display: none;
 }
 
+.menu .non {
+  display: none;
+}
+
 @media screen and (max-width: 1275px) {
   .navbar .logo img {
     width: 270px;
@@ -303,8 +307,16 @@
     display: none;
   }
 
+  .navbar .topNav ul {
+    display: none;
+  }
+
   .navbar .logo img {
     width: 80px;
+  }
+
+  .navbar.bg {
+    height: 150px;
   }
 
   .menu {
