@@ -8,11 +8,8 @@ import { HiBars3BottomLeft } from "react-icons/hi2";
 import Slider from "../TextSlider/Slider";
 
 // Icon(s)
-import { FaSearch } from "react-icons/fa";
-
-// styles
+// import { FaSearch } from "react-icons/fa";
 import "./navbar.css";
-
 import PopupWidget from "../popup-widget/PopupWidget";
 import FacultyPopup from "../faculty-popup/FacultyPopup";
 import {
@@ -21,11 +18,7 @@ import {
 } from "../../pages/faculties/Faculties";
 import ProgramPopup from "../programmes/ProgramPopup";
 import { useTranslation } from "react-i18next";
-import {
-  SearchComponent,
-  // programsEn as listProgramsEn,
-  // programsFR as listProgramsFr,
-} from "../../pages/landing/Landing";
+// import { SearchComponent } from "../../pages/landing/Landing";
 import {
   getProgrammes,
   getFaculties,
@@ -51,22 +44,23 @@ const Navbar = () => {
   };
 
   // For the search
-  const [searchClicked, setSearchClicked] = useState(false);
-  const [input, setInput] = useState("");
-  const navigate = useNavigate();
+  // const [searchClicked, setSearchClicked] = useState(false);
+  // const [input, setInput] = useState("");
+  // const navigate = useNavigate();
 
-  const [selected, setSelected] = useState("");
-  const [selectedCampus, setSelectedCampus] = useState("");
-  const [selectedFaculty, setSelectedFaculty] = useState("");
+  // const [selected, setSelected] = useState("");
+  // const [selectedLevel, setSelectedLevel] = useState("");
+  // const [selectedCampus, setSelectedCampus] = useState("");
+  // const [selectedFaculty, setSelectedFaculty] = useState("");
 
-  const handleSearchIconClick = () => {
-    setSearchClicked(true);
-    const searchElement = document.getElementById("landing__search");
+  // const handleSearchIconClick = () => {
+  //   setSearchClicked(true);
+  //   const searchElement = document.getElementById("landing__search");
 
-    if (searchElement) {
-      // searchElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  };
+  //   if (searchElement) {
+  //     // searchElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  //   }
+  // };
   const [activePanelIndex, setActivePanelIndex] = useState<number>(0);
   const [activePanel, setActivePanel] = useState(false);
 
@@ -451,10 +445,12 @@ const Navbar = () => {
                 {i18n.language === "en" ? "FR" : "EN"}
               </Link>
             </li>
-            {searchClicked ? (
+            {/* {searchClicked ? (
               <SearchComponent
                 selected={selected}
                 setSelected={setSelected}
+                selectedLevel={selectedLevel}
+                setSelectedLevel={setSelectedLevel}
                 selectedCampus={selectedCampus}
                 setSelectedCampus={setSelectedCampus}
                 selectedFaculty={selectedFaculty}
@@ -479,7 +475,7 @@ const Navbar = () => {
                   color: "var(--main-color)",
                 }}
               />
-            )}
+            )} */}
 
             <PopupWidget
               togglePopup={setProgramsPanelActivated}
@@ -500,10 +496,12 @@ const Navbar = () => {
             </li>
           </ul>
           <ul className="mobile">
-            {searchClicked ? (
+            {/* {searchClicked ? (
               <SearchComponent
                 selected={selected}
                 setSelected={setSelected}
+                selectedLevel={selectedLevel}
+                setSelectedLevel={setSelectedLevel}
                 selectedCampus={selectedCampus}
                 setSelectedCampus={setSelectedCampus}
                 selectedFaculty={selectedFaculty}
@@ -528,7 +526,7 @@ const Navbar = () => {
                   color: "var(--main-color)",
                 }}
               />
-            )}
+            )} */}
             <li
               style={{
                 maxWidth: "fit-content",

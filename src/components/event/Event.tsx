@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 
 type Props = {
   event: {
+    summary?: string;
     _id: string;
     title: string;
     category: string;
@@ -13,13 +14,14 @@ type Props = {
     details: string;
     location: string;
   };
+  link: string;
 };
-const Event: FC<Props> = ({ event }) => {
+const Event: FC<Props> = ({ event, link }) => {
   const navigate = useNavigate();
   return (
     <div
       className={styles.main}
-      onClick={() => navigate(`/event-details/${event._id}`)}
+      onClick={() => navigate(`/${link}/${event._id}`)}
     >
       <div className={styles.heading}>{event.title}</div>
       <div
@@ -38,7 +40,11 @@ const Event: FC<Props> = ({ event }) => {
         </div>
       </div>
       <p className={styles.tag}>{event.category}</p>
-      <p className={styles.body}>{event.details}</p>
+      {event?.summary ? (
+        <p className={styles.body}>{event.summary}</p>
+      ) : (
+        <p className={styles.body}>{event.details}</p>
+      )}
     </div>
   );
 };

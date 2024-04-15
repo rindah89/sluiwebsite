@@ -1,31 +1,64 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Fade } from "react-reveal";
 import styles from "./research.module.css";
-import ProgramGrid from "../../components/program-grid/ProgramGrid";
-// import { programmesEN, programmesFR } from "../landing/Landing";
-import Membership from "../../components/membership/Membership";
+import { BsArrowLeft } from "react-icons/bs";
+import Event from "../../components/event/Event";
+import { useNavigate } from "react-router-dom";
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
 import { useTranslation } from "react-i18next";
-import { getProgrammes } from "../../redux/reducers/app";
+
+import { getEvents, getResearch } from "../../redux/reducers/app";
+
+const responsive = {
+  superLargeDesktop: {
+    // the naming can be any, depends on you.
+    breakpoint: { max: 4000, min: 3000 },
+    items: 5,
+  },
+  desktop: {
+    breakpoint: { max: 3000, min: 1024 },
+    items: 3,
+  },
+  tablet: {
+    breakpoint: { max: 1024, min: 464 },
+    items: 2,
+  },
+  mobile: {
+    breakpoint: { max: 464, min: 0 },
+    items: 1,
+  },
+};
 
 const Research = () => {
+  const width = window.innerWidth;
+  const [isHover, setIsHover] = useState(false);
+
+  const { t, i18n } = useTranslation();
+
+  const [isBouncing, setIsBouncing] = useState(false);
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
 
-  const { t, i18n } = useTranslation();
+  const navigate = useNavigate();
 
-  // const programmes = i18n.language === "en" ? programmesEN : programmesFR;
+  const startBounceAnimation = () => {
+    console.log("bouncing animation has started");
+    setIsBouncing(true);
+    setTimeout(() => setIsBouncing(false), 2000); // Stop the bouncing after 1 second (adjust the duration as needed)
+  };
 
-  const [programmes, setProgrammes] = useState([]);
+  const [events, setEvents] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  const handlerGetProgrammes = async () => {
+  const handlerGetEvents = async () => {
     try {
       setLoading(true);
-      await getProgrammes()
+      await getResearch()
         .then((res: any) => {
           if (res.status === 200) {
-            setProgrammes(res.data);
+            setEvents(res.data);
             setLoading(false);
             return;
           }
@@ -41,95 +74,91 @@ const Research = () => {
   };
 
   useEffect(() => {
-    handlerGetProgrammes();
+    handlerGetEvents();
   }, []);
 
   return (
-    <div>
+    <div className={styles.main}>
       <div className={styles.hero}>
-        <h3>{t("core_principles.core_principles")}</h3>
         <Fade left>
-          <h1 style={{ lineHeight: "1.1", margin: "2rem 0" }}>
-            {t("core_principles.hhh")}
-          </h1>
-          <h4 style={{ fontSize: "1.8rem", color: "#fff" }}>
-            {t("core_principles.slui_approach")}
-          </h4>
+          <div
+            className={styles.back}
+            onMouseEnter={() => {
+              setIsHover(true);
+              startBounceAnimation();
+            }}
+            onMouseLeave={() => setIsHover(false)}
+            onClick={() => navigate(-1)}
+          >
+            <div className={isBouncing ? styles.bounce : ""}>
+              <BsArrowLeft
+                size={isHover ? 24 : 32}
+                style={{
+                  fontSize: "1rem",
+                  fontWeight: "bold",
+                  color: isHover ? "#902d28" : "var(--main-color)",
+                  transition: "0.5s ease-out",
+                }}
+              />
+            </div>
+            <p
+              style={{
+                fontSize: "2.5rem",
+                fontWeight: "bold",
+                color: isHover ? "#902d28" : "var(--main-color)",
+              }}
+            >
+              {t("news_events.back")}
+            </p>
+          </div>
+        </Fade>
+        <Fade right>
+          <p
+            style={{
+              fontSize: width <= 450 ? "3rem" : "5rem",
+              fontWeight: "bold",
+              color: "var(--main-color)",
+              width: "80%",
+            }}
+          >
+            {t("research.meet")}
+          </p>
         </Fade>
       </div>
-      <div style={{ minHeight: "10vh", padding: "4rem 4vw" }} className="about">
-        <div className="desc">
-          <Fade up>
-            <h2>{t("core_principles.around_you")}</h2>
-          </Fade>
-          <h4>{t("core_principles.around_you_tag")}</h4>
-        </div>
-      </div>
-
-      <div className={styles.desc}>
-        <div className={styles.head}>
-          <h2>{t("core_principles.sbs")}</h2>
-        </div>
-
-        <div className={styles.content}>
-          <h4>{t("core_principles.we_believe")}</h4>
-          <h4 style={{ marginTop: "4rem" }}>
-            {t("core_principles.principles")}?{" "}
-          </h4>
-          <h4>{t("core_principles.no_thanks")}</h4>
-        </div>
-      </div>
-
-      <div className={styles.desc}>
-        <div className={styles.head}>
-          <h2>{t("core_principles.eye_level")}</h2>
-        </div>
-
-        <div className={styles.content}>
-          <h4>{t("core_principles.eye_level_text")}</h4>
-        </div>
-      </div>
-
-      <div className={styles.desc}>
-        <div className={styles.head}>
-          <h2>{t("core_principles.mistakes")}</h2>
-        </div>
-
-        <div className={styles.content}>
-          <h4>
-            {t("core_principles.mistakes_text1")}
-            <span style={{ fontWeight: "600" }}>
-              {t("core_principles.mistakes_text2")}
-            </span>
-            {t("core_principles.mistakes_text3")}
-          </h4>
-        </div>
-      </div>
-
-      <div className={styles.desc}>
-        <div className={styles.head}>
-          <h2>{t("core_principles.real_world")}</h2>
-        </div>
-
-        <div className={styles.content}>
-          <h4>{t("core_principles.real_world_text1")}</h4>
-          <h4>{t("core_principles.real_world_text2")}</h4>
-        </div>
-      </div>
-
-      <div className="programs_">
-        <div className="headline">
-          <h3>{t("core_principles.just_fit")}</h3>
-          <h2>{t("core_principles.exciting_programs")}</h2>
-        </div>
-        <ProgramGrid programs={programmes} />
-      </div>
-
-      <div className="programs_">
-        <div className="headline">
-          <h2>{t("core_principles.membership_partnership")}</h2>
-        </div>
-        <Membership />
+      <div className={styles.event}>
+        {events.length > 0 ? (
+          events.map((event, index) => (
+            <Event key={index} event={event} link={"research-details"} />
+          ))
+        ) : (
+          <div style={{ display: "flex", justifyContent: "center" }}>
+            <p style={{ fontSize: 20 }}>No Data Found</p>
+          </div>
+        )}
+        {/* <h3>{t("research.published")}</h3>
+        <Carousel responsive={responsive}>
+          {events.length > 0 ? (
+            events.map((event, index) => (
+              <Event key={index} event={event} link={"research-details"} />
+            ))
+          ) : (
+            <div style={{ display: "flex", justifyContent: "center" }}>
+              <p style={{ fontSize: 20 }}>No Data Found</p>
+            </div>
+          )}
+        </Carousel> */}
+        {/* <h3>{t("research.unpublished")}</h3>
+        <Carousel responsive={responsive}>
+          {events.length > 0 ? (
+            events.map((event, index) => (
+              <Event key={index} event={event} link={"research-details"} />
+            ))
+          ) : (
+            <div style={{ display: "flex", justifyContent: "center" }}>
+              <p style={{ fontSize: 20 }}>No Data Found</p>
+            </div>
+          )}
+        </Carousel> */}
       </div>
     </div>
   );

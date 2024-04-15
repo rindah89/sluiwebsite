@@ -1,0 +1,174 @@
+.main {
+  display: flex;
+  border-bottom: #ffffff00;
+  border-bottom-width: 2px;
+  margin-top: 180px;
+  padding: 0 4vw;
+  gap: 24px;
+}
+
+.main>div {
+  flex: 1;
+  -ms-flex: 1;
+}
+
+.main .inner {
+  display: flex;
+  display: -ms-flexbox;
+  flex-direction: column;
+  row-gap: 1.5rem;
+  flex: 1.2;
+  -ms-flex: 1.2;
+}
+
+.sub {
+  display: flex;
+  flex-direction: column;
+  row-gap: 15px;
+  border-bottom-width: 2px;
+  padding: 20px 4vw;
+}
+
+.heading {
+  display: flex;
+  width: fit-content;
+  background-color: #001725;
+  padding: 2px 16px;
+  border-radius: 4px;
+  color: #ffffff;
+  font-size: 2rem;
+  font-weight: 400;
+}
+
+.tag {
+  color: var(--main-color);
+  font-size: 6rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.sub_head {
+  color: #001725;
+  font-size: 4rem;
+  font-weight: 500;
+}
+
+.body {
+  color: #686867;
+  font-size: 2rem;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 10;
+  position: relative;
+}
+
+.location {
+  display: flex;
+  align-items: center;
+  column-gap: 1rem;
+}
+
+.back {
+  display: flex;
+  width: fit-content;
+  flex-direction: row;
+  column-gap: 1rem;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.p {
+  width: 100%;
+  max-width: 600px;
+}
+
+.back:hover {
+  cursor: pointer;
+}
+
+@keyframes bounce {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.bounce {
+  animation-name: bounce;
+}
+
+.divider {
+  height: 0px;
+  background-color: #001725;
+  position: relative;
+  width: 100vw;
+  z-index: -99;
+  margin-top: 30px;
+}
+
+.lower {
+  padding-block: 60px;
+}
+
+@media screen and (max-width: 1000px) {
+  .tag {
+    font-size: 5rem;
+  }
+
+  .main {
+    flex-direction: column;
+    -ms-flex-direction: column;
+  }
+
+  .lower {
+    padding-block: 50px;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .tag {
+    font-size: 4rem;
+  }
+
+  .sub_head {
+    font-size: 3rem;
+  }
+
+  .body {
+    font-size: 1.8rem;
+  }
+
+  .container {
+    flex-direction: column;
+    -ms-flex-direction: column;
+  }
+
+  .container {
+    margin-top: 15px;
+  }
+}
+
+@media screen and (max-width: 760px) {
+  .sub_head {
+    font-size: 2.4rem;
+  }
+
+  .lower {
+    padding-block: 30px;
+  }
+}

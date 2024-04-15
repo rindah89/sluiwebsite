@@ -10,14 +10,10 @@ import GridLayout from "../../components/grid/Grid";
 import LeaderCard from "../../components/leader-card/LeaderCard";
 import Event from "../../components/event/Event";
 import { Link, useNavigate } from "react-router-dom";
-// import { eventsEN, eventsFR } from "../news&events/News&events";
 import Membership from "../../components/membership/Membership";
 import { useTranslation } from "react-i18next";
 import SelectMolecule from "../../components/select/Select.molecule";
 import { i18n } from "i18next";
-// import { hndProgramsEN } from "../hnd/HND";
-// import { bachelorsProgramsEN } from "../bachelors/Bachelors";
-// import { mastersProgramsEN } from "../masters/Masters";
 
 import {
   getTeam,
@@ -25,9 +21,9 @@ import {
   getProgrammes,
   getCampuses,
   getFaculties,
+  getCategories,
 } from "../../redux/reducers/app";
 
-// const FR = "fr";
 export const programmesEN = [
   {
     // image: require("../../assets/converted/IVS_7525.jpg"),
@@ -92,49 +88,16 @@ export const programmesFR = [
   },
 ];
 
-// export const programsEn = ["HND", "Foundation", "Bachelors", "Masters"];
-// export const programsFR = [
-//   "HND",
-//   "Cours de Courte Durée",
-//   "Bacheliers",
-//   "Maîtres",
-// ];
-
-// export const campusEn = [
-//   "Bonaberi",
-//   "Bonamoussadi",
-//   "Yaounde",
-//   "Ndu",
-//   "Bamenda",
-// ];
-// export const campusFR = [
-//   "Bonaberi",
-//   "Bonamoussadi",
-//   "Yaounde",
-//   "Ndu",
-//   "Bamenda",
-// ];
-
-// Helper function for language-specific programs
-// const getLanguagePrograms = (language: string) => {
-//   return language === FR ? programsFR : programsEn;
-// };
-
-// Helper function for camous-specific campus
-// const getCampuses = (campus: string) => {
-//   return campus === FR ? campusFR : campusEn;
-// };
-
-// Helper function to navigate based on selection
 const handleSearchNavigation = (
   selected: any,
+  selectedLevel: any,
   selectedCampus: any,
-  selectedFaculty: any,
+  filteredFaculty: any,
   navigate: Function,
   input: string
 ) => {
-  if (selected && selectedCampus && selectedCampus) {
-    const param = `/program-search/${selected._id}/${selectedCampus._id}/${selectedFaculty._id}`;
+  if (selected && selectedCampus && filteredFaculty) {
+    const param = `/program-search/${selected._id}/${selectedLevel._id}/${filteredFaculty._id}`;
     navigate(param);
     // const param = (tag: string) =>
     //   input.toLowerCase().split(" ").join("-").concat(`-${tag}`);
@@ -175,6 +138,8 @@ const handleSearchNavigation = (
 export const SearchComponent = ({
   selected,
   setSelected,
+  selectedLevel,
+  setSelectedLevel,
   selectedCampus,
   setSelectedCampus,
   selectedFaculty,
@@ -189,11 +154,13 @@ export const SearchComponent = ({
   delay,
   className,
 }: {
-  selected: string;
+  selected: any;
   setSelected: Function;
-  selectedCampus: string;
+  selectedLevel: any;
+  setSelectedLevel: Function;
+  selectedCampus: any;
   setSelectedCampus: Function;
-  selectedFaculty: string;
+  selectedFaculty: any;
   setSelectedFaculty: Function;
   setSearchClicked: Function;
   input: string;
@@ -253,23 +220,28 @@ export const SearchComponent = ({
     setSuggestions([]); // Clear suggestions
   };
 
+  const [programmes, setProgrammes] = useState<any[]>([]);
+  const [campuses, setCampuses] = useState<any[]>([]);
+  const [filteredCampuses, setFilteredCampuses] = useState<any[]>([]);
+  const [faculties, setFaculties] = useState<any[]>([]);
+  const [filteredFaculty, setFilteredFaculty] = useState<any>(null);
+  const [levels, setLevels] = useState<any[]>([]);
+  const [filteredLevels, setFilteredLevels] = useState<any[]>([]);
+  const [loading, setLoading] = useState(false);
+
   const handleSearch = () => {
-    if (selected && selectedCampus && selectedCampus) {
+    if (selected && selectedLevel && selectedCampus && filteredFaculty) {
       setSearchClicked(false);
     }
     handleSearchNavigation(
       selected,
+      selectedLevel,
       selectedCampus,
-      selectedFaculty,
+      filteredFaculty,
       navigate,
       input
     );
   };
-
-  const [programmes, setProgrammes] = useState([]);
-  const [campuses, setCampuses] = useState([]);
-  const [faculties, setFaculties] = useState([]);
-  const [loading, setLoading] = useState(false);
 
   const handlerGetProgrammes = async () => {
     try {
@@ -278,6 +250,26 @@ export const SearchComponent = ({
         .then((res: any) => {
           if (res.status === 200) {
             setProgrammes(res.data);
+            setLoading(false);
+            return;
+          }
+          setLoading(false);
+        })
+        .catch((err: any) => {
+          console.error(err);
+          setLoading(false);
+        });
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  const handlerGetLevels = async () => {
+    try {
+      setLoading(true);
+      await getCategories()
+        .then((res: any) => {
+          if (res.status === 200) {
+            setLevels(res.data);
             setLoading(false);
             return;
           }
@@ -334,9 +326,53 @@ export const SearchComponent = ({
 
   useEffect(() => {
     handlerGetFaculties();
+    handlerGetLevels();
     handlerGetCampuses();
     handlerGetProgrammes();
   }, []);
+
+  const filterLevel = () => {
+    if (selected && selected._id && levels) {
+      const filtered = levels.filter((item) =>
+        item.programmeID.includes(selected._id)
+      );
+      setFilteredLevels(filtered);
+    } else {
+      setFilteredLevels([]);
+    }
+  };
+
+  const filterCampus = () => {
+    if (selected && selected?._id && campuses) {
+      const JSONCampuses = JSON.parse(selected?.campusID);
+      const filtered = campuses.filter((item) =>
+        JSONCampuses.includes(item._id)
+      );
+      setFilteredCampuses(filtered);
+    } else {
+      setFilteredCampuses([]);
+    }
+  };
+
+  const filterFaculty = () => {
+    if (selectedLevel && selectedLevel?._id && faculties) {
+      const filtered = faculties.filter(
+        (item) => item._id === selectedLevel.facultyID
+      )[0];
+      setFilteredFaculty(filtered);
+    } else {
+      setFilteredFaculty(null);
+    }
+  };
+
+  useEffect(() => {
+    filterLevel();
+    filterCampus();
+  }, [selected]);
+
+  useEffect(() => {
+    filterFaculty();
+  }, [selectedLevel]);
 
   return (
     <Fade
@@ -355,7 +391,16 @@ export const SearchComponent = ({
         />
 
         <SelectMolecule
-          list={campuses}
+          list={filteredLevels}
+          selected={selectedLevel}
+          onSelect={(data: string) => {
+            setSelectedLevel(data);
+          }}
+          program={"Level"}
+        />
+
+        <SelectMolecule
+          list={filteredCampuses}
           selected={selectedCampus}
           onSelect={(data: string) => {
             setSelectedCampus(data);
@@ -363,19 +408,26 @@ export const SearchComponent = ({
           program={"Campus"}
         />
 
-        <SelectMolecule
+        {/* <SelectMolecule
           list={faculties}
           selected={selectedFaculty}
           onSelect={(data: string) => {
             setSelectedFaculty(data);
           }}
           program={"Faculty"}
+        /> */}
+
+        <input
+          type="text"
+          value={filteredFaculty?.title || ""}
+          // onChange={handleChange}
+          placeholder="Faculty"
         />
 
         {/* <input
           type="text"
-          value={input}
-          onChange={handleChange}
+          value={selectedFaculty?.title || ""}
+          // onChange={handleChange}
           placeholder={
             suggestions.length > 0
               ? suggestions[0].title
@@ -418,9 +470,10 @@ const Landing = () => {
   const { t, i18n } = useTranslation();
   const navigate = useNavigate();
 
-  const [selected, setSelected] = useState("");
-  const [selectedCampus, setSelectedCampus] = useState("");
-  const [selectedFaculty, setSelectedFaculty] = useState("");
+  const [selected, setSelected] = useState({});
+  const [selectedLevel, setSelectedLevel] = useState({});
+  const [selectedCampus, setSelectedCampus] = useState({});
+  const [selectedFaculty, setSelectedFaculty] = useState({});
   const [searchClicked, setSearchClicked] = useState(false);
 
   // const [selected, setSelected] = useState(
@@ -617,6 +670,8 @@ const Landing = () => {
         <SearchComponent
           selected={selected}
           setSelected={setSelected}
+          selectedLevel={selectedLevel}
+          setSelectedLevel={setSelectedLevel}
           selectedCampus={selectedCampus}
           setSelectedCampus={setSelectedCampus}
           selectedFaculty={selectedFaculty}
@@ -802,7 +857,12 @@ const Landing = () => {
           }}
         >
           <Fade right>
-            <Carousel responsive={responsive}>
+            <Carousel
+              responsive={responsive}
+              autoPlay={true}
+              autoPlaySpeed={2000}
+              infinite={true}
+            >
               {events.map((event, index) => (
                 <div
                   style={{
@@ -811,7 +871,7 @@ const Landing = () => {
                   }}
                   key={index}
                 >
-                  <Event key={index} event={event} />
+                  <Event key={index} event={event} link={"event-details"} />
                 </div>
               ))}
             </Carousel>

@@ -385,6 +385,12 @@
     "upcoming": "Événements à venir",
     "past": "Événements passés"
   },
+  "research": {
+    "back": "Back",
+    "meet": "Recherche avancée SLUI",
+    "published": "Publié",
+    "unpublished": "Inédit"
+  },
   "values": {
     "name": "INSTITUT UNIVERSITAIRE ST. LOUIS ",
     "value": "NOS VALEURS",

@@ -328,7 +328,9 @@ const NewsnEvents = () => {
         {/* <div className={styles.event_section}> */}
         <Carousel responsive={responsive}>
           {events.length > 0 ? (
-            events.map((event, index) => <Event key={index} event={event} />)
+            events.map((event, index) => (
+              <Event key={index} event={event} link={"event-details"} />
+            ))
           ) : (
             <div style={{ display: "flex", justifyContent: "center" }}>
               <p style={{ fontSize: 20 }}>No Data Found</p>
@@ -340,7 +342,9 @@ const NewsnEvents = () => {
         {/* <div className={styles.event_section}> */}
         <Carousel responsive={responsive}>
           {events.length > 0 ? (
-            events.map((event, index) => <Event key={index} event={event} />)
+            events.map((event, index) => (
+              <Event key={index} event={event} link={"event-details"} />
+            ))
           ) : (
             <div style={{ display: "flex", justifyContent: "center" }}>
               <p style={{ fontSize: 20 }}>No Data Found</p>

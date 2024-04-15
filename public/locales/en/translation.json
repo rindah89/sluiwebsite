@@ -386,6 +386,12 @@
     "upcoming": "Upcoming events",
     "past": "Past events"
   },
+   "research": {
+    "back": "Back",
+    "meet": "SLUI Advanced Research",
+    "published": "Published",
+    "unpublished": "Unpublished"
+  },
   "values": {
     "name": "ST. LOUIS UNIVERSITY INSTITUTE",
     "value": "OUR VALUES",

@@ -58,6 +58,34 @@ export const getEventSingle = async (id) => {
     }
 }
 
+export const getResearch = async () => {
+    try {
+        const response = await axios.get(`${base_url}/research/`);
+        return response;
+    } catch (error) {
+        const message =
+            (error.message && error.response.data && error.response.data.message) ||
+            error.message ||
+            error.toString();
+
+        return (message);
+    }
+}
+
+export const getResearchSingle = async (id) => {
+    try {
+        const response = await axios.get(`${base_url}/research/${id}`);
+        return response;
+    } catch (error) {
+        const message =
+            (error.message && error.response.data && error.response.data.message) ||
+            error.message ||
+            error.toString();
+
+        return (message);
+    }
+}
+
 export const getProgrammes = async () => {
     try {
         const response = await axios.get(`${base_url}/programmes/`);
