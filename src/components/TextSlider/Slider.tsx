@@ -38,14 +38,6 @@ const Slider = () => {
     handlerGetData();
   }, []);
 
-  useEffect(() => {
-    filterData();
-  }, [i18n.language]);
-
-  useEffect(() => {
-    filterData();
-  }, []);
-
   const filterData = () => {
     if (i18n.language === "fr") {
       const textFilter = text.filter((item: any) => item.isFrench);
@@ -55,6 +47,14 @@ const Slider = () => {
       setIsFrenchText(textFilter);
     }
   };
+
+  useEffect(() => {
+    filterData();
+  }, [i18n.language, text]);
+
+  useEffect(() => {
+    filterData();
+  }, []);
 
   const handleClick = (text: string) => {
     console.log("Clicked:", text);
