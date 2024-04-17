@@ -21,15 +21,6 @@
   justify-content: flex-end;
 }
 
-.content__section {
-  min-height: 60vh;
-  display: flex;
-  display: -ms-flexbox;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-}
-
 .events {
   display: grid;
   width: 100vw;

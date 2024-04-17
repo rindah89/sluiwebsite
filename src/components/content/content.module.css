@@ -5,6 +5,22 @@
   gap: 2rem;
 }
 
+/* .content .text {
+  width: 30% !important;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  background-color: #ccc;
+}
+
+.content .image {
+  width: 50%;
+}
+
+.caption .text .caption {
+  color: #000;
+} */
+
 .content.reverse {
   flex-direction: row-reverse;
   -ms-flex-direction: row-reverse;
@@ -84,8 +100,13 @@
 
 @media screen and (max-width: 1000px) {
   .content {
+    display: block;
     flex-direction: column;
     -ms-flex-direction: column;
+  }
+
+  .content .image {
+    margin-top: 30px;
   }
 
   .content>div:nth-child(1) {
@@ -107,5 +128,9 @@
 @media screen and (max-width: 860px) {
   .content h2 {
     font-size: 3rem !important;
+  }
+
+  .content {
+    display: block;
   }
 }

@@ -97,10 +97,14 @@ const Navbar = () => {
 
   const [programmes, setProgrammes] = useState([]);
   const [faculties, setFaculties] = useState<any>([]);
+  const [programmesFiltered, setProgrammesFiltered] = useState([]);
+  const [facultiesFiltered, setFacultiesFiltered] = useState<any>([]);
+
   const [departments, setDepartments] = useState<any>([]);
   const [filteredDepartment, setFilteredDepartment] = useState<any>([]);
   const [courses, setCourses] = useState([]);
   const [filteredCourses, setFilteredCourse] = useState<any[]>([]);
+  const [isFrenchCourses, setIsFrenchCourse] = useState<any[]>([]);
   const [loading, setLoading] = useState(false);
 
   const handlerGetProgrammes = async () => {
@@ -214,6 +218,38 @@ const Navbar = () => {
   }, []);
 
   useEffect(() => {
+    filterData();
+  }, [i18n.language]);
+
+  useEffect(() => {
+    filterData();
+  }, [programmes, faculties, filteredCourses]);
+
+  const filterData = () => {
+    if (i18n.language === "fr") {
+      const programFilter = programmes.filter((item: any) => item.isFrench);
+      setProgrammesFiltered(programFilter);
+
+      const facultyFilter = faculties.filter((item: any) => item.isFrench);
+      setFacultiesFiltered(facultyFilter);
+
+      const courseFilter = filteredCourses.filter((item: any) => item.isFrench);
+      setIsFrenchCourse(courseFilter);
+    } else {
+      const programFilter = programmes.filter((item: any) => !item.isFrench);
+      setProgrammesFiltered(programFilter);
+
+      const facultyFilter = faculties.filter((item: any) => !item.isFrench);
+      setFacultiesFiltered(facultyFilter);
+
+      const courseFilter = filteredCourses.filter(
+        (item: any) => !item.isFrench
+      );
+      setIsFrenchCourse(courseFilter);
+    }
+  };
+
+  useEffect(() => {
     filterDept();
   }, [activePanelIndex]);
 
@@ -284,10 +320,10 @@ const Navbar = () => {
               ref={ref}
             >
               <FacultyPopup
-                title={faculties[activePanelIndex]?.title}
-                desc={faculties[activePanelIndex]?.details}
-                subDesc={faculties[activePanelIndex]?.subDesc}
-                programs={filteredCourses}
+                title={facultiesFiltered[activePanelIndex]?.title}
+                desc={facultiesFiltered[activePanelIndex]?.details}
+                subDesc={facultiesFiltered[activePanelIndex]?.subDesc}
+                programs={isFrenchCourses}
               />
             </div>
           )}
@@ -297,7 +333,7 @@ const Navbar = () => {
                 setProgramsPanelActivated(false);
               }}
             >
-              <ProgramPopup programs={programmes} />
+              <ProgramPopup programs={programmesFiltered} />
             </div>
           )}
           <div className="logo desktop">
@@ -363,7 +399,7 @@ const Navbar = () => {
                 {t("header.programmes")}
               </Link>
               <ul className="dropdown">
-                {programmes?.map((item: any, index: number) => {
+                {programmesFiltered?.map((item: any, index: number) => {
                   return (
                     <li key={index}>
                       <Link
@@ -388,7 +424,7 @@ const Navbar = () => {
                 {t("header.faculties")}
               </Link>
               <ul className="dropdown">
-                {faculties?.map((item: any, index: number) => {
+                {facultiesFiltered?.map((item: any, index: number) => {
                   return (
                     <li key={index}>
                       <a

@@ -9,6 +9,7 @@ import {
   getCourses,
   getProgrammeSingle,
 } from "../../redux/reducers/app";
+import { useTranslation } from "react-i18next";
 
 interface program {
   _id: string;
@@ -29,6 +30,7 @@ const Program = () => {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
+  const { i18n } = useTranslation();
 
   const { id } = useParams();
   const [loading, setLoading] = useState(false);
@@ -46,9 +48,17 @@ const Program = () => {
       await getCategories()
         .then((res: any) => {
           if (res.status === 200) {
-            setCategories(res.data);
-            setLoading(false);
-            return;
+            if (i18n.language === "fr") {
+              const filtered = res.data.filter((item: any) => item.isFrench);
+              setCategories(filtered);
+              setLoading(false);
+              return;
+            } else {
+              const filtered = res.data.filter((item: any) => !item.isFrench);
+              setCategories(filtered);
+              setLoading(false);
+              return;
+            }
           }
           setLoading(false);
         })
@@ -67,9 +77,17 @@ const Program = () => {
       await getCourses()
         .then((res: any) => {
           if (res.status === 200) {
-            setCourses(res.data);
-            setLoading(false);
-            return;
+            if (i18n.language === "fr") {
+              const filtered = res.data.filter((item: any) => item.isFrench);
+              setCourses(filtered);
+              setLoading(false);
+              return;
+            } else {
+              const filtered = res.data.filter((item: any) => !item.isFrench);
+              setCourses(filtered);
+              setLoading(false);
+              return;
+            }
           }
           setLoading(false);
         })

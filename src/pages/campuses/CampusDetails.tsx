@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from "react";
+import { FC, useEffect, useState, useRef } from "react";
 
 // styles
 import styles from "./campus.module.css";
@@ -128,18 +128,33 @@ const CampusDetails: FC = () => {
   const filterCategories = () => {
     const filteredCoursesByCategory: any[] = [];
 
-    categories.forEach((item: any) => {
-      const filtered = filteredCourses.filter(
-        (crs: any) => crs.programType === item._id
-      );
-      if (filtered.length > 0) {
-        filteredCoursesByCategory.push({
-          programCategory: item,
-          courses: filtered,
-        });
-      }
-    });
-    return setFlteredPrograms(filteredCoursesByCategory);
+    if (i18n.language === "fr") {
+      categories.forEach((item: any) => {
+        const filtered = filteredCourses.filter(
+          (crs: any) => crs.programType === item._id && item.isFrench
+        );
+        if (filtered.length > 0) {
+          filteredCoursesByCategory.push({
+            programCategory: item,
+            courses: filtered,
+          });
+        }
+      });
+      return setFlteredPrograms(filteredCoursesByCategory);
+    } else {
+      categories.forEach((item: any) => {
+        const filtered = filteredCourses.filter(
+          (crs: any) => crs.programType === item._id
+        );
+        if (filtered.length > 0) {
+          filteredCoursesByCategory.push({
+            programCategory: item,
+            courses: filtered,
+          });
+        }
+      });
+      return setFlteredPrograms(filteredCoursesByCategory);
+    }
   };
 
   useEffect(() => {
@@ -160,7 +175,14 @@ const CampusDetails: FC = () => {
     filterCategories();
   }, [categories, filteredCourses]);
 
-  console.log(filteredPrograms);
+  const prevLanguageRef = useRef<string>(i18n.language);
+
+  useEffect(() => {
+    if (prevLanguageRef.current !== i18n.language) {
+      window.location.reload();
+    }
+    prevLanguageRef.current = i18n.language;
+  }, [i18n.language]);
 
   return (
     <div className="landing">

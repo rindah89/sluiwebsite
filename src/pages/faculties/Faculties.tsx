@@ -1,16 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Fade } from "react-reveal";
-
-// styles
 import styles from "./faculties.module.css";
-
-// components
 import Content from "../../components/content/Content";
 import ProgramGrid from "../../components/program-grid/ProgramGrid";
 import FacultyPopup, {
   Attrib,
 } from "../../components/faculty-popup/FacultyPopup";
-import { programmesEN, programmesFR } from "../landing/Landing";
 import Membership from "../../components/membership/Membership";
 import { useTranslation } from "react-i18next";
 import {
@@ -19,8 +14,6 @@ import {
   getCategories,
   getCourses,
 } from "../../redux/reducers/app";
-
-const FR = "fr";
 
 export const facultiesDataFR: Attrib[] = [
   {
@@ -361,16 +354,15 @@ const Faculties = () => {
 
   const { t, i18n } = useTranslation();
 
-  const facultiesData =
-    i18n.language === FR ? facultiesDataFR : facultiesDataEN;
-
-  // const programmes = i18n.language === FR ? programmesFR : programmesEN;
   const [programmes, setProgrammes] = useState([]);
+  const [isFrenchProgrammes, setIsFrenchProgrammes] = useState([]);
   const [faculties, setFaculties] = useState<any>([]);
+  const [isFrenchFaculties, setIsFrenchFaculties] = useState<any>([]);
   const [departments, setDepartments] = useState<any>([]);
   const [filteredDepartment, setFilteredDepartment] = useState<any>([]);
   const [courses, setCourses] = useState([]);
   const [filteredCourses, setFilteredCourse] = useState<any[]>([]);
+  const [isFrenchCourses, setIsFrenchCourses] = useState<any>([]);
   const [loading, setLoading] = useState(false);
 
   const handlerGetProgrammes = async () => {
@@ -495,6 +487,38 @@ const Faculties = () => {
     filterCourses();
   }, [filteredDepartment, courses]);
 
+  useEffect(() => {
+    filterData();
+  }, [i18n.language]);
+
+  useEffect(() => {
+    filterData();
+  }, [programmes, faculties, filteredCourses]);
+
+  const filterData = () => {
+    if (i18n.language === "fr") {
+      const programFilter = programmes.filter((item: any) => item.isFrench);
+      setIsFrenchProgrammes(programFilter);
+
+      const facultyFilter = faculties.filter((item: any) => item.isFrench);
+      setIsFrenchFaculties(facultyFilter);
+
+      const courseFilter = filteredCourses.filter((item: any) => item.isFrench);
+      setIsFrenchCourses(courseFilter);
+    } else {
+      const programFilter = programmes.filter((item: any) => !item.isFrench);
+      setIsFrenchProgrammes(programFilter);
+
+      const facultyFilter = faculties.filter((item: any) => !item.isFrench);
+      setIsFrenchFaculties(facultyFilter);
+
+      const courseFilter = filteredCourses.filter(
+        (item: any) => !item.isFrench
+      );
+      setIsFrenchCourses(courseFilter);
+    }
+  };
+
   return (
     <div>
       {" "}
@@ -505,10 +529,10 @@ const Faculties = () => {
           }}
         >
           <FacultyPopup
-            title={faculties[activePanelIndex]?.title}
-            desc={faculties[activePanelIndex]?.details}
-            subDesc={faculties[activePanelIndex]?.subDesc}
-            programs={filteredCourses}
+            title={isFrenchFaculties[activePanelIndex]?.title}
+            desc={isFrenchFaculties[activePanelIndex]?.details}
+            subDesc={isFrenchFaculties[activePanelIndex]?.subDesc}
+            programs={isFrenchCourses}
           />
         </div>
       )}
@@ -525,7 +549,7 @@ const Faculties = () => {
       <div className={styles.faculties__arena}>
         <h2>{t("faculties.tag")}</h2>
       </div>
-      {faculties?.map((item: any, index: number) => {
+      {isFrenchFaculties?.map((item: any, index: number) => {
         return (
           <div className="content__section" key={index}>
             <div>
@@ -555,7 +579,7 @@ const Faculties = () => {
           <h3>J{t("faculties.just_fit")}</h3>
           <h2>{t("faculties.exciting_programs")}</h2>
         </div>
-        <ProgramGrid programs={programmes} />
+        <ProgramGrid programs={isFrenchProgrammes} />
       </div>
       <div className="programs_">
         <div className="headline">

@@ -1,12 +1,8 @@
 import { useEffect, useState } from "react";
-// styles
 import styles from "./campus.module.css";
-
-// components
 import CampusCard from "../../components/campus-card/CampusCard";
 import GridLayout from "../../components/grid/Grid";
 import ProgramGrid from "../../components/program-grid/ProgramGrid";
-import { programmesEN, programmesFR } from "../landing/Landing";
 import Membership from "../../components/membership/Membership";
 import { useTranslation } from "react-i18next";
 import { getProgrammes, getCampuses } from "../../redux/reducers/app";
@@ -20,7 +16,9 @@ const Campuses = () => {
 
   // const programmes = i18n.language === "en" ? programmesEN : programmesFR;
   const [programmes, setProgrammes] = useState([]);
+  const [isFrenchProgrammes, setIsFrenchProgrammes] = useState([]);
   const [campuses, setCampuses] = useState([]);
+  const [isFrenchCampuses, seIsFrenchCampuses] = useState([]);
   const [loading, setLoading] = useState(false);
 
   const handlerGetProgrammes = async () => {
@@ -69,6 +67,30 @@ const Campuses = () => {
     handlerGetProgrammes();
   }, []);
 
+  useEffect(() => {
+    filterData();
+  }, [i18n.language]);
+
+  useEffect(() => {
+    filterData();
+  }, [campuses, programmes]);
+
+  const filterData = () => {
+    if (i18n.language === "fr") {
+      const campusFilter = campuses.filter((item: any) => item.isFrench);
+      seIsFrenchCampuses(campusFilter);
+
+      const programFilter = programmes.filter((item: any) => item.isFrench);
+      setIsFrenchProgrammes(programFilter);
+    } else {
+      const campusFilter = campuses.filter((item: any) => !item.isFrench);
+      seIsFrenchCampuses(campusFilter);
+
+      const programFilter = programmes.filter((item: any) => !item.isFrench);
+      setIsFrenchProgrammes(programFilter);
+    }
+  };
+
   return (
     <div className="landing">
       <div className={styles.hero}>
@@ -80,7 +102,7 @@ const Campuses = () => {
 
       <div className={styles.campuses}>
         <GridLayout columns={2} gap={3}>
-          {campuses?.map(
+          {isFrenchCampuses?.map(
             (item: { image: string; title: string; _id: string }, index) => {
               return (
                 <CampusCard
@@ -101,7 +123,7 @@ const Campuses = () => {
           <h3>{t("campuses.right_fit")}</h3>
           <h2>{t("campuses.exciting_programs")}</h2>
         </div>
-        <ProgramGrid programs={programmes} />
+        <ProgramGrid programs={isFrenchProgrammes} />
       </div>
 
       <div className="programs_">

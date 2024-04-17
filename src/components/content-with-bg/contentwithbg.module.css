@@ -30,7 +30,7 @@
   -ms-flex-direction: row-reverse;
 }
 
-.content > div {
+.content>div {
   flex: 1;
   -ms-flex: 1;
 }
@@ -90,12 +90,13 @@
   height: fit-content !important;
 }
 
-.con > div:nth-child(1) {
+.con>div:nth-child(1) {
   isolation: isolate;
   z-index: 99;
 }
 
 @media screen and (max-width: 1000px) {
+
   .content,
   .content.reverse {
     flex-direction: column;

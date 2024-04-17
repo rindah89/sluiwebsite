@@ -1,8 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Slider.css"; // Create a CSS file for styling
+import { getSliderNews } from "../../redux/reducers/app";
+import { useTranslation } from "react-i18next";
 
 const Slider = () => {
   const [isPaused, setIsPaused] = useState(false);
+  const [text, setText] = useState([]);
+  const [isFrenchText, setIsFrenchText] = useState([]);
+  const { i18n } = useTranslation();
 
   const handlePause = () => {
     setIsPaused(true);
@@ -10,6 +15,45 @@ const Slider = () => {
 
   const handleResume = () => {
     setIsPaused(false);
+  };
+
+  const handlerGetData = async () => {
+    try {
+      await getSliderNews()
+        .then((res: any) => {
+          if (res.status === 200) {
+            setText(res.data);
+            return;
+          }
+        })
+        .catch((err: any) => {
+          console.error(err);
+        });
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  useEffect(() => {
+    handlerGetData();
+  }, []);
+
+  useEffect(() => {
+    filterData();
+  }, [i18n.language]);
+
+  useEffect(() => {
+    filterData();
+  }, []);
+
+  const filterData = () => {
+    if (i18n.language === "fr") {
+      const textFilter = text.filter((item: any) => item.isFrench);
+      setIsFrenchText(textFilter);
+    } else {
+      const textFilter = text.filter((item: any) => !item.isFrench);
+      setIsFrenchText(textFilter);
+    }
   };
 
   const handleClick = (text: string) => {
@@ -25,11 +69,9 @@ const Slider = () => {
     >
       <div className="text-slider">
         <div className="text" onClick={() => handleClick("Text 1")}>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Obcaecati
-          beatae! Porro, ipsum quas. Lorem ipsum dolor sit amet consectetur
-          adipisicing elit. Quod unde, eos odit, ipsa soluta fugit tempore
-          veniam recusandae quaerat accusantium repudiandae obcaecati? Sunt non
-          unde amet eaque enim officia voluptatibus.
+          {isFrenchText.map((item: any) => (
+            <span style={{ marginRight: 30 }}>{item.title}</span>
+          ))}
         </div>
         {/* <div className="text" onClick={() => handleClick("Text 2")}>
           tempora, inventore iusto corporis in aperiam vitae cum tenetur illo

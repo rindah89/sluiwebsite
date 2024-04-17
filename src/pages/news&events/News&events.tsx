@@ -228,10 +228,6 @@ const NewsnEvents = () => {
 
   const { t, i18n } = useTranslation();
 
-  const pastEvents = i18n.language === "en" ? pastEventsEN : pastEventsFR;
-
-  const futureEvents = i18n.language === "en" ? futureEventsEN : futureEventsFR;
-
   const [isBouncing, setIsBouncing] = useState(false);
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -246,6 +242,7 @@ const NewsnEvents = () => {
   };
 
   const [events, setEvents] = useState([]);
+  const [isFrechEvents, setIsFrenchEvents] = useState([]);
   const [loading, setLoading] = useState(false);
 
   const handlerGetEvents = async () => {
@@ -272,6 +269,24 @@ const NewsnEvents = () => {
   useEffect(() => {
     handlerGetEvents();
   }, []);
+
+  useEffect(() => {
+    filterData();
+  }, [i18n.language]);
+
+  useEffect(() => {
+    filterData();
+  }, [events]);
+
+  const filterData = () => {
+    if (i18n.language === "fr") {
+      const eventFilter = events.filter((item: any) => item.isFrench);
+      setIsFrenchEvents(eventFilter);
+    } else {
+      const eventFilter = events.filter((item: any) => !item.isFrench);
+      setIsFrenchEvents(eventFilter);
+    }
+  };
 
   return (
     <div className={styles.main}>
@@ -327,10 +342,17 @@ const NewsnEvents = () => {
         <h3>{t("news_events.upcoming")}</h3>
         {/* <div className={styles.event_section}> */}
         <Carousel responsive={responsive}>
-          {events.length > 0 ? (
-            events.map((event, index) => (
-              <Event key={index} event={event} link={"event-details"} />
-            ))
+          {isFrechEvents.length > 0 ? (
+            isFrechEvents.map((event: any, index) => {
+              const eventDate = new Date(event.date);
+              if (new Date() < eventDate) {
+                return (
+                  <Event key={index} event={event} link={"event-details"} />
+                );
+              } else {
+                return null;
+              }
+            })
           ) : (
             <div style={{ display: "flex", justifyContent: "center" }}>
               <p style={{ fontSize: 20 }}>No Data Found</p>
@@ -341,10 +363,17 @@ const NewsnEvents = () => {
         <h3>{t("news_events.past")}</h3>
         {/* <div className={styles.event_section}> */}
         <Carousel responsive={responsive}>
-          {events.length > 0 ? (
-            events.map((event, index) => (
-              <Event key={index} event={event} link={"event-details"} />
-            ))
+          {isFrechEvents.length > 0 ? (
+            isFrechEvents.map((event: any, index) => {
+              const eventDate = new Date(event.date);
+              if (new Date() > eventDate) {
+                return (
+                  <Event key={index} event={event} link={"event-details"} />
+                );
+              } else {
+                return null;
+              }
+            })
           ) : (
             <div style={{ display: "flex", justifyContent: "center" }}>
               <p style={{ fontSize: 20 }}>No Data Found</p>

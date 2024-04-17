@@ -1,9 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Fade } from "react-reveal";
-
-// styles
-import "./contentwithbg.css";
+import styles from "./contentwithbg.module.css";
 
 type Props = {
   direction: string;
@@ -27,9 +25,13 @@ const ContentWithBg: React.FC<Props> = ({
   img,
 }) => {
   return (
-    <div className={`content con ${direction === "LEFT" ? "reverse" : null}`}>
-      <div className="text two">
-        <h3 style={{ color: "#fff" }} className="caption">
+    <div
+      className={`${styles.content} ${styles.con} ${
+        direction === "LEFT" ? "reverse" : null
+      }`}
+    >
+      <div className={styles.two}>
+        <h3 style={{ color: "#fff" }} className={styles.caption}>
           {caption}
         </h3>
         <Fade up>
@@ -41,7 +43,7 @@ const ContentWithBg: React.FC<Props> = ({
         </Link>
       </div>
 
-      <div className="image">
+      <div className={styles.image}>
         <img src={img} alt={title} />
       </div>
     </div>

@@ -221,12 +221,19 @@ export const SearchComponent = ({
   };
 
   const [programmes, setProgrammes] = useState<any[]>([]);
+  const [programmesFiltered, setProgrammesFiltered] = useState<any[]>([]);
+
   const [campuses, setCampuses] = useState<any[]>([]);
   const [filteredCampuses, setFilteredCampuses] = useState<any[]>([]);
+  const [isFrenchCampuses, setIsFrenchCampuses] = useState<any[]>([]);
+
   const [faculties, setFaculties] = useState<any[]>([]);
   const [filteredFaculty, setFilteredFaculty] = useState<any>(null);
+  const [isFrenchFaculty, setIsFrenchFaculty] = useState<any>([]);
+
   const [levels, setLevels] = useState<any[]>([]);
   const [filteredLevels, setFilteredLevels] = useState<any[]>([]);
+  const [isFrenchLevels, setIsFrenchLevels] = useState<any[]>([]);
   const [loading, setLoading] = useState(false);
 
   const handleSearch = () => {
@@ -355,9 +362,9 @@ export const SearchComponent = ({
   };
 
   const filterFaculty = () => {
-    if (selectedLevel && selectedLevel?._id && faculties) {
-      const filtered = faculties.filter(
-        (item) => item._id === selectedLevel.facultyID
+    if (selectedLevel && selectedLevel?._id && isFrenchFaculty) {
+      const filtered = isFrenchFaculty.filter(
+        (item: any) => item._id === selectedLevel.facultyID
       )[0];
       setFilteredFaculty(filtered);
     } else {
@@ -374,6 +381,46 @@ export const SearchComponent = ({
     filterFaculty();
   }, [selectedLevel]);
 
+  useEffect(() => {
+    filterData();
+  }, [i18n.language, selected, filteredLevels]);
+
+  useEffect(() => {
+    filterData();
+  }, [programmes, filteredCampuses, filteredFaculty, filteredLevels]);
+
+  const filterData = () => {
+    if (i18n.language === "fr") {
+      const programFilter = programmes.filter((item: any) => item.isFrench);
+      setProgrammesFiltered(programFilter);
+
+      const campusFilter = filteredCampuses.filter(
+        (item: any) => item.isFrench
+      );
+      setIsFrenchCampuses(campusFilter);
+
+      const facultyFilter = faculties.filter((item: any) => item.isFrench);
+      setIsFrenchFaculty(facultyFilter);
+
+      const levelFilter = filteredLevels.filter((item: any) => item.isFrench);
+      setIsFrenchLevels(levelFilter);
+    } else {
+      const programFilter = programmes.filter((item: any) => !item.isFrench);
+      setProgrammesFiltered(programFilter);
+
+      const campusFilter = filteredCampuses.filter(
+        (item: any) => !item.isFrench
+      );
+      setIsFrenchCampuses(campusFilter);
+
+      const facultyFilter = faculties.filter((item: any) => !item.isFrench);
+      setIsFrenchFaculty(facultyFilter);
+
+      const levelFilter = filteredLevels.filter((item: any) => !item.isFrench);
+      setIsFrenchLevels(levelFilter);
+    }
+  };
+
   return (
     <Fade
       bottom={fadeDir === "bottom"}
@@ -382,7 +429,7 @@ export const SearchComponent = ({
     >
       <div className={`landing__search ${className && className}`}>
         <SelectMolecule
-          list={programmes}
+          list={programmesFiltered}
           selected={selected}
           onSelect={(data: string) => {
             setSelected(data);
@@ -391,7 +438,7 @@ export const SearchComponent = ({
         />
 
         <SelectMolecule
-          list={filteredLevels}
+          list={isFrenchLevels}
           selected={selectedLevel}
           onSelect={(data: string) => {
             setSelectedLevel(data);
@@ -400,7 +447,7 @@ export const SearchComponent = ({
         />
 
         <SelectMolecule
-          list={filteredCampuses}
+          list={isFrenchCampuses}
           selected={selectedCampus}
           onSelect={(data: string) => {
             setSelectedCampus(data);
@@ -548,8 +595,11 @@ const Landing = () => {
   };
 
   const [team, setTeam] = useState([]);
+  const [isFrenchTeam, setIsFrenchTeam] = useState([]);
   const [events, setEvents] = useState([]);
+  const [isFrechEvents, setIsFrenchEvents] = useState([]);
   const [programmes, setProgrammes] = useState([]);
+  const [isFrenchProgrammes, setIsFrenchProgrammes] = useState([]);
   const [loading, setLoading] = useState(false);
 
   const handlerGetTeam = async () => {
@@ -644,6 +694,36 @@ const Landing = () => {
     startSlider();
   }, []);
 
+  useEffect(() => {
+    filterData();
+  }, [i18n.language]);
+
+  useEffect(() => {
+    filterData();
+  }, [team, events, programmes]);
+
+  const filterData = () => {
+    if (i18n.language === "fr") {
+      const teamFilter = team.filter((item: any) => item.isFrench);
+      setIsFrenchTeam(teamFilter);
+
+      const eventFilter = events.filter((item: any) => item.isFrench);
+      setIsFrenchEvents(eventFilter);
+
+      const programFilter = programmes.filter((item: any) => item.isFrench);
+      setIsFrenchProgrammes(programFilter);
+    } else {
+      const teamFilter = team.filter((item: any) => !item.isFrench);
+      setIsFrenchTeam(teamFilter);
+
+      const eventFilter = events.filter((item: any) => !item.isFrench);
+      setIsFrenchEvents(eventFilter);
+
+      const programFilter = programmes.filter((item: any) => !item.isFrench);
+      setIsFrenchProgrammes(programFilter);
+    }
+  };
+
   return (
     <div className="landing">
       <div
@@ -737,8 +817,8 @@ const Landing = () => {
           title={t("landing.engaging")}
           subText=""
           description={t("landing.engaging_desc")}
-          refLink="/core-principles"
-          btnText={t("landing.core_principles")}
+          refLink="/why-us"
+          btnText={t("landing.why_us")}
           img="/pics/converted/IVS_6879.webp"
         />
       </div>
@@ -762,8 +842,8 @@ const Landing = () => {
         </div>
         <div className="grid__ref">
           <GridLayout columns={4} gap={2}>
-            {team && team.length > 0 ? (
-              team
+            {isFrenchTeam && isFrenchTeam.length > 0 ? (
+              isFrenchTeam
                 .map(
                   (
                     item: {
@@ -863,7 +943,7 @@ const Landing = () => {
               autoPlaySpeed={2000}
               infinite={true}
             >
-              {events.map((event, index) => (
+              {isFrechEvents.map((event, index) => (
                 <div
                   style={{
                     margin: "0 10px",
@@ -884,7 +964,7 @@ const Landing = () => {
           <h3>{t("landing.just_fit")}</h3>
           <h2>{t("landing.exciting_programs")}</h2>
         </div>
-        <ProgramGrid programs={programmes} />
+        <ProgramGrid programs={isFrenchProgrammes} />
       </div>
 
       <div className="programs_">

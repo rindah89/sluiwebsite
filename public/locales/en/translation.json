@@ -28,7 +28,9 @@
     "dvcaa": "DVC. Academic Affairs",
     "dvcaf": "DVC. Admin and Finance",
     "search_field": "Search",
-    "search_field_data": "Search through our faculties..."
+    "search_field_data": "Search through our faculties...",
+    "why_us": "Why Choose Us"
+
   },
   "header": {
     "about": "About Us",

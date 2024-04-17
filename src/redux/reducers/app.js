@@ -16,6 +16,20 @@ export const getTeam = async () => {
     }
 }
 
+export const getSliderNews = async () => {
+    try {
+        const response = await axios.get(`${base_url}/slider-news/`);
+        return response;
+    } catch (error) {
+        const message =
+            (error.message && error.response.data && error.response.data.message) ||
+            error.message ||
+            error.toString();
+
+        return message
+    }
+}
+
 export const getTeamSingle = async (id) => {
     try {
         const response = await axios.get(`${base_url}/team/${id}`);

@@ -15,6 +15,7 @@
   display: flex;
   display: -ms-flexbox;
   gap: 24px;
+  margin-top: 50px;
 }
 
 .hero h2 {

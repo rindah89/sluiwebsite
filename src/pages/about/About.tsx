@@ -3,7 +3,6 @@ import { FaQuoteLeft, FaQuoteRight } from "react-icons/fa";
 import { Fade } from "react-reveal";
 import ProgramGrid from "../../components/program-grid/ProgramGrid";
 import styles from "./about.module.css";
-// import { programmesEN, programmesFR } from "../landing/Landing";
 import Membership from "../../components/membership/Membership";
 import { useTranslation } from "react-i18next";
 
@@ -15,9 +14,8 @@ const About = () => {
   }, []);
 
   const { t, i18n } = useTranslation();
-
-  // const programmes = i18n.language === "en" ? programmesEN : programmesFR;
   const [programmes, setProgrammes] = useState([]);
+  const [isFrenchProgrammes, setIsFrenchProgrammes] = useState([]);
   const [loading, setLoading] = useState(false);
 
   const handlerGetProgrammes = async () => {
@@ -44,6 +42,24 @@ const About = () => {
   useEffect(() => {
     handlerGetProgrammes();
   }, []);
+
+  useEffect(() => {
+    filterData();
+  }, [i18n.language]);
+
+  useEffect(() => {
+    filterData();
+  }, [programmes]);
+
+  const filterData = () => {
+    if (i18n.language === "fr") {
+      const programFilter = programmes.filter((item: any) => item.isFrench);
+      setIsFrenchProgrammes(programFilter);
+    } else {
+      const programFilter = programmes.filter((item: any) => !item.isFrench);
+      setIsFrenchProgrammes(programFilter);
+    }
+  };
 
   return (
     <div>
@@ -176,7 +192,7 @@ const About = () => {
           <h3>{t("about.right_fit")}</h3>
           <h2>{t("about.exciting_programs")}</h2>
         </div>
-        <ProgramGrid programs={programmes} />
+        <ProgramGrid programs={isFrenchProgrammes} />
       </div>
 
       <div className="programs_">

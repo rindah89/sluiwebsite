@@ -27,6 +27,7 @@ const Team: FC = () => {
 
   const navigate = useNavigate();
   const [team, setTeam] = useState([]);
+  const [isFrenchTeam, setIsFrenchTeam] = useState([]);
   const [loading, setLoading] = useState(false);
 
   const handlerGetTeam = async () => {
@@ -53,6 +54,24 @@ const Team: FC = () => {
   useEffect(() => {
     handlerGetTeam();
   }, []);
+
+  useEffect(() => {
+    filterData();
+  }, [i18n.language]);
+
+  useEffect(() => {
+    filterData();
+  }, [team]);
+
+  const filterData = () => {
+    if (i18n.language === "fr") {
+      const teamFilter = team.filter((item: any) => item.isFrench);
+      setIsFrenchTeam(teamFilter);
+    } else {
+      const teamFilter = team.filter((item: any) => !item.isFrench);
+      setIsFrenchTeam(teamFilter);
+    }
+  };
 
   return (
     <div className={styles.main}>
@@ -106,7 +125,7 @@ const Team: FC = () => {
         <p className={styles.paragraph}>{t("team.intro_para")}</p>
       </div>
       <div className={styles.event_section}>
-        {team.map(
+        {isFrenchTeam.map(
           (
             item: {
               name: string;
