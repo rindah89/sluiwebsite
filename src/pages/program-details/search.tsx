@@ -5,7 +5,7 @@ import GeneralPull from "../../components/general-pull/GeneralPull";
 import ProgramCard from "../../components/programs/ProgramCard";
 import { useParams } from "react-router-dom";
 import {
-  getCategories,
+  // getCategories,
   getCourses,
   getProgrammeSingle,
 } from "../../redux/reducers/app";
@@ -40,26 +40,26 @@ const SearchProgram = () => {
   );
   const [program, setProgram] = useState<program | null>(null);
 
-  const handlerGetCategories = async () => {
-    try {
-      setLoading(true);
-      await getCategories()
-        .then((res: any) => {
-          if (res.status === 200) {
-            setCategories(res.data);
-            setLoading(false);
-            return;
-          }
-          setLoading(false);
-        })
-        .catch((err: any) => {
-          console.error(err);
-          setLoading(false);
-        });
-    } catch (error) {
-      console.error(error);
-    }
-  };
+  // const handlerGetCategories = async () => {
+  //   try {
+  //     setLoading(true);
+  //     await getCategories()
+  //       .then((res: any) => {
+  //         if (res.status === 200) {
+  //           setCategories(res.data);
+  //           setLoading(false);
+  //           return;
+  //         }
+  //         setLoading(false);
+  //       })
+  //       .catch((err: any) => {
+  //         console.error(err);
+  //         setLoading(false);
+  //       });
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // };
 
   const handlerGetCourses = async () => {
     try {
@@ -132,7 +132,7 @@ const SearchProgram = () => {
   };
 
   useEffect(() => {
-    handlerGetCategories();
+    // handlerGetCategories();
     handlerGetCourses();
   }, []);
 

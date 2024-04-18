@@ -35,6 +35,21 @@ const FacultyPopup: React.FC<Attrib> = ({ title, desc, subDesc, programs }) => {
           {subDesc && <h4>{subDesc}</h4>}
         </div>
 
+        <div className={styles.desc}>
+          {desc && <h4 dangerouslySetInnerHTML={{ __html: desc }} />}
+          {subDesc && <h4>{subDesc}</h4>}
+        </div>
+
+        <div className={styles.desc}>
+          {desc && <h4 dangerouslySetInnerHTML={{ __html: desc }} />}
+          {subDesc && <h4>{subDesc}</h4>}
+        </div>
+
+        <div className={styles.desc}>
+          {desc && <h4 dangerouslySetInnerHTML={{ __html: desc }} />}
+          {subDesc && <h4>{subDesc}</h4>}
+        </div>
+
         <div className={styles.list}>
           {programs?.map((item, index) => (
             <ProgramCard

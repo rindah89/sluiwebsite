@@ -16,6 +16,20 @@ export const getTeam = async () => {
     }
 }
 
+export const getBuddies = async () => {
+    try {
+        const response = await axios.get(`${base_url}/buddies/`);
+        return response;
+    } catch (error) {
+        const message =
+            (error.message && error.response.data && error.response.data.message) ||
+            error.message ||
+            error.toString();
+
+        return message
+    }
+}
+
 export const getSliderNews = async () => {
     try {
         const response = await axios.get(`${base_url}/slider-news/`);
@@ -117,20 +131,6 @@ export const getProgrammes = async () => {
 export const getProgrammeSingle = async (id) => {
     try {
         const response = await axios.get(`${base_url}/programmes/${id}`);
-        return response;
-    } catch (error) {
-        const message =
-            (error.message && error.response.data && error.response.data.message) ||
-            error.message ||
-            error.toString();
-
-        return (message);
-    }
-}
-
-export const getCategories = async () => {
-    try {
-        const response = await axios.get(`${base_url}/categories/`);
         return response;
     } catch (error) {
         const message =

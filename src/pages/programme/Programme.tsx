@@ -16,7 +16,7 @@ import Mengot from "../../assets/new/mengot.jpg";
 import {
   getCourseSingle,
   getCampuses,
-  getCategories,
+  getFaculties,
   getTeam,
 } from "../../redux/reducers/app";
 import { useParams } from "react-router-dom";
@@ -137,7 +137,7 @@ const Programme: FC<any> = () => {
   const handlerGetCategories = async () => {
     try {
       setLoading(true);
-      await getCategories()
+      await getFaculties()
         .then((res: any) => {
           if (res.status === 200) {
             setCategories(res.data);
@@ -187,7 +187,7 @@ const Programme: FC<any> = () => {
 
   const filterCategory = () => {
     const filtered: any[] = categories.filter(
-      (item: any) => course?.programType === item?._id
+      (item: any) => course?.faculty === item?._id
     )[0];
     setFilteredCategory(filtered);
   };

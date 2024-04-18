@@ -69,8 +69,10 @@ const Slider = () => {
     >
       <div className="text-slider">
         <div className="text" onClick={() => handleClick("Text 1")}>
-          {isFrenchText.map((item: any) => (
-            <span style={{ marginRight: 30 }}>{item.title}</span>
+          {isFrenchText.map((item: any, index: number) => (
+            <span style={{ marginRight: 30 }} key={index}>
+              {item.title}
+            </span>
           ))}
         </div>
         {/* <div className="text" onClick={() => handleClick("Text 2")}>

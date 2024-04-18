@@ -22,7 +22,7 @@ import { useTranslation } from "react-i18next";
 import {
   getProgrammes,
   getFaculties,
-  getCategories,
+  // getCategories,
   getCourses,
 } from "../../redux/reducers/app";
 
@@ -147,26 +147,7 @@ const Navbar = () => {
       console.error(error);
     }
   };
-  const handlerGetDepartments = async () => {
-    try {
-      setLoading(true);
-      await getCategories()
-        .then((res: any) => {
-          if (res.status === 200) {
-            setDepartments(res.data);
-            setLoading(false);
-            return;
-          }
-          setLoading(false);
-        })
-        .catch((err: any) => {
-          console.error(err);
-          setLoading(false);
-        });
-    } catch (error) {
-      console.error(error);
-    }
-  };
+
   const handlerGetCourses = async () => {
     try {
       setLoading(true);
@@ -214,7 +195,6 @@ const Navbar = () => {
     handlerGetCourses();
     handlerGetFaculties();
     handlerGetProgrammes();
-    handlerGetDepartments();
   }, []);
 
   useEffect(() => {
@@ -323,7 +303,7 @@ const Navbar = () => {
                 title={facultiesFiltered[activePanelIndex]?.title}
                 desc={facultiesFiltered[activePanelIndex]?.details}
                 subDesc={facultiesFiltered[activePanelIndex]?.subDesc}
-                programs={isFrenchCourses}
+                // programs={isFrenchCourses}
               />
             </div>
           )}

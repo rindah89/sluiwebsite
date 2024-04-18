@@ -7,11 +7,18 @@ import { useTranslation } from "react-i18next";
 type Props = {
   image: string;
   name: string;
-  title: string;
+  position: string;
   whatsapp: string;
+  campus: string;
 };
 
-const BuddyCard: React.FC<Props> = ({ image, name, title, whatsapp }) => {
+const BuddyCard: React.FC<Props> = ({
+  image,
+  name,
+  position,
+  whatsapp,
+  campus,
+}) => {
   const { t } = useTranslation();
   return (
     <div className={styles.card}>
@@ -19,24 +26,27 @@ const BuddyCard: React.FC<Props> = ({ image, name, title, whatsapp }) => {
         <div className={styles.blank}></div>
         <div className={styles.get__info}>
           <div className={styles.image}>
-            <img src={image} alt="title" />
+            <img
+              src={`${process.env.REACT_APP_BASE_URL}/uploads/gallery/${image}`}
+              alt="title"
+            />
           </div>
           <div className={styles.head__text}>
             <h2>{name}</h2>
-            {title.split("/n").map((name, index) => (
+            {position.split("/n").map((name, index) => (
               <h4>{name}</h4>
             ))}
           </div>
           <div className={styles.button}>
             <a target="_blank" rel="noreferrer" href={whatsapp}>
-              {t('buddy_card_component.chat')}
+              {t("buddy_card_component.chat")}
             </a>
           </div>
         </div>
       </div>
       <div className={styles.data}>
         <h4>
-          <span>{t('buddy_card_component.campus')}: </span> Douala
+          <span>{t("buddy_card_component.campus")}: </span> {campus}
         </h4>
       </div>
     </div>

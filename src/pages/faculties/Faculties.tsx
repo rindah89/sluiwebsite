@@ -9,10 +9,9 @@ import FacultyPopup, {
 import Membership from "../../components/membership/Membership";
 import { useTranslation } from "react-i18next";
 import {
-  getProgrammes,
   getFaculties,
-  getCategories,
-  getCourses,
+  getProgrammes,
+  // getCourses,
 } from "../../redux/reducers/app";
 
 export const facultiesDataFR: Attrib[] = [
@@ -356,15 +355,32 @@ const Faculties = () => {
 
   const [programmes, setProgrammes] = useState([]);
   const [isFrenchProgrammes, setIsFrenchProgrammes] = useState([]);
+
   const [faculties, setFaculties] = useState<any>([]);
   const [isFrenchFaculties, setIsFrenchFaculties] = useState<any>([]);
-  const [departments, setDepartments] = useState<any>([]);
-  const [filteredDepartment, setFilteredDepartment] = useState<any>([]);
-  const [courses, setCourses] = useState([]);
-  const [filteredCourses, setFilteredCourse] = useState<any[]>([]);
-  const [isFrenchCourses, setIsFrenchCourses] = useState<any>([]);
+
   const [loading, setLoading] = useState(false);
 
+  //  const handlerGetCourses = async () => {
+  //    try {
+  //      setLoading(true);
+  //      await getCourses()
+  //        .then((res: any) => {
+  //          if (res.status === 200) {
+  //            setCourses(res.data);
+  //            setLoading(false);
+  //            return;
+  //          }
+  //          setLoading(false);
+  //        })
+  //        .catch((err: any) => {
+  //          console.error(err);
+  //          setLoading(false);
+  //        });
+  //    } catch (error) {
+  //      console.error(error);
+  //    }
+  //  };
   const handlerGetProgrammes = async () => {
     try {
       setLoading(true);
@@ -385,7 +401,6 @@ const Faculties = () => {
       console.error(error);
     }
   };
-
   const handlerGetFaculties = async () => {
     try {
       setLoading(true);
@@ -407,85 +422,11 @@ const Faculties = () => {
     }
   };
 
-  const handlerGetDepartments = async () => {
-    try {
-      setLoading(true);
-      await getCategories()
-        .then((res: any) => {
-          if (res.status === 200) {
-            setDepartments(res.data);
-            setLoading(false);
-            return;
-          }
-          setLoading(false);
-        })
-        .catch((err: any) => {
-          console.error(err);
-          setLoading(false);
-        });
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
-  const handlerGetCourses = async () => {
-    try {
-      setLoading(true);
-      await getCourses()
-        .then((res: any) => {
-          if (res.status === 200) {
-            setCourses(res.data);
-            setLoading(false);
-            return;
-          }
-          setLoading(false);
-        })
-        .catch((err: any) => {
-          console.error(err);
-          setLoading(false);
-        });
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
-  const filterDept = () => {
-    const filtered = departments.filter(
-      (item: any) => item.facultyID === faculties[activePanelIndex]?._id
-    );
-    setFilteredDepartment(filtered);
-  };
-
-  const filterCourses = () => {
-    const filteredCoursesByCategory: any[] = [];
-
-    filteredDepartment.forEach((item: any) => {
-      const filtered = courses.filter(
-        (crs: any) => crs.programType === item._id
-      );
-      filteredCoursesByCategory.push({
-        programCategory: item,
-        courses: filtered,
-      });
-    });
-
-    return setFilteredCourse(filteredCoursesByCategory);
-  };
-
   useEffect(() => {
-    handlerGetCourses();
     handlerGetFaculties();
+    // handlerGetCourses();
     handlerGetProgrammes();
-    handlerGetDepartments();
   }, []);
-
-  useEffect(() => {
-    filterDept();
-  }, [activePanelIndex]);
-
-  useEffect(() => {
-    filterCourses();
-  }, [filteredDepartment, courses]);
 
   useEffect(() => {
     filterData();
@@ -493,7 +434,7 @@ const Faculties = () => {
 
   useEffect(() => {
     filterData();
-  }, [programmes, faculties, filteredCourses]);
+  }, [programmes, faculties]);
 
   const filterData = () => {
     if (i18n.language === "fr") {
@@ -502,20 +443,12 @@ const Faculties = () => {
 
       const facultyFilter = faculties.filter((item: any) => item.isFrench);
       setIsFrenchFaculties(facultyFilter);
-
-      const courseFilter = filteredCourses.filter((item: any) => item.isFrench);
-      setIsFrenchCourses(courseFilter);
     } else {
       const programFilter = programmes.filter((item: any) => !item.isFrench);
       setIsFrenchProgrammes(programFilter);
 
       const facultyFilter = faculties.filter((item: any) => !item.isFrench);
       setIsFrenchFaculties(facultyFilter);
-
-      const courseFilter = filteredCourses.filter(
-        (item: any) => !item.isFrench
-      );
-      setIsFrenchCourses(courseFilter);
     }
   };
 
@@ -532,7 +465,7 @@ const Faculties = () => {
             title={isFrenchFaculties[activePanelIndex]?.title}
             desc={isFrenchFaculties[activePanelIndex]?.details}
             subDesc={isFrenchFaculties[activePanelIndex]?.subDesc}
-            programs={isFrenchCourses}
+            // programs={isFrenchCourses}
           />
         </div>
       )}

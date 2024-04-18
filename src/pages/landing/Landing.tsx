@@ -21,7 +21,7 @@ import {
   getProgrammes,
   getCampuses,
   getFaculties,
-  getCategories,
+  getCourses,
 } from "../../redux/reducers/app";
 
 export const programmesEN = [
@@ -96,8 +96,8 @@ const handleSearchNavigation = (
   navigate: Function,
   input: string
 ) => {
-  if (selected && selectedCampus && filteredFaculty) {
-    const param = `/program-search/${selected._id}/${selectedLevel._id}/${filteredFaculty._id}`;
+  if (selected && selectedLevel && selectedCampus) {
+    const param = `/programme/${selected._id}/${selected.title}`;
     navigate(param);
     // const param = (tag: string) =>
     //   input.toLowerCase().split(" ").join("-").concat(`-${tag}`);
@@ -222,6 +222,10 @@ export const SearchComponent = ({
 
   const [programmes, setProgrammes] = useState<any[]>([]);
   const [programmesFiltered, setProgrammesFiltered] = useState<any[]>([]);
+  // const [isFrenchProgrammes, setIsFrenchProgrammes] = useState<any[]>([]);
+
+  const [courses, setCourses] = useState<any[]>([]);
+  const [isFrenchCourses, setIsFrenchCourses] = useState<any[]>([]);
 
   const [campuses, setCampuses] = useState<any[]>([]);
   const [filteredCampuses, setFilteredCampuses] = useState<any[]>([]);
@@ -231,7 +235,6 @@ export const SearchComponent = ({
   const [filteredFaculty, setFilteredFaculty] = useState<any>(null);
   const [isFrenchFaculty, setIsFrenchFaculty] = useState<any>([]);
 
-  const [levels, setLevels] = useState<any[]>([]);
   const [filteredLevels, setFilteredLevels] = useState<any[]>([]);
   const [isFrenchLevels, setIsFrenchLevels] = useState<any[]>([]);
   const [loading, setLoading] = useState(false);
@@ -270,13 +273,14 @@ export const SearchComponent = ({
       console.error(error);
     }
   };
-  const handlerGetLevels = async () => {
+
+  const handlerGetCourses = async () => {
     try {
       setLoading(true);
-      await getCategories()
+      await getCourses()
         .then((res: any) => {
           if (res.status === 200) {
-            setLevels(res.data);
+            setCourses(res.data);
             setLoading(false);
             return;
           }
@@ -290,6 +294,7 @@ export const SearchComponent = ({
       console.error(error);
     }
   };
+
   const handlerGetCampuses = async () => {
     try {
       setLoading(true);
@@ -310,6 +315,7 @@ export const SearchComponent = ({
       console.error(error);
     }
   };
+
   const handlerGetFaculties = async () => {
     try {
       setLoading(true);
@@ -333,15 +339,16 @@ export const SearchComponent = ({
 
   useEffect(() => {
     handlerGetFaculties();
-    handlerGetLevels();
+    handlerGetCourses();
     handlerGetCampuses();
     handlerGetProgrammes();
   }, []);
 
   const filterLevel = () => {
-    if (selected && selected._id && levels) {
-      const filtered = levels.filter((item) =>
-        item.programmeID.includes(selected._id)
+    if (selected && selected._id && programmesFiltered) {
+      const levels = JSON.parse(selected.programType);
+      const filtered = programmesFiltered.filter((item) =>
+        levels.includes(item._id)
       );
       setFilteredLevels(filtered);
     } else {
@@ -350,8 +357,8 @@ export const SearchComponent = ({
   };
 
   const filterCampus = () => {
-    if (selected && selected?._id && campuses) {
-      const JSONCampuses = JSON.parse(selected?.campusID);
+    if (selectedLevel && selectedLevel.campusID && campuses) {
+      const JSONCampuses = JSON.parse(selectedLevel.campusID);
       const filtered = campuses.filter((item) =>
         JSONCampuses.includes(item._id)
       );
@@ -362,10 +369,11 @@ export const SearchComponent = ({
   };
 
   const filterFaculty = () => {
-    if (selectedLevel && selectedLevel?._id && isFrenchFaculty) {
+    if (selected && selected?.faculty && isFrenchFaculty) {
       const filtered = isFrenchFaculty.filter(
-        (item: any) => item._id === selectedLevel.facultyID
+        (item: any) => item._id === selected.faculty
       )[0];
+      console.log(filtered);
       setFilteredFaculty(filtered);
     } else {
       setFilteredFaculty(null);
@@ -374,25 +382,28 @@ export const SearchComponent = ({
 
   useEffect(() => {
     filterLevel();
-    filterCampus();
+    filterFaculty();
   }, [selected]);
 
   useEffect(() => {
-    filterFaculty();
+    filterCampus();
   }, [selectedLevel]);
 
   useEffect(() => {
     filterData();
-  }, [i18n.language, selected, filteredLevels]);
+  }, [i18n.language, selected, selectedLevel]);
 
   useEffect(() => {
     filterData();
-  }, [programmes, filteredCampuses, filteredFaculty, filteredLevels]);
+  }, [courses, filteredCampuses, filteredFaculty, filteredLevels]);
 
   const filterData = () => {
     if (i18n.language === "fr") {
       const programFilter = programmes.filter((item: any) => item.isFrench);
       setProgrammesFiltered(programFilter);
+
+      const filteredCourses = courses.filter((item: any) => item.isFrench);
+      setIsFrenchCourses(filteredCourses);
 
       const campusFilter = filteredCampuses.filter(
         (item: any) => item.isFrench
@@ -407,6 +418,9 @@ export const SearchComponent = ({
     } else {
       const programFilter = programmes.filter((item: any) => !item.isFrench);
       setProgrammesFiltered(programFilter);
+
+      const filteredCourses = courses.filter((item: any) => !item.isFrench);
+      setIsFrenchCourses(filteredCourses);
 
       const campusFilter = filteredCampuses.filter(
         (item: any) => !item.isFrench
@@ -429,7 +443,7 @@ export const SearchComponent = ({
     >
       <div className={`landing__search ${className && className}`}>
         <SelectMolecule
-          list={programmesFiltered}
+          list={isFrenchCourses}
           selected={selected}
           onSelect={(data: string) => {
             setSelected(data);

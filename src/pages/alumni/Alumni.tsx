@@ -4,16 +4,47 @@ import { BsArrowLeft } from "react-icons/bs";
 import { Fade } from "react-reveal";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { getBuddies } from "../../redux/reducers/app";
 
 const Alumni: FC = () => {
   const width = window.innerWidth;
   const [isHover, setIsHover] = useState(false);
-
   const [isBouncing, setIsBouncing] = useState(false);
+  const [buddies, setBuddies] = useState([]);
+  const [alumni, setalumniEN] = useState([]);
+  const navigate = useNavigate();
+  const { t, i18n } = useTranslation();
+
+  const handlerGetBuddies = async () => {
+    try {
+      await getBuddies()
+        .then((res: any) => {
+          if (res.status === 200) {
+            setBuddies(res.data);
+            return;
+          }
+        })
+        .catch((err: any) => {
+          console.error(err);
+        });
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
+    handlerGetBuddies();
   }, []);
+
+  const filterBuddies = () => {
+    const alumnis = buddies.filter((item: any) => item.role === "ALUMNI");
+    setalumniEN(alumnis);
+  };
+
+  useEffect(() => {
+    filterBuddies();
+  }, [buddies]);
 
   const startBounceAnimation = () => {
     console.log("bouncing animation has started");
@@ -21,57 +52,6 @@ const Alumni: FC = () => {
     setTimeout(() => setIsBouncing(false), 2000); // Stop the bouncing after 1 second (adjust the duration as needed)
   };
 
-  const navigate = useNavigate();
-
-  const alumniEN = [
-    {
-      image: "",
-      name: "CHEFON BRANDON",
-      tel: "+592 680 4363",
-      position: "Doctor of Medicine (Texila American University) Zambia",
-    },
-    {
-      image:
-        "https://lh3.googleusercontent.com/drive-viewer/AK7aPaAgl_S8fws6MD-0HS2ruZNhaJhDhVzz8j4MNA-_-CviN2Id5p8KHDTatERbhejG2q1pWRadHIgEedCL0qn4AomGsWrXbg=s1600",
-      name: "MENGOT SYLVIA",
-      tel: "+237 651 428 708",
-      position: "Nursing Lecturer",
-    },
-    {
-      image:
-        "https://lh3.googleusercontent.com/drive-viewer/AK7aPaBTwh_BvWY-ul1eESuYwrbSTbNvGfM1dyoNTAPMhAcrPALsRdkl18n9H3ZjFkieOVug5U8bHGYuJen1oHNn6IcQJkNIuw=s1600",
-      name: "VUSENG VERA",
-      tel: "+237 670 878 721",
-      position: "Acting HOD Physiotherapy",
-    },
-  ];
-
-  const alumniFr = [
-    {
-      image: "",
-      name: "CHEFON BRANDON",
-      tel: "+592 680 4363",
-      position: "Docteur en médecine (Texila American University) Zambie",
-    },
-    {
-      image:
-        "https://lh3.googleusercontent.com/drive-viewer/AK7aPaAgl_S8fws6MD-0HS2ruZNhaJhDhVzz8j4MNA-_-CviN2Id5p8KHDTatERbhejG2q1pWRadHIgEedCL0qn4AomGsWrXbg=s1600",
-      name: "MENGOT SYLVIA",
-      tel: "+237 651 428 708",
-      position: "Maître de conférences en soins infirmiers",
-    },
-    {
-      image:
-        "https://lh3.googleusercontent.com/drive-viewer/AK7aPaBTwh_BvWY-ul1eESuYwrbSTbNvGfM1dyoNTAPMhAcrPALsRdkl18n9H3ZjFkieOVug5U8bHGYuJen1oHNn6IcQJkNIuw=s1600",
-      name: "VUSENG VERA",
-      tel: "+237 670 878 721",
-      position: "Directeur intérimaire de la physiothérapie",
-    },
-  ];
-
-  const { t, i18n } = useTranslation();
-
-  const alumni = i18n.language === "en" ? alumniEN : alumniFr;
   return (
     <div className={styles.main}>
       <div className={styles.hero}>
@@ -124,17 +104,18 @@ const Alumni: FC = () => {
         <p className={styles.paragraph}>{t("alumni.celebrating")}</p>
       </div>
       <div className={styles.event_section}>
-        {alumni.map((facility, index) => {
-          const image = new URL(facility.image, import.meta.url);
+        {alumni.map((item: any, index) => {
+          // const image = new URL(facility.image, import.meta.url);
+          const image = `${process.env.REACT_APP_BASE_URL}/uploads/gallery/${item.image}`;
           return (
             <div className={styles.facility} key={index}>
               <div className={styles.image}>
                 <div
                   className={styles.backgroundImage}
                   style={{
-                    background: `linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6)),
-                    url(${image}), no-repeat`,
+                    background: `linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6)), url(${image}) no-repeat`,
                     backgroundSize: "cover",
+                    backgroundPosition: "center",
                   }}
                 >
                   <div
@@ -155,21 +136,21 @@ const Alumni: FC = () => {
                         fontWeight: "500",
                       }}
                     >
-                      {facility.name}
+                      {item.name}
                     </p>
                     <p
                       style={{
                         color: "#aaa9a7",
                       }}
                     >
-                      {facility.tel}
+                      {item.phone}
                     </p>
                     <p
                       style={{
                         fontSize: "2rem",
                       }}
                     >
-                      {facility.position}
+                      {item.position}
                     </p>
                   </div>
                 </div>

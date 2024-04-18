@@ -5,13 +5,15 @@ import GeneralPull from "../../components/general-pull/GeneralPull";
 import ProgramCard from "../../components/programs/ProgramCard";
 import { useParams } from "react-router-dom";
 import {
-  getCategories,
+  // getCategories,
   getCourses,
   getProgrammeSingle,
+  getFaculties,
 } from "../../redux/reducers/app";
 import { useTranslation } from "react-i18next";
 
 interface program {
+  faculties: string;
   _id: string;
   title: string;
   summary: string;
@@ -34,42 +36,13 @@ const Program = () => {
 
   const { id } = useParams();
   const [loading, setLoading] = useState(false);
-  const [categories, setCategories] = useState([]);
-  const [programCategories, setProgramCategories] = useState([]);
+  const [filteredFaculties, setFilteredFacuties] = useState([]);
+  const [faculties, setFaculties] = useState([]);
   const [courses, setCourses] = useState([]);
   const [filteredPrograms, setFlteredPrograms] = useState<FilteredCourses[]>(
     []
   );
   const [program, setProgram] = useState<program | null>(null);
-
-  const handlerGetCategories = async () => {
-    try {
-      setLoading(true);
-      await getCategories()
-        .then((res: any) => {
-          if (res.status === 200) {
-            if (i18n.language === "fr") {
-              const filtered = res.data.filter((item: any) => item.isFrench);
-              setCategories(filtered);
-              setLoading(false);
-              return;
-            } else {
-              const filtered = res.data.filter((item: any) => !item.isFrench);
-              setCategories(filtered);
-              setLoading(false);
-              return;
-            }
-          }
-          setLoading(false);
-        })
-        .catch((err: any) => {
-          console.error(err);
-          setLoading(false);
-        });
-    } catch (error) {
-      console.error(error);
-    }
-  };
 
   const handlerGetCourses = async () => {
     try {
@@ -85,6 +58,35 @@ const Program = () => {
             } else {
               const filtered = res.data.filter((item: any) => !item.isFrench);
               setCourses(filtered);
+              setLoading(false);
+              return;
+            }
+          }
+          setLoading(false);
+        })
+        .catch((err: any) => {
+          console.error(err);
+          setLoading(false);
+        });
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const handlerGetFaculties = async () => {
+    try {
+      setLoading(true);
+      await getFaculties()
+        .then((res: any) => {
+          if (res.status === 200) {
+            if (i18n.language === "fr") {
+              const filtered = res.data.filter((item: any) => item.isFrench);
+              setFaculties(filtered);
+              setLoading(false);
+              return;
+            } else {
+              const filtered = res.data.filter((item: any) => !item.isFrench);
+              setFaculties(filtered);
               setLoading(false);
               return;
             }
@@ -121,34 +123,33 @@ const Program = () => {
     }
   };
 
-  const filterCategories = () => {
-    if (program) {
-      const filtered = categories.filter((item: any) =>
-        item.programmeID?.includes(program?._id)
-      );
-      setProgramCategories(filtered);
-    }
-  };
-
   const filterCourses = () => {
-    const filteredCoursesByCategory: FilteredCourses[] = [];
+    const filteredCoursesByFaculty: FilteredCourses[] = [];
 
-    programCategories.forEach((item: any) => {
-      const filtered = courses.filter(
-        (crs: any) => crs.programType === item._id
-      );
-      filteredCoursesByCategory.push({
+    filteredFaculties.forEach((item: any) => {
+      const filtered = courses.filter((crs: any) => crs.faculty === item._id);
+      filteredCoursesByFaculty.push({
         programCategory: item,
         courses: filtered,
       });
     });
 
-    return setFlteredPrograms(filteredCoursesByCategory);
+    return setFlteredPrograms(filteredCoursesByFaculty);
+  };
+
+  const filterFaculties = () => {
+    if (program && program.faculties && faculties) {
+      const programFaculties = JSON.parse(program.faculties);
+      const filtered = faculties.filter((item: any) =>
+        programFaculties.includes(item._id)
+      );
+      setFilteredFacuties(filtered);
+    }
   };
 
   useEffect(() => {
-    handlerGetCategories();
     handlerGetCourses();
+    handlerGetFaculties();
   }, []);
 
   useEffect(() => {
@@ -156,12 +157,12 @@ const Program = () => {
   }, [id]);
 
   useEffect(() => {
-    filterCategories();
-  }, [program, categories]);
+    filterFaculties();
+  }, [program, faculties]);
 
   useEffect(() => {
     filterCourses();
-  }, [programCategories, courses]);
+  }, [courses, faculties]);
 
   return (
     <div className={`${styles.bachelors}`}>
@@ -181,7 +182,7 @@ const Program = () => {
         </div>
       </div>
 
-      {programCategories.length > 0 && (
+      {faculties.length > 0 && (
         <>
           <div
             style={{ minHeight: "10vh", marginTop: "30px" }}
