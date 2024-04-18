@@ -866,18 +866,20 @@ const Landing = () => {
                       _id: string;
                       image: string;
                       isManagement: boolean;
+                      link: string;
                     },
                     index
                   ) => {
                     if (item?.isManagement) {
                       return (
-                        <Link to={`/leadership-team/${item._id}`} key={index}>
-                          <LeaderCard
-                            image={`${process.env.REACT_APP_BASE_URL}/uploads/gallery/${item?.image}`}
-                            name={item.name}
-                            title={item.profession}
-                          />
-                        </Link>
+                        <LeaderCard
+                          image={`${process.env.REACT_APP_BASE_URL}/uploads/gallery/${item?.image}`}
+                          name={item.name}
+                          title={item.profession}
+                          link={item.link}
+                          id={item._id}
+                          key={index}
+                        />
                       );
                     } else {
                       return null;

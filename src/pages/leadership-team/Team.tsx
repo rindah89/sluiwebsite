@@ -132,12 +132,15 @@ const Team: FC = () => {
               profession: string;
               _id: string;
               image: string;
+              link: string;
             },
             index
           ) => {
             return (
               <Link to={`/leadership-team/${item._id}`}>
                 <LeaderCard
+                  link={item.link}
+                  id={item._id}
                   key={index}
                   name={item.name}
                   title={item.profession}
