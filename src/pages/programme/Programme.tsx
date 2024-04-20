@@ -499,11 +499,12 @@ const Programme: FC<any> = () => {
                       }}
                     >
                       <div className={styles.topContent}>
-                        <p>{staff?.profession}</p>
+                        {/* <p>{staff?.profession}</p> */}
                       </div>
                       <div className={styles.bottomContent}>
                         <p>{staff?.name}</p>
                         {/* <p>info@stlui.org</p> */}
+                        <p>{staff?.profession}</p>
                       </div>
                     </div>
                   </div>
