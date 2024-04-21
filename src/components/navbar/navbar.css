@@ -14,7 +14,8 @@
 }
 
 .navbar .topNav {
-  background-color: #e2413c;
+  /* background-color: #e2413c; */
+  background-color: #000000
 }
 
 .navbar .topNav ul {
@@ -23,6 +24,7 @@
   flex-wrap: wrap;
   list-style: none;
   padding: 1rem 4vw;
+  justify-content: center;
 }
 
 .navbar .topNav ul li {

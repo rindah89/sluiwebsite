@@ -555,11 +555,17 @@ const Navbar = () => {
             <li
               style={{
                 maxWidth: "fit-content",
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                alignItems: "center",
               }}
+              onClick={() => setShowMenu(true)}
             >
+              <span>MENU</span>
               <HiBars3BottomLeft
                 onClick={() => setShowMenu(true)}
-                style={{ marginTop: "0.3rem", cursor: "pointer" }}
+                style={{ marginTop: "-0.3rem", cursor: "pointer" }}
                 size={28}
               />
             </li>
