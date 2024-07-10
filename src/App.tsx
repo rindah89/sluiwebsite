@@ -7,6 +7,7 @@ import Navbar from "./components/navbar/Navbar";
 
 // components
 import ContactIcon from "./components/contact-icon/ContactIcon";
+import Apply from "./components/apply-icon/Apply";
 
 // pages
 import Landing from "./pages/landing/Landing";
@@ -48,6 +49,7 @@ const App = () => {
   return (
     <div className="app">
       <Router>
+        <Apply />
         <ContactIcon />
         <Navbar />
         <Routes>
