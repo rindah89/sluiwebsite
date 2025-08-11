@@ -1,1 +1,1 @@
-## St. Louis Official Website
+# St. Louis University Institute Website
