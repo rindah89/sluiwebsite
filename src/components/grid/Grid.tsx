@@ -17,7 +17,7 @@ const GridLayout: React.FC<Props> = ({
   width,
   children,
   gap,
-}): JSX.Element => {
+}): React.JSX.Element => {
   if (columns > 4 || columns < 2) {
     alert("Grid Layout Only Supports: (2 - 4 inclusive) columns display");
   }

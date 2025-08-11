@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { AiOutlineClose, AiOutlineArrowRight } from "react-icons/ai";
 // import { FcApproval } from "react-icons/fc";
 import { HiBars3BottomLeft } from "react-icons/hi2";
+import { PiGraduationCap } from "react-icons/pi";
 import Slider from "../TextSlider/Slider";
 
 // Icon(s)
@@ -431,6 +432,13 @@ const Navbar = () => {
             </li>
             <li>
               <Link to="/our-campuses">{t("header.campuses")}</Link>
+            </li>
+
+            <li>
+              <Link to="/international" className="non__before">
+                <PiGraduationCap style={{ marginRight: "0.5rem", fontSize: "1.2em", marginTop: "-0.1rem" }} />
+                {t("header.international")}
+              </Link>
             </li>
 
             <li>

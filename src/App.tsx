@@ -40,6 +40,7 @@ import Program from "./pages/program-details/program";
 import SearchProgram from "./pages/program-details/search";
 import Research from "./pages/research/Research";
 import ResearchDetails from "./pages/research-details/ResearchDetails";
+import International from "./pages/international/International";
 
 const App = () => {
   useEffect(() => {
@@ -86,6 +87,7 @@ const App = () => {
           <Route path="/campus-details/:id" element={<CampusDetails />} />
           <Route path="/research" element={<Research />} />
           <Route path="/research-details/:id" element={<ResearchDetails />} />
+          <Route path="/international" element={<International />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer />

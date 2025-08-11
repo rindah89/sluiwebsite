@@ -2,6 +2,85 @@
   overflow-x: hidden;
 }
 
+/* NCUK Announcement Banner */
+.ncuk-announcement {
+  width: 100%;
+  padding: 0;
+  background: #f8fafc;
+}
+
+.ncuk-banner {
+  position: relative;
+  width: 100%;
+  margin: 0;
+  border-radius: 0;
+  overflow: hidden;
+  box-shadow: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ncuk-banner:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+.ncuk-banner img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.ncuk-cta {
+  position: absolute;
+  bottom: 10rem;
+  left: 25%;
+  right: 2rem;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.ncuk-btn {
+  background: #dc2626;
+  color: white;
+  padding: 1.2rem 2.5rem;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.6rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(220, 38, 38, 0.4);
+  text-align: center;
+  max-width: 450px;
+  width: auto;
+}
+
+.ncuk-btn:hover {
+  background: #b91c1c;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(220, 38, 38, 0.6);
+  color: white;
+  text-decoration: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .ncuk-announcement {
+    padding: 0;
+  }
+  
+  .ncuk-cta {
+    bottom: 1rem;
+    left: 1rem;
+    right: 1rem;
+    justify-content: center;
+  }
+  
+  .ncuk-btn {
+    padding: 1rem 2rem;
+    font-size: 1.4rem;
+  }
+}
+
 .hero {
   min-height: 100vh;
   width: 100%;

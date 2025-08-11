@@ -10,7 +10,7 @@ import { useTranslation } from "react-i18next";
 type Program = {
   title: string;
   summary: string;
-  icon?: JSX.Element;
+  icon?: React.JSX.Element;
   link: string;
   _id: string;
 };

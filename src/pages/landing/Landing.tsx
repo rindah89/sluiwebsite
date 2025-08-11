@@ -14,6 +14,7 @@ import Membership from "../../components/membership/Membership";
 import { useTranslation } from "react-i18next";
 import SelectMolecule from "../../components/select/Select.molecule";
 import { i18n } from "i18next";
+import ncukAnnouncement from "../../assets/ncuk announcement-2.png";
 
 import {
   getTeam,
@@ -54,6 +55,12 @@ export const programmesEN = [
     label: "HND",
     link: "/hnd",
   },
+  {
+    image: require("../../assets/herobanner.png"),
+    desc: "Your gateway to global education through our NCUK partnership programmes.",
+    label: "International Pathways",
+    link: "/international",
+  },
 ];
 
 export const programmesFR = [
@@ -85,6 +92,12 @@ export const programmesFR = [
     desc: "Les programmes HND sont tout simplement passionnants, commencez une carrière dans l'un de ces programmes.",
     label: "HND",
     link: "/hnd",
+  },
+  {
+    image: require("../../assets/herobanner.png"),
+    desc: "Votre passerelle vers l'éducation mondiale grâce à nos programmes de partenariat NCUK.",
+    label: "Parcours Internationaux",
+    link: "/international",
   },
 ];
 
@@ -802,6 +815,7 @@ const Landing = () => {
           </div>
             </Fade> */}
       </div>
+      
       <div className="about">
         <div className="desc">
           <Fade up>
@@ -809,6 +823,20 @@ const Landing = () => {
           </Fade>
           <h4>{t("landing.we_shape_desc")}</h4>
         </div>
+      </div>
+      
+      {/* NCUK Partnership Announcement */}
+      <div className="ncuk-announcement">
+        <Fade up>
+          <div className="ncuk-banner">
+            <img src={ncukAnnouncement} alt="SLUI Partners with NCUK - Your Gateway to Global Education" />
+            <div className="ncuk-cta">
+              <Link to="/international" className="ncuk-btn">
+                Find Out More About St Louis International Study Centre
+              </Link>
+            </div>
+          </div>
+        </Fade>
       </div>
 
       <div className="content__section">
