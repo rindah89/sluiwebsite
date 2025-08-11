@@ -17,6 +17,7 @@ import studyCenter1 from "../../assets/studyCenter1.png";
 import studyCenter2 from "../../assets/studyCenter2.png";
 import studyCenter3 from "../../assets/studyCenter3.png";
 import studyCenter4 from "../../assets/studyCenter4.png";
+import ncukVideo from "../../assets/598992-ncuk-international-foundation-year-animated-promotional-video-english-with-subtitles-online-preview.mp4";
 
 const International: React.FC = () => {
   useTranslation();
@@ -196,7 +197,7 @@ const International: React.FC = () => {
               <img src={cobrandLogo} alt="St. Louis NCUK Partnership" className={styles.cobrandLogo} />
               <h2>In Partnership with NCUK</h2>
               <p>
-                St. Louis University International is proud to partner with NCUK (Northern Consortium of UK Universities),
+                St. Louis University International is proud to partner with NCUK,
                 a leading provider of international foundation and pathway programmes. This partnership ensures our students 
                 receive world-class education and guaranteed progression to top UK universities.
               </p>
@@ -233,7 +234,16 @@ const International: React.FC = () => {
               </a>
             </div>
             <div className={styles.partnershipImage}>
-              <img src={require("../../assets/landing2.webp")} alt="NCUK Partnership" />
+              <div className={styles.videoWrapper}>
+                <video 
+                  controls 
+                  poster={require("../../assets/landing2.webp")}
+                  className={styles.video}
+                >
+                  <source src={ncukVideo} type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              </div>
               <div className={styles.ncukBadge}>
                 <img src={ncukBadge} alt="NCUK Guaranteed Entry to University" />
               </div>
@@ -252,7 +262,7 @@ const International: React.FC = () => {
       >
         <div className={styles.container}>
           <motion.div className={styles.sectionHeader} variants={fadeInUp}>
-            <h2>Our International Programmes</h2>
+            <h2>NCUK Pathway Programmes</h2>
             <p>Choose the pathway that's right for your academic and career goals</p>
           </motion.div>
           

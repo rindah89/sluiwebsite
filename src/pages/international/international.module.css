@@ -47,6 +47,33 @@
   display: block;
 }
 
+/* Video in Partnership Section */
+.partnershipImage .videoWrapper {
+  position: relative;
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+.partnershipImage .video {
+  width: 100%;
+  height: auto;
+  display: block;
+  background: #000;
+  min-height: 400px;
+}
+
+@media (max-width: 768px) {
+  .partnershipImage .videoWrapper {
+    border-radius: 8px;
+  }
+  
+  .partnershipImage .video {
+    min-height: 250px;
+  }
+}
+
 
 .primaryBtn {
   background: #dc2626;

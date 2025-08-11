@@ -35,7 +35,7 @@ const Membership = () => {
         arrows={false}
         autoPlaySpeed={2000}
       >
-        {Array(6)
+        {Array(8)
           .fill("a")
           .map((_, index) => {
             const source = index === 0 ? "logo" : `logo${index + 1}`;

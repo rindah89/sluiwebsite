@@ -839,7 +839,7 @@ const Landing = () => {
         </Fade>
       </div>
 
-      <div className="content__section">
+      <div className="content__section off-white">
         <Content
           direction="RIGHT"
           caption={t("landing.approach")}
